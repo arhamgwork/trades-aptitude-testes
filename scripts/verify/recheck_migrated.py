@@ -88,6 +88,49 @@ def derive(stem):
                 r = {terms[i + 1] // terms[i] for i in range(len(terms) - 1)}
                 if len(r) == 1:
                     return F(terms[-1] * r.pop())
+    # N% of M = ?   (and "N% of M")
+    m = re.fullmatch(rf"({NUM})\s*% of ({NUM})\s*(?:=\s*\??|\?)?", s, re.I)
+    if m:
+        p_, n = parse_num(m.group(1)), parse_num(m.group(2))
+        if p_ is not None and n is not None:
+            return p_ / 100 * n
+
+    # Which fraction equals 0.375 ?
+    m = re.fullmatch(rf"Which fraction (?:is )?equals?\s*({NUM})\s*\?", s, re.I)
+    if m:
+        return parse_num(m.group(1))
+
+    # 5/16 written as a decimal is
+    m = re.fullmatch(rf"({NUM}) written as a decimal is\s*\??", s, re.I)
+    if m:
+        return parse_num(m.group(1))
+
+    # N increased / decreased by P% is
+    m = re.fullmatch(rf"({NUM}) (increased|decreased) by ({NUM})\s*% is\s*\??", s, re.I)
+    if m:
+        base, how, pc = parse_num(m.group(1)), m.group(2).lower(), parse_num(m.group(3))
+        if base is not None and pc is not None:
+            return base * (1 + pc / 100) if how == "increased" else base * (1 - pc / 100)
+
+    # (N)squared
+    m = re.fullmatch(rf"\(?\u2212?-?({NUM})\)?\s*\u00b2\s*=\s*\??", s)
+    if m:
+        v = parse_num(m.group(1))
+        if v is not None:
+            return v * v
+
+    # Signed chains: a op b op c ... with unicode minus and parenthesised negatives
+    t = s.rstrip("?").rstrip("=").strip()
+    if re.fullmatch(r"[-\u2212()\d\s+\u00d7\u00f7*/.]+", t) and re.search(r"[-\u2212+\u00d7\u00f7*/]", t):
+        expr = (t.replace("\u2212", "-").replace("\u00d7", "*").replace("\u00f7", "/"))
+        expr = re.sub(r"\)\s*\(", ")*(", expr)          # (-4)(-5) means multiply
+        if re.fullmatch(r"[-()\d\s+*/.]+", expr):
+            try:
+                val = eval(compile(expr, "<stem>", "eval"),  # noqa: S307 - digits and operators only
+                           {"__builtins__": {}}, {})
+                return F(str(val)) if not isinstance(val, float) else F(val).limit_denominator(10**6)
+            except Exception:
+                pass
     return None
 
 def main():
