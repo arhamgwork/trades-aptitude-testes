@@ -14,25 +14,43 @@ below; each trade's own blueprint references this table.
 
 ## Section table
 
+**There is no single published table.** The two Chicago locals whose exams are
+in this project use the same battery with different section orders, counts and
+timings, which is itself the most useful finding here:
+
+### UA Local 597 (Pipefitters) — 140 items / 112 minutes
+
 | # | Section | Questions | Time | Format | Calculator |
 |---|---------|-----------|------|--------|------------|
-| 1 | Reading | 42 | 25 min | Passage-based multiple choice | No |
-| 2 | Numerical Computation | ? | ? | Arithmetic, multiple choice | No |
-| 3 | Numerical Reasoning (number series) | ? | ? | Sequence completion | No |
-| 4 | Problem Solving | 35 | 35 min | Word problems / reasoning | No |
-| 5 | Bennett Mechanical Aptitude | ? | ? | Diagram-based mechanical reasoning | No |
-| 6 | Spatial Reasoning (paper folding) | ? | ? | Fold sequence, pick the unfolded result | No |
+| 1 | Numerical Computation | 25 | 15 min | Arithmetic | No |
+| 2 | Number Series | 20 | 12 min | Sequence completion | No |
+| 3 | Problem Solving | 25 | 25 min | Word problems | No |
+| 4 | Reading Comprehension | 25 | 30 min | Technical passages | No |
+| 5 | Mechanical Aptitude | 25 | 18 min | Diagrams | No |
+| 6 | Spatial Relations | 20 | 12 min | Paper folding | No |
 
-**The per-section counts and times marked `?` are NOT published by any
-official source.** GAN does not publish them; the locals that name the
-sections do not give counts or timings. The Reading (42/25) and Problem
-Solving (35/35) figures come from third-party prep sites and are treated as
-PARTIAL. See "What is unverified".
+### UA Local 130 (Plumbers) — 140 items / 119 minutes
+
+| # | Section | Questions | Time | Format | Calculator |
+|---|---------|-----------|------|--------|------------|
+| 1 | Reading Comprehension | 42 | 25 min | Passage-based | No |
+| 2 | Numerical Computation | 28 | 21 min | Arithmetic, 5 options incl. "None of these" | No |
+| 3 | Numerical Reasoning | 10 | 10 min | Number series | No |
+| 4 | Problem Solving | 35 | 35 min | Word problems | No |
+| 5 | Paper Folding | 12 | 15 min | Fold sequence | No |
+| 6 | Mechanical Comprehension | 13 | 13 min | Diagrams | No |
+
+**Both tables are derived, not official.** They come from the exams the user
+had already built, and GAN publishes nothing to check them against. Two
+figures do corroborate independently: third-party prep sources report Reading
+at 42 questions / 25 minutes and Problem Solving at 35 / 35, which match the
+Local 130 table exactly. That agreement is encouraging but is not an official
+source, and the remaining rows have no outside corroboration at all.
 
 Section *names* are confirmed from two official union sources (see Sources).
-Pipefitters 597 and Plumbers 130 both list five named sections; other
-sources describe six, adding Problem Solving. The six-section structure is
-what the user's existing exams use.
+Local 597 and Local 130 both list five named sections on their own sites; the
+six-section structure above adds Problem Solving, which matches the broader
+GAN description and what both exams contain.
 
 ## Locals confirmed to use GAN
 
@@ -68,9 +86,13 @@ penalty for wrong answers, so guessing is never punished.
 
 ## What is unverified
 
-- Per-section question counts and time limits for four of the six sections.
-- Whether the battery is five or six sections, and the administered order.
-- Whether every listed trade's Chicago local uses GAN, or only some.
+- Per-section question counts and time limits: no official source publishes
+  them for any local. Both tables above are derived.
+- Whether the section order and split differ by local in reality, or whether
+  the two tables above reflect two readings of one test. They differ enough
+  (42 vs 25 reading items) that they are treated as genuinely different.
+- Whether every listed trade's Chicago local uses GAN, or only some. GAN lists
+  trades, not locals.
 
 **Consequence for the build:** exams built from this blueprint will use
 per-section timers as required, but the timings for the four unconfirmed

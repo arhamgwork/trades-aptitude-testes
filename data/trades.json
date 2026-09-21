@@ -69,6 +69,87 @@
    ]
   },
   {
+   "slug": "sheetmetal",
+   "name": "Sheet metal",
+   "blurb": "SMART Local 73. The local publishes no test format, so this follows the GAN battery — read the caveat before relying on the timings.",
+   "locals": [
+    "Sheet Metal Workers' Local 73 (Bellwood)",
+    "SMART Local 265 (Carol Stream)"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/sheet-metal-smart-73.md",
+     "testName": "GAN Aptitude Battery (inferred)",
+     "provider": "GAN Human Resources (inferred)",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 140,
+     "totalMinutes": 112,
+     "calculator": false,
+     "locals": [
+      "Sheet Metal Workers' Local 73 (Bellwood)"
+     ],
+     "scoring": "Local 73's own apprenticeship notice says only that applicants take an aptitude test and are ranked by score. A 70% pass mark is commonly reported but is not published by the local.",
+     "sections": [
+      {
+       "name": "Numerical Computation",
+       "questions": 25,
+       "minutes": 15,
+       "format": "Fractions, decimals, percents, signed numbers",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Number Series",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Sequence completion",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Problem Solving",
+       "questions": 25,
+       "minutes": 25,
+       "format": "Word problems in job-site language",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Reading Comprehension",
+       "questions": 25,
+       "minutes": 30,
+       "format": "Technical passages",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mechanical Aptitude",
+       "questions": 25,
+       "minutes": 18,
+       "format": "Diagram-based, no formulas given",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Spatial Relations",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Paper folding, pick the unfolded sheet",
+       "calculator": false,
+       "timeConfirmed": false
+      }
+     ],
+     "sources": [
+      "https://www.smw73.org/training/application.html",
+      "https://ganhumanresources.com/gan-aptitude-test",
+      "https://chicagobuildingtrades.org/index.php/apprenticeship/apprentice-program-info/"
+     ],
+     "unverified": "Everything about the format. Local 73 publishes no blueprint at all — its official notice confirms only that an aptitude test exists and that applicants are ranked by score. GAN lists sheet metal among the Chicagoland trades it tests, which is why this exam follows the GAN battery, but that is an inference. The section split and timings follow the structure UA Local 597 publishes. Confirm with the Local 73 training centre, or with the $20 GAN study guide sold at application time, before treating these timings as real."
+    }
+   ]
+  },
+  {
    "slug": "pipefitting",
    "name": "Pipefitting",
    "blurb": "UA Local 597. The GAN battery — six sections, no calculator, ranked by score.",
@@ -293,7 +374,6 @@
   }
  ],
  "pending": [
-  "sheet metal (next)",
   "ironworkers",
   "sprinkler fitters",
   "steamfitters / HVACR",
@@ -305,6 +385,7 @@
   "insulators",
   "painters / glaziers",
   "line construction",
-  "low-voltage / communications"
+  "low-voltage / communications",
+  "IBEW 134 (both format variants)"
  ]
 }

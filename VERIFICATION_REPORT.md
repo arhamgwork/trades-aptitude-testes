@@ -386,6 +386,66 @@ Phase 2 work and is tracked in `PLAN.md`.
 - Items with picture choices: 12
 - Explanations referencing a choice by letter: 0 (must be 0)
 
+## GAN Aptitude Battery — Practice Exam, Form B
+
+- **Id:** `gan-battery-formB`
+- **Test:** GAN Aptitude Battery — GAN Human Resources
+- **Confidence:** PARTIAL
+- **Unverified:** GAN is confirmed as the testing company for several Chicago-area locals, and the section names come from those locals' own sites. GAN publishes no per-section question counts or time limits, so the 25/20/25/25/25/20 split and the timings here follow the structure Local 597 uses and are derived, not official. Sheet Metal Local 73 publishes no format at all, so its use of this battery is inferred from GAN listing sheet metal among the trades it tests.
+- **Blueprint:** `docs/blueprints/_gan-battery.md` (checked 2026-09-21)
+- **Calculator:** not allowed
+
+### Section counts vs blueprint
+
+| Section | Blueprint questions | Actual | Time | Time source |
+|---|---|---|---|---|
+| Numerical Computation | 25 | 25 | 15 min | derived |
+| Number Series | 20 | 20 | 12 min | derived |
+| Problem Solving | 25 | 25 | 25 min | derived |
+| Reading Comprehension | 25 | 25 | 30 min | derived |
+| Mechanical Aptitude | 25 | 25 | 18 min | derived |
+| Spatial Relations | 20 | 20 | 12 min | derived |
+
+### Answer-key distribution
+
+Uniform target 25.0%. Limits: 8 points overall, 12 points within a section of 30+ items, no more than 3 identical in a row.
+
+| Letter | Count | Share | Deviation |
+|---|---|---|---|
+| A | 38 | 27.1% | +2.1 |
+| B | 34 | 24.3% | -0.7 |
+| C | 34 | 24.3% | -0.7 |
+| D | 34 | 24.3% | -0.7 |
+
+Longest run of the same correct letter: **3**.
+
+### How each key was checked
+
+| Method | Items | Share |
+|---|---|---|
+| `python:fractions` | 50 | 35.7% |
+| `blind-solve` | 25 | 17.9% |
+| `python:rule-check (rule re-applied to every printed term)` | 20 | 14.3% |
+| `python:fold-model+reverse-check` | 20 | 14.3% |
+| `conceptual:blind-solve` | 7 | 5.0% |
+| `python:gear-ratio` | 4 | 2.9% |
+| `python:mechanical-advantage` | 4 | 2.9% |
+| `python:torque-balance` | 4 | 2.9% |
+| `python:pressure` | 3 | 2.1% |
+| `python:circuit` | 3 | 2.1% |
+
+**Computationally checked: 108 of 140 (77.1%).**
+
+No item is marked `unchecked`.
+
+### Structural checks
+
+- Distinct stems: 121 of 140
+- Items with a figure: 42
+- Items with a per-distractor error note on every wrong choice: 140 of 140
+- Items with picture choices: 20
+- Explanations referencing a choice by letter: 0 (must be 0)
+
 ## Blind-solve passes
 
 Non-computational items (reading, conceptual mechanical) are answered by an
