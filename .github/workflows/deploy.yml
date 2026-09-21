@@ -1,0 +1,86 @@
+name: Build, verify and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Re-verify every answer key from its parameters
+        run: |
+          for f in scripts/verify/gen_*.py; do
+            echo "== $f"
+            python3 "$f"
+          done
+
+      - name: Rebuild exam data and confirm it matches what is committed
+        run: |
+          for f in scripts/verify/build_*.py; do python3 "$f"; done
+          git diff --exit-code -- data/ || {
+            echo "::error::Committed exam data does not match what the verifiers produce."
+            exit 1
+          }
+
+      - name: Install dev dependencies
+        run: npm ci || npm install --no-audit --no-fund
+
+      - name: Build and run all gates
+        run: node scripts/build.js
+
+      - name: Plan and timer unit tests
+        run: node tests/plan.test.js
+
+      - name: Install browser for the smoke test
+        run: npx playwright install --with-deps chromium
+
+      - name: Browser smoke test
+        run: node tests/smoke.js
+
+      - name: Regenerate the verification report and confirm it is current
+        run: |
+          node scripts/report.js
+          git diff --exit-code -- VERIFICATION_REPORT.md || {
+            echo "::error::VERIFICATION_REPORT.md is stale. Run: node scripts/report.js"
+            exit 1
+          }
+
+      - name: Upload site
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    # Only runs when every gate above passed.
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

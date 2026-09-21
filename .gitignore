@@ -1,0 +1,5 @@
+node_modules/
+dist/
+scripts/verify/__pycache__/
+scripts/verify/_*.json
+.DS_Store

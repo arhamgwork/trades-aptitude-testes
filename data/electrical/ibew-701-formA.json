@@ -1,0 +1,1923 @@
+{
+ "id": "ibew-701-formA",
+ "trade": "electrical",
+ "title": "IBEW Local 701 (DuPage) — Practice Exam, Form A",
+ "testName": "Electrical Training Alliance Aptitude Test",
+ "provider": "Electrical Training Alliance",
+ "locals": [
+  "IBEW Local 701 / DuPage County JATC"
+ ],
+ "confidence": "CONFIRMED",
+ "confidenceNote": "",
+ "blueprint": "docs/blueprints/electrical-ibew-701.md",
+ "dateChecked": "2026-09-21",
+ "calculatorAllowed": false,
+ "selfPaced": false,
+ "sections": [
+  {
+   "id": "alg",
+   "name": "Algebra and Functions",
+   "questionCount": 33,
+   "timeLimitSec": 2760,
+   "timeConfirmed": true
+  },
+  {
+   "id": "read",
+   "name": "Reading Comprehension",
+   "questionCount": 36,
+   "timeLimitSec": 3060,
+   "timeConfirmed": true
+  }
+ ],
+ "passages": [
+  {
+   "id": "p1",
+   "title": "Why Water Towers Stand So Tall",
+   "text": "A municipal water tower is not a storage tank that happens to sit on legs. Its\nheight is the entire point. Water pressure in a distribution system comes from\nelevation, and every foot of height adds roughly 0.43 pounds per square inch at\nthe ground below. A tank standing 150 feet above the neighborhood it serves\ntherefore delivers about 65 pounds per square inch at street level, which is\nclose to the range most household fixtures are designed to accept.\n\nThis arrangement lets a utility size its pumps for average demand rather than\npeak demand. Pumps run steadily through the night, when electricity is cheaper\nand consumption is low, filling the tank. During the morning rush, when\nthousands of households draw water at once, the tank empties faster than the\npumps refill it, and gravity covers the difference. Without the tower, the\nutility would need pumps large enough to meet the highest demand of the year,\nand those pumps would sit idle most of the time.\n\nThe stored volume matters for a second reason that has nothing to do with daily\ndemand. Fire flow can require several thousand gallons per minute for hours at a\nstretch, far beyond what distribution pumps supply. A full tower is a reserve\nthat begins delivering the instant a hydrant opens, with no startup delay and no\ndependence on the electrical grid. During a power failure, a water tower keeps\nsupplying pressure until it drains, which is why many utilities treat tank level\nas a measure of how long they can operate blind.\n\nThe shape of the tank follows from these demands. Engineers prefer a design in\nwhich most of the stored water sits near the top, because pressure at the ground\ndepends on the height of the water surface, not on the total volume held. A tank\nthat drains from a tall, narrow column would see its pressure fall steadily as\nthe level dropped. A tank with a wide bowl high on a single pedestal keeps the\nwater surface within a narrow band of elevation through most of its useful\nrange, so pressure at the customer's tap stays nearly constant as the tank\nempties."
+  },
+  {
+   "id": "p2",
+   "title": "Keeping the Grid at Sixty Cycles",
+   "text": "An alternating-current power grid has a heartbeat, and in North America that\nheartbeat is sixty cycles per second. The figure is not a target the operators\naim at so much as a reading they watch. Frequency on a grid is a direct\nconsequence of the balance between how much power generators are producing and\nhow much load is drawing. When generation exceeds demand, the spinning machines\nspeed up and frequency rises. When demand exceeds generation, the machines are\ndragged down and frequency falls. Nobody sets the number; the physics reports\nit.\n\nThat relationship makes frequency the most convenient signal in the whole\nsystem. A control room thousands of miles from a failed generator learns of the\nfailure almost instantly, because the deviation appears everywhere at once on an\ninterconnected grid. Operators do not need to know which machine tripped in\norder to begin responding. They need only see that the balance has moved, and in\nwhich direction.\n\nThe response happens in layers, distinguished by how quickly each acts. The\nfirst layer is not a decision at all but inertia: the rotating mass of every\nturbine and generator still connected resists any change in speed, and in doing\nso donates kinetic energy to the grid during the first seconds of a shortfall.\nThis buys time and nothing else, but the time is essential. The second layer,\ngovernor response, arrives within seconds as individual units sense the\nfrequency drop and open their valves slightly. The third, automatic generation\ncontrol, works over minutes to return frequency exactly to sixty and to restore\nthe reserves that the first two layers spent.\n\nThe growth of generation that connects through power electronics rather than\nthrough a spinning shaft has complicated the first layer in particular. Solar\narrays and battery installations have no rotating mass to contribute, so a grid\nwith a large share of such resources has less natural inertia and its frequency\nfalls faster after a loss. Engineers have responded by programming inverters to\nimitate the behavior they displaced, detecting a frequency change and injecting\npower within milliseconds. The imitation is deliberate, and in some respects it\noutperforms the original, since a programmed response can be tuned while the\nphysics of a spinning mass cannot."
+  },
+  {
+   "id": "p3",
+   "title": "The Box That Rearranged the World",
+   "text": "Before the shipping container, loading a cargo ship was a craft. Longshoremen\nmoved barrels, sacks and crates one lot at a time, fitting irregular goods into\nan irregular hold in an order that had to be worked out on the spot. A ship\nmight spend as long in port as it spent at sea. Cargo handling, not the voyage,\nwas the expensive part of shipping, and it was expensive chiefly because it\nconsumed labor and time in roughly equal measure.\n\nThe container did not solve this problem by being a better box. Boxes were not\nthe difficulty. What the container did was standardize the unit of cargo so that\nevery step of the journey could be mechanized around the same dimensions. A\ncrane that could lift one container could lift them all. A chassis that fit one\nwould fit any. The gain came not from the steel but from the agreement, and the\nagreement took longer to reach than the engineering did.\n\nThe consequences reached well beyond the docks. When moving goods became cheap\nand predictable, the calculation that had tied factories to their customers\nloosened. A manufacturer could put a plant where labor or materials were\nadvantageous rather than where the market happened to be, because the cost of\nbridging the distance had fallen to a rounding error in the price of the\nfinished product. Whole industries relocated over the following decades, and\neconomists still argue about how much of that shift to attribute to the\ncontainer and how much to trade policy that arrived alongside it.\n\nThe costs fell unevenly, as such changes usually do. Ports that could not\naccommodate the cranes and the land area the new system demanded declined\nquickly, sometimes within a decade, while ports with deep water and room to\nexpand grew into the hubs the system required. The workforce contracted sharply.\nA job that had rewarded experience in stowing an awkward hold became a job\noperating a machine to a fixed procedure. Historians of the period generally\ntreat the container as a case in which a change framed as a simple efficiency\nturned out to redistribute work and wealth on a scale nobody had forecast."
+  },
+  {
+   "id": "p4",
+   "title": "Room to Move",
+   "text": "Nearly every solid expands when heated, and the amount is small enough to ignore\nin casual life and far too large to ignore in construction. A steel beam a\nhundred feet long grows roughly three quarters of an inch over a temperature\nswing of a hundred degrees Fahrenheit. That figure sounds modest until one\nconsiders what happens if the beam is not permitted to grow. The expansion does\nnot simply fail to occur. The material develops internal stress instead, and the\nstress a restrained member generates is set by the stiffness of the material\nrather than by the size of the movement prevented. For steel the resulting\nforces are large enough to buckle a member or to crack whatever is holding it.\n\nDesigners therefore spend a surprising amount of effort providing somewhere for\nmovement to go. A bridge deck rides on bearings that permit it to slide, and the\nfamiliar toothed joint at each end exists to let the deck lengthen without\npressing against the abutment. Long runs of pipe are routed with deliberate\nbends, or fitted with loops, so that thermal growth is absorbed by flexing\nrather than by thrust against the anchors. Masonry walls receive soft joints at\nintervals for the same reason. In each case the design accepts the movement as\ninevitable and directs it, rather than attempting to prevent it.\n\nTrouble arises most often where two materials meet. Aluminum expands about twice\nas much as steel for the same temperature change, and concrete falls between\nthem. A joint that fastens dissimilar materials rigidly will work itself loose\nover many cycles, or will concentrate stress at the fastener until something\nyields, even though neither material alone would have been overstressed. The\nfailure belongs to the connection rather than to either component.\n\nThe same principle appears wherever temperature varies and materials differ, and\nthe remedy is nearly always the same. Slotted holes, flexible connectors and\ndeliberate gaps are not concessions to sloppy work. They are the acknowledgment\nthat a structure exposed to weather is never quite the same size twice, and that\na design which assumes otherwise will find its own way to relieve the stress."
+  }
+ ],
+ "questions": [
+  {
+   "id": "e701a-alg-001",
+   "section": "alg",
+   "skills": [
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "If 7x − 4 = 31, what is the value of x?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "27/7",
+    "6",
+    "5",
+    "31/7"
+   ],
+   "correctIndex": 2,
+   "explanation": "Undo the subtraction first: 7x = 31 + 4 = 35. Then divide both sides by 7, giving x = 5.",
+   "distractorNotes": [
+    "subtracted 4 instead of adding it when undoing −4",
+    "added 4 to 31 but then divided by the wrong number",
+    null,
+    "divided by 7 without first undoing the −4"
+   ],
+   "difficulty": "easy",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-002",
+   "section": "alg",
+   "skills": [
+    "algebra.linear",
+    "arith.fractions"
+   ],
+   "type": "mc",
+   "stem": "If (2/3)x + 5 = 13, what is the value of x?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "16/3",
+    "12",
+    "39/2",
+    "8"
+   ],
+   "correctIndex": 1,
+   "explanation": "Subtract 5 from both sides to get (2/3)x = 8, then multiply both sides by the reciprocal 3/2. That gives x = 12.",
+   "distractorNotes": [
+    "multiplied by 2/3 instead of by its reciprocal",
+    null,
+    "divided before subtracting the 5",
+    "stopped after subtracting 5 and never undid the 2/3"
+   ],
+   "difficulty": "easy",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-003",
+   "section": "alg",
+   "skills": [
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "Solve for x:  3(2x − 5) = 4x + 7",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "6",
+    "-4",
+    "11/5",
+    "11"
+   ],
+   "correctIndex": 3,
+   "explanation": "Distributing gives 6x − 15 = 4x + 7. Subtract 4x and add 15 to both sides: 2x = 22, so x = 11.",
+   "distractorNotes": [
+    "distributed the 3 to 2x but not to −5",
+    "subtracted 15 from 7 instead of adding it to both sides",
+    "added the x-terms instead of subtracting 4x from both sides",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-004",
+   "section": "alg",
+   "skills": [
+    "algebra.literal"
+   ],
+   "type": "mc",
+   "stem": "The formula P = 2L + 2W gives the perimeter of a rectangle. Which expression gives W in terms of P and L?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "W = P − 2L",
+    "W = (P − 2L) / 2",
+    "W = (P + 2L) / 2",
+    "W = P / 2 − L / 2"
+   ],
+   "correctIndex": 1,
+   "explanation": "Subtract 2L from both sides to get P − 2L = 2W, then divide both sides by 2. Note that dividing P − 2L by 2 leaves L, not L/2.",
+   "distractorNotes": [
+    "subtracted 2L but never divided by 2",
+    null,
+    "added 2L instead of subtracting it",
+    "divided the L term by 2 a second time"
+   ],
+   "difficulty": "medium",
+   "verify": "python:symbolic"
+  },
+  {
+   "id": "e701a-alg-005",
+   "section": "alg",
+   "skills": [
+    "algebra.systems"
+   ],
+   "type": "mc",
+   "stem": "If y = 2x + 1 and 3x + y = 16, what is the value of y?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "7",
+    "3",
+    "37/5",
+    "17/5"
+   ],
+   "correctIndex": 0,
+   "explanation": "Substitute 2x + 1 for y: 3x + (2x + 1) = 16, so 5x = 15 and x = 3. Then y = 2(3) + 1 = 7.",
+   "distractorNotes": [
+    null,
+    "solved for x and stopped without finding y",
+    "dropped the +1 when substituting into the second equation",
+    "added 1 to 16 instead of subtracting it"
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-006",
+   "section": "alg",
+   "skills": [
+    "algebra.systems"
+   ],
+   "type": "mc",
+   "stem": "Solve the system:  4x + 3y = 27  and  2x − 3y = 3.  What is x + y?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "5",
+    "22/3",
+    "8/3",
+    "4"
+   ],
+   "correctIndex": 1,
+   "explanation": "Adding the two equations eliminates y: 6x = 30, so x = 5. Substituting back gives 3y = 7, y = 7/3. Their sum is 5 + 7/3 = 22/3.",
+   "distractorNotes": [
+    "found x and reported it instead of x + y",
+    null,
+    "subtracted the two values instead of adding them",
+    "subtracted the constants when adding the equations"
+   ],
+   "difficulty": "hard",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-007",
+   "section": "alg",
+   "skills": [
+    "algebra.exponents"
+   ],
+   "type": "mc",
+   "stem": "Simplify:  (3x³)(4x⁵)",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "12x²",
+    "12x¹⁵",
+    "7x⁸",
+    "12x⁸"
+   ],
+   "correctIndex": 3,
+   "explanation": "Multiply the coefficients and add the exponents: 3 × 4 = 12 and x³ · x⁵ = x⁸.",
+   "distractorNotes": [
+    "subtracted the exponents instead of adding them",
+    "multiplied the exponents instead of adding them",
+    "added the coefficients instead of multiplying them",
+    null
+   ],
+   "difficulty": "easy",
+   "verify": "python:symbolic"
+  },
+  {
+   "id": "e701a-alg-008",
+   "section": "alg",
+   "skills": [
+    "algebra.exponents"
+   ],
+   "type": "mc",
+   "stem": "Simplify:  (2x⁴)³",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "8x¹²",
+    "2x¹²",
+    "6x¹²",
+    "8x⁷"
+   ],
+   "correctIndex": 0,
+   "explanation": "Every factor inside the parentheses is cubed: 2³ = 8, and x⁴ raised to the third power multiplies the exponents to give x¹².",
+   "distractorNotes": [
+    null,
+    "raised x to the third power but left the 2 alone",
+    "multiplied the base 2 by 3 instead of cubing it",
+    "added the exponents instead of multiplying them"
+   ],
+   "difficulty": "medium",
+   "verify": "python:symbolic"
+  },
+  {
+   "id": "e701a-alg-009",
+   "section": "alg",
+   "skills": [
+    "algebra.exponents"
+   ],
+   "type": "mc",
+   "stem": "What is the value of 2⁻⁴?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "-1/16",
+    "-16",
+    "1/8",
+    "1/16"
+   ],
+   "correctIndex": 3,
+   "explanation": "A negative exponent means the reciprocal of the positive power: 2⁻⁴ = 1/2⁴ = 1/16. The result is positive.",
+   "distractorNotes": [
+    "kept a negative sign that the reciprocal does not produce",
+    "treated the negative exponent as a negative result",
+    "used 2³ instead of 2⁴ in the denominator",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-010",
+   "section": "alg",
+   "skills": [
+    "algebra.polynomials"
+   ],
+   "type": "mc",
+   "stem": "Multiply:  (x + 6)(x − 4)",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "x² + 2x − 24",
+    "x² − 2x − 24",
+    "x² + 10x − 24",
+    "x² − 24"
+   ],
+   "correctIndex": 0,
+   "explanation": "The outer and inner products are −4x and +6x, which combine to +2x, and the last terms give 6 × (−4) = −24.",
+   "distractorNotes": [
+    null,
+    "subtracted the outer and inner terms instead of adding −4x and 6x",
+    "added 6 and 4 instead of combining +6x and −4x",
+    "multiplied the first and last terms only and dropped the middle terms"
+   ],
+   "difficulty": "medium",
+   "verify": "python:symbolic"
+  },
+  {
+   "id": "e701a-alg-011",
+   "section": "alg",
+   "skills": [
+    "algebra.factoring"
+   ],
+   "type": "mc",
+   "stem": "Factor completely:  x² − 7x + 12",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "(x − 3)(x − 4)",
+    "(x + 3)(x + 4)",
+    "(x − 2)(x − 6)",
+    "(x − 1)(x − 12)"
+   ],
+   "correctIndex": 0,
+   "explanation": "Two numbers that multiply to +12 and add to −7 are −3 and −4, so the quadratic factors into those two binomials.",
+   "distractorNotes": [
+    null,
+    "ignored that a positive constant with a negative middle term needs two negative factors",
+    "picked factors of 12 that add to 8, not 7",
+    "picked factors of 12 that add to 13, not 7"
+   ],
+   "difficulty": "medium",
+   "verify": "python:symbolic"
+  },
+  {
+   "id": "e701a-alg-012",
+   "section": "alg",
+   "skills": [
+    "algebra.factoring"
+   ],
+   "type": "mc",
+   "stem": "Factor:  9x² − 25",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "(9x + 5)(9x − 5)",
+    "(3x − 5)(3x − 5)",
+    "(3x + 5)(3x − 5)",
+    "(3x + 25)(3x − 25)"
+   ],
+   "correctIndex": 2,
+   "explanation": "This is a difference of two squares: the square root of 9x² is 3x and the square root of 25 is 5, giving a sum factor and a difference factor.",
+   "distractorNotes": [
+    "used 9 as the square root of 9x² instead of 3x",
+    "used the same sign twice instead of opposite signs",
+    null,
+    "used 25 instead of its square root 5"
+   ],
+   "difficulty": "medium",
+   "verify": "python:symbolic"
+  },
+  {
+   "id": "e701a-alg-013",
+   "section": "alg",
+   "skills": [
+    "algebra.functions"
+   ],
+   "type": "mc",
+   "stem": "If f(x) = 3x² − 2x + 1, what is f(−2)?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "9",
+    "-7",
+    "17",
+    "16"
+   ],
+   "correctIndex": 2,
+   "explanation": "Squaring −2 gives +4, so the first term is 12. The middle term is −2(−2) = +4. Adding the constant gives 12 + 4 + 1 = 17.",
+   "distractorNotes": [
+    "substituted +2 instead of −2",
+    "squared before applying the negative, making the first term negative",
+    null,
+    "dropped the constant term when adding up"
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-014",
+   "section": "alg",
+   "skills": [
+    "algebra.functions"
+   ],
+   "type": "mc",
+   "stem": "If f(x) = 2x + 3 and g(x) = x², what is f(g(3))?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "21",
+    "81",
+    "27",
+    "9"
+   ],
+   "correctIndex": 0,
+   "explanation": "Work from the inside out: g(3) = 9, then f(9) = 2(9) + 3 = 21.",
+   "distractorNotes": [
+    null,
+    "applied the functions in the reverse order",
+    "multiplied the two results instead of substituting one into the other",
+    "stopped at the inner function and never applied the outer one"
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-015",
+   "section": "alg",
+   "skills": [
+    "algebra.graphs"
+   ],
+   "type": "mc",
+   "stem": "What is the slope of the line through the points (2, −3) and (6, 5)?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "1",
+    "1/2",
+    "-2",
+    "2"
+   ],
+   "correctIndex": 3,
+   "explanation": "Slope is the change in y over the change in x: (5 − (−3)) divided by (6 − 2) = 8/4 = 2.",
+   "distractorNotes": [
+    "added the x-values in the denominator instead of subtracting them",
+    "divided the run by the rise instead of the rise by the run",
+    "subtracted the y-values in one order and the x-values in the other",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-016",
+   "section": "alg",
+   "skills": [
+    "algebra.graphs"
+   ],
+   "type": "mc",
+   "stem": "A line is given by y = −3x + 7. What is y when x = 4?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "19",
+    "-5",
+    "-33",
+    "-19"
+   ],
+   "correctIndex": 1,
+   "explanation": "Substitute 4 for x: −3(4) = −12, then add the intercept 7 to get −5.",
+   "distractorNotes": [
+    "ignored the negative sign on the slope",
+    null,
+    "added 7 to x before multiplying instead of after",
+    "subtracted the intercept instead of adding it"
+   ],
+   "difficulty": "easy",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-017",
+   "section": "alg",
+   "skills": [
+    "algebra.inequalities"
+   ],
+   "type": "mc",
+   "stem": "Solve for x:  −4x + 9 > 25",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "x < 4",
+    "x > −4",
+    "x < −4",
+    "x > 4"
+   ],
+   "correctIndex": 2,
+   "explanation": "Subtract 9 to get −4x > 16. Dividing both sides by −4 reverses the inequality, giving x less than −4.",
+   "distractorNotes": [
+    "divided 16 by −4 but kept the result positive",
+    "did not reverse the inequality sign when dividing by a negative",
+    null,
+    "both dropped the sign reversal and lost the negative"
+   ],
+   "difficulty": "medium",
+   "verify": "python:symbolic"
+  },
+  {
+   "id": "e701a-alg-018",
+   "section": "alg",
+   "skills": [
+    "algebra.inequalities"
+   ],
+   "type": "mc",
+   "stem": "Solve:  −1 ≤ 2x − 5 ≤ 7",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "−3 ≤ x ≤ 1",
+    "2 ≤ x ≤ 6",
+    "4 ≤ x ≤ 12",
+    "2 ≤ x ≤ 12"
+   ],
+   "correctIndex": 1,
+   "explanation": "Add 5 to all three parts to get 4 ≤ 2x ≤ 12, then divide all three parts by 2.",
+   "distractorNotes": [
+    "subtracted 5 from the outer parts instead of adding it",
+    null,
+    "added 5 correctly but never divided by 2",
+    "divided only the left-hand part by 2"
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-019",
+   "section": "alg",
+   "skills": [
+    "ratio.proportion"
+   ],
+   "type": "mc",
+   "stem": "If 3/8 = x/56, what is the value of x?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "51",
+    "448/3",
+    "7",
+    "21"
+   ],
+   "correctIndex": 3,
+   "explanation": "Cross-multiply: 8x = 3 × 56 = 168, so x = 21.",
+   "distractorNotes": [
+    "treated the proportion as a difference instead of a ratio",
+    "cross-multiplied in the wrong direction",
+    "divided 56 by 8 and forgot to multiply by 3",
+    null
+   ],
+   "difficulty": "easy",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-020",
+   "section": "alg",
+   "skills": [
+    "arith.percent"
+   ],
+   "type": "mc",
+   "stem": "A crew's hourly output rises from 40 units to 46 units. What is the percent increase?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "300/23%",
+    "15%",
+    "115%",
+    "6%"
+   ],
+   "correctIndex": 1,
+   "explanation": "Percent increase divides the change by the original amount: 6/40 = 0.15, which is 15%.",
+   "distractorNotes": [
+    "divided the change by the new value instead of the original",
+    null,
+    "found the new value as a percent of the old instead of the increase",
+    "reported the raw change as if it were a percent"
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-021",
+   "section": "alg",
+   "skills": [
+    "algebra.variation"
+   ],
+   "type": "mc",
+   "stem": "y varies directly with x. When x = 4, y = 18. What is y when x = 10?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "29/2",
+    "36/5",
+    "24",
+    "45"
+   ],
+   "correctIndex": 3,
+   "explanation": "Direct variation means y/x is constant: 18/4 = 4.5. Multiplying by x = 10 gives y = 45.",
+   "distractorNotes": [
+    "added the constant of variation to x instead of multiplying",
+    "set up the proportion inversely instead of directly",
+    "added the change in x to y instead of scaling y",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-022",
+   "section": "alg",
+   "skills": [
+    "algebra.variation"
+   ],
+   "type": "mc",
+   "stem": "y varies inversely with x. When x = 5, y = 12. What is y when x = 15?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "36",
+    "4",
+    "9",
+    "5/4"
+   ],
+   "correctIndex": 1,
+   "explanation": "Inverse variation means the product xy is constant: 5 × 12 = 60. Dividing 60 by the new x = 15 gives y = 4.",
+   "distractorNotes": [
+    "used direct variation instead of inverse",
+    null,
+    "subtracted the change in x from y",
+    "inverted the wrong pair of values"
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-023",
+   "section": "alg",
+   "skills": [
+    "algebra.quadratic"
+   ],
+   "type": "mc",
+   "stem": "What is the larger solution of x² + 2x − 15 = 0?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "3",
+    "-5",
+    "5",
+    "15"
+   ],
+   "correctIndex": 0,
+   "explanation": "The quadratic factors using two numbers that multiply to −15 and add to +2, namely +5 and −3. The solutions are −5 and 3, and the larger is 3.",
+   "distractorNotes": [
+    null,
+    "identified both roots but reported the smaller one",
+    "reversed the signs of the factors",
+    "read the constant term as a solution"
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-024",
+   "section": "alg",
+   "skills": [
+    "algebra.rational"
+   ],
+   "type": "mc",
+   "stem": "Simplify:  (x² − 9) / (x + 3),  where x ≠ −3",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "x − 3",
+    "x + 3",
+    "x² − 3",
+    "x − 9"
+   ],
+   "correctIndex": 0,
+   "explanation": "Factor the numerator as a difference of squares into (x + 3)(x − 3). The (x + 3) cancels with the denominator, leaving x − 3.",
+   "distractorNotes": [
+    null,
+    "cancelled to the wrong one of the two factors",
+    "cancelled the 3 from the numerator's constant only",
+    "cancelled the x terms rather than factoring first"
+   ],
+   "difficulty": "medium",
+   "verify": "python:symbolic"
+  },
+  {
+   "id": "e701a-alg-025",
+   "section": "alg",
+   "skills": [
+    "algebra.radicals"
+   ],
+   "type": "mc",
+   "stem": "Simplify:  √72",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "8√3",
+    "2√6",
+    "6√2",
+    "36√2"
+   ],
+   "correctIndex": 2,
+   "explanation": "72 factors as 36 × 2, and the square root of 36 is 6, so a 6 comes out and the 2 stays under the radical.",
+   "distractorNotes": [
+    "used 64 × 3, which is not 72",
+    "swapped the factor taken out with the one left under the radical",
+    null,
+    "took 36 out of the radical without taking its square root"
+   ],
+   "difficulty": "medium",
+   "verify": "python:symbolic"
+  },
+  {
+   "id": "e701a-alg-026",
+   "section": "alg",
+   "skills": [
+    "algebra.absolute"
+   ],
+   "type": "mc",
+   "stem": "If |2x − 3| = 11, what is the sum of all possible values of x?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "-4",
+    "7",
+    "11",
+    "3"
+   ],
+   "correctIndex": 3,
+   "explanation": "The expression inside equals either 11 or −11, giving x = 7 and x = −4. Their sum is 3.",
+   "distractorNotes": [
+    "found only the negative case and ignored the positive one",
+    "found only the positive case and ignored the negative one",
+    "subtracted the two solutions instead of adding them",
+    null
+   ],
+   "difficulty": "hard",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-027",
+   "section": "alg",
+   "skills": [
+    "series.arithmetic"
+   ],
+   "type": "mc",
+   "stem": "What number comes next in the series?   4, 9, 14, 19, __",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "24",
+    "23",
+    "38",
+    "25"
+   ],
+   "correctIndex": 0,
+   "explanation": "Each term is 5 more than the one before it, so the next term is 19 + 5 = 24.",
+   "distractorNotes": [
+    null,
+    "used the first term as the common difference",
+    "doubled the last term instead of adding the difference",
+    "misread the difference as 6"
+   ],
+   "difficulty": "easy",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-028",
+   "section": "alg",
+   "skills": [
+    "series.geometric"
+   ],
+   "type": "mc",
+   "stem": "What number comes next in the series?   3, 6, 12, 24, __",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "27",
+    "36",
+    "48",
+    "72"
+   ],
+   "correctIndex": 2,
+   "explanation": "Each term is twice the one before it, so the next term is 24 × 2 = 48.",
+   "distractorNotes": [
+    "used the first term as a common difference",
+    "added the last difference instead of doubling",
+    null,
+    "tripled instead of doubled"
+   ],
+   "difficulty": "easy",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-029",
+   "section": "alg",
+   "skills": [
+    "series.alternating"
+   ],
+   "type": "mc",
+   "stem": "What number comes next in the series?   2, 5, 4, 7, 6, __",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "7",
+    "5",
+    "9",
+    "8"
+   ],
+   "correctIndex": 2,
+   "explanation": "The series alternates between adding 3 and subtracting 1. The last step was a subtraction, so the next step adds 3 to give 9.",
+   "distractorNotes": [
+    "read the pattern as a simple alternating increase of 1",
+    "continued with the subtract-1 step instead of the add-3 step",
+    null,
+    "averaged the two steps instead of alternating them"
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-030",
+   "section": "alg",
+   "skills": [
+    "algebra.word",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "A tank holds 12 gallons of a 30% antifreeze mixture. How many gallons of a 60% mixture must be added to bring the tank to a 40% mixture?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "2",
+    "12",
+    "6",
+    "18"
+   ],
+   "correctIndex": 2,
+   "explanation": "The antifreeze already present is 3.6 gallons. Adding x gallons at 60% must satisfy 3.6 + 0.6x = 0.4(12 + x), which simplifies to 0.2x = 1.2, so 6 gallons are needed.",
+   "distractorNotes": [
+    "applied the 40% target only to the original 12 gallons, ignoring that the added gallons raise the total volume too",
+    "assumed equal parts of the two mixtures",
+    null,
+    "solved for the total volume rather than the amount added"
+   ],
+   "difficulty": "hard",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-031",
+   "section": "alg",
+   "skills": [
+    "algebra.word",
+    "rate.work"
+   ],
+   "type": "mc",
+   "stem": "One worker can complete a task in 6 hours and another can complete the same task in 3 hours. Working together at these rates, how many hours does the task take?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "9/2",
+    "2",
+    "3",
+    "1/2"
+   ],
+   "correctIndex": 1,
+   "explanation": "Their rates add: 1/6 + 1/3 = 1/2 of the task per hour. The time is the reciprocal of that rate, so 2 hours.",
+   "distractorNotes": [
+    "averaged the two times instead of adding the rates",
+    null,
+    "subtracted the times",
+    "added the rates but did not invert the result"
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-032",
+   "section": "alg",
+   "skills": [
+    "algebra.word",
+    "rate.distance"
+   ],
+   "type": "mc",
+   "stem": "A truck leaves at 7:00 a.m. and travels 165 miles at an average speed of 55 miles per hour. At what time does it arrive?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "10:00 a.m.",
+    "9:00 a.m.",
+    "11:00 a.m.",
+    "10:30 a.m."
+   ],
+   "correctIndex": 0,
+   "explanation": "Dividing 165 miles by 55 miles per hour gives exactly 3 hours, and 3 hours after 7:00 a.m. is 10:00 a.m.",
+   "distractorNotes": [
+    null,
+    "divided by 55 but subtracted an hour when adding to the start time",
+    "used 4 hours, which corresponds to 220 miles, not 165",
+    "carried a half hour that the exact division does not produce"
+   ],
+   "difficulty": "medium",
+   "verify": "python:fractions"
+  },
+  {
+   "id": "e701a-alg-033",
+   "section": "alg",
+   "skills": [
+    "arith.scientific"
+   ],
+   "type": "mc",
+   "stem": "Multiply and express the result in scientific notation:  (3.0 × 10⁴)(2.0 × 10⁻⁶)",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "5.0 × 10⁻²",
+    "6.0 × 10⁻²⁴",
+    "6.0 × 10²",
+    "6.0 × 10⁻²"
+   ],
+   "correctIndex": 3,
+   "explanation": "Multiply the mantissas to get 6.0 and add the exponents: 4 + (−6) = −2.",
+   "distractorNotes": [
+    "added the mantissas instead of multiplying them",
+    "multiplied the exponents instead of adding them",
+    "subtracted the exponents in the wrong order",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:symbolic"
+  },
+  {
+   "id": "e701a-read-001",
+   "section": "read",
+   "skills": [
+    "reading.main-idea"
+   ],
+   "type": "mc",
+   "stem": "Which statement best expresses the main idea of the passage?",
+   "figure": null,
+   "passageId": "p1",
+   "choices": [
+    "Water towers are an outdated technology that modern pumps have largely replaced.",
+    "A water tower's height and shape are both driven by the need to deliver steady pressure and reserve capacity.",
+    "Municipal utilities use water towers mainly to reduce their nighttime electricity costs.",
+    "The chief purpose of a water tower is to guarantee water during a fire."
+   ],
+   "correctIndex": 1,
+   "explanation": "The passage moves through pressure from elevation, pump sizing, fire reserve and finally tank shape, and each of those is tied back to delivering steady pressure and holding a reserve.",
+   "distractorNotes": [
+    "contradicts the passage, which presents towers as actively useful",
+    null,
+    "takes one supporting detail and treats it as the whole point",
+    "names one of several purposes as though it were the only one"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-002",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "According to the passage, about how much pressure does each foot of height add?",
+   "figure": null,
+   "passageId": "p1",
+   "choices": [
+    "About 1.5 pounds per square inch",
+    "About 0.65 pounds per square inch",
+    "About 0.43 pounds per square inch",
+    "About 4.3 pounds per square inch"
+   ],
+   "correctIndex": 2,
+   "explanation": "The passage states directly that every foot of height adds roughly 0.43 pounds per square inch.",
+   "distractorNotes": [
+    "derives from the 150-foot height rather than the stated rate",
+    "borrows a digit from the 65 psi figure, which is a total, not a per-foot rate",
+    null,
+    "misplaces the decimal point in the stated rate"
+   ],
+   "difficulty": "easy",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-003",
+   "section": "read",
+   "skills": [
+    "reading.inference"
+   ],
+   "type": "mc",
+   "stem": "The passage suggests that without a water tower, a utility would most likely have to",
+   "figure": null,
+   "passageId": "p1",
+   "choices": [
+    "buy larger pumps that would run below capacity much of the time",
+    "raise the price of water to cover higher nighttime electricity costs",
+    "reduce the pressure available at household fixtures",
+    "build a second tower at a different elevation"
+   ],
+   "correctIndex": 0,
+   "explanation": "The passage says the tower lets a utility size pumps for average rather than peak demand, and that without it the pumps would have to meet the year's highest demand and would sit idle most of the time.",
+   "distractorNotes": [
+    null,
+    "reverses the passage, which says nighttime electricity is the cheaper period",
+    "assumes a consequence the passage never draws",
+    "offers an outside solution the passage does not mention"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-004",
+   "section": "read",
+   "skills": [
+    "reading.vocabulary"
+   ],
+   "type": "mc",
+   "stem": "As used in the final paragraph, the phrase \"useful range\" most nearly means",
+   "figure": null,
+   "passageId": "p1",
+   "choices": [
+    "the maximum volume the tank was designed to hold",
+    "the distance the water can travel through the distribution system",
+    "the variety of purposes the tower can serve",
+    "the span of tank levels over which the tower still does its job"
+   ],
+   "correctIndex": 3,
+   "explanation": "The sentence contrasts water surface elevation with total volume and describes pressure staying nearly constant as the tank empties, so the phrase refers to the span of levels over which the tower still performs.",
+   "distractorNotes": [
+    "substitutes total volume, which the paragraph explicitly sets aside",
+    "reads 'range' as horizontal distance rather than a span of levels",
+    "reads 'range' as variety, which the sentence's focus on level does not support",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-005",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "The passage says fire flow can demand",
+   "figure": null,
+   "passageId": "p1",
+   "choices": [
+    "more water than the tower itself can hold",
+    "several hundred gallons per minute for hours",
+    "several thousand gallons per hour for minutes",
+    "several thousand gallons per minute for hours"
+   ],
+   "correctIndex": 3,
+   "explanation": "The passage gives fire flow as several thousand gallons per minute for hours at a stretch.",
+   "distractorNotes": [
+    "states a comparison the passage does not make",
+    "understates the figure given",
+    "swaps the units of rate and duration",
+    null
+   ],
+   "difficulty": "easy",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-006",
+   "section": "read",
+   "skills": [
+    "reading.purpose"
+   ],
+   "type": "mc",
+   "stem": "The author mentions power failures chiefly in order to",
+   "figure": null,
+   "passageId": "p1",
+   "choices": [
+    "argue that utilities should invest in backup generators",
+    "warn that water service is fragile during storms",
+    "show that the tower supplies pressure without depending on the electrical grid",
+    "explain why pumps are sized for average demand"
+   ],
+   "correctIndex": 2,
+   "explanation": "The power-failure sentence follows the claim that a full tower delivers with no startup delay and no dependence on the grid, and it illustrates that independence.",
+   "distractorNotes": [
+    "recommends an action the passage never proposes",
+    "adopts an alarmed tone the passage does not take",
+    null,
+    "attaches the example to the wrong argument in the passage"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-007",
+   "section": "read",
+   "skills": [
+    "reading.inference"
+   ],
+   "type": "mc",
+   "stem": "Based on the passage, a tall narrow tank would be a poor design mainly because",
+   "figure": null,
+   "passageId": "p1",
+   "choices": [
+    "it would hold too little water to be useful during a fire",
+    "its pressure would drop noticeably as the water level fell",
+    "it would cost more to build than a bowl on a pedestal",
+    "it would freeze more readily in cold weather"
+   ],
+   "correctIndex": 1,
+   "explanation": "The passage says pressure depends on the height of the water surface, and that a tank draining from a tall narrow column would see pressure fall steadily as the level dropped.",
+   "distractorNotes": [
+    "raises a volume objection the passage does not make about this shape",
+    null,
+    "introduces cost, which the passage never discusses",
+    "brings in an outside concern absent from the passage"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-008",
+   "section": "read",
+   "skills": [
+    "reading.organization"
+   ],
+   "type": "mc",
+   "stem": "Which best describes how the passage is organized?",
+   "figure": null,
+   "passageId": "p1",
+   "choices": [
+    "A common belief is introduced and then refuted with evidence",
+    "A central principle is stated, then several consequences of it are developed in turn",
+    "Two competing designs are compared point by point throughout",
+    "A chronological account traces the development of a technology"
+   ],
+   "correctIndex": 1,
+   "explanation": "The passage opens with the principle that pressure comes from elevation and then works out what follows from it for pump sizing, fire reserve and shape.",
+   "distractorNotes": [
+    "no belief is set up and knocked down in the passage",
+    null,
+    "the comparison of shapes appears only at the end, not throughout",
+    "the passage is not organized by time at all"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-009",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "A tank 150 feet above the neighborhood delivers roughly what pressure at street level?",
+   "figure": null,
+   "passageId": "p1",
+   "choices": [
+    "65 pounds per square inch",
+    "43 pounds per square inch",
+    "150 pounds per square inch",
+    "100 pounds per square inch"
+   ],
+   "correctIndex": 0,
+   "explanation": "The passage states that a tank standing 150 feet up delivers about 65 pounds per square inch at street level.",
+   "distractorNotes": [
+    null,
+    "uses the per-foot rate as though it were the total",
+    "reports the height in place of the pressure",
+    "rounds to a figure the passage does not give"
+   ],
+   "difficulty": "easy",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-010",
+   "section": "read",
+   "skills": [
+    "reading.main-idea"
+   ],
+   "type": "mc",
+   "stem": "Which best states the main idea of the passage?",
+   "figure": null,
+   "passageId": "p2",
+   "choices": [
+    "Solar and battery resources have made grid frequency impossible to control.",
+    "North American grids run at sixty cycles per second because regulators chose that standard.",
+    "Grid frequency reflects the balance of generation and load, and the system defends it in layers that new technology has had to reproduce.",
+    "Grid operators must identify which generator has failed before they can respond."
+   ],
+   "correctIndex": 2,
+   "explanation": "The passage establishes frequency as a consequence of balance, describes the three layers of response, and then explains how inverter-based resources have had to imitate the first layer.",
+   "distractorNotes": [
+    "overstates a difficulty the passage says engineers have addressed",
+    "contradicts the passage, which says the number is read rather than set",
+    null,
+    "reverses an explicit statement in the passage"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-011",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "According to the passage, frequency rises when",
+   "figure": null,
+   "passageId": "p2",
+   "choices": [
+    "generation exceeds demand",
+    "demand exceeds generation",
+    "operators increase the frequency setting",
+    "inertia is added to the system"
+   ],
+   "correctIndex": 0,
+   "explanation": "The passage states that when generation exceeds demand the spinning machines speed up and frequency rises.",
+   "distractorNotes": [
+    null,
+    "reverses the stated relationship",
+    "assumes a setting the passage denies exists",
+    "attributes the rise to a stabilizing factor rather than an imbalance"
+   ],
+   "difficulty": "easy",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-012",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "Which layer of response is described as acting first?",
+   "figure": null,
+   "passageId": "p2",
+   "choices": [
+    "Governor response",
+    "Inertia from rotating mass",
+    "Automatic generation control",
+    "Inverter injection"
+   ],
+   "correctIndex": 1,
+   "explanation": "The passage names inertia as the first layer and explicitly says it is not a decision at all.",
+   "distractorNotes": [
+    "acts within seconds, after inertia",
+    null,
+    "works over minutes and is described as third",
+    "is a later engineering addition, not the original first layer"
+   ],
+   "difficulty": "easy",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-013",
+   "section": "read",
+   "skills": [
+    "reading.vocabulary"
+   ],
+   "type": "mc",
+   "stem": "As used in the passage, \"donates\" most nearly means",
+   "figure": null,
+   "passageId": "p2",
+   "choices": [
+    "contributes automatically, without being commanded",
+    "transfers on the condition that it be repaid",
+    "contributes only after a deliberate decision",
+    "wastes through unavoidable loss"
+   ],
+   "correctIndex": 0,
+   "explanation": "The sentence describes rotating mass resisting a speed change and supplying kinetic energy automatically, which the passage contrasts with a decision.",
+   "distractorNotes": [
+    null,
+    "reads a repayment condition into the word; restoring reserves later is a separate control action, not a condition attached to the inertial contribution",
+    "conflicts with the passage calling this layer not a decision at all",
+    "treats the energy as lost rather than usefully supplied to the grid"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-014",
+   "section": "read",
+   "skills": [
+    "reading.inference"
+   ],
+   "type": "mc",
+   "stem": "The passage implies that a grid with a very large share of inverter-based generation would",
+   "figure": null,
+   "passageId": "p2",
+   "choices": [
+    "require operators to abandon the sixty-cycle standard",
+    "be unable to detect a generator failure at all",
+    "experience a faster frequency drop after losing a generator unless inverters are programmed to respond",
+    "have more inertia than a conventional grid"
+   ],
+   "correctIndex": 2,
+   "explanation": "The passage says such resources have no rotating mass, so the grid has less natural inertia and frequency falls faster, and that engineers program inverters to imitate the missing response.",
+   "distractorNotes": [
+    "proposes a change the passage never suggests",
+    "contradicts the passage's account of frequency as an instant signal",
+    null,
+    "reverses the passage's statement about rotating mass"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-015",
+   "section": "read",
+   "skills": [
+    "reading.purpose"
+   ],
+   "type": "mc",
+   "stem": "The author says \"the physics reports it\" mainly to emphasize that frequency is",
+   "figure": null,
+   "passageId": "p2",
+   "choices": [
+    "identical at every point on every grid in the world",
+    "too complex for operators to influence",
+    "measured by instruments that can drift out of calibration",
+    "a measured result of conditions rather than a value anyone chooses"
+   ],
+   "correctIndex": 3,
+   "explanation": "The sentence closes a paragraph arguing that nobody sets the number and that it follows from the balance of generation and load.",
+   "distractorNotes": [
+    "extends the claim beyond the interconnected grid discussed",
+    "overstates it; the passage describes deliberate responses",
+    "raises an accuracy issue the passage never mentions",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-016",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "Automatic generation control is described as working over",
+   "figure": null,
+   "passageId": "p2",
+   "choices": [
+    "milliseconds",
+    "minutes",
+    "seconds",
+    "hours"
+   ],
+   "correctIndex": 1,
+   "explanation": "The passage says the third layer works over minutes to return frequency exactly to sixty and restore reserves.",
+   "distractorNotes": [
+    "belongs to the programmed inverter response",
+    null,
+    "belongs to governor response",
+    "is longer than any interval the passage gives"
+   ],
+   "difficulty": "easy",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-017",
+   "section": "read",
+   "skills": [
+    "reading.inference"
+   ],
+   "type": "mc",
+   "stem": "The final sentence suggests that a programmed inverter response can be superior because it",
+   "figure": null,
+   "passageId": "p2",
+   "choices": [
+    "responds more slowly, giving operators time to think",
+    "can be adjusted, whereas the behavior of a spinning mass cannot",
+    "eliminates the need for governor response entirely",
+    "produces more total energy than a turbine of the same size"
+   ],
+   "correctIndex": 1,
+   "explanation": "The passage closes by noting that a programmed response can be tuned while the physics of a spinning mass cannot.",
+   "distractorNotes": [
+    "reverses the speed advantage the passage describes",
+    null,
+    "claims a replacement the passage does not assert",
+    "compares energy output, which the passage does not discuss"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-018",
+   "section": "read",
+   "skills": [
+    "reading.organization"
+   ],
+   "type": "mc",
+   "stem": "The third paragraph is organized primarily by",
+   "figure": null,
+   "passageId": "p2",
+   "choices": [
+    "the cost of each response",
+    "the speed at which each response acts",
+    "the geographic location of each resource",
+    "the age of each technology"
+   ],
+   "correctIndex": 1,
+   "explanation": "The paragraph introduces the layers as distinguished by how quickly each acts and then moves from seconds to minutes.",
+   "distractorNotes": [
+    "cost is not mentioned in the paragraph",
+    null,
+    "location plays no part in that paragraph",
+    "the paragraph does not order the layers historically"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-019",
+   "section": "read",
+   "skills": [
+    "reading.main-idea"
+   ],
+   "type": "mc",
+   "stem": "The passage is primarily concerned with",
+   "figure": null,
+   "passageId": "p3",
+   "choices": [
+    "how standardizing cargo reshaped shipping, industry and port communities",
+    "how engineers designed a stronger and lighter cargo box",
+    "why longshoremen resisted the introduction of new technology",
+    "how trade policy rather than technology drove industrial relocation"
+   ],
+   "correctIndex": 0,
+   "explanation": "The passage moves from the old loading process to standardization and then to effects on factory location, ports and the workforce.",
+   "distractorNotes": [
+    null,
+    "focuses on the steel, which the passage says was not the source of the gain",
+    "treats a consequence mentioned briefly as the central subject",
+    "picks one side of a debate the passage leaves open"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-020",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "Before containers, a ship might spend",
+   "figure": null,
+   "passageId": "p3",
+   "choices": [
+    "as long in port as it spent at sea",
+    "more time at sea than in port",
+    "a few hours in port between voyages",
+    "most of the year laid up awaiting repair"
+   ],
+   "correctIndex": 0,
+   "explanation": "The passage states that a ship might spend as long in port as it spent at sea.",
+   "distractorNotes": [
+    null,
+    "reverses the comparison given",
+    "understates the delay the passage describes",
+    "introduces a circumstance the passage never mentions"
+   ],
+   "difficulty": "easy",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-021",
+   "section": "read",
+   "skills": [
+    "reading.inference"
+   ],
+   "type": "mc",
+   "stem": "The statement that \"the gain came not from the steel but from the agreement\" most nearly means that",
+   "figure": null,
+   "passageId": "p3",
+   "choices": [
+    "steel prices were the main obstacle to adoption",
+    "the container was poorly built and needed frequent repair",
+    "labor agreements with dockworkers were the decisive factor",
+    "the value lay in everyone adopting common dimensions, not in the box itself"
+   ],
+   "correctIndex": 3,
+   "explanation": "The sentence follows the observation that one crane could lift them all and one chassis would fit any, which depends on shared dimensions.",
+   "distractorNotes": [
+    "raises a cost issue the passage does not discuss",
+    "reads a quality complaint into a sentence about standardization",
+    "reads 'agreement' as a labor contract rather than a shared standard",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-022",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "According to the passage, cargo handling was expensive chiefly because it consumed",
+   "figure": null,
+   "passageId": "p3",
+   "choices": [
+    "more money than the voyage itself ever did",
+    "fuel and labor in roughly equal measure",
+    "labor and time in roughly equal measure",
+    "specialized equipment that wore out quickly"
+   ],
+   "correctIndex": 2,
+   "explanation": "The passage says it was expensive chiefly because it consumed labor and time in roughly equal measure.",
+   "distractorNotes": [
+    "overstates a comparison the passage frames differently",
+    "substitutes fuel for time",
+    null,
+    "names a cause the passage does not give"
+   ],
+   "difficulty": "easy",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-023",
+   "section": "read",
+   "skills": [
+    "reading.inference"
+   ],
+   "type": "mc",
+   "stem": "The passage suggests that a port with shallow water and little surrounding land would most likely have",
+   "figure": null,
+   "passageId": "p3",
+   "choices": [
+    "declined as the container system spread",
+    "specialized in handling containers for smaller vessels",
+    "retained its workforce longer than deep-water ports",
+    "become a hub because it faced less competition"
+   ],
+   "correctIndex": 0,
+   "explanation": "The passage says ports that could not accommodate the cranes and land area declined quickly, sometimes within a decade.",
+   "distractorNotes": [
+    null,
+    "invents an adaptation the passage does not describe",
+    "conflicts with the account of rapid decline",
+    "reverses the outcome the passage reports"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-024",
+   "section": "read",
+   "skills": [
+    "reading.vocabulary"
+   ],
+   "type": "mc",
+   "stem": "As used in the third paragraph, \"loosened\" most nearly means",
+   "figure": null,
+   "passageId": "p3",
+   "choices": [
+    "was deliberately relaxed by regulators",
+    "came apart entirely",
+    "grew more complicated",
+    "became less binding"
+   ],
+   "correctIndex": 3,
+   "explanation": "The sentence says the calculation that had tied factories to their customers loosened because the cost of distance fell, which is a weakening of a constraint.",
+   "distractorNotes": [
+    "attributes the change to policy rather than falling costs",
+    "overstates it; the passage describes weakening, not elimination",
+    "substitutes complexity for reduced constraint",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-025",
+   "section": "read",
+   "skills": [
+    "reading.purpose"
+   ],
+   "type": "mc",
+   "stem": "The author notes that economists still argue about attribution in order to",
+   "figure": null,
+   "passageId": "p3",
+   "choices": [
+    "show that the relocation of industry has been exaggerated",
+    "dismiss economists as unable to agree on anything",
+    "argue that trade policy mattered more than the container",
+    "acknowledge that the container's exact share of the change is uncertain"
+   ],
+   "correctIndex": 3,
+   "explanation": "The passage reports that industries relocated and then notes the open question of how much to attribute to the container versus trade policy.",
+   "distractorNotes": [
+    "denies a shift the passage treats as real",
+    "adopts a dismissive tone the passage does not take",
+    "takes a side the passage explicitly leaves open",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-026",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "The passage says the dock workforce",
+   "figure": null,
+   "passageId": "p3",
+   "choices": [
+    "stayed level but earned less",
+    "grew as ports expanded",
+    "contracted sharply",
+    "moved inland to work at new factories"
+   ],
+   "correctIndex": 2,
+   "explanation": "The passage states plainly that the workforce contracted sharply.",
+   "distractorNotes": [
+    "describes a change in pay the passage does not report",
+    "contradicts the passage",
+    null,
+    "invents a destination the passage never mentions"
+   ],
+   "difficulty": "easy",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-027",
+   "section": "read",
+   "skills": [
+    "reading.inference"
+   ],
+   "type": "mc",
+   "stem": "The final sentence implies that the container's effects were",
+   "figure": null,
+   "passageId": "p3",
+   "choices": [
+    "confined mostly to the shipping industry itself",
+    "smaller than historians originally believed",
+    "larger and less predictable than the efficiency argument for it suggested",
+    "fully anticipated by the people who promoted it"
+   ],
+   "correctIndex": 2,
+   "explanation": "The sentence describes a change framed as a simple efficiency that redistributed work and wealth on a scale nobody had forecast.",
+   "distractorNotes": [
+    "contradicts the passage's account of wider effects",
+    "reverses the sentence's emphasis",
+    null,
+    "contradicts 'nobody had forecast'"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-028",
+   "section": "read",
+   "skills": [
+    "reading.main-idea"
+   ],
+   "type": "mc",
+   "stem": "The main point of the passage is that",
+   "figure": null,
+   "passageId": "p4",
+   "choices": [
+    "modern fasteners have eliminated problems caused by expansion",
+    "thermal expansion is too small to matter in most buildings",
+    "aluminum should be avoided in structures exposed to weather",
+    "structures must be designed to accommodate thermal movement rather than to resist it"
+   ],
+   "correctIndex": 3,
+   "explanation": "The passage argues that expansion will occur or else generate stress, and that good design directs the movement instead of preventing it.",
+   "distractorNotes": [
+    "claims a solution the passage does not offer",
+    "contradicts the passage's central claim",
+    "draws a recommendation the passage never makes",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-029",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "A hundred-foot steel beam is said to grow about how much over a hundred-degree swing?",
+   "figure": null,
+   "passageId": "p4",
+   "choices": [
+    "A hundredth of an inch",
+    "Three quarters of a foot",
+    "Three inches",
+    "Three quarters of an inch"
+   ],
+   "correctIndex": 3,
+   "explanation": "The passage gives roughly three quarters of an inch for that beam and that temperature change.",
+   "distractorNotes": [
+    "understates the stated figure",
+    "misreads the unit, overstating the movement twelvefold",
+    "reports a figure the passage does not give",
+    null
+   ],
+   "difficulty": "easy",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-030",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "According to the passage, the stress in a restrained member is set mainly by",
+   "figure": null,
+   "passageId": "p4",
+   "choices": [
+    "the length of the member",
+    "the stiffness of the material",
+    "the size of the movement that was prevented",
+    "the type of fastener used at the connection"
+   ],
+   "correctIndex": 1,
+   "explanation": "The passage states that the stress a restrained member generates is set by the stiffness of the material rather than by the size of the movement prevented.",
+   "distractorNotes": [
+    "is ruled out; the passage separates stress from the size of the movement",
+    null,
+    "is explicitly contrasted with the correct factor",
+    "belongs to the later discussion of joints"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-031",
+   "section": "read",
+   "skills": [
+    "reading.detail"
+   ],
+   "type": "mc",
+   "stem": "Compared with steel, aluminum is said to expand",
+   "figure": null,
+   "passageId": "p4",
+   "choices": [
+    "about ten times as much",
+    "about half as much",
+    "about the same amount",
+    "about twice as much"
+   ],
+   "correctIndex": 3,
+   "explanation": "The passage says aluminum expands about twice as much as steel for the same temperature change.",
+   "distractorNotes": [
+    "overstates the stated ratio",
+    "reverses the comparison",
+    "denies the difference the paragraph is built on",
+    null
+   ],
+   "difficulty": "easy",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-032",
+   "section": "read",
+   "skills": [
+    "reading.inference"
+   ],
+   "type": "mc",
+   "stem": "The passage implies that a rigid joint between aluminum and steel is likely to fail because",
+   "figure": null,
+   "passageId": "p4",
+   "choices": [
+    "the two materials move by different amounts, concentrating stress at the connection",
+    "aluminum is inherently weaker than steel",
+    "the joint is exposed to more weather than the members are",
+    "neither material is strong enough for the load applied"
+   ],
+   "correctIndex": 0,
+   "explanation": "The passage says such a joint concentrates stress at the fastener until something yields even though neither material alone would have been overstressed, and that the failure belongs to the connection.",
+   "distractorNotes": [
+    null,
+    "attributes failure to material strength, which the passage sets aside",
+    "invents an exposure difference the passage does not mention",
+    "contradicts the statement that neither alone would be overstressed"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-033",
+   "section": "read",
+   "skills": [
+    "reading.purpose"
+   ],
+   "type": "mc",
+   "stem": "The author mentions bridge bearings, pipe loops and soft joints in masonry chiefly to",
+   "figure": null,
+   "passageId": "p4",
+   "choices": [
+    "argue that older construction methods were superior",
+    "show that bridges require more care than buildings",
+    "give varied examples of designs that give movement somewhere to go",
+    "explain how each of those components is manufactured"
+   ],
+   "correctIndex": 2,
+   "explanation": "The three examples follow the claim that designers provide somewhere for movement to go, and each illustrates directing movement rather than preventing it.",
+   "distractorNotes": [
+    "introduces a judgment absent from the passage",
+    "draws a comparison the passage does not make",
+    null,
+    "describes a purpose the passage does not pursue"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-034",
+   "section": "read",
+   "skills": [
+    "reading.vocabulary"
+   ],
+   "type": "mc",
+   "stem": "As used in the final paragraph, \"concessions\" most nearly means",
+   "figure": null,
+   "passageId": "p4",
+   "choices": [
+    "rights granted to operate a business",
+    "formal agreements between contracting parties",
+    "allowances made to make up for a shortcoming",
+    "reductions in the price of materials"
+   ],
+   "correctIndex": 2,
+   "explanation": "The sentence denies that these features are concessions to sloppy work, meaning they are not allowances compensating for a deficiency.",
+   "distractorNotes": [
+    "uses an unrelated commercial sense",
+    "uses a legal sense the sentence does not support",
+    null,
+    "reads the word as a discount"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-035",
+   "section": "read",
+   "skills": [
+    "reading.inference"
+   ],
+   "type": "mc",
+   "stem": "The closing phrase about a structure finding \"its own way to relieve the stress\" suggests that",
+   "figure": null,
+   "passageId": "p4",
+   "choices": [
+    "structures gradually become more flexible as they age",
+    "if movement is not planned for, the structure will crack or deform instead",
+    "stress in a structure dissipates harmlessly over time",
+    "repairs will always restore a structure to its original condition"
+   ],
+   "correctIndex": 1,
+   "explanation": "The passage has already described buckling, cracking and fasteners yielding as what happens when movement is restrained, so an unplanned release is a failure.",
+   "distractorNotes": [
+    "describes an adaptation the passage does not claim",
+    null,
+    "contradicts the passage's warnings about buckling and cracking",
+    "addresses repair, which the passage does not discuss"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  },
+  {
+   "id": "e701a-read-036",
+   "section": "read",
+   "skills": [
+    "reading.organization"
+   ],
+   "type": "mc",
+   "stem": "Which best describes the structure of the passage?",
+   "figure": null,
+   "passageId": "p4",
+   "choices": [
+    "A physical effect is described, then its design consequences, then a case where it is worst, then a general conclusion",
+    "A problem is posed and two competing solutions are weighed",
+    "A historical development is traced from early practice to the present",
+    "A general rule is stated and then shown to have many exceptions"
+   ],
+   "correctIndex": 0,
+   "explanation": "The passage opens with expansion and restraint, moves to accommodations in design, then to dissimilar materials as the worst case, and ends with a general statement.",
+   "distractorNotes": [
+    null,
+    "no competing solutions are set against each other",
+    "the passage is not organized chronologically",
+    "the passage presents no exceptions to its rule"
+   ],
+   "difficulty": "medium",
+   "verify": "blind-solve"
+  }
+ ]
+}

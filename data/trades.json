@@ -1,0 +1,51 @@
+{
+  "trades": [
+    {
+      "slug": "electrical",
+      "name": "Electrical",
+      "blurb": "IBEW apprenticeships. Cook and DuPage use different tests — check which local you are applying to.",
+      "locals": ["IBEW Local 134 / EJATT (Cook)", "IBEW Local 701 / DuPage JATC"],
+      "blueprints": [
+        {
+          "doc": "docs/blueprints/electrical-ibew-701.md",
+          "testName": "Electrical Training Alliance Aptitude Test",
+          "provider": "Electrical Training Alliance",
+          "confidence": "CONFIRMED",
+          "dateChecked": "2026-09-21",
+          "totalQuestions": 69,
+          "totalMinutes": 97,
+          "calculator": false,
+          "locals": ["IBEW Local 701 / DuPage County JATC"],
+          "scoring": "Stanine 1-9. A 4 or higher is needed to be interviewed; the score is combined with an interview score to rank applicants.",
+          "sections": [
+            {"name": "Algebra and Functions", "questions": 33, "minutes": 46, "format": "Multiple choice", "calculator": false, "timeConfirmed": true},
+            {"name": "Reading Comprehension", "questions": 36, "minutes": 51, "format": "Four passages, multiple choice", "calculator": false, "timeConfirmed": true}
+          ],
+          "sources": [
+            "https://www.ibewjatc.org/aptitude-test",
+            "https://www.electricaltrainingalliance.org/SamplePage/PreparingfortheTest"
+          ],
+          "unverified": ""
+        },
+        {
+          "doc": "docs/blueprints/electrical-ibew-134.md",
+          "testName": "Format not confirmed — either the Electrical Training Alliance test or the GAN Aptitude Battery",
+          "provider": "Disputed",
+          "confidence": "PARTIAL",
+          "dateChecked": "2026-09-21",
+          "totalQuestions": 0,
+          "totalMinutes": 0,
+          "calculator": false,
+          "locals": ["IBEW Local 134 / EJATT (Cook County)"],
+          "scoring": "Stanine 1-9; a 4 is the minimum and Local 134 is competitive, so a 6 or higher is realistically needed.",
+          "sections": [],
+          "sources": [
+            "https://ejatt.com/about-in-tech/faqs/",
+            "https://ganhumanresources.com/gan-aptitude-test"
+          ],
+          "unverified": "Which instrument Local 134 actually administers. EJATT publishes no format. Two practice exams are provided, one in each format, so preparation is covered either way. Confirm with EJATT at 708-389-1340 before relying on one."
+        }
+      ]
+    }
+  ]
+}

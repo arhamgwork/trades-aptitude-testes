@@ -41,3 +41,38 @@ exist anywhere on the machine.
 
 **Done:** Nothing invented or substituted. Raised with the user at the
 Phase 0 gate.
+
+---
+
+## 2026-09-21 — decisions taken at the Phase 0 gate
+
+- **`source-exams/`:** user will re-upload the folder. No substitute exams
+  will be written for the four migrated trades in the meantime; they remain
+  blocked rather than regenerated.
+- **IBEW Local 134:** build **both** variants (ETA-format and GAN-format),
+  each badged PARTIAL, with the unresolved question shown on the trade page.
+  Neither is presented as the confirmed format.
+
+---
+
+## 2026-09-21 — IBEW 701 Form A, item e701a-read-013 reworded
+
+**Found by:** blind-solve verification pass (independent solver, key withheld).
+
+The solver chose the intended answer, so the key was not wrong. It flagged the
+options as loose: the correct choice glossed "donates" as "gives up without
+being directed to", which is imprecise, while the distractor "lends on the
+condition that it be returned" drew partial support from the passage's later
+mention of restoring spent reserves.
+
+**Done:** key reworded to "contributes automatically, without being commanded";
+the repayment distractor reworded and its error note now explains that
+restoring reserves is a separate control action, not a condition on the
+inertial contribution. No key changed position.
+
+## 2026-09-21 — IBEW 701 Form A, three duplicate distractors fixed at build time
+
+The item builder refuses two choices that render identically. It caught three
+items where two distractors encoded different mistakes that happened to produce
+the same value (slope item, absolute-value item, mixture item). Each had one
+distractor replaced with a distinct, real error mode. No key was affected.

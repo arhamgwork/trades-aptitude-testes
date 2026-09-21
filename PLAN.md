@@ -5,15 +5,17 @@ Live checklist. Updated at every phase. Status keys:
 
 ---
 
-## Two things need your decision (Phase 0 gate)
+## Phase 0 gate — decided 2026-09-21
 
-1. **`source-exams/` is not present.** The repo had no commits and no files;
-   the remote had no branches; nothing matching exists anywhere on the
-   machine. The four exams to "migrate exactly" are not available. Nothing
-   was invented or substituted. See `docs/CORRECTIONS.md`.
-2. **IBEW Local 134 format is disputed.** The brief says 134 = GAN, 701 = ETA.
-   701 is now CONFIRMED as ETA. 134 could not be confirmed either way and the
-   evidence is mixed. See `docs/blueprints/electrical-ibew-134.md`.
+1. **`source-exams/` is not present** (no commits, no remote branches, nothing
+   on the machine). Nothing was invented or substituted.
+   **Decision: the user will re-upload `source-exams/`.** Migration waits for
+   the files; the engine is built first and the four exams slot in on arrival.
+   Until then the four migrated exams stay `[!]` blocked, not rebuilt.
+2. **IBEW Local 134 format is disputed** (brief says GAN; could not confirm).
+   **Decision: build both variants** — one ETA-format and one GAN-format exam
+   for 134, each badged PARTIAL, with the open question shown on the trade
+   page so neither is presented as settled.
 
 ---
 
@@ -31,7 +33,7 @@ are not.
 | Trade | Test | Provider | Per-section | Exam plan |
 |---|---|---|---|---|
 | Electrical — DuPage (IBEW 701) | ETA 2-section | CONFIRMED | CONFIRMED | Full exam, 69 q / 97 min |
-| Electrical — Cook (IBEW 134) | disputed | PARTIAL | PARTIAL | **Blocked on decision above** |
+| Electrical — Cook (IBEW 134) | disputed | PARTIAL | PARTIAL | **Two exams**: ETA-format + GAN-format, both PARTIAL |
 | Pipefitting (UA 597) | GAN battery | CONFIRMED | PARTIAL | Full exam, 140 q / ~119 min |
 | Plumbing (UA 130) | GAN battery | CONFIRMED | PARTIAL | Full exam, 140 q / 119 min |
 | Elevator (IUEC / NEIEP) | EIAT | CONFIRMED | PARTIAL | Full exam, 100 q / ~90 min |
@@ -77,7 +79,8 @@ Every exam is per-section timed from its blueprint table.
 - `plumbing-130-formA` — 6 sections, 140 q
 - `elevator-eiat-formA` — 3 sections, 100 q (incl. "No answer" option)
 - `sheetmetal-73-formA` — 6 sections, 140 q
-- `electrical-134-formA` — pending the format decision
+- `electrical-134-eta-formA` — 2 sections, 69 q (ETA variant, PARTIAL)
+- `electrical-134-gan-formA` — 6 sections, 140 q (GAN variant, PARTIAL)
 - Tier 2 exams — ordered by how many Chicago apprenticeships use the test,
   so: the remaining GAN trades first (one shared battery serves many), then
   the one-off formats.
@@ -116,11 +119,23 @@ VERIFICATION_REPORT.md       counts, key distribution, check coverage
 
 - [x] **Phase 0 — Inventory and plan.** Source exams checked (absent),
       blueprints researched, PLAN.md written. **Awaiting your OK.**
-- [ ] **Phase 1 — Engine and shell.** Schema, validator, exam runner,
+- [x] **Phase 1 — Engine and shell.** Schema, validator, exam runner,
       results, print view, progress, home and trade pages, one exam
       end-to-end. Ships usable.
-- [ ] **Phase 2 — Migrate + drills.** The four existing exams (blocked until
-      `source-exams/` arrives), re-verified. Sign-analysis and
+      Done: schema + validator, 10 build gates, runner with per-section
+      timers and auto-advance, Real/Untimed/Custom timing, question grid,
+      flagging, keyboard shortcuts, submit confirmation, results with
+      per-distractor error notes and skill breakdown, print booklet + answer
+      key, single-file offline copies, progress with weak-spot links and
+      JSON export/import, home/trade/drills/progress pages.
+      End-to-end exam is **IBEW 701 Form A** (69 items, the one CONFIRMED
+      format, so no guessing entered the engine proof): 33 algebra items
+      computed and asserted in Python, 36 reading items across 4 original
+      passages, blind-solved with 0 disagreements.
+      Tests: 9 plan unit tests, 30 browser smoke checks, zero console errors,
+      zero third-party requests.
+- [ ] **Phase 2 — Migrate + drills.** `[!]` The four existing exams, blocked
+      until `source-exams/` is re-uploaded; re-verified on arrival. Sign-analysis and
       variable-relationship drill sets. **Sample variable-relationship items
       shown to you before building at volume.**
 - [ ] **Phase 3 — New trades.** Sheet metal first, then Tier 2 by reach.

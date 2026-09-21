@@ -1,0 +1,15 @@
+{
+  "name": "trades-aptitude-practice",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Practice site for Chicago-area skilled-trades apprenticeship aptitude tests",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "validate": "node scripts/validate.js",
+    "test": "node scripts/build.js && node tests/smoke.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}
