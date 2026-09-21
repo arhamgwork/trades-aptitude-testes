@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EIAT Practice Exam — 100 Questions</title>
+<style>
+:root{
+  --ink:#1B2127; --ink2:#39434D; --steel:#6B7783; --rule:#D3D8DE;
+  --field:#EDEFF2; --paper:#FFFFFF; --signal:#F0B429; --signald:#8A6206;
+  --pass:#1E7A4D; --fail:#B3261E;
+  --rail:14px;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--field); color:var(--ink); font-family:var(--sans);
+  font-size:17px; line-height:1.55; -webkit-text-size-adjust:100%;
+}
+/* ---- hoistway progress rail ---- */
+#rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);background:var(--ink);z-index:40}
+#railfill{position:absolute;left:0;right:0;top:0;height:0;background:var(--signal);transition:height .25s ease}
+#rail .tick{position:absolute;left:0;right:0;height:2px;background:var(--field);opacity:.55}
+#car{position:absolute;left:2px;right:2px;height:16px;top:0;background:var(--paper);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);transition:top .25s ease}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 96px calc(var(--rail) + 16px)}
+
+/* ---- masthead ---- */
+header.mast{padding:34px 0 22px}
+h1{font-size:30px;line-height:1.08;letter-spacing:-.02em;margin:0 0 6px;font-weight:700}
+h1 .sub{display:block;font-size:17px;font-weight:400;color:var(--steel);letter-spacing:0;margin-top:8px}
+.plate{border:1.5px solid var(--ink);background:var(--paper);margin:22px 0}
+.plate .row{display:flex;justify-content:space-between;gap:12px;padding:9px 13px;border-bottom:1px solid var(--rule);font-size:15px}
+.plate .row:last-child{border-bottom:0}
+.plate .row span:first-child{color:var(--steel)}
+.plate .row span:last-child{font-family:var(--mono);font-size:14px;text-align:right}
+.plate .head{background:var(--ink);color:var(--paper);padding:7px 13px;font-size:13px;letter-spacing:.06em;font-family:var(--mono)}
+
+/* ---- generic ---- */
+p{margin:0 0 14px;max-width:62ch}
+a{color:var(--ink)}
+.note{font-size:14.5px;color:var(--steel);line-height:1.5}
+.note strong{color:var(--ink2)}
+hr.rule{border:0;border-top:1px solid var(--rule);margin:26px 0}
+h2{font-size:21px;margin:30px 0 10px;letter-spacing:-.01em}
+h3{font-size:16px;margin:22px 0 8px}
+ul.tight{margin:0 0 14px;padding-left:20px}
+ul.tight li{margin-bottom:6px;max-width:60ch}
+
+/* ---- buttons ---- */
+button{font-family:inherit;font-size:16px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);border:1.5px solid var(--ink);
+  padding:14px 22px;cursor:pointer;font-weight:600;width:100%;text-align:center}
+.btn:hover{background:#000}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn:focus-visible,.opt:focus-visible,.toggle button:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.btnrow{display:flex;gap:10px;margin:18px 0}
+.toggle{display:flex;border:1.5px solid var(--ink);margin:14px 0 4px}
+.toggle button{flex:1;padding:12px 8px;background:var(--paper);border:0;cursor:pointer;color:var(--ink2)}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper);font-weight:600}
+
+/* ---- sticky section bar ---- */
+#bar{position:sticky;top:0;z-index:30;background:var(--ink);color:var(--paper);
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:11px 14px;margin:0 -16px 0 calc(-1 * (var(--rail) + 16px));
+  padding-left:calc(var(--rail) + 14px)}
+#bar .name{font-size:15px;font-weight:600}
+#bar .meta{font-family:var(--mono);font-size:13px;color:#B9C2CB}
+#clock{font-family:var(--mono);font-size:20px;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+#clock.low{color:var(--signal)}
+#clock.out{color:#FF8A80}
+
+/* ---- questions ---- */
+.qblock{background:var(--paper);border:1px solid var(--rule);border-left:3px solid var(--ink);margin:16px 0;padding:16px 15px}
+.passage{background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--signal);padding:16px 15px;margin:26px 0 8px}
+.passage .ttl{font-family:var(--mono);font-size:12.5px;color:var(--steel);margin-bottom:10px}
+.passage p{font-size:17px;line-height:1.7;max-width:60ch;margin-bottom:0}
+.blank{font-family:var(--mono);font-size:14px;background:var(--field);border-bottom:2px solid var(--ink);padding:1px 7px;white-space:nowrap}
+.qnum{font-family:var(--mono);font-size:13px;color:var(--steel);display:block;margin-bottom:5px}
+.qtext{margin:0 0 12px;max-width:60ch}
+.qmath{font-size:22px;font-family:var(--mono);letter-spacing:.01em;margin:2px 0 14px}
+.opt{display:flex;align-items:flex-start;gap:11px;width:100%;text-align:left;background:var(--paper);
+  border:1.5px solid var(--rule);padding:12px 13px;margin-bottom:8px;cursor:pointer;color:var(--ink);line-height:1.4}
+.opt:last-child{margin-bottom:0}
+.opt .ltr{flex:0 0 26px;height:24px;border:1.5px solid var(--ink2);display:flex;align-items:center;
+  justify-content:center;font-family:var(--mono);font-size:13px;color:var(--ink2)}
+.opt[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.opt[aria-pressed="true"] .ltr{background:var(--signal);border-color:var(--signal);color:var(--ink)}
+figure{margin:0 0 14px;border:1px solid var(--rule);background:#FAFBFC;padding:10px 6px}
+figure svg{display:block;width:100%;height:auto}
+svg .ln{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+svg .thin{fill:none;stroke:var(--steel);stroke-width:1;stroke-dasharray:4 3}
+svg .acc{fill:none;stroke:var(--signald);stroke-width:2.2;stroke-linecap:round}
+svg .accf{fill:var(--signald);stroke:none}
+svg .solid{fill:var(--ink);stroke:none}
+svg .grey{fill:#DCE0E5;stroke:var(--ink);stroke-width:1.6}
+svg text{font-family:var(--mono);font-size:11px;fill:var(--ink);text-anchor:middle}
+svg text.big{font-size:13px;font-weight:700}
+
+/* ---- results ---- */
+.score{border:1.5px solid var(--ink);background:var(--paper);margin:20px 0}
+.score .top{padding:20px 16px;border-bottom:1.5px solid var(--ink)}
+.score .pct{font-family:var(--mono);font-size:54px;line-height:1;font-variant-numeric:tabular-nums}
+.score .verdict{font-size:19px;font-weight:700;margin-top:8px}
+.score .verdict.p{color:var(--pass)}
+.score .verdict.f{color:var(--fail)}
+.sec{padding:13px 16px;border-bottom:1px solid var(--rule)}
+.sec:last-child{border-bottom:0}
+.sec .l{display:flex;justify-content:space-between;font-size:15px;margin-bottom:7px}
+.sec .l b{font-family:var(--mono);font-weight:400}
+.meter{height:9px;background:var(--field);position:relative}
+.meter i{position:absolute;left:0;top:0;bottom:0;background:var(--ink)}
+.meter u{position:absolute;left:70%;top:-3px;bottom:-3px;width:2px;background:var(--signal)}
+.rev{background:var(--paper);border:1px solid var(--rule);border-left:3px solid var(--pass);padding:13px 14px;margin:10px 0}
+.rev.wrong{border-left-color:var(--fail)}
+.rev .hd{font-family:var(--mono);font-size:12.5px;color:var(--steel);margin-bottom:6px}
+.rev .ans{font-size:15px;margin-bottom:6px}
+.rev .ans .ok{color:var(--pass);font-weight:600}
+.rev .ans .no{color:var(--fail);font-weight:600}
+.rev .exp{font-size:15px;color:var(--ink2);margin:0;max-width:60ch}
+.hidden{display:none!important}
+
+@media (max-width:400px){
+  h1{font-size:25px} body{font-size:16px} .score .pct{font-size:44px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{
+  #rail,#bar,.btnrow,.toggle,.noprint{display:none!important}
+  body{background:#fff;font-size:11pt}
+  .wrap{max-width:100%;padding:0}
+  .qblock,.passage,.rev,.score{break-inside:avoid;border-color:#999}
+  .hidden{display:block!important}
+}
+</style>
+</head>
+<body>
+
+<div id="rail" aria-hidden="true"><div id="railfill"></div><div id="car" style="top:0"></div></div>
+
+<div class="wrap">
+
+<!-- ================= START SCREEN ================= -->
+<div id="screen-start">
+  <header class="mast">
+    <h1>Elevator Industry Aptitude Test
+      <span class="sub">A full-length practice exam, built to the NEIEP blueprint</span>
+    </h1>
+  </header>
+
+  <div class="plate">
+    <div class="head">EXAM SPECIFICATION</div>
+    <div class="row"><span>Part 1 &middot; Reading comprehension</span><span>35 questions</span></div>
+    <div class="row"><span>Part 2 &middot; Mechanical comprehension</span><span>35 questions</span></div>
+    <div class="row"><span>Part 3 &middot; Mathematics</span><span>30 questions</span></div>
+    <div class="row"><span>Total</span><span>100 questions</span></div>
+    <div class="row"><span>Passing score</span><span>70%</span></div>
+    <div class="row"><span>Calculator</span><span>Not permitted</span></div>
+  </div>
+
+  <p>This exam follows the structure published in the official NEIEP EIAT study guide: cloze-style reading passages, diagram-based mechanical questions with three choices, and arithmetic questions with five choices where option (e) is <em>No answer</em>.</p>
+
+  <p class="note"><strong>Every question here is original.</strong> Nothing is copied from the real exam. The formats, question counts and scoring are matched so the practice feels like the real thing.</p>
+
+  <h3>How to take it</h3>
+  <ul class="tight">
+    <li>Work on paper. Do not use a calculator on Part 3.</li>
+    <li>Answer everything — there is no penalty for a wrong answer, so never leave a blank.</li>
+    <li>On Part 3, choose <em>No answer</em> only after you have worked the problem and none of the four numbers matches.</li>
+    <li>A section's timer cannot be paused, and you cannot return to a section once you leave it.</li>
+  </ul>
+
+  <h3>Timing</h3>
+  <div class="toggle" role="group" aria-label="Timing mode">
+    <button id="t-timed" aria-pressed="true">Timed &middot; 90 min</button>
+    <button id="t-open" aria-pressed="false">Untimed</button>
+  </div>
+  <p class="note">Timed mode allows 25 minutes for reading, 25 for mechanical and 40 for math. NEIEP does not publish official time limits, and locals set their own — this is the breakdown most preparation courses use. Treat it as realistic pressure, not gospel.</p>
+
+  <div class="btnrow"><button class="btn" id="begin">Start Part 1</button></div>
+  <p class="note noprint">Prefer paper? Use your browser's print command to print the whole exam and the answer key.</p>
+</div>
+
+<!-- ================= TEST SCREEN ================= -->
+<div id="screen-test" class="hidden">
+  <div id="bar">
+    <div>
+      <div class="name" id="bar-name">Part 1 &middot; Reading</div>
+      <div class="meta" id="bar-meta">0 of 35 answered</div>
+    </div>
+    <div id="clock">25:00</div>
+  </div>
+  <div id="qhost"></div>
+  <div class="btnrow"><button class="btn" id="advance">Go to Part 2</button></div>
+  <p class="note" id="skipnote">Unanswered questions are scored as wrong. Check you have marked all of them before moving on.</p>
+</div>
+
+<!-- ================= RESULTS SCREEN ================= -->
+<div id="screen-done" class="hidden">
+  <header class="mast"><h1>Your result</h1></header>
+  <div class="score">
+    <div class="top">
+      <div class="pct" id="r-pct">0%</div>
+      <div class="verdict" id="r-verdict">—</div>
+      <div class="note" id="r-line" style="margin-top:8px"></div>
+    </div>
+    <div class="sec" id="r-s0"></div>
+    <div class="sec" id="r-s1"></div>
+    <div class="sec" id="r-s2"></div>
+  </div>
+  <p class="note">The amber line marks the 70% passing score. Passing makes you eligible for the tool assessment and interview — but because hiring lists are ranked and competitive, aim well above the cut.</p>
+  <div class="toggle" role="group" aria-label="Review filter">
+    <button id="f-missed" aria-pressed="true">Review misses</button>
+    <button id="f-all" aria-pressed="false">Review all 100</button>
+  </div>
+  <div id="review"></div>
+  <div class="btnrow"><button class="btn ghost" id="again">Start over</button></div>
+</div>
+
+</div>
+
+<script>
+/* ============================================================
+   SVG HELPERS — simple technical line art
+   ============================================================ */
+function S(inner,w,h){w=w||320;h=h||150;return '<figure><svg viewBox="0 0 '+w+' '+h+'" xmlns="http://www.w3.org/2000/svg" role="img">'+inner+'</svg></figure>';}
+var R=function(d){return d*Math.PI/180;};
+
+function gear(cx,cy,r,teeth,label){
+  var t=r*0.2,d='';
+  for(var i=0;i<teeth;i++){
+    var a=R(i*360/teeth);
+    d+='<line x1="'+(cx+Math.cos(a)*r).toFixed(1)+'" y1="'+(cy+Math.sin(a)*r).toFixed(1)+
+       '" x2="'+(cx+Math.cos(a)*(r+t)).toFixed(1)+'" y2="'+(cy+Math.sin(a)*(r+t)).toFixed(1)+'"/>';
+  }
+  var lab=label?'<text class="big" x="'+cx+'" y="'+(cy+4)+'">'+label+'</text>':'';
+  return '<g class="ln">'+d+'<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'"/></g>'+lab;
+}
+/* curved rotation arrow; cw=true for clockwise */
+function spin(cx,cy,rr,cw){
+  var a0=cw?200:340, a1=cw?340:200, sweep=cw?1:0;
+  var x0=cx+rr*Math.cos(R(a0)), y0=cy+rr*Math.sin(R(a0));
+  var x1=cx+rr*Math.cos(R(a1)), y1=cy+rr*Math.sin(R(a1));
+  var t=R(a1)+(cw?Math.PI/2:-Math.PI/2), h=7;
+  function pt(k){return (x1+h*Math.cos(t+k)).toFixed(1)+','+(y1+h*Math.sin(t+k)).toFixed(1);}
+  return '<path class="acc" d="M'+x0.toFixed(1)+' '+y0.toFixed(1)+' A '+rr+' '+rr+' 0 0 '+sweep+' '+x1.toFixed(1)+' '+y1.toFixed(1)+'"/>'+
+         '<polygon class="accf" points="'+pt(0)+' '+pt(2.5)+' '+pt(-2.5)+'"/>';
+}
+/* straight arrow */
+function arr(x1,y1,x2,y2){
+  var t=Math.atan2(y2-y1,x2-x1),h=7;
+  function pt(k){return (x2+h*Math.cos(t+Math.PI+k)).toFixed(1)+','+(y2+h*Math.sin(t+Math.PI+k)).toFixed(1);}
+  return '<line class="acc" x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>'+
+         '<polygon class="accf" points="'+x2+','+y2+' '+pt(.42)+' '+pt(-.42)+'"/>';
+}
+function wt(x,y,w,h,label){ /* hanging weight block */
+  return '<rect class="grey" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'"/>'+
+         '<text x="'+(x+w/2)+'" y="'+(y+h/2+4)+'">'+label+'</text>';
+}
+function spring(x,y1,y2,coils,w){
+  var n=coils||6,ww=w||9,step=(y2-y1)/n,d='M'+x+' '+y1;
+  for(var i=0;i<n;i++){d+=' L'+(x+(i%2?-ww:ww))+' '+(y1+step*(i+.5))+' L'+x+' '+(y1+step*(i+1));}
+  return '<path class="ln" d="'+d+'"/>';
+}
+function hook(x,y){return '<line class="ln" x1="'+x+'" y1="'+(y-10)+'" x2="'+x+'" y2="'+y+'"/>';}
+function ceil(x1,x2,y){
+  var d='';for(var x=x1;x<x2;x+=8){d+='<line x1="'+x+'" y1="'+y+'" x2="'+(x-6)+'" y2="'+(y-6)+'"/>';}
+  return '<line class="ln" x1="'+x1+'" y1="'+y+'" x2="'+x2+'" y2="'+y+'"/><g class="ln">'+d+'</g>';
+}
+function grnd(x1,x2,y){
+  var d='';for(var x=x1;x<x2;x+=8){d+='<line x1="'+x+'" y1="'+y+'" x2="'+(x-6)+'" y2="'+(y+6)+'"/>';}
+  return '<line class="ln" x1="'+x1+'" y1="'+y+'" x2="'+x2+'" y2="'+y+'"/><g class="ln">'+d+'</g>';
+}
+
+/* ============================================================
+   PART 1 — READING COMPREHENSION (35 cloze items)
+   ============================================================ */
+var READING=[
+{title:"Passage 1 — Reporting hazards",
+ text:"Every worker on a jobsite shares __1__ for safety. A hazard that one person notices but does not report can easily __2__ a coworker hours later. For that reason most contractors require unsafe conditions to be written up __3__ they are found, rather than at the end of the shift. Workers who speak up are not being difficult; they are __4__ the standard that keeps the whole crew healthy and working. Over time, a crew that treats reporting as routine builds a __5__ in which small problems get corrected before they turn into injuries.",
+ qs:[
+ {o:["responsibility","permission","curiosity","employment"],a:0,e:"Safety is something every worker shares a duty for. Responsibility is the only choice that fits a shared obligation."},
+ {o:["injure","promote","instruct","relieve"],a:0,e:"The sentence contrasts noticing a hazard with the harm it later causes. Injure carries that consequence."},
+ {o:["as soon as","long before","instead of","in case"],a:0,e:"The clause is contrasted with waiting until the end of the shift, so the writing-up happens immediately."},
+ {o:["upholding","avoiding","questioning","delaying"],a:0,e:"Speaking up supports the standard rather than working against it, so upholding is the fit."},
+ {o:["culture","shortage","contract","rumor"],a:0,e:"A habit shared by a whole crew over time is a culture."}
+]},
+{title:"Passage 2 — How an apprenticeship works",
+ text:"An apprenticeship differs from a traditional college program because it pairs paid work with __6__ instruction. Apprentices earn wages from the first day, and their pay rises as they __7__ each measurable skill level. Employers value the model because graduates arrive already __8__ to the pace and the expectations of the trade. The arrangement also demands real __9__ from the apprentice: attendance, punctuality and steady effort are judged just as closely as test scores. Those who treat the program as a multi-year __10__ rather than a temporary job tend to advance fastest.",
+ qs:[
+ {o:["classroom","imaginary","optional","unrelated"],a:0,e:"Paid work is being paired with its opposite: formal classroom instruction."},
+ {o:["reach","avoid","forget","reduce"],a:0,e:"Pay rises as skill levels are achieved, so the apprentice reaches them."},
+ {o:["accustomed","opposed","indifferent","assigned"],a:0,e:"Graduates are already used to the pace. Accustomed to is the idiomatic pairing."},
+ {o:["commitment","payment","apology","vacation"],a:0,e:"Attendance, punctuality and effort are all forms of commitment."},
+ {o:["investment","accident","rumor","penalty"],a:0,e:"The contrast is with a temporary job, so the program is framed as a long-term investment."}
+]},
+{title:"Passage 3 — Friction and heat",
+ text:"Whenever two surfaces slide across one another, friction __11__ some of the energy of motion into heat. Engineers cannot remove friction completely, so they __12__ it instead, using lubricants, bearings and carefully chosen materials. A bearing that runs dry will overheat quickly, __13__ the metal to expand and bind. __14__, a properly lubricated bearing can run for years with very little wear.",
+ qs:[
+ {o:["converts","conceals","removes","measures"],a:0,e:"Energy is not destroyed; friction changes motion into heat, so it converts."},
+ {o:["manage","ignore","worship","duplicate"],a:0,e:"Since friction cannot be eliminated, the alternative is to control or manage it."},
+ {o:["causing","preventing","because","although"],a:0,e:"Overheating leads to expansion and binding, so the participle causing continues the result."},
+ {o:["By contrast","For example","In short","As a result"],a:0,e:"The dry bearing fails and the lubricated one lasts. That opposition calls for a contrast signal."}
+]},
+{title:"Passage 4 — Hydraulic systems",
+ text:"A hydraulic system transmits force through a confined __15__. Because liquids are very nearly incompressible, pressure applied at one point is __16__ equally in every direction. This lets a small force on a small piston lift a heavy load on a larger piston, provided the smaller piston travels a __17__ distance. Air trapped in the lines compresses under load and makes the controls feel spongy, so a technician must __18__ the system after any repair. Fluid levels should also be checked __19__, because a slow leak can go unnoticed until performance drops off.",
+ qs:[
+ {o:["fluid","vacuum","spring","wire"],a:0,e:"Hydraulics work through a confined liquid, and the next sentence talks about liquids."},
+ {o:["transmitted","absorbed","reversed","wasted"],a:0,e:"Pressure in a confined fluid is passed along undiminished in all directions."},
+ {o:["greater","shorter","equal","random"],a:0,e:"Force is multiplied at the cost of distance, so the small piston must move farther."},
+ {o:["bleed","paint","weigh","shorten"],a:0,e:"Removing trapped air from hydraulic lines is called bleeding the system."},
+ {o:["regularly","rarely","accidentally","never"],a:0,e:"A slow leak is only caught by routine checking."}
+]},
+{title:"Passage 5 — Talking through the work",
+ text:"Clear communication prevents more accidents than any single piece of equipment. When a mechanic gives a helper a task, the helper should repeat it back so that any __20__ is caught right away. Vague phrases such as \u201cover there\u201d or \u201cin a minute\u201d leave far too much room for __21__. Written notes carry the further __22__ of leaving a record the next shift can read. Crews that communicate well waste less material, finish sooner and __23__ fewer callbacks.",
+ qs:[
+ {o:["misunderstanding","agreement","delivery","promotion"],a:0,e:"Repeating an instruction back is done to catch a misunderstanding."},
+ {o:["interpretation","certainty","equipment","measurement"],a:0,e:"Vague wording is the opposite of certainty, so it invites differing interpretation."},
+ {o:["advantage","expense","weight","danger"],a:0,e:"The sentence adds a further benefit of written notes, so advantage fits."},
+ {o:["generate","celebrate","request","require"],a:0,e:"Good crews produce fewer callbacks. Generate matches the list of positive results."}
+]},
+{title:"Passage 6 — Codes and inspections",
+ text:"Elevator equipment is governed by codes revised on a regular __24__. An installation that met every requirement ten years ago may no longer be __25__ today, and an inspector is obliged to cite it. Rather than treating the updates as a nuisance, experienced mechanics read them as a __26__ of lessons learned from past failures. Keeping a current copy of the applicable code on hand is therefore __27__ for anyone who signs off on work.",
+ qs:[
+ {o:["schedule","accident","opinion","distance"],a:0,e:"Something revised regularly follows a schedule."},
+ {o:["compliant","expensive","visible","painted"],a:0,e:"The subject is meeting code requirements, so the word needed is compliant."},
+ {o:["record","rejection","shortage","disguise"],a:0,e:"Lessons learned from past failures are preserved as a record."},
+ {o:["essential","optional","forbidden","temporary"],a:0,e:"The word therefore draws a conclusion: the code book is necessary, not optional."}
+]},
+{title:"Passage 7 — Circuits",
+ text:"Current flows through a circuit only when the path is __28__. Opening a switch creates a gap and the current stops. Resistance __29__ the flow of current, and the energy spent overcoming it shows up as heat in the conductor. A conductor too small for its load will therefore run hot, which is why wire is __30__ according to the current it has to carry. Before working on any circuit a technician confirms it is de-energized, because a meter reading is far more reliable than an __31__.",
+ qs:[
+ {o:["complete","broken","painted","vertical"],a:0,e:"Current needs an unbroken path; the next sentence describes what happens when a gap is made."},
+ {o:["opposes","increases","stores","creates"],a:0,e:"Resistance works against current flow, and that opposition produces heat."},
+ {o:["sized","labeled","bent","coiled"],a:0,e:"Wire is selected by gauge for the current it carries, which is sizing."},
+ {o:["assumption","instrument","inspection","agreement"],a:0,e:"A meter reading is contrasted with simply assuming the circuit is dead."}
+]}
+];
+/* standalone items 32-35 */
+var READING_SOLO=[
+ {q:"Although the replacement part arrived late, the crew was able to ______ the schedule by working through the afternoon.",
+  o:["recover","recovery","recovering","recovered"],a:0,e:"After \u201cable to\u201d an English verb takes its base form: able to recover."},
+ {q:"Which word is spelled correctly?",
+  o:["maintenence","maintanance","maintenance","maintainance"],a:2,e:"The correct spelling is maintenance: main-ten-ance."},
+ {q:"Neither of the two hoistway doors ______ properly aligned.",
+  o:["were","was","have been","are"],a:1,e:"Neither is singular, so it takes the singular verb was. The phrase \u201cof the two doors\u201d does not change that."},
+ {q:"The supervisor's instructions were concise. Concise most nearly means:",
+  o:["brief and clear","loud and firm","long and detailed","vague and uncertain"],a:0,e:"Concise means saying much in few words \u2014 brief and clear."}
+];
+
+/* ============================================================
+   PART 3 — MATHEMATICS (30 items, option e = No answer)
+   ============================================================ */
+var NOANS="No answer";
+var MATH=[
+ {m:"148.8 \u00F7 6.2 =",o:["2.4","24","240","0.24"],a:1,e:"Move both decimals one place: 1488 \u00F7 62 = 24."},
+ {m:"3\u00BD \u00D7 \u2154 =",o:["2\u2153","2\u215A","3\u2153","1\u2154"],a:0,e:"7/2 \u00D7 2/3 = 14/6 = 7/3 = 2\u2153."},
+ {m:"\u215D + \u00BE =",o:["1\u215C","1\u215B","\u215E","1\u00BD"],a:0,e:"Common denominator 8: 5/8 + 6/8 = 11/8 = 1\u215C."},
+ {m:"\u215E \u2212 \u2153 =",o:["6/5","1/2","13/24","11/24"],a:2,e:"Common denominator 24: 21/24 \u2212 8/24 = 13/24."},
+ {m:"0.045 \u00D7 200 =",o:["0.9","9","90","4.5"],a:1,e:"45 \u00D7 200 = 9000, then move the decimal three places: 9."},
+ {q:"18 is what percent of 45?",o:["25%","36%","40%","45%"],a:2,e:"18 \u00F7 45 = 0.40, which is 40%."},
+ {q:"What is 15% of 340?",o:["41","51","5.1","55"],a:1,e:"10% is 34 and 5% is 17. 34 + 17 = 51."},
+ {q:"A cable is 27 ft 8 in long. If 9 ft 11 in is cut off, how much is left?",o:["17 ft 9 in","18 ft 3 in","17 ft 3 in","18 ft 9 in"],a:0,e:"332 in \u2212 119 in = 213 in, and 213 \u00F7 12 = 17 ft 9 in."},
+ {q:"A 12-tooth gear drives a 36-tooth gear. Written in lowest terms, the gear ratio is:",o:["1:2","1:3","2:3","3:1"],a:1,e:"Divide both by 12: 12:36 becomes 1:3."},
+ {m:"Solve:  4x \u2212 7 = 29",o:["5.5","9","7","36"],a:1,e:"Add 7 to get 4x = 36, then divide by 4: x = 9."},
+ {m:"Solve:  3(x + 2) = 21",o:["5","7","9","6.33"],a:0,e:"Divide both sides by 3: x + 2 = 7, so x = 5."},
+ {m:"(8 + 4) \u00F7 3 \u00D7 2 \u2212 5 =",o:["1","3","5","8"],a:1,e:"Parentheses first: 12 \u00F7 3 = 4, \u00D7 2 = 8, \u2212 5 = 3."},
+ {m:"5 + 3 \u00D7 4\u00B2 =",o:["53","128","77","37"],a:0,e:"Exponent first: 4\u00B2 = 16. Then 3 \u00D7 16 = 48, plus 5 = 53."},
+ {q:"Written as a decimal, \u215D equals:",o:["0.58","0.625","0.85","1.6"],a:1,e:"5 \u00F7 8 = 0.625."},
+ {m:"2\u00BE \u00F7 \u00BD =",o:["1\u215C","5\u00BD","4\u00BD","6"],a:1,e:"Invert and multiply: 11/4 \u00D7 2/1 = 22/4 = 5\u00BD."},
+ {q:"A crew installs 3 elevators in 12 days. Working at the same rate, how many days will 7 elevators take?",o:["21","24","28","30"],a:2,e:"12 \u00F7 3 = 4 days each, and 4 \u00D7 7 = 28 days."},
+ {q:"A motor turns at 1,200 rpm and drives a machine through a 3:1 speed reduction. The machine turns at:",o:["300 rpm","360 rpm","400 rpm","3,600 rpm"],a:2,e:"A 3:1 reduction divides the speed by 3: 1,200 \u00F7 3 = 400 rpm."},
+ {q:"What is the area of a rectangle 8.5 ft by 6 ft?",o:["29 sq ft","51 sq ft","14.5 sq ft","48 sq ft"],a:1,e:"Area is length \u00D7 width: 8.5 \u00D7 6 = 51 sq ft."},
+ {q:"What is the perimeter of a rectangle 12 ft by 7.5 ft?",o:["39 ft","90 ft","19.5 ft","45 ft"],a:0,e:"Perimeter is 2(12) + 2(7.5) = 24 + 15 = 39 ft."},
+ {q:"A load weighs 1,250 lb. A cable must be rated for 5 times the load. The rating needed is:",o:["5,250 lb","6,250 lb","6,000 lb","62,500 lb"],a:1,e:"1,250 \u00D7 5 = 6,250 lb."},
+ {q:"A part's cost rises from $80 to $100. That is an increase of:",o:["20%","25%","80%","125%"],a:1,e:"The increase is $20 measured against the original $80: 20 \u00F7 80 = 25%."},
+ {m:"\u00BE of 128 =",o:["86","96","94","102"],a:1,e:"128 \u00F7 4 = 32, and 32 \u00D7 3 = 96."},
+ {m:"0.6 \u00F7 0.02 =",o:["3","30","300","0.3"],a:1,e:"Move both decimals two places: 60 \u00F7 2 = 30."},
+ {q:"A worker earns $28.50 an hour and works 38 hours. Gross pay is:",o:["$1,083.00","$1,038.00","$1,140.00","$980.50"],a:0,e:"28.50 \u00D7 38 = 28.50 \u00D7 40 \u2212 28.50 \u00D7 2 = 1,140 \u2212 57 = $1,083.00."},
+ {m:"7.5 \u00D7 2.4 =",o:["16.5","17.5","18.5","19.2"],a:4,e:"75 \u00D7 24 = 1,800, so the product is 18.0. That is not offered, so the answer is No answer."},
+ {m:"\u2079\u2044\u2081\u2080 \u2212 \u2158 =",o:["7/5","3/5","2/5","7/10"],a:4,e:"9/10 \u2212 4/10 = 5/10 = 1/2. That is not offered, so the answer is No answer."},
+ {m:"Solve:  x \u00F7 6 = 4.5",o:["0.75","10.5","24","30"],a:4,e:"Multiply both sides by 6: x = 27. That is not offered, so the answer is No answer."},
+ {q:"A 240-gallon tank fills at 15 gallons per minute. How long does it take to fill?",o:["14 min","15 min","16 min","18 min"],a:2,e:"240 \u00F7 15 = 16 minutes."},
+ {q:"How many inches are in 3 ft 6 in?",o:["36","38","42","46"],a:2,e:"3 \u00D7 12 = 36, plus 6 = 42 inches."},
+ {q:"Pressure equals force divided by area (P = F \u00F7 A). If F = 180 lb and A = 9 sq in, then P equals:",o:["20 psi","1,620 psi","0.05 psi","2 psi"],a:0,e:"180 \u00F7 9 = 20 pounds per square inch."}
+];
+
+/* ============================================================
+   PART 2 — MECHANICAL COMPREHENSION (35 diagram items, 3 choices)
+   ============================================================ */
+var DIR3=["Clockwise","Counterclockwise","It will not turn"];
+
+function fig(i,h){return S(i,320,h||150);}
+function pulleyWheel(cx,cy,r){return '<circle class="ln" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/><circle class="solid" cx="'+cx+'" cy="'+cy+'" r="3"/>';}
+
+var MECH=[
+/* 1 */ {d:fig(gear(88,78,34,14,'A')+gear(170,78,34,14,'B')+spin(88,78,23,true)),
+ q:"Gear A turns clockwise, as the arrow shows. Which way does gear B turn?",o:DIR3,a:1,
+ e:"Meshed gears always turn in opposite directions. Where the teeth touch, one gear's teeth push the other's the other way."},
+/* 2 */ {d:fig(gear(74,72,24,10,'A')+gear(160,72,44,26,'B')+'<text x="74" y="124">10 teeth</text><text x="160" y="132">30 teeth</text>',150),
+ q:"Gear A has 10 teeth and drives gear B, which has 30 teeth. Gear B turns:",
+ o:["Faster than gear A","Slower than gear A","At the same speed as gear A"],a:1,
+ e:"The larger gear needs three of A's turns to complete one of its own, so it turns a third as fast. Bigger gear, slower speed."},
+/* 3 */ {d:fig(gear(56,78,25,12,'A')+gear(118,78,25,12,'B')+gear(180,78,25,12,'C')+spin(56,78,17,true)),
+ q:"Gear A turns clockwise. Which way does gear C turn?",o:DIR3,a:0,
+ e:"Each mesh reverses direction. A clockwise makes B counterclockwise, which makes C clockwise again. Odd-numbered gears match the first."},
+/* 4 */ {d:fig(pulleyWheel(82,74,30)+pulleyWheel(216,74,30)+'<line class="ln" x1="82" y1="44" x2="216" y2="44"/><line class="ln" x1="82" y1="104" x2="216" y2="104"/>'+spin(82,74,18,true)+'<text x="82" y="128">A</text><text x="216" y="128">B</text>'),
+ q:"Pulley A drives pulley B through an ordinary uncrossed belt. Pulley A turns clockwise. Which way does B turn?",o:DIR3,a:0,
+ e:"A straight belt carries motion without reversing it, so both pulleys turn the same way."},
+/* 5 */ {d:fig(pulleyWheel(82,74,30)+pulleyWheel(216,74,30)+'<line class="ln" x1="82" y1="44" x2="216" y2="104"/><line class="ln" x1="82" y1="104" x2="216" y2="44"/>'+spin(82,74,18,true)+'<text x="82" y="128">A</text><text x="216" y="128">B</text>'),
+ q:"The same two pulleys are now connected by a crossed belt. Pulley A turns clockwise. Which way does B turn?",o:DIR3,a:1,
+ e:"Crossing the belt swaps which side of each pulley the belt pulls on, so the driven pulley turns the opposite way."},
+/* 6 */ {d:fig(pulleyWheel(74,76,42)+pulleyWheel(228,76,20)+'<line class="ln" x1="74" y1="34" x2="228" y2="56"/><line class="ln" x1="74" y1="118" x2="228" y2="96"/>'+spin(74,76,24,true)+'<text x="74" y="140">driver</text><text x="228" y="128">driven</text>'),
+ q:"A large pulley drives a small pulley by a belt. The small pulley turns:",
+ o:["Faster than the driver","Slower than the driver","At the same speed as the driver"],a:0,
+ e:"The belt moves at one speed, and the small pulley has less distance around it, so it must spin more times to keep up."},
+/* 7 */ {d:fig(ceil(60,260,14)+'<line class="ln" x1="160" y1="14" x2="160" y2="26"/>'+pulleyWheel(160,44,18)+'<line class="ln" x1="142" y1="44" x2="142" y2="96"/>'+wt(122,96,40,26,'100 lb')+'<line class="ln" x1="178" y1="44" x2="178" y2="104"/>'+arr(178,108,178,130)+'<text x="212" y="124">pull</text>'),
+ q:"A 100 lb load hangs from a single fixed pulley bolted to the ceiling. About how much force is needed to lift it?",
+ o:["About 50 lb","About 100 lb","About 200 lb"],a:1,
+ e:"A fixed pulley only changes the direction of your pull. It gives no mechanical advantage, so you still pull the full 100 lb."},
+/* 8 */ {d:fig(ceil(60,260,14)+'<line class="ln" x1="112" y1="14" x2="112" y2="78"/>'+pulleyWheel(140,78,20)+'<line class="ln" x1="168" y1="78" x2="168" y2="20"/>'+arr(200,40,200,18)+'<text x="228" y="36">pull</text>'+'<line class="ln" x1="140" y1="98" x2="140" y2="108"/>'+wt(120,108,40,26,'100 lb')),
+ q:"The same 100 lb load now hangs from a movable pulley. About how much force is needed to lift it?",
+ o:["About 50 lb","About 100 lb","About 200 lb"],a:0,
+ e:"Two rope sections support the load, so each carries half the weight and you pull about 50 lb \u2014 but you pull twice as much rope."},
+/* 9 */ {d:fig(ceil(60,260,12)+'<rect class="ln" x="112" y="20" width="72" height="14"/>'+'<rect class="ln" x="112" y="88" width="72" height="14"/>'+'<line class="ln" x1="126" y1="34" x2="126" y2="88"/><line class="ln" x1="146" y1="34" x2="146" y2="88"/><line class="ln" x1="166" y1="34" x2="166" y2="88"/><line class="ln" x1="184" y1="34" x2="184" y2="88"/>'+'<line class="ln" x1="184" y1="34" x2="216" y2="34"/>'+arr(216,38,216,66)+'<text x="248" y="58">pull</text>'+'<line class="ln" x1="148" y1="102" x2="148" y2="110"/>'+wt(126,110,44,26,'200 lb')),
+ q:"A block and tackle has four rope sections supporting the load. About how much force lifts the 200 lb load?",
+ o:["About 50 lb","About 100 lb","About 200 lb"],a:0,
+ e:"Count the rope sections holding the load. Four sections share 200 lb, so each carries 50 lb and that is what you pull."},
+/* 10 */ {d:fig(ceil(24,150,12)+'<line class="ln" x1="86" y1="12" x2="86" y2="24"/>'+pulleyWheel(86,40,16)+'<line class="ln" x1="70" y1="40" x2="70" y2="86"/>'+wt(52,86,36,22,'box')+'<line class="ln" x1="102" y1="40" x2="102" y2="100"/>'+arr(102,104,102,124)+'<text x="86" y="142">A</text>'+
+ ceil(178,300,12)+'<line class="ln" x1="206" y1="12" x2="206" y2="64"/>'+pulleyWheel(232,64,16)+'<line class="ln" x1="258" y1="64" x2="258" y2="18"/>'+arr(282,42,282,20)+'<line class="ln" x1="232" y1="80" x2="232" y2="88"/>'+wt(214,88,36,22,'box')+'<text x="238" y="142">B</text>'),
+ q:"Both ropes are pulled in at the same speed. Which system raises its box faster?",
+ o:["System A","System B","Both rise at the same speed"],a:0,
+ e:"In A the box rises as fast as the rope moves. In B the rope splits between two sections, so the box rises only half as fast \u2014 the trade for the easier pull."},
+/* 11 */ {d:fig('<polygon class="ln" points="160,104 146,128 174,128"/>'+'<line class="ln" x1="36" y1="104" x2="284" y2="104"/>'+'<line class="thin" x1="70" y1="104" x2="70" y2="46"/><line class="thin" x1="160" y1="104" x2="160" y2="46"/><line class="thin" x1="216" y1="104" x2="216" y2="46"/>'+'<line class="ln" x1="70" y1="52" x2="160" y2="52"/><line class="ln" x1="160" y1="52" x2="216" y2="52"/>'+'<text x="115" y="44">3 ft</text><text x="188" y="44">2 ft</text>'+wt(50,66,40,24,'60 lb')+'<rect class="grey" x="196" y="66" width="40" height="24"/><text class="big" x="216" y="83">?</text>'),
+ q:"A 60 lb weight sits 3 ft from the fulcrum. What weight 2 ft out on the other side will balance the bar?",
+ o:["40 lb","90 lb","120 lb"],a:1,
+ e:"Weight times distance must match on both sides. 60 \u00D7 3 = 180, and 180 \u00F7 2 = 90 lb."},
+/* 12 */ {d:fig(grnd(20,300,126)+wt(36,86,54,40,'load')+'<line class="ln" x1="30" y1="96" x2="272" y2="52"/>'+'<polygon class="ln" points="104,104 92,126 116,126"/><text x="104" y="140">A</text>'+'<polygon class="thin" points="210,84 198,126 222,126"/><text x="210" y="140">B</text>'+arr(268,44,268,22)),
+ q:"You are prying up the load with a bar. Which fulcrum position makes the lift easiest?",
+ o:["Position A, close to the load","Position B, close to your hands","Neither; the effort is the same"],a:0,
+ e:"The closer the fulcrum sits to the load, the longer the effort arm and the greater the advantage. Put the fulcrum near what you are lifting."},
+/* 13 */ {d:fig(grnd(16,304,124)+pulleyWheel(62,106,18)+'<line class="ln" x1="62" y1="88" x2="252" y2="56"/><line class="ln" x1="80" y1="72" x2="200" y2="60"/><line class="ln" x1="80" y1="72" x2="80" y2="92"/>'+'<rect class="grey" x="96" y="48" width="46" height="26"/><text x="119" y="66">load</text>'+arr(180,40,120,50)+'<text x="252" y="44">lift</text>'),
+ q:"The load in the wheelbarrow is shifted forward, closer to the wheel. Lifting the handles becomes:",
+ o:["Easier","Harder","Exactly the same"],a:0,
+ e:"The wheel is the fulcrum. Moving the load toward it shortens the load's arm, so less effort is needed at the handles."},
+/* 14 */ {d:fig('<line class="ln" x1="40" y1="60" x2="280" y2="60"/>'+'<line class="ln" x1="64" y1="60" x2="64" y2="120"/><circle class="ln" cx="64" cy="48" r="11"/><text x="64" y="138">A</text>'+'<line class="ln" x1="256" y1="60" x2="256" y2="120"/><circle class="ln" cx="256" cy="48" r="11"/><text x="256" y="138">B</text>'+wt(104,24,52,30,'load')+grnd(20,300,124)),
+ q:"Two workers carry a plank with a load resting nearer worker A. Who carries more of the weight?",
+ o:["Worker A","Worker B","They carry the same amount"],a:0,
+ e:"The nearer end of a carried load always takes the larger share. Move the load to the middle and they split it evenly."},
+/* 15 */ {d:fig(grnd(14,306,120)+'<polygon class="ln" points="20,120 150,120 150,56 20,120"/><text x="92" y="136">ramp A</text>'+'<polygon class="ln" points="192,120 292,120 292,56 192,120"/><text x="242" y="136">ramp B</text>'+'<line class="thin" x1="150" y1="56" x2="176" y2="56"/><line class="thin" x1="292" y1="56" x2="306" y2="56"/><text x="176" y="46">same height</text>'),
+ q:"Two ramps reach the same height. Which takes less force to push a heavy barrel up?",
+ o:["Ramp A, the longer one","Ramp B, the shorter one","Both take the same force"],a:0,
+ e:"A longer ramp is less steep, so the same height is gained over more distance and less force is needed at each moment."},
+/* 16 */ {d:fig('<line class="ln" x1="16" y1="16" x2="16" y2="118"/>'+grnd(10,310,118)+'<line class="ln" x1="16" y1="24" x2="72" y2="118"/><line class="ln" x1="26" y1="24" x2="82" y2="118"/><text x="70" y="136">A</text>'+'<line class="ln" x1="170" y1="16" x2="170" y2="118"/><line class="ln" x1="170" y1="26" x2="290" y2="118"/><line class="ln" x1="178" y1="18" x2="298" y2="110"/><text x="250" y="136">B</text>'),
+ q:"Two ladders lean against a wall. Which is more likely to slip out at the bottom?",
+ o:["Ladder A, the steeper one","Ladder B, the shallower one","Both are equally likely to slip"],a:1,
+ e:"The flatter the ladder, the harder it pushes outward along the floor, and friction at the base has more to fight. Steeper is more secure."},
+/* 17 */ {d:fig(grnd(14,306,124)+'<rect class="grey" x="56" y="34" width="40" height="90"/><text x="76" y="140">A</text>'+'<rect class="grey" x="184" y="86" width="92" height="38"/><text x="230" y="140">B</text>'+'<line class="thin" x1="76" y1="34" x2="76" y2="124"/><line class="thin" x1="230" y1="86" x2="230" y2="124"/>'),
+ q:"Two containers weigh the same. Which tips over more easily if the floor is bumped?",
+ o:["Box A, tall and narrow","Box B, short and wide","Both tip at the same point"],a:0,
+ e:"A tall narrow box has a high center of gravity and a small base, so a small tilt puts its weight past the edge."},
+/* 18 */ {d:fig('<path class="ln" d="M44 52 L44 106 L276 106 L276 40"/><path class="ln" d="M92 52 L92 78 L228 78 L228 40"/>'+'<rect class="solid" x="44" y="46" width="48" height="8"/><line class="ln" x1="68" y1="46" x2="68" y2="20"/>'+'<rect class="solid" x="228" y="34" width="48" height="8"/><line class="ln" x1="252" y1="34" x2="252" y2="14"/>'+'<text x="68" y="126">1 sq in</text><text x="252" y="126">10 sq in</text>'+arr(68,14,68,36)+'<text x="112" y="16">20 lb</text>'),
+ q:"A 20 lb force presses on the small piston. About how much force does the large piston deliver?",
+ o:["2 lb","20 lb","200 lb"],a:2,
+ e:"Pressure is the same throughout the fluid: 20 lb on 1 sq in is 20 psi. Acting on 10 sq in, that gives 20 \u00D7 10 = 200 lb."},
+/* 19 */ {d:fig('<path class="ln" d="M44 52 L44 106 L276 106 L276 40"/><path class="ln" d="M92 52 L92 78 L228 78 L228 40"/>'+'<rect class="solid" x="44" y="46" width="48" height="8"/><rect class="solid" x="228" y="34" width="48" height="8"/>'+'<text x="68" y="126">1 sq in</text><text x="252" y="126">10 sq in</text>'+arr(68,18,68,40)+arr(252,26,252,16)),
+ q:"In that same hydraulic jack, the large piston moves:",
+ o:["Farther than the small piston","Less than the small piston","Exactly as far as the small piston"],a:1,
+ e:"You never get something for nothing. The force is multiplied ten times, so the distance is cut to a tenth."},
+/* 20 */ {d:fig('<path class="ln" d="M30 30 L30 122 L134 122 L134 30"/><rect class="grey" x="30" y="58" width="104" height="64"/><text x="82" y="140">wide tank</text>'+'<path class="ln" d="M204 30 L204 122 L248 122 L248 30"/><rect class="grey" x="204" y="58" width="44" height="64"/><text x="226" y="140">narrow tank</text>'+'<line class="thin" x1="134" y1="58" x2="204" y2="58"/><text x="169" y="50">same depth</text>'),
+ q:"Both tanks are filled with water to the same depth. The water pressure at the bottom is:",
+ o:["Greater in the wide tank","Greater in the narrow tank","The same in both tanks"],a:2,
+ e:"Pressure in a liquid depends only on depth, not on how much water sits above. Same depth means same pressure at the bottom."},
+/* 21 */ {d:fig(ceil(20,300,14)+spring(76,14,72,6,9)+'<line class="ln" x1="76" y1="72" x2="76" y2="80"/>'+wt(52,80,48,26,'50 lb')+'<text x="76" y="126">A</text>'+
+ spring(206,14,72,6,9)+spring(250,14,72,6,9)+'<line class="ln" x1="206" y1="72" x2="206" y2="80"/><line class="ln" x1="250" y1="72" x2="250" y2="80"/>'+wt(196,80,64,26,'50 lb')+'<text x="228" y="126">B</text>'),
+ q:"Setup B hangs the same 50 lb load from two identical springs side by side. Compared with setup A, the springs in B:",
+ o:["Stretch more","Stretch less","Stretch the same amount"],a:1,
+ e:"Two springs side by side each carry only 25 lb, so each stretches half as far as the single spring carrying the whole load."},
+/* 22 */ {d:fig(ceil(20,300,14)+spring(96,14,74,6,9)+'<line class="ln" x1="96" y1="74" x2="96" y2="82"/>'+wt(72,82,48,26,'50 lb')+'<text x="96" y="128">A</text>'+
+ spring(224,14,58,4,9)+spring(224,58,102,4,9)+'<line class="ln" x1="224" y1="102" x2="224" y2="110"/>'+wt(200,110,48,26,'50 lb')+'<text x="224" y="146">B</text>',152),
+ q:"Setup B hangs the same 50 lb load from two identical springs joined end to end. Compared with setup A, the load in B hangs:",
+ o:["Lower, because the springs stretch more in total","Higher, because the springs stretch less in total","At exactly the same height"],a:0,
+ e:"Springs end to end each feel the full 50 lb, so each stretches the full amount and the stretches add up."},
+/* 23 */ {d:fig(ceil(20,300,14)+spring(110,14,64,6,9)+'<line class="ln" x1="110" y1="64" x2="110" y2="72"/>'+wt(86,72,48,26,'10 lb')+'<line class="thin" x1="110" y1="14" x2="188" y2="14"/><line class="thin" x1="110" y1="64" x2="188" y2="64"/>'+arr(180,20,180,58)+'<text x="216" y="44">2 in</text>'),
+ q:"A 10 lb weight stretches this spring 2 inches. If a 20 lb weight is hung on it instead, the spring stretches about:",
+ o:["2 inches","4 inches","8 inches"],a:1,
+ e:"A spring stretches in proportion to the pull. Double the weight, double the stretch: 4 inches."},
+/* 24 */ {d:fig(gear(160,58,34,14,'')+spin(160,58,20,true)+'<rect class="ln" x="40" y="104" width="240" height="20"/>'+'<g class="ln"><line x1="60" y1="104" x2="60" y2="94"/><line x1="80" y1="104" x2="80" y2="94"/><line x1="100" y1="104" x2="100" y2="94"/><line x1="120" y1="104" x2="120" y2="94"/><line x1="140" y1="104" x2="140" y2="94"/><line x1="160" y1="104" x2="160" y2="94"/><line x1="180" y1="104" x2="180" y2="94"/><line x1="200" y1="104" x2="200" y2="94"/><line x1="220" y1="104" x2="220" y2="94"/><line x1="240" y1="104" x2="240" y2="94"/></g>'+'<text x="160" y="140">toothed bar</text>'),
+ q:"The round gear turns clockwise against the toothed bar below it. Which way does the bar slide?",
+ o:["To the left","To the right","It will not move"],a:0,
+ e:"Look at the bottom of the gear, where the teeth meet the bar. On a clockwise gear the bottom travels left, dragging the bar left with it."},
+/* 25 */ {d:fig('<circle class="ln" cx="150" cy="70" r="52"/><circle class="ln" cx="150" cy="70" r="20"/><circle class="solid" cx="150" cy="70" r="3"/>'+'<line class="ln" x1="202" y1="70" x2="202" y2="120"/>'+arr(202,96,202,124)+'<text x="236" y="118">effort</text>'+'<line class="ln" x1="130" y1="70" x2="130" y2="110"/>'+wt(110,110,40,24,'load')),
+ q:"The rope you pull is wrapped around the large outer wheel; the load hangs from the small inner axle. Making the outer wheel larger gives:",
+ o:["More lifting force for the same effort","Less lifting force for the same effort","No change in lifting force"],a:0,
+ e:"A bigger wheel means a longer lever arm for your pull against the same axle, so the advantage grows \u2014 at the cost of pulling more rope."},
+/* 26 */ {d:fig('<circle class="ln" cx="60" cy="44" r="14"/><rect class="ln" x="60" y="37" width="150" height="14"/><text x="135" y="26">wrench A</text>'+'<circle class="ln" cx="60" cy="104" r="14"/><rect class="ln" x="60" y="97" width="70" height="14"/><text x="100" y="86">wrench B</text>'+arr(206,60,206,80)+arr(126,120,126,136)),
+ q:"Both wrenches fit the same stubborn nut. Which loosens it with less effort from your hand?",
+ o:["Wrench A, the longer one","Wrench B, the shorter one","Both take the same effort"],a:0,
+ e:"Turning force is your push multiplied by the handle length. A longer handle produces more torque from the same hand force."},
+/* 27 */ {d:fig('<line class="ln" x1="70" y1="30" x2="70" y2="120"/><line class="ln" x1="94" y1="30" x2="94" y2="120"/>'+'<g class="ln"><line x1="70" y1="40" x2="94" y2="46"/><line x1="70" y1="52" x2="94" y2="58"/><line x1="70" y1="64" x2="94" y2="70"/><line x1="70" y1="76" x2="94" y2="82"/><line x1="70" y1="88" x2="94" y2="94"/><line x1="70" y1="100" x2="94" y2="106"/></g><text x="82" y="138">fine</text>'+
+ '<line class="ln" x1="212" y1="30" x2="212" y2="120"/><line class="ln" x1="236" y1="30" x2="236" y2="120"/>'+'<g class="ln"><line x1="212" y1="48" x2="236" y2="60"/><line x1="212" y1="76" x2="236" y2="88"/><line x1="212" y1="104" x2="236" y2="116"/></g><text x="224" y="138">coarse</text>'),
+ q:"Compared with the coarse screw, one full turn of the fine-threaded screw drives it:",
+ o:["A shorter distance into the material","A longer distance into the material","Exactly the same distance"],a:0,
+ e:"Threads closer together advance less per turn. That is why fine threads turn more easily but need more turns."},
+/* 28 */ {d:fig('<g class="ln"><line x1="16" y1="96" x2="150" y2="96"/></g>'+'<g class="ln"><line x1="20" y1="96" x2="26" y2="104"/><line x1="34" y1="96" x2="40" y2="104"/><line x1="48" y1="96" x2="54" y2="104"/><line x1="62" y1="96" x2="68" y2="104"/><line x1="76" y1="96" x2="82" y2="104"/><line x1="90" y1="96" x2="96" y2="104"/><line x1="104" y1="96" x2="110" y2="104"/><line x1="118" y1="96" x2="124" y2="104"/><line x1="132" y1="96" x2="138" y2="104"/></g>'+'<rect class="grey" x="54" y="60" width="52" height="36"/><text x="80" y="82">A</text><text x="80" y="126">rough</text>'+arr(24,78,48,78)+
+ '<line class="ln" x1="176" y1="96" x2="306" y2="96"/><rect class="grey" x="214" y="60" width="52" height="36"/><text x="240" y="82">B</text><text x="240" y="126">smooth</text>'+arr(184,78,208,78)),
+ q:"The two blocks are identical. Which needs more force to start sliding?",
+ o:["Block A, on the rough surface","Block B, on the smooth surface","Both need the same force"],a:0,
+ e:"A rougher surface produces more friction, and friction is what your push has to overcome before the block moves."},
+/* 29 */ {d:fig(ceil(30,290,14)+'<line class="ln" x1="86" y1="14" x2="86" y2="110"/><circle class="grey" cx="86" cy="118" r="12"/><text x="86" y="142">A</text>'+'<line class="ln" x1="230" y1="14" x2="230" y2="62"/><circle class="grey" cx="230" cy="70" r="12"/><text x="230" y="142">B</text>'+'<path class="thin" d="M56 110 A 40 40 0 0 0 116 110"/><path class="thin" d="M206 64 A 26 26 0 0 0 254 64"/>',152),
+ q:"Two pendulums are released together. Pendulum A, the longer one:",
+ o:["Swings back and forth more slowly","Swings back and forth more quickly","Swings at exactly the same rate as B"],a:0,
+ e:"A longer pendulum takes longer to complete each swing. Its weight does not matter \u2014 only its length."},
+/* 30 */ {d:fig(gear(78,74,26,12,'A')+gear(178,74,48,22,'B')+'<text x="78" y="126">small</text><text x="178" y="136">large</text>'),
+ q:"These two gears are meshed and running. Which one delivers more turning force at its shaft?",
+ o:["Gear B, the large one","Gear A, the small one","Both deliver the same turning force"],a:0,
+ e:"Gears trade speed for force. The large gear turns slower, and what it gives up in speed it gains in torque."},
+/* 31 */ {d:fig(pulleyWheel(86,74,28)+pulleyWheel(214,74,28)+'<line class="ln" x1="86" y1="46" x2="214" y2="46"/><line class="ln" x1="86" y1="102" x2="214" y2="102"/><line class="thin" x1="86" y1="50" x2="214" y2="50"/><line class="thin" x1="86" y1="98" x2="214" y2="98"/>'+spin(86,74,17,false)+'<text x="86" y="128">A</text><text x="214" y="128">B</text>'),
+ q:"Sprocket A drives sprocket B through a chain. Sprocket A turns counterclockwise. Which way does B turn?",o:DIR3,a:1,
+ e:"A chain runs like an uncrossed belt and does not reverse anything, so both sprockets turn the same way."},
+/* 32 */ {d:fig('<line class="ln" x1="150" y1="34" x2="150" y2="66"/><rect class="grey" x="134" y="18" width="32" height="16"/>'+'<ellipse class="ln" cx="150" cy="90" rx="54" ry="30"/><circle class="solid" cx="150" cy="90" r="4"/><circle class="ln" cx="150" cy="90" r="10"/>'+'<text x="240" y="94">cam</text><text x="150" y="140">one lobe</text>'+arr(196,34,196,16)),
+ q:"The oval cam turns on its shaft and pushes the follower rod up and down. In one full turn of the cam, the follower rises:",
+ o:["Once","Twice","It does not rise at all"],a:1,
+ e:"An oval has two long sides. Each one sweeps past the follower in a single revolution, so the follower is pushed up twice per turn."},
+/* 33 */ {d:fig('<path class="ln" d="M40 26 L40 126 L280 126 L280 26"/>'+'<rect class="grey" x="40" y="76" width="240" height="50"/><text x="230" y="68">water rising</text>'+'<circle class="ln" cx="196" cy="72" r="16"/>'+'<line class="ln" x1="180" y1="72" x2="92" y2="52"/><circle class="solid" cx="92" cy="52" r="4"/>'+'<rect class="ln" x="56" y="34" width="36" height="20"/><text x="74" y="26">valve</text>'+arr(196,44,196,32)),
+ q:"As the tank fills, the float rises and swings the lever. The valve:",
+ o:["Closes, slowing or stopping the flow","Opens further, speeding up the flow","Is unaffected by the float"],a:0,
+ e:"That is the point of a float valve: rising water lifts the float, the lever pushes the valve shut, and the tank stops filling."},
+/* 34 */ {d:fig('<path class="ln" d="M20 40 L150 40 L200 66 L300 66"/><path class="ln" d="M20 110 L150 110 L200 84 L300 84"/>'+arr(50,76,96,76)+arr(238,76,286,76)+'<text x="80" y="30">wide</text><text x="250" y="52">narrow</text>'),
+ q:"Water flows steadily through this pipe. In the narrow section the water moves:",
+ o:["Faster than in the wide section","Slower than in the wide section","At the same speed as in the wide section"],a:0,
+ e:"The same amount of water must pass every second. Squeezed into a smaller opening, it has to travel faster."},
+/* 35 */ {d:fig(ceil(20,148,14)+'<line class="ln" x1="72" y1="14" x2="82" y2="80"/><line class="ln" x1="96" y1="14" x2="86" y2="80"/>'+wt(64,80,40,26,'100 lb')+'<text x="84" y="130">A</text>'+
+ ceil(176,306,14)+'<line class="ln" x1="182" y1="14" x2="236" y2="80"/><line class="ln" x1="298" y1="14" x2="244" y2="80"/>'+wt(220,80,40,26,'100 lb')+'<text x="240" y="130">B</text>'),
+ q:"The same 100 lb load is hung two ways. In which setup is each rope under more tension?",
+ o:["Setup A, with the ropes nearly vertical","Setup B, with the ropes spread wide","The tension is the same in both"],a:1,
+ e:"Spread ropes pull mostly sideways against each other, so only part of each rope's pull holds the weight up. The wider the angle, the higher the tension."}
+];
+
+/* ============================================================
+   BUILD THE EXAM
+   ============================================================ */
+var SEC=[
+ {name:"Part 1 \u00B7 Reading comprehension", secs:25*60, units:[], first:1, last:35},
+ {name:"Part 2 \u00B7 Mechanical comprehension", secs:25*60, units:[], first:36, last:70},
+ {name:"Part 3 \u00B7 Mathematics", secs:40*60, units:[], first:71, last:100}
+];
+var Q={}; /* n -> question object */
+var n=0;
+
+READING.forEach(function(p){
+  SEC[0].units.push({kind:"passage",
+    html:'<div class="passage"><div class="ttl">'+p.title+'</div><p>'+
+      p.text.replace(/__(\d+)__/g,'<span class="blank">$1</span>')+'</p></div>'});
+  p.qs.forEach(function(item){
+    n++; var o={n:n,s:0,q:"Which word best fills blank "+n+"?",o:item.o,a:item.a,e:item.e};
+    Q[n]=o; SEC[0].units.push({kind:"q",o:o});
+  });
+});
+READING_SOLO.forEach(function(item){
+  n++; var o={n:n,s:0,q:item.q,o:item.o,a:item.a,e:item.e};
+  Q[n]=o; SEC[0].units.push({kind:"q",o:o});
+});
+MECH.forEach(function(item){
+  n++; var o={n:n,s:1,q:item.q,d:item.d,o:item.o,a:item.a,e:item.e};
+  Q[n]=o; SEC[1].units.push({kind:"q",o:o});
+});
+MATH.forEach(function(item){
+  n++; var o={n:n,s:2,q:item.q||"",m:item.m||"",o:item.o.concat([NOANS]),a:item.a,e:item.e};
+  Q[n]=o; SEC[2].units.push({kind:"q",o:o});
+});
+
+/* ============================================================
+   STATE + RENDERING
+   ============================================================ */
+var ans={}, cur=0, timed=true, tick=null, left=0, finished=false;
+var $=function(id){return document.getElementById(id);};
+function ltr(s,i){return s===2?"abcde".charAt(i):"ABCD".charAt(i);}
+function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+
+function qHTML(o,live){
+  var h='<div class="qblock" id="q'+o.n+'"><span class="qnum">Question '+o.n+' of 100</span>';
+  if(o.d) h+=o.d;
+  if(o.m) h+='<div class="qmath">'+o.m+'</div>';
+  if(o.q) h+='<p class="qtext">'+o.q+'</p>';
+  o.o.forEach(function(t,i){
+    var on=(ans[o.n]===i);
+    h+= live
+      ? '<button class="opt" data-n="'+o.n+'" data-i="'+i+'" aria-pressed="'+(on?"true":"false")+'"><span class="ltr">'+ltr(o.s,i)+'</span><span>'+esc(t)+'</span></button>'
+      : '<div class="opt"><span class="ltr">'+ltr(o.s,i)+'</span><span>'+esc(t)+'</span></div>';
+  });
+  return h+'</div>';
+}
+function renderSection(i){
+  var s=SEC[i],h="";
+  s.units.forEach(function(u){ h+= u.kind==="passage" ? u.html : qHTML(u.o,true); });
+  $("qhost").innerHTML=h;
+  $("bar-name").textContent=s.name;
+  $("advance").textContent = i<2 ? "Go to "+SEC[i+1].name.split(" \u00B7 ")[0] : "Finish and score";
+  updateMeta(); window.scrollTo(0,0);
+}
+function countAnswered(i){
+  var c=0; for(var k=SEC[i].first;k<=SEC[i].last;k++){ if(ans[k]!=null) c++; } return c;
+}
+function totalAnswered(){var c=0;for(var k=1;k<=100;k++){if(ans[k]!=null)c++;}return c;}
+function updateMeta(){
+  var s=SEC[cur], done=countAnswered(cur), tot=s.last-s.first+1;
+  $("bar-meta").textContent=done+" of "+tot+" answered";
+  var pct=totalAnswered()/100;
+  $("railfill").style.height=(pct*100)+"%";
+  var rail=$("rail").clientHeight;
+  $("car").style.top=Math.max(0,Math.min(rail-16,pct*rail-8))+"px";
+}
+$("qhost").addEventListener("click",function(ev){
+  var b=ev.target.closest?ev.target.closest(".opt"):null;
+  if(!b||!b.dataset||b.dataset.n==null)return;
+  var qn=+b.dataset.n, ix=+b.dataset.i;
+  ans[qn]= (ans[qn]===ix) ? null : ix;
+  var box=$("q"+qn).querySelectorAll(".opt");
+  for(var j=0;j<box.length;j++) box[j].setAttribute("aria-pressed", ans[qn]===j?"true":"false");
+  updateMeta();
+});
+
+/* ---- timer ---- */
+function fmt(s){var m=Math.floor(s/60),x=s%60;return m+":"+(x<10?"0":"")+x;}
+function startTimer(){
+  clearInterval(tick);
+  if(!timed){ $("clock").textContent="\u2014"; $("clock").className=""; return; }
+  left=SEC[cur].secs; paint();
+  tick=setInterval(function(){
+    left--; paint();
+    if(left<=0){ clearInterval(tick); nextSection(true); }
+  },1000);
+  function paint(){
+    $("clock").textContent=fmt(Math.max(0,left));
+    $("clock").className = left<=60 ? "out" : (left<=300 ? "low" : "");
+  }
+}
+function nextSection(auto){
+  if(!auto){
+    var miss=(SEC[cur].last-SEC[cur].first+1)-countAnswered(cur);
+    if(miss>0 && !confirm(miss+" question"+(miss>1?"s are":" is")+" still blank in this part. Blanks are scored wrong. Move on anyway?")) return;
+  }
+  if(cur<2){ cur++; renderSection(cur); startTimer(); }
+  else finish();
+}
+$("advance").addEventListener("click",function(){nextSection(false);});
+
+/* ---- scoring ---- */
+function finish(){
+  clearInterval(tick); finished=true;
+  var tot=0, per=[0,0,0];
+  for(var k=1;k<=100;k++){ if(ans[k]===Q[k].a){ tot++; per[Q[k].s]++; } }
+  $("screen-test").classList.add("hidden");
+  $("screen-done").classList.remove("hidden");
+  $("r-pct").textContent=tot+"%";
+  var pass=tot>=70;
+  $("r-verdict").textContent= pass?"Pass":"Below the passing score";
+  $("r-verdict").className="verdict "+(pass?"p":"f");
+  $("r-line").innerHTML = pass
+    ? "You cleared the 70% cut with "+tot+" of 100 correct. Lists are ranked and competitive, so keep pushing toward the high 80s and 90s."
+    : "You answered "+tot+" of 100 correctly. The cut is 70. Work the review below, starting with your weakest part.";
+  var tots=[35,35,30];
+  per.forEach(function(c,i){
+    var p=Math.round(c/tots[i]*100);
+    $("r-s"+i).innerHTML='<div class="l"><span>'+SEC[i].name+'</span><b>'+c+"/"+tots[i]+" \u00B7 "+p+'%</b></div>'+
+      '<div class="meter"><i style="width:'+p+'%"></i><u></u></div>';
+  });
+  drawReview(true);
+  $("railfill").style.height="100%";
+  window.scrollTo(0,0);
+}
+function drawReview(missedOnly){
+  var h="",lastS=-1;
+  for(var k=1;k<=100;k++){
+    var o=Q[k], got=ans[k], ok=(got===o.a);
+    if(missedOnly&&ok) continue;
+    if(o.s!==lastS){ h+='<h2>'+SEC[o.s].name+'</h2>'; lastS=o.s; }
+    h+='<div class="rev'+(ok?"":" wrong")+'"><div class="hd">Question '+k+(ok?" \u2014 correct":" \u2014 missed")+'</div>';
+    if(o.m) h+='<div class="qmath" style="font-size:18px;margin:0 0 8px">'+o.m+'</div>';
+    if(o.q) h+='<p class="qtext" style="font-size:15.5px">'+o.q+'</p>';
+    h+='<div class="ans">Correct: <span class="ok">'+ltr(o.s,o.a)+". "+esc(o.o[o.a])+'</span>';
+    if(!ok) h+= got==null ? ' <span class="no">&nbsp;&middot;&nbsp;You left this blank</span>'
+                          : ' <span class="no">&nbsp;&middot;&nbsp;You chose '+ltr(o.s,got)+". "+esc(o.o[got])+'</span>';
+    h+='</div><p class="exp">'+o.e+'</p></div>';
+  }
+  if(!h) h='<h2>Nothing missed</h2><p class="note">You answered all 100 correctly. Switch to \u201cReview all 100\u201d if you want to read the explanations anyway.</p>';
+  $("review").innerHTML=h;
+}
+$("f-missed").addEventListener("click",function(){
+  $("f-missed").setAttribute("aria-pressed","true"); $("f-all").setAttribute("aria-pressed","false"); drawReview(true);});
+$("f-all").addEventListener("click",function(){
+  $("f-all").setAttribute("aria-pressed","true"); $("f-missed").setAttribute("aria-pressed","false"); drawReview(false);});
+
+/* ---- start screen ---- */
+$("t-timed").addEventListener("click",function(){timed=true;
+  $("t-timed").setAttribute("aria-pressed","true");$("t-open").setAttribute("aria-pressed","false");});
+$("t-open").addEventListener("click",function(){timed=false;
+  $("t-open").setAttribute("aria-pressed","true");$("t-timed").setAttribute("aria-pressed","false");});
+$("begin").addEventListener("click",function(){
+  $("screen-start").classList.add("hidden");
+  $("screen-test").classList.remove("hidden");
+  cur=0; renderSection(0); startTimer();
+});
+$("again").addEventListener("click",function(){
+  ans={}; cur=0; finished=false;
+  $("screen-done").classList.add("hidden");
+  $("screen-start").classList.remove("hidden");
+  $("railfill").style.height="0"; $("car").style.top="0";
+  window.scrollTo(0,0);
+});
+
+/* ---- printable full exam + key ---- */
+var pv=document.createElement("div"); pv.id="printview"; pv.style.display="none";
+document.querySelector(".wrap").appendChild(pv);
+function buildPrint(){
+  var h='<header class="mast"><h1>Elevator Industry Aptitude Test<span class="sub">Practice exam \u00B7 100 questions \u00B7 passing score 70%</span></h1></header>';
+  SEC.forEach(function(s,i){
+    h+='<h2>'+s.name+' \u2014 questions '+s.first+"\u2013"+s.last+'</h2>';
+    s.units.forEach(function(u){ h+= u.kind==="passage" ? u.html : qHTML(u.o,false); });
+  });
+  h+='<h2>Answer key</h2><div class="plate"><div class="head">KEY \u00B7 1\u2013100</div>';
+  for(var k=1;k<=100;k++){ var o=Q[k];
+    h+='<div class="row"><span>'+k+'</span><span>'+ltr(o.s,o.a)+" \u00B7 "+esc(o.o[o.a])+'</span></div>'; }
+  h+='</div>';
+  pv.innerHTML=h;
+}
+var printBtn=document.createElement("button");
+printBtn.className="btn ghost"; printBtn.textContent="Print the full exam and answer key";
+printBtn.style.marginTop="6px";
+$("screen-start").appendChild(printBtn);
+printBtn.addEventListener("click",function(){
+  buildPrint(); document.body.classList.add("printing"); pv.style.display="block";
+  window.print();
+  setTimeout(function(){ document.body.classList.remove("printing"); pv.style.display="none"; },300);
+});
+</script>
+<style>
+body.printing #screen-start,body.printing #screen-test,body.printing #screen-done,body.printing #rail{display:none!important}
+@media print{ body.printing #printview{display:block!important} }
+</style>
+</body>
+</html>

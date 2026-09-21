@@ -1,0 +1,2558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UA Local 130 — GAN Aptitude Battery Practice Exam</title>
+<style>
+:root{
+  --steel-900:#1B2127;
+  --steel-700:#3C4750;
+  --steel-500:#6B7780;
+  --steel-300:#AEB7BD;
+  --steel-150:#D3D8DB;
+  --shell:#DCE0E2;
+  --paper:#FCFCFA;
+  --brass:#A97C26;
+  --brass-soft:#F4EBD5;
+  --alarm:#A5302A;
+  --alarm-soft:#F6E4E2;
+  --verdigris:#2D6A5D;
+  --verdigris-soft:#E1EDEA;
+  --sans:"Avenir Next","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --serif:"Iowan Old Style",Charter,"Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--shell);
+  color:var(--steel-900);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+/* ---------- shell ---------- */
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.screen{padding:40px 0 90px}
+
+/* ---------- exam bar ---------- */
+#bar{
+  position:sticky;top:0;z-index:40;
+  background:var(--steel-900);color:#EDF0F1;
+  display:none;
+}
+#bar.on{display:block}
+.bar-in{
+  max-width:1000px;margin:0 auto;padding:12px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.bar-where{font-size:14px;line-height:1.3}
+.bar-where b{font-weight:600;letter-spacing:.005em}
+.bar-where span{display:block;color:#9AA5AC;font-size:13px}
+.clock{
+  font-size:34px;font-weight:600;letter-spacing:.01em;
+  font-variant-numeric:tabular-nums;line-height:1;
+}
+.clock.low{color:#F0A7A1}
+.clock-note{font-size:12px;color:#9AA5AC;text-align:right;margin-top:3px}
+#drain{height:3px;background:#2C343B}
+#drain i{display:block;height:100%;width:100%;background:var(--brass);transition:width 1s linear}
+#drain i.low{background:var(--alarm)}
+@media (prefers-reduced-motion:reduce){#drain i{transition:none}}
+
+/* ---------- type ---------- */
+h1{font-size:30px;line-height:1.15;margin:0 0 10px;font-weight:600;letter-spacing:-.012em}
+h2{font-size:21px;line-height:1.25;margin:0 0 10px;font-weight:600}
+h3{font-size:16px;margin:0 0 8px;font-weight:600}
+p{margin:0 0 12px}
+.lede{font-size:17px;color:var(--steel-700);max-width:62ch}
+.muted{color:var(--steel-500);font-size:14px}
+.rule{height:1px;background:var(--steel-150);border:0;margin:26px 0}
+
+/* ---------- cards ---------- */
+.card{background:var(--paper);border:1px solid var(--steel-150);padding:26px 28px}
+.card + .card{margin-top:14px}
+
+/* ---------- home ---------- */
+.hero{background:var(--paper);border:1px solid var(--steel-150);border-top:4px solid var(--brass);padding:34px 32px}
+.spec{width:100%;border-collapse:collapse;margin-top:6px;font-size:15px}
+.spec th,.spec td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--steel-150);vertical-align:top}
+.spec th{font-weight:600;color:var(--steel-700);font-size:13px;border-bottom:1px solid var(--steel-300)}
+.spec td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.spec tr.pending td{color:var(--steel-500)}
+.tag{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 7px;border:1px solid var(--steel-300);color:var(--steel-500);white-space:nowrap}
+.tag.ready{border-color:var(--brass);color:var(--brass);background:var(--brass-soft)}
+
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 8px}
+.mode{
+  text-align:left;background:var(--paper);border:1px solid var(--steel-300);
+  padding:20px;display:block;width:100%;
+}
+.mode:hover{border-color:var(--brass)}
+.mode b{display:block;font-size:17px;margin-bottom:4px}
+.mode span{display:block;color:var(--steel-500);font-size:14px;line-height:1.45}
+.optline{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:14px;color:var(--steel-700)}
+.optline input{margin-top:3px}
+
+.warn{background:var(--brass-soft);border-left:3px solid var(--brass);padding:14px 16px;font-size:14.5px;margin:20px 0}
+
+/* ---------- buttons ---------- */
+.btn{
+  background:var(--steel-900);color:#fff;border:1px solid var(--steel-900);
+  padding:11px 20px;font-size:15px;font-weight:500;
+}
+.btn:hover{background:#000}
+.btn.ghost{background:transparent;color:var(--steel-900);border-color:var(--steel-300)}
+.btn.ghost:hover{background:#fff;border-color:var(--steel-700)}
+.btn.brass{background:var(--brass);border-color:var(--brass)}
+.btn.brass:hover{background:#8E6718}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+select#switcher{font:inherit;font-size:14px;padding:9px 10px;background:#fff;border:1px solid var(--steel-300);color:var(--steel-900);max-width:220px}
+
+/* ---------- question ---------- */
+.qhead{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:14px}
+.qnum{font-size:13px;font-weight:600;color:var(--brass);font-variant-numeric:tabular-nums}
+.qstem{font-size:17.5px;line-height:1.45;margin:0 0 18px;max-width:70ch}
+.qstem .calc{font-variant-numeric:tabular-nums;font-size:20px;letter-spacing:.01em}
+.series{font-size:22px;letter-spacing:.06em;font-variant-numeric:tabular-nums;margin:0 0 18px}
+.series u{text-decoration:none;border-bottom:2px solid var(--brass);padding:0 12px}
+
+.opts{list-style:none;margin:0;padding:0;max-width:64ch}
+.opt{
+  display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;
+  background:var(--paper);border:1px solid var(--steel-150);border-left:3px solid transparent;
+  padding:12px 14px;margin-bottom:7px;font-size:16px;line-height:1.4;
+}
+.opt:hover{border-color:var(--steel-300);border-left-color:var(--steel-300)}
+.opt .ltr{
+  flex:0 0 24px;height:24px;border:1px solid var(--steel-300);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:600;color:var(--steel-500)
+}
+.opt .txt{font-variant-numeric:tabular-nums}
+.opt.sel{border-color:var(--brass);border-left-color:var(--brass);background:var(--brass-soft)}
+.opt.sel .ltr{background:var(--brass);border-color:var(--brass);color:#fff}
+.opt.right{border-color:var(--verdigris);border-left-color:var(--verdigris);background:var(--verdigris-soft)}
+.opt.right .ltr{background:var(--verdigris);border-color:var(--verdigris);color:#fff}
+.opt.wrong{border-color:var(--alarm);border-left-color:var(--alarm);background:var(--alarm-soft)}
+.opt.wrong .ltr{background:var(--alarm);border-color:var(--alarm);color:#fff}
+.opt:disabled{cursor:default}
+
+.fig{margin:0 0 20px;text-align:center}
+.fig svg{max-width:100%;height:auto}
+svg.mech{width:100%;max-width:400px}
+svg.pf-seq{width:100%;max-width:500px}
+svg.pf-opt{width:100%;display:block}
+.fig text,.opt text{font-family:var(--sans)}
+.opts.pf{display:flex;flex-wrap:wrap;gap:8px;max-width:none}
+.opts.pf li{list-style:none}
+.opts.pf .opt{flex-direction:column;align-items:center;gap:8px;width:100px;padding:10px 8px;margin:0;border-left-width:1px;border-top:3px solid transparent}
+.opts.pf .opt.sel{border-top-color:var(--brass)}
+.opts.pf .opt.right{border-top-color:var(--verdigris)}
+.opts.pf .opt.wrong{border-top-color:var(--alarm)}
+.opts.pf .opt .txt{display:block;width:100%}
+.pf-review{display:flex;gap:22px;flex-wrap:wrap;margin:0 0 12px}
+.pf-review figure{margin:0;width:110px}
+.pf-review figcaption{font-size:12px;color:var(--steel-500);margin-bottom:5px}
+.explain{border-left:3px solid var(--steel-300);padding:12px 16px;margin-top:16px;background:#F5F6F6;font-size:15px;max-width:70ch}
+.explain b{display:block;margin-bottom:3px;font-size:13px;color:var(--steel-500)}
+
+/* ---------- reading split ---------- */
+.split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:26px;align-items:start}
+.passage{
+  background:var(--paper);border:1px solid var(--steel-150);padding:24px 26px;
+  position:sticky;top:110px;max-height:calc(100vh - 200px);overflow:auto;
+}
+.passage h3{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--brass);margin-bottom:12px}
+.passage p{font-family:var(--serif);font-size:16.5px;line-height:1.62;margin:0 0 14px;max-width:70ch}
+.passage p:last-child{margin-bottom:0}
+
+/* ---------- palette / footer nav ---------- */
+.navbar{
+  position:fixed;left:0;right:0;bottom:0;background:var(--paper);
+  border-top:1px solid var(--steel-300);z-index:30;display:none;
+}
+.navbar.on{display:block}
+.navbar-in{max-width:1000px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px;justify-content:space-between}
+.pal{display:flex;gap:5px;flex-wrap:wrap;flex:1;min-width:0}
+.chip{
+  width:29px;height:29px;border:1px solid var(--steel-300);background:#fff;
+  font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--steel-500);padding:0;
+}
+.chip.done{background:var(--steel-700);border-color:var(--steel-700);color:#fff}
+.chip.here{border:2px solid var(--brass);color:var(--steel-900);font-weight:600}
+.chip.here.done{background:var(--brass);border-color:var(--brass);color:#fff}
+
+/* ---------- results ---------- */
+.scorehead{background:var(--paper);border:1px solid var(--steel-150);border-top:4px solid var(--brass);padding:30px 32px;display:flex;gap:34px;flex-wrap:wrap;align-items:flex-end}
+.big{font-size:62px;font-weight:600;line-height:.9;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.bigsub{font-size:13.5px;color:var(--steel-500);margin-top:8px}
+.band{display:flex;gap:3px;align-items:flex-end;margin-top:10px}
+.band i{display:block;width:19px;background:var(--steel-150);height:14px}
+.band i.b{background:var(--steel-300)}
+.band i.on{background:var(--brass)}
+.results-tbl{width:100%;border-collapse:collapse;font-size:15px}
+.results-tbl th,.results-tbl td{padding:11px 10px;border-bottom:1px solid var(--steel-150);text-align:left}
+.results-tbl th{font-size:13px;color:var(--steel-700);border-bottom:1px solid var(--steel-300)}
+.results-tbl td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar-mini{height:7px;background:var(--steel-150);width:100%;min-width:80px}
+.bar-mini i{display:block;height:100%;background:var(--brass)}
+
+.review-q{border-top:1px solid var(--steel-150);padding:22px 0}
+.review-q:first-child{border-top:0}
+.verdict{font-size:12.5px;font-weight:600;padding:2px 8px;white-space:nowrap}
+.verdict.ok{background:var(--verdigris-soft);color:var(--verdigris)}
+.verdict.no{background:var(--alarm-soft);color:var(--alarm)}
+.verdict.skip{background:#EEF0F1;color:var(--steel-500)}
+
+/* ---------- misc ---------- */
+.overlay{
+  position:fixed;inset:0;background:rgba(27,33,39,.82);z-index:60;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.overlay .box{background:var(--paper);max-width:440px;padding:28px 30px;border-top:4px solid var(--alarm)}
+.hide{display:none !important}
+#print-root{display:none}
+
+@media (max-width:560px){
+  .opts.pf .opt{width:calc(33.333% - 6px)}
+}
+@media (max-width:860px){
+  .split{grid-template-columns:1fr}
+  .passage{position:static;max-height:none}
+  .modes{grid-template-columns:1fr}
+  .clock{font-size:27px}
+  .scorehead{gap:22px}
+  .big{font-size:48px}
+}
+
+@media print{
+  body{background:#fff}
+  #bar,.navbar,#app,.noprint{display:none !important}
+  #print-root{display:block;font-size:11pt}
+  .p-sec{page-break-before:always;margin-top:0}
+  .p-sec:first-child{page-break-before:auto}
+  .p-q{page-break-inside:avoid;margin:0 0 13px}
+  .p-fig{margin:6px 0}
+  .p-fig svg{height:96px;width:auto}
+  .p-ch{display:inline-block;width:78px;text-align:center;font-size:9pt}
+  .p-ch svg{height:62px;width:auto;display:block;margin:0 auto}
+  .p-passage{page-break-inside:avoid;background:#f4f4f2;padding:10px 13px;margin:0 0 14px;font-family:var(--serif)}
+  .p-key td,.p-key th{border-bottom:1px solid #ccc;padding:5px 7px;font-size:10pt;text-align:left;vertical-align:top}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<marker id="ahd" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+<path d="M 0 1 L 9 5 L 0 9 z" fill="context-stroke"/></marker></defs></svg>
+
+<div id="bar">
+  <div class="bar-in">
+    <div class="bar-where"><b id="bar-sec">—</b><span id="bar-q">—</span></div>
+    <div style="text-align:right">
+      <div class="clock" id="clock">00:00</div>
+      <div class="clock-note" id="clock-note">time left in this section</div>
+    </div>
+  </div>
+  <div id="drain"><i></i></div>
+</div>
+
+<div id="app"></div>
+
+<div class="navbar" id="navbar">
+  <div class="navbar-in">
+    <div class="pal" id="pal"></div>
+    <div class="btnrow" style="flex-wrap:nowrap">
+      <select id="switcher" class="hide" aria-label="Jump to a section"></select>
+      <button class="btn ghost" id="nav-prev">Back</button>
+      <button class="btn" id="nav-next">Next</button>
+    </div>
+  </div>
+</div>
+
+<div id="print-root"></div>
+
+<script>
+/* =====================================================================
+   UA LOCAL 130 / GAN APTITUDE BATTERY — PRACTICE EXAM
+   Six sections, 140 items, 119 minutes. Self-contained: no external
+   libraries, no network calls, no calculator.
+   ===================================================================== */
+
+var PASSAGES = {
+p1:{t:"Isolating energy before service",b:[
+"Before any maintenance is performed on powered equipment, the energy that drives that equipment must be isolated and secured. The procedure that accomplishes this is commonly called lockout/tagout. Lockout refers to the physical device, usually a padlock, that holds an energy-isolating switch or valve in the off position. Tagout refers to the written warning attached to that device, identifying the worker who applied it and the date it was applied. A tag alone provides information but no physical restraint, so a tag is never treated as a substitute for a lock when the isolating device can accept one.",
+"Energy is not limited to electricity. A machine may store energy in compressed springs, in elevated components held up by gravity, in pressurized hydraulic or pneumatic lines, or in residual heat. Each of these must be released, blocked, or allowed to dissipate before the work begins. A common failure is to open the main disconnect and assume the equipment is safe, only to have a raised platform descend when a hydraulic line is loosened.",
+"The worker who applies a lock is the only worker permitted to remove it. When several people work on the same machine, each applies a personal lock to a group lockout device, and the machine cannot be re-energized until the last lock is gone. If a worker leaves the site without removing a lock, the removal requires written authorization from a supervisor plus a documented attempt to contact the absent worker.",
+"Before work starts, the isolation must be verified. Verification means attempting to start the equipment through its normal controls, confirming that nothing moves, and then returning the controls to the off position."]},
+
+p2:{t:"Two materials for water distribution",b:[
+"Two materials dominate residential water distribution: rigid copper tube and cross-linked polyethylene, known as PEX. Each has properties that make it preferable in particular situations.",
+"Copper is joined by soldering, brazing, or mechanical press fittings. It tolerates high temperatures, resists ultraviolet light, and can be installed outdoors or in exposed locations without degrading. Because it is rigid, a copper system holds its shape and supports itself between hangers. Copper is also comparatively expensive, and its price moves with commodity markets. Water that is unusually acidic can corrode copper from the inside over a period of years, producing pinhole leaks.",
+"PEX is flexible and is joined with crimp rings, expansion fittings, or push-fit connectors, none of which require an open flame. A single length of PEX can be routed around obstacles that would demand several soldered elbows in copper, and fewer joints means fewer places for a leak to start. PEX also tolerates freezing better than copper, expanding rather than splitting, though repeated freezing still shortens its life. Its weaknesses are ultraviolet degradation, which makes it unsuitable for prolonged sunlight exposure, and permeability, which means it should not be run through soil contaminated with solvents.",
+"Cost and labor time generally favor PEX in new construction. Copper remains common in commercial work and in repairs to existing copper systems, where mixing materials introduces transition fittings and additional failure points.",
+"Neither material is universally correct. The selection depends on water chemistry, exposure, temperature, local code, and the skill set of the installing crew."]},
+
+p3:{t:"Setting and climbing a portable ladder",b:[
+"A portable ladder fails in one of three ways: it slides at the base, it tips sideways, or the person on it loses balance. Setup procedures address all three.",
+"An extension ladder leaning against a wall should be set so that the base is one foot out from the wall for every four feet of working height. A ladder reaching a roof edge twenty feet above the ground therefore sits five feet from the building. An angle steeper than this increases the chance the ladder will tip backward; a shallower angle increases the chance the base will slide out.",
+"When a ladder is used to reach a roof or platform, it must extend at least three feet above the landing surface so the climber has something to hold while stepping off. The top of the ladder should be secured whenever the work will last more than a few minutes.",
+"Climbers should face the ladder and maintain three points of contact: two hands and one foot, or two feet and one hand. This rule makes carrying tools by hand impractical, which is why tools are hoisted separately or carried in a belt.",
+"Every ladder carries a duty rating that states the maximum combined weight of the user, clothing, tools, and materials. The rating is not a weight limit for the person alone. A worker weighing 200 pounds carrying 60 pounds of equipment exceeds a ladder rated at 250 pounds."]},
+
+p4:{t:"Protecting a water supply from backflow",b:[
+"A cross-connection is any point where the potable water supply can come into contact with a source of contamination. Backflow is the movement of water through such a connection in the wrong direction, from the contaminated side into the drinking water side.",
+"Backflow occurs for one of two reasons. Back-siphonage happens when pressure in the supply line drops below the pressure at the fixture, usually because a water main breaks or a fire department draws heavily from a hydrant. The falling pressure creates suction that pulls water backward. Back-pressure happens when the downstream system is pressurized above the supply, by a boiler, a pump, or an elevated tank, and pushes water back toward the main.",
+"The simplest protection is an air gap: a vertical open space between the water outlet and the flood rim of the receiving vessel. Because no continuous path exists, no siphon can form. An air gap should be at least twice the diameter of the supply pipe, and never less than one inch.",
+"Where an air gap is impractical, mechanical devices are installed. A vacuum breaker admits air into the line when pressure drops, breaking the siphon; it protects against back-siphonage only. A reduced-pressure zone assembly uses two check valves with a relief valve between them, and protects against both back-siphonage and back-pressure.",
+"Mechanical devices contain moving parts that wear, and most jurisdictions require annual testing by a certified tester. An air gap, having no moving parts, requires only that nothing be placed in the gap and that the arrangement remain undisturbed."]},
+
+p5:{t:"What a torque wrench measures",b:[
+"A torque wrench measures the rotational force applied to a fastener. Torque matters because a bolt does its work by stretching: as the bolt is tightened it elongates slightly, and the tension in the stretched bolt clamps the joint together. Too little torque leaves the joint loose enough to work itself apart under vibration. Too much torque stretches the bolt past its elastic limit, at which point it no longer springs back and the clamping force is lost even though the bolt feels tight.",
+"Three common types are in use. A beam wrench uses a pointer over a scale and is read while force is applied; it is inexpensive and nearly impossible to knock out of calibration, but it must be viewed straight on to be read correctly. A click wrench is preset to a value and produces an audible and tactile click at that value; it is faster, but it must be returned to its lowest setting when stored, because leaving the internal spring compressed shifts its calibration over time. A digital wrench displays a reading and can record a sequence of values, at the cost of batteries and price.",
+"Readings are affected by friction. A dry fastener and a lubricated fastener reach very different tensions at the same torque figure, so a specification is only meaningful when the stated lubrication condition is followed. An adapter that moves the fastener farther from the handle along the line of the wrench changes the effective lever arm and requires the setting to be recalculated. An adapter set at a right angle to the wrench does not."]},
+
+p6:{t:"Why insulation is sealed on cold lines",b:[
+"Heat always moves from a warmer body to a cooler one, by conduction, convection, or radiation. Pipe insulation is installed to slow that movement, and its usefulness is measured by R-value, the resistance of a material to conductive heat flow. A higher R-value means slower heat transfer. R-values of layers in series add, so two inches of a material rated R-4 per inch provide R-8.",
+"On hot lines, insulation keeps heat in the water, so a shower draws hot water sooner and the boiler cycles less often. On cold lines, insulation serves a different purpose. Air holds a limited amount of water vapor, and the amount falls as the air cools. When warm humid air touches a cold pipe, the air immediately at the surface cools below the point where it can hold its moisture, and the excess condenses on the pipe. The resulting drip is often mistaken for a leak. Insulation keeps the surface temperature above that point and prevents the condensation.",
+"For this to work, the insulation on a cold line must be sealed. If humid air reaches the pipe through a gap at a seam or fitting, condensation forms underneath the insulation, where it cannot evaporate. The water then saturates the insulation, destroying its R-value, and stays in contact with the pipe. On a steel line, the result is corrosion that continues out of sight.",
+"Hot lines are more forgiving of small gaps, because no condensation mechanism operates there. A gap simply reduces efficiency at that point rather than starting damage."]},
+
+p7:{t:"Entering a confined space",b:[
+"A confined space is defined by three characteristics taken together: it is large enough for a worker to enter and perform work, it has limited means of entry or exit, and it is not designed for continuous occupancy. A tank, a sewer, a manhole, a pit, and a crawlspace can all qualify. Size alone does not determine the classification. A space the size of a room can be a confined space if its only opening is a hatch.",
+"A confined space becomes a permit-required confined space if it also contains or could contain a hazardous atmosphere, a material that could engulf a worker, walls that converge or floors that slope to a smaller cross-section, or any other recognized serious hazard.",
+"Atmospheric testing is performed before entry and in a fixed order: oxygen first, then flammable gases, then toxic contaminants. The order matters because the instruments that detect flammable gas rely on a known oxygen level to give an accurate reading. Testing is done from outside the space, lowering the probe through the opening in stages rather than sampling only at the top, since heavier-than-air gases collect at the bottom.",
+"Every permit entry requires an attendant stationed outside who maintains contact with the entrants, monitors conditions, and orders evacuation when necessary. The attendant does not enter to perform a rescue. A substantial share of confined-space fatalities are would-be rescuers who entered without equipment in response to a collapsed coworker, and the prohibition exists because of that pattern."]}
+};
+
+var SECTIONS = [
+ {
+  "id": "read",
+  "n": 1,
+  "name": "Reading Comprehension",
+  "mins": 25,
+  "count": 42,
+  "blurb": "Seven passages, six questions each. Answer only from what the passage states or clearly implies. Do not use outside knowledge, even if you know the trade.",
+  "pace": "About 3 minutes 30 seconds per passage and its six questions.",
+  "q": [
+   {
+    "p": "p1",
+    "s": "According to the passage, a tag differs from a lock mainly in that a tag",
+    "o": [
+     "can only be applied by a supervisor",
+     "is used only on electrical equipment",
+     "must be removed within twenty-four hours",
+     "gives information but does not physically restrain the device"
+    ],
+    "a": 3,
+    "e": "The first paragraph says a tag provides information but no physical restraint, which is why it is not treated as a substitute for a lock."
+   },
+   {
+    "p": "p1",
+    "s": "The passage indicates that opening the main disconnect alone can be dangerous because",
+    "o": [
+     "the disconnect may be mislabeled",
+     "another worker may close it",
+     "the equipment may still hold stored energy",
+     "the tag may fall off"
+    ],
+    "a": 2,
+    "e": "The second paragraph lists springs, gravity, pressurized lines and residual heat as stored energy, and gives the example of a platform descending when a hydraulic line is loosened."
+   },
+   {
+    "p": "p1",
+    "s": "In a group lockout, the equipment can be re-energized only when",
+    "o": [
+     "the last personal lock has been removed",
+     "the supervisor authorizes the restart",
+     "the first worker finishes the job",
+     "the tags have been collected"
+    ],
+    "a": 0,
+    "e": "The third paragraph states the machine cannot be re-energized until the last lock is gone."
+   },
+   {
+    "p": "p1",
+    "s": "Removing a lock applied by an absent worker is described as",
+    "o": [
+     "never permitted under any circumstance",
+     "permitted only with written authorization and a documented attempt to reach the worker",
+     "permitted by any supervisor without documentation",
+     "permitted after the end of the shift"
+    ],
+    "a": 1,
+    "e": "The passage names two requirements: written authorization from a supervisor and a documented attempt to contact the absent worker."
+   },
+   {
+    "p": "p1",
+    "s": "Verification of isolation, as the passage describes it, requires",
+    "o": [
+     "attempting to start the equipment and confirming nothing moves",
+     "testing the circuit with a meter",
+     "inspecting the lock for damage",
+     "a second worker to check the tag"
+    ],
+    "a": 0,
+    "e": "The last paragraph defines verification as trying the normal controls, confirming nothing moves, and returning the controls to off."
+   },
+   {
+    "p": "p1",
+    "s": "Which of the following is NOT named in the passage as a form of stored energy?",
+    "o": [
+     "compressed springs",
+     "residual heat",
+     "static electricity",
+     "components held up by gravity"
+    ],
+    "a": 2,
+    "e": "Springs, gravity, pressurized hydraulic or pneumatic lines and residual heat are listed. Static electricity is not mentioned."
+   },
+   {
+    "p": "p2",
+    "s": "According to the passage, an advantage of the methods used to join PEX is that they",
+    "o": [
+     "produce a stronger joint than solder",
+     "require no open flame",
+     "can be reused indefinitely",
+     "work at any water temperature"
+    ],
+    "a": 1,
+    "e": "Crimp rings, expansion fittings and push-fit connectors are described as requiring no open flame."
+   },
+   {
+    "p": "p2",
+    "s": "The passage states that copper may develop pinhole leaks when",
+    "o": [
+     "it is installed outdoors",
+     "it is joined with press fittings",
+     "it freezes repeatedly",
+     "the water is unusually acidic"
+    ],
+    "a": 3,
+    "e": "The second paragraph attributes internal corrosion and pinhole leaks to unusually acidic water acting over years."
+   },
+   {
+    "p": "p2",
+    "s": "Based on the passage, PEX would be the poorer choice for",
+    "o": [
+     "a line routed around several obstacles",
+     "a line in an unheated crawlspace",
+     "a line exposed to sunlight for long periods",
+     "a repair to an existing plastic system"
+    ],
+    "a": 2,
+    "e": "Ultraviolet degradation is named as a weakness, making PEX unsuitable for prolonged sunlight exposure."
+   },
+   {
+    "p": "p2",
+    "s": "The passage connects the number of joints in a run to",
+    "o": [
+     "the cost of the fittings",
+     "the number of places a leak can start",
+     "the water pressure at the fixture",
+     "the time needed to insulate the line"
+    ],
+    "a": 1,
+    "e": "The third paragraph states that fewer joints means fewer places for a leak to start."
+   },
+   {
+    "p": "p2",
+    "s": "Copper's rigidity is presented as an advantage because it",
+    "o": [
+     "allows the system to support itself between hangers",
+     "reduces the cost of the material",
+     "makes soldering unnecessary",
+     "prevents freezing damage"
+    ],
+    "a": 0,
+    "e": "The second paragraph says a rigid copper system holds its shape and supports itself between hangers."
+   },
+   {
+    "p": "p2",
+    "s": "The writer's overall position on choosing between the two materials is that",
+    "o": [
+     "copper is superior wherever budget allows",
+     "the correct choice depends on the conditions of the job",
+     "PEX will eventually replace copper entirely",
+     "local code is the only factor that matters"
+    ],
+    "a": 1,
+    "e": "The closing paragraph says neither material is universally correct and lists the conditions that drive the selection."
+   },
+   {
+    "p": "p3",
+    "s": "Using the rule in the passage, a ladder used at a working height of 16 feet should have its base set how far from the wall?",
+    "o": [
+     "2 feet",
+     "4 feet",
+     "3 feet",
+     "5 feet"
+    ],
+    "a": 1,
+    "e": "One foot out for every four feet of height: 16 divided by 4 equals 4 feet."
+   },
+   {
+    "p": "p3",
+    "s": "A ladder used to reach a roof must extend above the landing surface by at least",
+    "o": [
+     "one foot",
+     "two feet",
+     "three feet",
+     "four feet"
+    ],
+    "a": 2,
+    "e": "The third paragraph gives three feet above the landing so the climber has something to hold."
+   },
+   {
+    "p": "p3",
+    "s": "According to the passage, setting a ladder at too shallow an angle increases the chance that",
+    "o": [
+     "the base will slide out",
+     "the ladder will tip backward",
+     "the rungs will bend",
+     "the top will swing sideways"
+    ],
+    "a": 0,
+    "e": "The passage pairs a steeper angle with tipping backward and a shallower angle with the base sliding out."
+   },
+   {
+    "p": "p3",
+    "s": "The three-points-of-contact rule is said to make which activity impractical?",
+    "o": [
+     "carrying tools by hand while climbing",
+     "securing the top of the ladder",
+     "facing the ladder while climbing",
+     "setting the ladder against a wall"
+    ],
+    "a": 0,
+    "e": "The passage says the rule makes carrying tools by hand impractical, which is why tools are hoisted or belted."
+   },
+   {
+    "p": "p3",
+    "s": "The duty rating described in the passage refers to",
+    "o": [
+     "the weight of the person only",
+     "the maximum height the ladder may be extended",
+     "the number of years the ladder may be used",
+     "the combined weight of the person, clothing, tools and materials"
+    ],
+    "a": 3,
+    "e": "The last paragraph defines the rating as maximum combined weight, and explicitly says it is not a limit on the person alone."
+   },
+   {
+    "p": "p3",
+    "s": "The example of the 200-pound worker is included in order to show that",
+    "o": [
+     "a person well under the rating can still exceed it once equipment is counted",
+     "heavier workers should use different ladders",
+     "tools should never be carried on a ladder",
+     "250-pound ladders are rarely adequate"
+    ],
+    "a": 0,
+    "e": "200 pounds is comfortably under 250, but adding 60 pounds of equipment pushes the total over, which is the point of the example."
+   },
+   {
+    "p": "p4",
+    "s": "Back-siphonage, as described, is caused by",
+    "o": [
+     "a boiler pressurizing the downstream system",
+     "a check valve failing to close",
+     "supply pressure dropping below the pressure at the fixture",
+     "contaminated soil around the pipe"
+    ],
+    "a": 2,
+    "e": "The second paragraph defines back-siphonage as the result of falling supply pressure creating suction."
+   },
+   {
+    "p": "p4",
+    "s": "Applying the rule in the passage, a supply pipe 3/8 inch in diameter requires an air gap of at least",
+    "o": [
+     "1 inch",
+     "3/4 inch",
+     "1 1/2 inches",
+     "2 inches"
+    ],
+    "a": 0,
+    "e": "Twice 3/8 is 3/4 inch, but the passage sets a floor of one inch, so the minimum is 1 inch. This question tests whether you applied the second half of the rule."
+   },
+   {
+    "p": "p4",
+    "s": "Which protection is stated to work against both back-siphonage and back-pressure?",
+    "o": [
+     "a vacuum breaker",
+     "a single check valve",
+     "an elevated tank",
+     "a reduced-pressure zone assembly"
+    ],
+    "a": 3,
+    "e": "The vacuum breaker is limited to back-siphonage; the reduced-pressure zone assembly is credited with both."
+   },
+   {
+    "p": "p4",
+    "s": "The air gap works, according to the passage, because",
+    "o": [
+     "it holds a column of air under pressure",
+     "it drains to a floor sink",
+     "no continuous path exists for water to travel backward",
+     "it is inspected annually"
+    ],
+    "a": 2,
+    "e": "The third paragraph states that because no continuous path exists, no siphon can form."
+   },
+   {
+    "p": "p4",
+    "s": "The passage gives which reason for requiring annual testing of mechanical devices?",
+    "o": [
+     "water chemistry changes over time",
+     "codes differ between jurisdictions",
+     "they are difficult to see once installed",
+     "they contain moving parts that wear"
+    ],
+    "a": 3,
+    "e": "The closing paragraph attributes the testing requirement to moving parts that wear, and contrasts it with the air gap."
+   },
+   {
+    "p": "p4",
+    "s": "A boiler holding pressure above that of the supply main could cause",
+    "o": [
+     "back-siphonage",
+     "a cross-connection to close",
+     "back-pressure",
+     "an air gap to form"
+    ],
+    "a": 2,
+    "e": "The passage names a boiler as one of the sources that pressurizes the downstream system and pushes water back toward the main."
+   },
+   {
+    "p": "p5",
+    "s": "According to the passage, a bolt clamps a joint together by",
+    "o": [
+     "expanding in diameter against the hole",
+     "stretching slightly and holding tension",
+     "gripping the threads with friction",
+     "compressing the material beneath the head"
+    ],
+    "a": 1,
+    "e": "The first paragraph says the bolt elongates and the tension in the stretched bolt clamps the joint."
+   },
+   {
+    "p": "p5",
+    "s": "Over-torquing is a problem because the bolt",
+    "o": [
+     "strips the threads immediately",
+     "heats up and anneals",
+     "is stretched past its elastic limit and loses clamping force",
+     "becomes impossible to remove"
+    ],
+    "a": 2,
+    "e": "Past the elastic limit the bolt no longer springs back, so clamping force is lost even though it feels tight."
+   },
+   {
+    "p": "p5",
+    "s": "The passage gives which reason for returning a click wrench to its lowest setting in storage?",
+    "o": [
+     "it protects the ratchet mechanism",
+     "it prevents accidental use at a high setting",
+     "it makes the scale easier to read",
+     "a compressed spring shifts the calibration over time"
+    ],
+    "a": 3,
+    "e": "The second paragraph states that leaving the internal spring compressed shifts calibration over time."
+   },
+   {
+    "p": "p5",
+    "s": "The stated drawback of a beam wrench is that it",
+    "o": [
+     "must be viewed straight on to read correctly",
+     "loses calibration easily",
+     "cannot measure low values",
+     "requires batteries"
+    ],
+    "a": 0,
+    "e": "The passage calls it nearly impossible to knock out of calibration, but notes it must be viewed straight on."
+   },
+   {
+    "p": "p5",
+    "s": "The passage indicates a torque specification is meaningful only when",
+    "o": [
+     "a digital wrench is used",
+     "the bolt is new",
+     "the joint is at room temperature",
+     "the stated lubrication condition is matched"
+    ],
+    "a": 3,
+    "e": "Friction changes the tension reached at a given torque, so the stated dry or lubricated condition must be followed."
+   },
+   {
+    "p": "p5",
+    "s": "Based on the passage, which adapter would require recalculating the wrench setting?",
+    "o": [
+     "one that holds the fastener at a right angle to the wrench",
+     "one that moves the fastener farther from the handle along the line of the wrench",
+     "one that reduces the drive size",
+     "one that adds a swivel at the head"
+    ],
+    "a": 1,
+    "e": "Only an adapter along the line of the wrench changes the effective lever arm. A right-angle adapter does not."
+   },
+   {
+    "p": "p6",
+    "s": "Three inches of a material rated R-3 per inch provides a total R-value of",
+    "o": [
+     "R-3",
+     "R-9",
+     "R-6",
+     "R-27"
+    ],
+    "a": 1,
+    "e": "R-values of layers in series add: 3 inches times R-3 per inch equals R-9."
+   },
+   {
+    "p": "p6",
+    "s": "Condensation forms on a cold pipe because",
+    "o": [
+     "the pipe leaks through its seams",
+     "the insulation releases water it absorbed",
+     "air at the pipe surface cools until it can no longer hold its moisture",
+     "cold water expands inside the pipe"
+    ],
+    "a": 2,
+    "e": "The second paragraph explains that air holds less vapor as it cools, so the excess condenses on the cold surface."
+   },
+   {
+    "p": "p6",
+    "s": "A gap in the insulation is more serious on a cold line than on a hot line because",
+    "o": [
+     "cold lines run at higher pressure",
+     "cold lines are usually steel",
+     "insulation costs more on cold lines",
+     "condensation forms underneath where it cannot evaporate"
+    ],
+    "a": 3,
+    "e": "The third paragraph describes trapped condensation saturating the insulation and sitting against the pipe out of sight."
+   },
+   {
+    "p": "p6",
+    "s": "The passage states that insulation which has become saturated",
+    "o": [
+     "becomes a better conductor of sound",
+     "expands and splits the jacket",
+     "loses its R-value",
+     "dries out during the heating season"
+    ],
+    "a": 2,
+    "e": "Saturation is said to destroy the R-value, which is why the vapor seal matters."
+   },
+   {
+    "p": "p6",
+    "s": "The passage says the drip from an uninsulated cold pipe is often mistaken for",
+    "o": [
+     "overflow from a fixture",
+     "a failed hanger",
+     "condensation from a duct",
+     "a leak"
+    ],
+    "a": 3,
+    "e": "The second paragraph states plainly that the resulting drip is often mistaken for a leak."
+   },
+   {
+    "p": "p6",
+    "s": "Which best states the purpose the passage gives for insulating hot lines?",
+    "o": [
+     "to prevent condensation on the outside of the pipe",
+     "to keep heat in the water so hot water arrives sooner and the boiler cycles less",
+     "to protect the pipe from corrosion",
+     "to keep the pipe surface safe to touch"
+    ],
+    "a": 1,
+    "e": "The second paragraph gives exactly these two benefits for hot lines, and says condensation is not a factor there."
+   },
+   {
+    "p": "p7",
+    "s": "According to the passage, a space is classified as confined only when",
+    "o": [
+     "it contains a hazardous atmosphere",
+     "all three of the stated characteristics are present",
+     "it is below ground level",
+     "it requires a permit"
+    ],
+    "a": 1,
+    "e": "The opening sentence says the definition rests on three characteristics taken together."
+   },
+   {
+    "p": "p7",
+    "s": "Oxygen is tested first because",
+    "o": [
+     "it is the most common hazard",
+     "toxic gases settle more slowly",
+     "the probe is calibrated in oxygen",
+     "flammable-gas instruments need a known oxygen level to read accurately"
+    ],
+    "a": 3,
+    "e": "The third paragraph gives this instrument dependency as the reason for the fixed order."
+   },
+   {
+    "p": "p7",
+    "s": "The probe is lowered in stages rather than sampled at the top because",
+    "o": [
+     "heavier-than-air gases collect at the bottom",
+     "the opening is narrow",
+     "the instrument needs time to warm up",
+     "the attendant cannot see the bottom"
+    ],
+    "a": 0,
+    "e": "Sampling only at the top would miss gases that settle, which is the stated reason for staged testing."
+   },
+   {
+    "p": "p7",
+    "s": "The attendant's duties, as listed, do NOT include",
+    "o": [
+     "maintaining contact with the entrants",
+     "entering the space to perform a rescue",
+     "monitoring conditions",
+     "ordering evacuation"
+    ],
+    "a": 1,
+    "e": "The passage lists the first, second and fourth as duties and states directly that the attendant does not enter to rescue."
+   },
+   {
+    "p": "p7",
+    "s": "The prohibition on the attendant entering to rescue exists because",
+    "o": [
+     "a substantial share of fatalities are unequipped rescuers",
+     "the permit does not cover a second entrant",
+     "the attendant is rarely trained",
+     "rescue equipment is expensive"
+    ],
+    "a": 0,
+    "e": "The final sentence ties the prohibition directly to the pattern of would-be rescuers dying."
+   },
+   {
+    "p": "p7",
+    "s": "Based on the passage, a room-sized space whose only opening is a hatch",
+    "o": [
+     "can still be a confined space",
+     "cannot be a confined space because of its size",
+     "is automatically permit-required",
+     "must be tested only at the opening"
+    ],
+    "a": 0,
+    "e": "The passage states that size alone does not determine classification and gives this exact example."
+   }
+  ]
+ },
+ {
+  "id": "comp",
+  "n": 2,
+  "name": "Numerical Computation",
+  "mins": 21,
+  "count": 28,
+  "blurb": "Straight arithmetic, worked by hand. Fractions, decimals, percentages and conversions. No word problems in this section. Each item offers None of these as the last choice, and sometimes that is the correct answer.",
+  "pace": "About 45 seconds per item. Scratch paper only.",
+  "q": [
+   {
+    "s": "3/8 + 1/4 =",
+    "calc": 1,
+    "o": [
+     "5/8",
+     "4/12",
+     "1/2",
+     "3/4",
+     "None of these"
+    ],
+    "a": 0,
+    "e": "Common denominator of 8: 1/4 = 2/8. Then 3/8 + 2/8 = 5/8. Adding numerators and denominators straight across gives 4/12, which is the trap."
+   },
+   {
+    "s": "0.6 &times; 0.4 =",
+    "calc": 1,
+    "o": [
+     "0.024",
+     "2.4",
+     "0.10",
+     "0.24",
+     "None of these"
+    ],
+    "a": 3,
+    "e": "Multiply 6 by 4 to get 24, then place the decimal. One decimal place in each factor gives two in the product: 0.24."
+   },
+   {
+    "s": "7/8 &minus; 1/2 =",
+    "calc": 1,
+    "o": [
+     "1/3",
+     "5/8",
+     "7/16",
+     "3/8",
+     "None of these"
+    ],
+    "a": 3,
+    "e": "1/2 = 4/8. Then 7/8 &minus; 4/8 = 3/8."
+   },
+   {
+    "s": "15% of 80 =",
+    "calc": 1,
+    "o": [
+     "12",
+     "1.2",
+     "8",
+     "15",
+     "None of these"
+    ],
+    "a": 0,
+    "e": "10% of 80 is 8, and 5% is half of that, 4. So 8 + 4 = 12."
+   },
+   {
+    "s": "3 1/2 feet equals how many inches?",
+    "calc": 1,
+    "o": [
+     "35",
+     "42",
+     "38",
+     "45",
+     "None of these"
+    ],
+    "a": 1,
+    "e": "3 feet is 36 inches, plus half a foot is 6 inches. 36 + 6 = 42."
+   },
+   {
+    "s": "3/4 &divide; 1/8 =",
+    "calc": 1,
+    "o": [
+     "3/32",
+     "2/3",
+     "8",
+     "6",
+     "None of these"
+    ],
+    "a": 3,
+    "e": "Invert and multiply: 3/4 &times; 8/1 = 24/4 = 6. Multiplying without inverting gives 3/32."
+   },
+   {
+    "s": "9 &minus; 4.375 =",
+    "calc": 1,
+    "o": [
+     "4.625",
+     "4.375",
+     "5.375",
+     "5.625",
+     "None of these"
+    ],
+    "a": 0,
+    "e": "Write 9 as 9.000 and subtract: 9.000 &minus; 4.375 = 4.625. Borrowing from 10 instead of 9 produces 5.625."
+   },
+   {
+    "s": "1.25 &times; 16 =",
+    "calc": 1,
+    "o": [
+     "12.8",
+     "18",
+     "20",
+     "24",
+     "None of these"
+    ],
+    "a": 2,
+    "e": "1.25 is 5/4, and 16 &times; 5/4 = 20. Or 16 + one quarter of 16, which is 16 + 4."
+   },
+   {
+    "s": "2 1/2 + 3 3/4 =",
+    "calc": 1,
+    "o": [
+     "5 1/4",
+     "5 3/4",
+     "6 1/4",
+     "6 3/4",
+     "None of these"
+    ],
+    "a": 2,
+    "e": "Whole numbers: 2 + 3 = 5. Fractions: 1/2 = 2/4, so 2/4 + 3/4 = 5/4 = 1 1/4. Total 6 1/4."
+   },
+   {
+    "s": "5/6 &times; 3/10 =",
+    "calc": 1,
+    "o": [
+     "1/4",
+     "1/5",
+     "8/16",
+     "3/5",
+     "None of these"
+    ],
+    "a": 0,
+    "e": "Multiply across: 15/60. Divide both by 15 to get 1/4. Cancelling first is faster: the 3 and 6 reduce to 1 and 2, the 5 and 10 reduce to 1 and 2, leaving 1/4."
+   },
+   {
+    "s": "5 1/8 &minus; 2 5/8 =",
+    "calc": 1,
+    "o": [
+     "2 3/8",
+     "2 1/2",
+     "3 1/2",
+     "3 3/8",
+     "None of these"
+    ],
+    "a": 1,
+    "e": "5/8 is larger than 1/8, so borrow: 5 1/8 becomes 4 9/8. Then 4 9/8 &minus; 2 5/8 = 2 4/8 = 2 1/2."
+   },
+   {
+    "s": "7/16 + 5/8 =",
+    "calc": 1,
+    "o": [
+     "1 1/16",
+     "3/4",
+     "1 1/8",
+     "12/24",
+     "None of these"
+    ],
+    "a": 0,
+    "e": "5/8 = 10/16. Then 7/16 + 10/16 = 17/16 = 1 1/16."
+   },
+   {
+    "s": "12% of 250 =",
+    "calc": 1,
+    "o": [
+     "24",
+     "30",
+     "28",
+     "32",
+     "None of these"
+    ],
+    "a": 1,
+    "e": "1% of 250 is 2.5, so 12% is 12 &times; 2.5 = 30."
+   },
+   {
+    "s": "5 gallons equals how many quarts?",
+    "calc": 1,
+    "o": [
+     "10",
+     "16",
+     "40",
+     "20",
+     "None of these"
+    ],
+    "a": 3,
+    "e": "4 quarts to a gallon: 5 &times; 4 = 20."
+   },
+   {
+    "s": "0.375 written as a fraction in lowest terms is",
+    "calc": 1,
+    "o": [
+     "1/4",
+     "3/8",
+     "3/4",
+     "375/100",
+     "None of these"
+    ],
+    "a": 1,
+    "e": "0.375 is 375/1000. Divide both by 125 to get 3/8. Worth memorizing: 1/8 = 0.125, 3/8 = 0.375, 5/8 = 0.625, 7/8 = 0.875."
+   },
+   {
+    "s": "2 3/4 &times; 8 =",
+    "calc": 1,
+    "o": [
+     "16 3/4",
+     "24",
+     "6 3/4",
+     "22",
+     "None of these"
+    ],
+    "a": 3,
+    "e": "11/4 &times; 8 = 88/4 = 22. Or 2 &times; 8 = 16 plus 3/4 &times; 8 = 6, giving 22. Multiplying only the whole number gives 16 3/4."
+   },
+   {
+    "s": "1 1/3 &divide; 2/3 =",
+    "calc": 1,
+    "o": [
+     "8/9",
+     "1 1/2",
+     "2 2/3",
+     "3",
+     "None of these"
+    ],
+    "a": 4,
+    "e": "1 1/3 = 4/3. Invert and multiply: 4/3 &times; 3/2 = 12/6 = 2. Two is not among the four numbered choices, so None of these is correct. Multiplying without inverting gives 8/9 and that value is among the choices as a trap."
+   },
+   {
+    "s": "0.08 &times; 1250 =",
+    "calc": 1,
+    "o": [
+     "10",
+     "125",
+     "100",
+     "1000",
+     "None of these"
+    ],
+    "a": 2,
+    "e": "8 &times; 1250 = 10,000. Two decimal places in 0.08 moves the point two places left: 100."
+   },
+   {
+    "s": "3 1/2 &minus; 7/8 =",
+    "calc": 1,
+    "o": [
+     "2 3/8",
+     "2 7/8",
+     "3 1/8",
+     "2 5/8",
+     "None of these"
+    ],
+    "a": 3,
+    "e": "3 1/2 = 3 4/8 = 2 12/8 after borrowing. Then 2 12/8 &minus; 7/8 = 2 5/8."
+   },
+   {
+    "s": "144 &divide; 0.12 =",
+    "calc": 1,
+    "o": [
+     "12",
+     "1200",
+     "120",
+     "17.28",
+     "None of these"
+    ],
+    "a": 1,
+    "e": "Move the decimal two places in both: 14400 &divide; 12 = 1200. Dividing by a number smaller than one makes the answer larger, which is a useful check."
+   },
+   {
+    "s": "45 is what percent of 60?",
+    "calc": 1,
+    "o": [
+     "15%",
+     "25%",
+     "75%",
+     "133%",
+     "None of these"
+    ],
+    "a": 2,
+    "e": "45/60 reduces to 3/4, and 3/4 is 75%."
+   },
+   {
+    "s": "6 3/4 &divide; 1 1/2 =",
+    "calc": 1,
+    "o": [
+     "4 1/2",
+     "4 1/4",
+     "5",
+     "10 1/8",
+     "None of these"
+    ],
+    "a": 0,
+    "e": "27/4 &divide; 3/2 = 27/4 &times; 2/3 = 54/12 = 4 1/2. Multiplying instead of inverting gives 81/8, which is 10 1/8."
+   },
+   {
+    "s": "2 2/5 &times; 1 1/4 =",
+    "calc": 1,
+    "o": [
+     "2 1/4",
+     "3",
+     "2 1/2",
+     "3 3/5",
+     "None of these"
+    ],
+    "a": 1,
+    "e": "12/5 &times; 5/4. The fives cancel and 12/4 = 3."
+   },
+   {
+    "s": "(0.25 + 0.125) &times; 32 =",
+    "calc": 1,
+    "o": [
+     "8",
+     "10",
+     "11",
+     "14",
+     "None of these"
+    ],
+    "a": 4,
+    "e": "Inside the parentheses: 0.375. Then 0.375 &times; 32 = 12, since 0.375 is 3/8 and 3/8 of 32 is 12. Twelve is not listed, so None of these is correct."
+   },
+   {
+    "s": "Increase 480 by 12.5%.",
+    "calc": 1,
+    "o": [
+     "492.5",
+     "504",
+     "540",
+     "600",
+     "None of these"
+    ],
+    "a": 2,
+    "e": "12.5% is 1/8, and 1/8 of 480 is 60. Then 480 + 60 = 540."
+   },
+   {
+    "s": "5/8 of 3/4 of 64 =",
+    "calc": 1,
+    "o": [
+     "24",
+     "30",
+     "40",
+     "48",
+     "None of these"
+    ],
+    "a": 1,
+    "e": "Work outward in: 3/4 of 64 is 48, then 5/8 of 48 is 5 &times; 6 = 30."
+   },
+   {
+    "s": "(7 1/2 &minus; 2 3/4) &divide; 1 1/4 =",
+    "calc": 1,
+    "o": [
+     "3 1/4",
+     "4 3/4",
+     "3 4/5",
+     "5 15/16",
+     "None of these"
+    ],
+    "a": 2,
+    "e": "Parentheses first: 7 1/2 &minus; 2 3/4 = 4 3/4 = 19/4. Then 19/4 &divide; 5/4 = 19/4 &times; 4/5 = 19/5 = 3 4/5. Multiplying instead of inverting gives 95/16, or 5 15/16."
+   },
+   {
+    "s": "A number decreased by 30% equals 91. What is the number?",
+    "calc": 1,
+    "o": [
+     "130",
+     "118.3",
+     "121",
+     "133",
+     "None of these"
+    ],
+    "a": 0,
+    "e": "After a 30% decrease, 70% remains. So 0.70 &times; n = 91, and n = 91 &divide; 0.7 = 130. Adding 30% back to 91 gives 118.3, which is the common error, because the percentage applies to the original number, not the reduced one."
+   }
+  ]
+ },
+ {
+  "id": "reas",
+  "n": 3,
+  "name": "Numerical Reasoning",
+  "mins": 10,
+  "count": 10,
+  "blurb": "Number series. Find the rule that generates the sequence and give the next term. The five families that appear are constant difference, changing difference, constant ratio, two alternating patterns, and a repeated two-step operation.",
+  "pace": "One minute per item. If a rule does not appear within about 20 seconds, write the differences between terms underneath the series and look again.",
+  "q": [
+   {
+    "ser": [
+     "7",
+     "12",
+     "17",
+     "22",
+     "27"
+    ],
+    "o": [
+     "31",
+     "32",
+     "33",
+     "34",
+     "37"
+    ],
+    "a": 1,
+    "e": "Constant difference. Each term is 5 more than the one before, so 27 + 5 = 32."
+   },
+   {
+    "ser": [
+     "96",
+     "89",
+     "82",
+     "75"
+    ],
+    "o": [
+     "68",
+     "69",
+     "70",
+     "72",
+     "82"
+    ],
+    "a": 0,
+    "e": "Constant difference, descending. Each term drops by 7, so 75 &minus; 7 = 68."
+   },
+   {
+    "ser": [
+     "3",
+     "4",
+     "6",
+     "9",
+     "13"
+    ],
+    "o": [
+     "16",
+     "17",
+     "18",
+     "19",
+     "21"
+    ],
+    "a": 2,
+    "e": "Changing difference. The gaps are 1, 2, 3, 4, so the next gap is 5: 13 + 5 = 18."
+   },
+   {
+    "ser": [
+     "2",
+     "3",
+     "5",
+     "9",
+     "17"
+    ],
+    "o": [
+     "25",
+     "29",
+     "31",
+     "33",
+     "34"
+    ],
+    "a": 3,
+    "e": "Changing difference, this time accelerating by doubling. The gaps are 1, 2, 4, 8, so the next gap is 16: 17 + 16 = 33. Another way to see it is that each term is double the previous term minus one."
+   },
+   {
+    "ser": [
+     "3",
+     "6",
+     "12",
+     "24"
+    ],
+    "o": [
+     "26",
+     "30",
+     "36",
+     "42",
+     "48"
+    ],
+    "a": 4,
+    "e": "Constant ratio. Each term is double the one before, so 24 &times; 2 = 48. Note that the differences here are 3, 6, 12, which are also doubling, a signature of a ratio rule."
+   },
+   {
+    "ser": [
+     "162",
+     "54",
+     "18",
+     "6"
+    ],
+    "o": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4"
+    ],
+    "a": 2,
+    "e": "Constant ratio with a fraction. Each term is one third of the previous one, so 6 &divide; 3 = 2."
+   },
+   {
+    "ser": [
+     "5",
+     "20",
+     "8",
+     "23",
+     "11",
+     "26",
+     "14"
+    ],
+    "o": [
+     "17",
+     "19",
+     "27",
+     "29",
+     "31"
+    ],
+    "a": 3,
+    "e": "Two alternating series woven together. The odd positions are 5, 8, 11, 14, rising by 3. The even positions are 20, 23, 26, also rising by 3. The next term sits in an even position, so it follows 26: 26 + 3 = 29. The giveaway for an interleaved series is that the terms jump up and down rather than moving one direction."
+   },
+   {
+    "ser": [
+     "2",
+     "3",
+     "6",
+     "7",
+     "14",
+     "15",
+     "30"
+    ],
+    "o": [
+     "31",
+     "33",
+     "45",
+     "60",
+     "62"
+    ],
+    "a": 0,
+    "e": "Alternating operations rather than alternating series. The steps run add 1, double, add 1, double, and so on: 2, +1 to 3, &times;2 to 6, +1 to 7, &times;2 to 14, +1 to 15, &times;2 to 30. The next step is add 1: 31."
+   },
+   {
+    "ser": [
+     "4",
+     "9",
+     "19",
+     "39",
+     "79"
+    ],
+    "o": [
+     "99",
+     "118",
+     "149",
+     "158",
+     "159"
+    ],
+    "a": 4,
+    "e": "A repeated two-step operation: double and add 1. 4 &times; 2 + 1 = 9, 9 &times; 2 + 1 = 19, and so on. 79 &times; 2 + 1 = 159. Neither a constant difference nor a clean ratio fits, which is the clue to test a two-step rule."
+   },
+   {
+    "ser": [
+     "5",
+     "13",
+     "29",
+     "61"
+    ],
+    "o": [
+     "64",
+     "125",
+     "128",
+     "183",
+     "244"
+    ],
+    "a": 1,
+    "e": "Double and add 3. 5 &times; 2 + 3 = 13, 13 &times; 2 + 3 = 29, 29 &times; 2 + 3 = 61, and 61 &times; 2 + 3 = 125. To find the added constant, notice the term is a little more than double the previous one, then work out how much more."
+   }
+  ]
+ },
+ {
+  "id": "solve",
+  "n": 4,
+  "name": "Problem Solving",
+  "mins": 35,
+  "count": 35,
+  "blurb": "Word problems. Set the arithmetic up before you compute it. Most of these take two steps, and the step people skip is the first one, finding a rate or a total before applying it.",
+  "pace": "One minute per item. If a problem asks for what remains, check that you did not answer with what was used.",
+  "q": [
+   {
+    "s": "A crew sets 14 fixtures in a day. Working at the same rate, how many will the crew set in 5 days?",
+    "o": [
+     "56",
+     "64",
+     "84",
+     "70"
+    ],
+    "a": 3,
+    "e": "14 per day for 5 days: 14 &times; 5 = 70."
+   },
+   {
+    "s": "Pipe sells for $3.40 a foot. What do 20 feet cost?",
+    "o": [
+     "$6.80",
+     "$68.00",
+     "$34.00",
+     "$74.00"
+    ],
+    "a": 1,
+    "e": "3.40 &times; 20 = 68. Multiplying by 20 is the same as doubling and moving the decimal one place."
+   },
+   {
+    "s": "A tank holds 180 gallons and is two thirds full. How many gallons are in it?",
+    "o": [
+     "60 gallons",
+     "90 gallons",
+     "120 gallons",
+     "135 gallons"
+    ],
+    "a": 2,
+    "e": "One third of 180 is 60, so two thirds is 120."
+   },
+   {
+    "s": "A truck covers 240 miles in 4 hours. What is its average speed?",
+    "o": [
+     "48 mph",
+     "60 mph",
+     "55 mph",
+     "80 mph"
+    ],
+    "a": 1,
+    "e": "Speed is distance divided by time: 240 &divide; 4 = 60."
+   },
+   {
+    "s": "A job takes 7 1/2 hours at $28 an hour. What is the labor cost?",
+    "o": [
+     "$186",
+     "$210",
+     "$196",
+     "$224"
+    ],
+    "a": 1,
+    "e": "7 &times; 28 = 196, and half an hour is 14 more. 196 + 14 = 210."
+   },
+   {
+    "s": "A 12-foot length of pipe is cut into pieces 18 inches long. Ignoring waste, how many pieces are there?",
+    "o": [
+     "8",
+     "6",
+     "9",
+     "16"
+    ],
+    "a": 0,
+    "e": "Put both in the same unit first. 12 feet is 144 inches, and 144 &divide; 18 = 8. Dividing 12 by 18 without converting is the trap."
+   },
+   {
+    "s": "Three workers hang 45 supports in a day. At the same rate per worker, how many would five workers hang in a day?",
+    "o": [
+     "75",
+     "60",
+     "68",
+     "90"
+    ],
+    "a": 0,
+    "e": "45 &divide; 3 = 15 per worker, and 15 &times; 5 = 75."
+   },
+   {
+    "s": "A fitting that normally sells for $16 is marked down 25 percent. What is the sale price?",
+    "o": [
+     "$11",
+     "$12.75",
+     "$12",
+     "$13"
+    ],
+    "a": 2,
+    "e": "25 percent is one quarter. A quarter of 16 is 4, so the price drops to 16 &minus; 4 = 12."
+   },
+   {
+    "s": "A pump moves 15 gallons a minute. How long will it take to fill a 450-gallon tank?",
+    "o": [
+     "25 minutes",
+     "30 minutes",
+     "35 minutes",
+     "45 minutes"
+    ],
+    "a": 1,
+    "e": "450 &divide; 15 = 30. Check it the other way: 15 &times; 30 = 450."
+   },
+   {
+    "s": "A drawing is made at a scale of 1/4 inch to 1 foot. A wall measures 3 1/2 inches on the drawing. How long is the actual wall?",
+    "o": [
+     "7 feet",
+     "10 1/2 feet",
+     "28 feet",
+     "14 feet"
+    ],
+    "a": 3,
+    "e": "Every quarter inch stands for a foot, so ask how many quarter inches are in 3 1/2: that is 3.5 &divide; 0.25 = 14."
+   },
+   {
+    "s": "A roll holds 500 feet of tubing. Three runs of 65 feet are cut from it. How much is left?",
+    "o": [
+     "195 feet",
+     "295 feet",
+     "305 feet",
+     "435 feet"
+    ],
+    "a": 2,
+    "e": "3 &times; 65 = 195 used. Then 500 &minus; 195 = 305."
+   },
+   {
+    "s": "A job costs $840 in material and $1,260 in labor. Labor is what percent of the total cost?",
+    "o": [
+     "60%",
+     "40%",
+     "50%",
+     "67%"
+    ],
+    "a": 0,
+    "e": "Total is 840 + 1260 = 2100. Then 1260 &divide; 2100 = 0.6, which is 60 percent."
+   },
+   {
+    "s": "A crew of 4 finishes a job in 6 days. How long would the same job take a crew of 3 working at the same rate?",
+    "o": [
+     "4 1/2 days",
+     "7 days",
+     "8 days",
+     "9 days"
+    ],
+    "a": 2,
+    "e": "The job is 4 &times; 6 = 24 worker-days of effort no matter who does it. Split among 3 workers: 24 &divide; 3 = 8 days. Fewer workers means more days, so the answer has to be larger than 6."
+   },
+   {
+    "s": "A gallon of water weighs about 8.3 pounds. What does 20 gallons weigh?",
+    "o": [
+     "83 pounds",
+     "160 pounds",
+     "166 pounds",
+     "208 pounds"
+    ],
+    "a": 2,
+    "e": "8.3 &times; 20 = 166. Multiply by 2 and move the decimal one place."
+   },
+   {
+    "s": "A drain line drops 3 inches for every 4 feet of run. How much does it drop over a 36-foot run?",
+    "o": [
+     "27 inches",
+     "12 inches",
+     "24 inches",
+     "36 inches"
+    ],
+    "a": 0,
+    "e": "36 &divide; 4 = 9 sections of run, and each drops 3 inches: 9 &times; 3 = 27 inches."
+   },
+   {
+    "s": "Five boxes of fittings cost $62.50. What do eight boxes cost at the same price?",
+    "o": [
+     "$87.50",
+     "$93.75",
+     "$100.00",
+     "$125.00"
+    ],
+    "a": 2,
+    "e": "62.50 &divide; 5 = 12.50 a box, and 12.50 &times; 8 = 100."
+   },
+   {
+    "s": "A tank is filled at 12 gallons a minute while it drains at 4 gallons a minute. How long will it take to add 200 gallons?",
+    "o": [
+     "12 1/2 minutes",
+     "20 minutes",
+     "50 minutes",
+     "25 minutes"
+    ],
+    "a": 3,
+    "e": "The net gain is 12 &minus; 4 = 8 gallons a minute. Then 200 &divide; 8 = 25 minutes. Using 12 instead of the net rate gives the wrong answer."
+   },
+   {
+    "s": "An 8-hour shift includes a 30-minute unpaid lunch. How many paid hours does the shift contain?",
+    "o": [
+     "7",
+     "7 1/2",
+     "7 1/4",
+     "8"
+    ],
+    "a": 1,
+    "e": "Half an hour comes out of 8: 8 &minus; 0.5 = 7.5."
+   },
+   {
+    "s": "A job estimated at 120 hours is 35 percent complete. How many hours of work remain?",
+    "o": [
+     "42 hours",
+     "78 hours",
+     "68 hours",
+     "85 hours"
+    ],
+    "a": 1,
+    "e": "If 35 percent is done, 65 percent remains. 10 percent of 120 is 12, so 65 percent is 6.5 &times; 12 = 78."
+   },
+   {
+    "s": "Copper tube weighs 0.64 pounds per foot. What does a 25-foot length weigh?",
+    "o": [
+     "12.8 pounds",
+     "14.4 pounds",
+     "18 pounds",
+     "16 pounds"
+    ],
+    "a": 3,
+    "e": "0.64 &times; 25. Since 25 is one quarter of 100, multiply by 100 and take a quarter: 64 &divide; 4 = 16."
+   },
+   {
+    "s": "A truck uses 18 gallons of fuel to travel 216 miles. How many gallons will it use on a 360-mile trip?",
+    "o": [
+     "30 gallons",
+     "24 gallons",
+     "27 gallons",
+     "36 gallons"
+    ],
+    "a": 0,
+    "e": "First find the rate: 216 &divide; 18 = 12 miles per gallon. Then 360 &divide; 12 = 30 gallons. Two steps, and the first one is the one people skip."
+   },
+   {
+    "s": "Three pieces measure 4 feet 8 inches, 3 feet 9 inches, and 2 feet 7 inches. What is their combined length?",
+    "o": [
+     "10 feet 0 inches",
+     "10 feet 8 inches",
+     "11 feet 0 inches",
+     "11 feet 4 inches"
+    ],
+    "a": 2,
+    "e": "Add the inches: 8 + 9 + 7 = 24 inches, which is 2 feet even. Add the feet: 4 + 3 + 2 = 9. Then 9 + 2 = 11 feet 0 inches."
+   },
+   {
+    "s": "A contractor bids a job at $4,500. Material runs $1,800 and labor is 30 percent of the bid. What is left for overhead and profit?",
+    "o": [
+     "$900",
+     "$1,200",
+     "$2,700",
+     "$1,350"
+    ],
+    "a": 3,
+    "e": "Labor is 0.30 &times; 4500 = 1350. Then 4500 &minus; 1800 &minus; 1350 = 1350. The labor percentage applies to the bid, not to what is left after material."
+   },
+   {
+    "s": "Pump A can fill a tank in 6 hours. Pump B can fill the same tank in 3 hours. Running together, how long will they take?",
+    "o": [
+     "1 1/2 hours",
+     "2 hours",
+     "2 1/2 hours",
+     "4 1/2 hours"
+    ],
+    "a": 1,
+    "e": "Work in tanks per hour. A does 1/6 and B does 1/3, which is 2/6. Together that is 3/6, or half a tank an hour, so the tank fills in 2 hours. Averaging the two times gives 4 1/2 and is wrong: two pumps must beat the faster pump alone."
+   },
+   {
+    "s": "A trench is 27 feet long, 2 feet wide, and 3 feet deep. How many cubic yards of soil come out of it?",
+    "o": [
+     "4 1/2 cubic yards",
+     "18 cubic yards",
+     "54 cubic yards",
+     "6 cubic yards"
+    ],
+    "a": 3,
+    "e": "Volume is 27 &times; 2 &times; 3 = 162 cubic feet. A cubic yard is 3 &times; 3 &times; 3 = 27 cubic feet, so 162 &divide; 27 = 6. Dividing by 3 instead of 27 is the usual error."
+   },
+   {
+    "s": "The price of a valve rises from $80 to $92. What is the percent increase?",
+    "o": [
+     "15%",
+     "12%",
+     "13%",
+     "20%"
+    ],
+    "a": 0,
+    "e": "The increase is 12. Percent increase compares that to the original: 12 &divide; 80 = 0.15."
+   },
+   {
+    "s": "A worker earns $32 an hour, with time and a half for anything over 40 hours. What is the gross pay for a 46-hour week?",
+    "o": [
+     "$1,472",
+     "$1,536",
+     "$1,656",
+     "$1,568"
+    ],
+    "a": 3,
+    "e": "Regular: 40 &times; 32 = 1280. Overtime rate is 1.5 &times; 32 = 48, and 6 &times; 48 = 288. Then 1280 + 288 = 1568."
+   },
+   {
+    "s": "A 200-gallon tank is 40 percent full. How many gallons are needed to fill it?",
+    "o": [
+     "120 gallons",
+     "60 gallons",
+     "80 gallons",
+     "160 gallons"
+    ],
+    "a": 0,
+    "e": "If it is 40 percent full, it is 60 percent empty. 60 percent of 200 is 120. Answering 80 means you found what is already in it."
+   },
+   {
+    "s": "A drawing is made at 1/8 inch to the foot. A room measures 2 3/4 inches on the drawing. How long is the room?",
+    "o": [
+     "11 feet",
+     "22 feet",
+     "16 1/2 feet",
+     "27 1/2 feet"
+    ],
+    "a": 1,
+    "e": "Ask how many eighths are in 2 3/4. That is 2.75 &divide; 0.125 = 22, and each eighth is a foot."
+   },
+   {
+    "s": "The inside diameter of one pipe is 4 inches and another is 2 inches. The cross-sectional area of the larger is how many times that of the smaller?",
+    "o": [
+     "2 times",
+     "3 times",
+     "4 times",
+     "8 times"
+    ],
+    "a": 2,
+    "e": "Area goes with the square of the diameter. Doubling the diameter multiplies the area by 2 &times; 2 = 4. This is why one 4-inch line carries far more than two 2-inch lines."
+   },
+   {
+    "s": "A job needs 3 workers for 5 days, 8 hours a day, at $30 an hour. What is the total labor cost?",
+    "o": [
+     "$3,600",
+     "$1,200",
+     "$2,400",
+     "$4,800"
+    ],
+    "a": 0,
+    "e": "Hours first: 3 &times; 5 &times; 8 = 120 worker-hours. Then 120 &times; 30 = 3600."
+   },
+   {
+    "s": "A 1,200-gallon open tank loses 3 percent of its original volume to evaporation each day. How much water is left after 5 days?",
+    "o": [
+     "1,020 gallons",
+     "960 gallons",
+     "1,038 gallons",
+     "1,140 gallons"
+    ],
+    "a": 0,
+    "e": "3 percent of 1200 is 36 gallons a day. Over 5 days that is 180 gallons, leaving 1200 &minus; 180 = 1020."
+   },
+   {
+    "s": "An invoice of $3,450 carries a 2 percent discount for payment within ten days. What is the discounted amount?",
+    "o": [
+     "$3,312",
+     "$3,363",
+     "$3,381",
+     "$3,519"
+    ],
+    "a": 2,
+    "e": "1 percent of 3450 is 34.50, so 2 percent is 69. Then 3450 &minus; 69 = 3381."
+   },
+   {
+    "s": "A crew runs 90 feet of pipe in 4 hours. At the same rate, how long will 315 feet take?",
+    "o": [
+     "10 1/2 hours",
+     "14 hours",
+     "12 hours",
+     "15 3/4 hours"
+    ],
+    "a": 1,
+    "e": "Rate is 90 &divide; 4 = 22.5 feet an hour, and 315 &divide; 22.5 = 14. Proportion works too: 90 is to 4 as 315 is to x, so x = 4 &times; 315 &divide; 90 = 14."
+   },
+   {
+    "s": "Two lengths of pipe together measure 46 feet. One is 8 feet longer than the other. How long is the shorter one?",
+    "o": [
+     "15 feet",
+     "23 feet",
+     "27 feet",
+     "19 feet"
+    ],
+    "a": 3,
+    "e": "Take the 8-foot difference out first: 46 &minus; 8 = 38 is what two equal pieces would total, so each is 19. Check: 19 and 27 add to 46 and differ by 8."
+   }
+  ]
+ },
+ {
+  "id": "fold",
+  "n": 5,
+  "name": "Paper Folding",
+  "mins": 15,
+  "count": 12,
+  "blurb": "A square sheet is folded, then a single hole is punched through every layer. Pick the sheet as it looks opened flat again. The first panel is the flat sheet, the dashed line is the crease, and the arrow shows which half moves.",
+  "pace": "About 75 seconds per item. Count the folds first: the opened sheet has 2 holes after one fold, 4 after two, 8 after three. That alone removes most of the choices.",
+  "q": [
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 224 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"8.00\" x2=\"50.00\" y2=\"92.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 71.00 50.00 Q 50.00 37.00 29.00 50.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 50.00,8.00 50.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"33.20\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"33.20\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"31.52\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"68.48\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"33.20\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"33.20\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 4,
+    "e": "The paper is folded 1 time: the right half folded over onto the left. A single punch goes through 2 layers, so the opened sheet shows 2 holes. Work the folds backwards, last one first: reflect it back across the vertical crease to the right. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   },
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 224 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"8.00\" y1=\"50.00\" x2=\"92.00\" y2=\"50.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 50.00 29.00 Q 37.00 50.00 50.00 71.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,50.00 92.00,50.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"60.08\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"39.92\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"39.92\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"66.80\" cy=\"60.08\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"60.08\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"60.08\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"60.08\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"33.20\" cy=\"39.92\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"39.92\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"60.08\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"39.92\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 2,
+    "e": "The paper is folded 1 time: the top half folded down onto the bottom. A single punch goes through 2 layers, so the opened sheet shows 2 holes. Work the folds backwards, last one first: reflect it back up across the horizontal crease. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   },
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 348 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"8.00\" x2=\"50.00\" y2=\"92.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 29.00 50.00 Q 50.00 63.00 71.00 50.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"50.00,8.00 92.00,8.00 92.00,92.00 50.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"50.00\" x2=\"92.00\" y2=\"50.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 71.00 29.00 Q 58.00 50.00 71.00 71.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 228 50 L 241 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(248,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"50.00,50.00 92.00,50.00 92.00,92.00 50.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"66.80\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"68.48\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"75.20\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"24.80\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"24.80\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"66.80\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"66.80\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"68.48\" cy=\"75.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"75.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"24.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"24.80\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 2,
+    "e": "The paper is folded 2 times: the left half folded over onto the right; then the top half folded down onto the bottom. A single punch goes through 4 layers, so the opened sheet shows 4 holes. Work the folds backwards, last one first: reflect it back up across the horizontal crease. Then reflect it back across the vertical crease to the left. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2 then 4. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   },
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 348 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"8.00\" y1=\"50.00\" x2=\"92.00\" y2=\"50.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 50.00 71.00 Q 63.00 50.00 50.00 29.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,50.00 8.00,50.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"8.00\" x2=\"50.00\" y2=\"50.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 71.00 29.00 Q 50.00 16.00 29.00 29.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 228 50 L 241 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(248,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 50.00,8.00 50.00,50.00 8.00,50.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"31.52\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"26.48\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"73.52\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"26.48\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"73.52\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"31.52\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"31.52\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"31.52\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"31.52\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 4,
+    "e": "The paper is folded 2 times: the bottom half folded up onto the top; then the right half folded over onto the left. A single punch goes through 4 layers, so the opened sheet shows 4 holes. Work the folds backwards, last one first: reflect it back across the vertical crease to the right. Then reflect it back down across the horizontal crease. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2 then 4. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   },
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 224 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"8.00\" y1=\"8.00\" x2=\"92.00\" y2=\"92.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 64.00 36.00 Q 40.81 40.81 36.00 64.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 8.00,92.00 92.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"26.48\" cy=\"60.08\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"26.48\" cy=\"60.08\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"60.08\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"73.52\" cy=\"60.08\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"39.92\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"26.48\" cy=\"39.92\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"60.08\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"73.52\" cy=\"39.92\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"39.92\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"26.48\" cy=\"60.08\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"39.92\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 0,
+    "e": "The paper is folded 1 time: folded along the diagonal running from the top-left corner to the bottom-right corner, so the upper-right triangle lies on the lower-left one. A single punch goes through 2 layers, so the opened sheet shows 2 holes. Work the folds backwards, last one first: reflect it back across the diagonal. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   },
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 348 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"8.00\" y1=\"50.00\" x2=\"92.00\" y2=\"50.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 50.00 29.00 Q 37.00 50.00 50.00 71.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,50.00 92.00,50.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"50.00\" x2=\"50.00\" y2=\"92.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 29.00 71.00 Q 50.00 84.00 71.00 71.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 228 50 L 241 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(248,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"50.00,50.00 92.00,50.00 92.00,92.00 50.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"73.52\" cy=\"63.44\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"63.44\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"63.44\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"36.56\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"36.56\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"73.52\" cy=\"63.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"26.48\" cy=\"63.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"73.52\" cy=\"36.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"26.48\" cy=\"36.56\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"68.48\" cy=\"63.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"63.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"36.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"36.56\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"73.52\" cy=\"78.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"26.48\" cy=\"78.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"73.52\" cy=\"21.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"26.48\" cy=\"21.44\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"63.44\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"63.44\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"36.56\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"36.56\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 1,
+    "e": "The paper is folded 2 times: the top half folded down onto the bottom; then the left half folded over onto the right. A single punch goes through 4 layers, so the opened sheet shows 4 holes. Work the folds backwards, last one first: reflect it back across the vertical crease to the left. Then reflect it back up across the horizontal crease. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2 then 4. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   },
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 348 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"8.00\" x2=\"50.00\" y2=\"92.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 29.00 50.00 Q 50.00 63.00 71.00 50.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"50.00,8.00 92.00,8.00 92.00,92.00 50.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"71.00\" y1=\"8.00\" x2=\"71.00\" y2=\"92.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 60.50 50.00 Q 71.00 63.00 81.50 50.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 228 50 L 241 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(248,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"71.00,8.00 92.00,8.00 92.00,92.00 71.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"80.24\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"80.24\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"61.76\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"19.76\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"38.24\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"80.24\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"61.76\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"19.76\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"38.24\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"33.20\" cy=\"80.24\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"61.76\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"19.76\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"38.24\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"66.80\" cy=\"80.24\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"61.76\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"19.76\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"38.24\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"80.24\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"61.76\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"80.24\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"61.76\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 0,
+    "e": "The paper is folded 2 times: the left half folded over onto the right; then the left half folded over onto the right. A single punch goes through 4 layers, so the opened sheet shows 4 holes. Work the folds backwards, last one first: reflect it back across the vertical crease to the left. Then reflect it back across the vertical crease to the left. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2 then 4. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   },
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 224 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"92.00\" y1=\"8.00\" x2=\"8.00\" y2=\"92.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 36.00 36.00 Q 40.81 59.19 64.00 64.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"68.48\" cy=\"75.20\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"31.52\" cy=\"75.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"68.48\" cy=\"24.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"24.80\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"31.52\" cy=\"24.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"68.48\" cy=\"75.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"24.80\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"68.48\" cy=\"75.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 3,
+    "e": "The paper is folded 1 time: folded along the diagonal running from the top-right corner to the bottom-left corner, so the upper-left triangle lies on the lower-right one. A single punch goes through 2 layers, so the opened sheet shows 2 holes. Work the folds backwards, last one first: reflect it back across the diagonal. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   },
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 472 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"8.00\" x2=\"50.00\" y2=\"92.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 29.00 50.00 Q 50.00 63.00 71.00 50.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"50.00,8.00 92.00,8.00 92.00,92.00 50.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"50.00\" x2=\"92.00\" y2=\"50.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 71.00 29.00 Q 58.00 50.00 71.00 71.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 228 50 L 241 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(248,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"50.00,50.00 92.00,50.00 92.00,92.00 50.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"71.00\" y1=\"50.00\" x2=\"71.00\" y2=\"92.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 60.50 71.00 Q 71.00 84.00 81.50 71.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 352 50 L 365 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(372,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"71.00,50.00 92.00,50.00 92.00,92.00 71.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"85.28\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"85.28\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"56.72\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"85.28\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"56.72\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"14.72\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"43.28\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"14.72\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"43.28\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"68.48\" cy=\"85.28\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"56.72\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"85.28\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"56.72\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"14.72\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"68.48\" cy=\"43.28\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"14.72\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"31.52\" cy=\"43.28\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"85.28\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"85.28\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"85.28\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"85.28\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"14.72\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"14.72\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"14.72\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"14.72\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"77.72\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"64.28\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"77.72\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"64.28\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"22.28\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"35.72\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"22.28\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"35.72\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"85.28\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"56.72\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"85.28\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"56.72\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"14.72\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"43.28\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"14.72\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"43.28\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 0,
+    "e": "The paper is folded 3 times: the left half folded over onto the right; then the top half folded down onto the bottom; then the left half folded over onto the right. A single punch goes through 8 layers, so the opened sheet shows 8 holes. Work the folds backwards, last one first: reflect it back across the vertical crease to the left. Then reflect it back up across the horizontal crease. Then reflect it back across the vertical crease to the left. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2 then 4 then 8. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   },
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 472 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"8.00\" y1=\"50.00\" x2=\"92.00\" y2=\"50.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 50.00 29.00 Q 37.00 50.00 50.00 71.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,50.00 92.00,50.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"50.00\" x2=\"50.00\" y2=\"92.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 71.00 71.00 Q 50.00 58.00 29.00 71.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 228 50 L 241 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(248,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,50.00 50.00,50.00 50.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"8.00\" y1=\"71.00\" x2=\"50.00\" y2=\"71.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 29.00 81.50 Q 42.00 71.00 29.00 60.50\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 352 50 L 365 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(372,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,50.00 50.00,50.00 50.00,71.00 8.00,71.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"24.80\" cy=\"63.02\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"63.02\" cy=\"24.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"78.98\" cy=\"24.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"63.02\" cy=\"75.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"78.98\" cy=\"75.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"36.98\" cy=\"24.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"21.02\" cy=\"24.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"36.98\" cy=\"75.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"21.02\" cy=\"75.20\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"24.80\" cy=\"63.02\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"24.80\" cy=\"78.98\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"63.02\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"78.98\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"24.80\" cy=\"36.98\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"24.80\" cy=\"21.02\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"36.98\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"21.02\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"33.20\" cy=\"63.02\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"78.98\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"63.02\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"78.98\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"36.98\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"21.02\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"36.98\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"21.02\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"24.80\" cy=\"57.98\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"24.80\" cy=\"84.02\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"57.98\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"84.02\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"24.80\" cy=\"42.02\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"24.80\" cy=\"15.98\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"42.02\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"15.98\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"63.02\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"78.98\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"63.02\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"78.98\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"36.98\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"21.02\" cy=\"33.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"36.98\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"21.02\" cy=\"66.80\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 1,
+    "e": "The paper is folded 3 times: the top half folded down onto the bottom; then the right half folded over onto the left; then the bottom half folded up onto the top. A single punch goes through 8 layers, so the opened sheet shows 8 holes. Work the folds backwards, last one first: reflect it back down across the horizontal crease. Then reflect it back across the vertical crease to the right. Then reflect it back up across the horizontal crease. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2 then 4 then 8. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   },
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 472 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"8.00\" x2=\"50.00\" y2=\"92.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 71.00 50.00 Q 50.00 37.00 29.00 50.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 50.00,8.00 50.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"8.00\" y1=\"50.00\" x2=\"50.00\" y2=\"50.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 29.00 71.00 Q 42.00 50.00 29.00 29.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 228 50 L 241 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(248,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 50.00,8.00 50.00,50.00 8.00,50.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"29.00\" y1=\"8.00\" x2=\"29.00\" y2=\"50.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 39.50 29.00 Q 29.00 16.00 18.50 29.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 352 50 L 365 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(372,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 29.00,8.00 29.00,50.00 8.00,50.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"12.20\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"26.48\" cy=\"12.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"26.48\" cy=\"45.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"73.52\" cy=\"12.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"73.52\" cy=\"45.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"26.48\" cy=\"87.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"26.48\" cy=\"54.20\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"73.52\" cy=\"87.80\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"73.52\" cy=\"54.20\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"12.20\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"45.80\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"12.20\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"45.80\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"87.80\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"54.20\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"87.80\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"54.20\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"12.20\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"12.20\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"12.20\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"12.20\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"87.80\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"87.80\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"87.80\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"87.80\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"24.80\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"24.80\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"33.20\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"26.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"75.20\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"66.80\" cy=\"73.52\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"12.20\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"45.80\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"12.20\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"45.80\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"87.80\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"54.20\" cy=\"31.52\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"87.80\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"54.20\" cy=\"68.48\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 1,
+    "e": "The paper is folded 3 times: the right half folded over onto the left; then the bottom half folded up onto the top; then the right half folded over onto the left. A single punch goes through 8 layers, so the opened sheet shows 8 holes. Work the folds backwards, last one first: reflect it back across the vertical crease to the right. Then reflect it back down across the horizontal crease. Then reflect it back across the vertical crease to the right. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2 then 4 then 8. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   },
+   {
+    "s": "A hole is punched through every layer of the folded sheet. Which choice shows the sheet unfolded?",
+    "fig": "<svg viewBox=\"0 0 472 100\" class=\"pf-seq\" role=\"img\" aria-label=\"fold sequence\"><g transform=\"translate(0,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,92.00 8.00,92.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"8.00\" y1=\"50.00\" x2=\"92.00\" y2=\"50.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 50.00 71.00 Q 63.00 50.00 50.00 29.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 104 50 L 117 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(124,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"8.00,8.00 92.00,8.00 92.00,50.00 8.00,50.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"8.00\" x2=\"50.00\" y2=\"50.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 29.00 29.00 Q 50.00 42.00 71.00 29.00\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 228 50 L 241 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(248,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"50.00,8.00 92.00,8.00 92.00,50.00 50.00,50.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><line x1=\"50.00\" y1=\"29.00\" x2=\"92.00\" y2=\"29.00\" stroke=\"var(--brass)\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/><path d=\"M 71.00 18.50 Q 58.00 29.00 71.00 39.50\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/></g><path d=\"M 352 50 L 365 50\" stroke=\"var(--steel-500)\" stroke-width=\"2\" marker-end=\"url(#ahd)\"/><g transform=\"translate(372,0)\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"none\" stroke=\"var(--steel-300)\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><polygon points=\"50.00,29.00 92.00,29.00 92.00,50.00 50.00,50.00\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-700)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"64.28\" cy=\"36.56\" r=\"5.4\" fill=\"var(--steel-900)\"/></g></svg>",
+    "pf": true,
+    "o": [
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"36.56\" cy=\"64.28\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"21.44\" cy=\"64.28\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"36.56\" cy=\"35.72\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"21.44\" cy=\"35.72\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"63.44\" cy=\"64.28\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"78.56\" cy=\"64.28\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"63.44\" cy=\"35.72\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"78.56\" cy=\"35.72\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"77.72\" cy=\"36.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"77.72\" cy=\"21.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"22.28\" cy=\"36.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"22.28\" cy=\"21.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"77.72\" cy=\"63.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"77.72\" cy=\"78.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"22.28\" cy=\"63.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"22.28\" cy=\"78.56\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"64.28\" cy=\"42.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"64.28\" cy=\"15.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"35.72\" cy=\"42.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"35.72\" cy=\"15.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"64.28\" cy=\"57.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"64.28\" cy=\"84.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"35.72\" cy=\"57.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"35.72\" cy=\"84.44\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"64.28\" cy=\"36.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"64.28\" cy=\"21.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"35.72\" cy=\"36.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"35.72\" cy=\"21.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"64.28\" cy=\"63.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"64.28\" cy=\"78.56\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"35.72\" cy=\"63.44\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"35.72\" cy=\"78.56\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>",
+     "<svg viewBox=\"0 0 100 100\" class=\"pf-opt\" role=\"img\" aria-label=\"answer pattern\"><rect x=\"8\" y=\"8\" width=\"84\" height=\"84\" fill=\"#fff\" stroke=\"var(--steel-700)\" stroke-width=\"2\"/><circle cx=\"36.56\" cy=\"77.72\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"21.44\" cy=\"77.72\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"36.56\" cy=\"22.28\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"21.44\" cy=\"22.28\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"63.44\" cy=\"77.72\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"78.56\" cy=\"77.72\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"63.44\" cy=\"22.28\" r=\"5.4\" fill=\"var(--steel-900)\"/><circle cx=\"78.56\" cy=\"22.28\" r=\"5.4\" fill=\"var(--steel-900)\"/></svg>"
+    ],
+    "a": 3,
+    "e": "The paper is folded 3 times: the bottom half folded up onto the top; then the left half folded over onto the right; then the top half folded down onto the bottom. A single punch goes through 8 layers, so the opened sheet shows 8 holes. Work the folds backwards, last one first: reflect it back up across the horizontal crease. Then reflect it back across the vertical crease to the left. Then reflect it back down across the horizontal crease. Each reflection doubles the holes you already have, which is the check on your answer: 1 then 2 then 4 then 8. The choices that show a different count can be eliminated on sight; the rest differ only in which side of a crease the holes land on."
+   }
+  ]
+ },
+ {
+  "id": "mech",
+  "n": 6,
+  "name": "Mechanical Comprehension",
+  "mins": 13,
+  "count": 13,
+  "blurb": "Mechanical reasoning from diagrams. No formulas are needed beyond weight times distance and counting rope sections. Read the picture before you read the choices.",
+  "pace": "One minute per item. Where a question asks about direction, trace the contact points with a finger rather than trying to picture the whole thing at once.",
+  "q": [
+   {
+    "s": "The beam is balanced on the fulcrum. How far from the fulcrum must the 40-pound weight sit for the beam to balance?",
+    "fig": "<svg viewBox=\"0 0 400 200\" class=\"mech\" role=\"img\" aria-label=\"balance beam on a fulcrum with two weights\"><line x1=\"176\" y1=\"152\" x2=\"224\" y2=\"152\" stroke=\"var(--steel-900)\" stroke-width=\"3\"/><line x1=\"176\" y1=\"152\" x2=\"185\" y2=\"161\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"190\" y1=\"152\" x2=\"199\" y2=\"161\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"204\" y1=\"152\" x2=\"213\" y2=\"161\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"218\" y1=\"152\" x2=\"227\" y2=\"161\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><polygon points=\"200,112 182,152 218,152\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"50\" y=\"100\" width=\"300\" height=\"12\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"86\" y=\"58\" width=\"48\" height=\"42\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><text x=\"110\" y=\"84\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"var(--steel-900)\">60 lb</text><rect x=\"266\" y=\"58\" width=\"48\" height=\"42\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><text x=\"290\" y=\"84\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"var(--steel-900)\">40 lb</text><line x1=\"110\" y1=\"176\" x2=\"200\" y2=\"176\" stroke=\"var(--steel-500)\" stroke-width=\"1.3\"/><line x1=\"110\" y1=\"171\" x2=\"110\" y2=\"181\" stroke=\"var(--steel-500)\" stroke-width=\"1.3\"/><line x1=\"200\" y1=\"171\" x2=\"200\" y2=\"181\" stroke=\"var(--steel-500)\" stroke-width=\"1.3\"/><text x=\"155\" y=\"194\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"500\" fill=\"var(--steel-700)\">2 ft</text><line x1=\"200\" y1=\"176\" x2=\"290\" y2=\"176\" stroke=\"var(--steel-500)\" stroke-width=\"1.3\"/><line x1=\"200\" y1=\"171\" x2=\"200\" y2=\"181\" stroke=\"var(--steel-500)\" stroke-width=\"1.3\"/><line x1=\"290\" y1=\"171\" x2=\"290\" y2=\"181\" stroke=\"var(--steel-500)\" stroke-width=\"1.3\"/><text x=\"245\" y=\"194\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"500\" fill=\"var(--steel-700)\">?</text></svg>",
+    "o": [
+     "2 feet",
+     "3 feet",
+     "2 1/2 feet",
+     "4 feet"
+    ],
+    "a": 1,
+    "e": "A lever balances when the turning effort is equal on both sides, and turning effort is weight multiplied by distance from the fulcrum. The left side gives 60 &times; 2 = 120. The right side must also reach 120, so 120 &divide; 40 = 3 feet. The lighter weight always sits farther out, which is a useful check before you compute anything."
+   },
+   {
+    "s": "A pole rests on supports A and B with the load hung nearer to A. Which support carries the greater share of the load?",
+    "fig": "<svg viewBox=\"0 0 400 185\" class=\"mech\" role=\"img\" aria-label=\"pole resting on two supports with a load nearer the left\"><rect x=\"60\" y=\"62\" width=\"280\" height=\"10\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><polygon points=\"84,72 64,150 104,150\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><text x=\"84\" y=\"172\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--steel-900)\">A</text><polygon points=\"316,72 296,150 336,150\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><text x=\"316\" y=\"172\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--steel-900)\">B</text><line x1=\"50\" y1=\"150\" x2=\"350\" y2=\"150\" stroke=\"var(--steel-900)\" stroke-width=\"3\"/><line x1=\"50\" y1=\"150\" x2=\"59\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"64\" y1=\"150\" x2=\"73\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"78\" y1=\"150\" x2=\"87\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"92\" y1=\"150\" x2=\"101\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"106\" y1=\"150\" x2=\"115\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"120\" y1=\"150\" x2=\"129\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"134\" y1=\"150\" x2=\"143\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"148\" y1=\"150\" x2=\"157\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"162\" y1=\"150\" x2=\"171\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"176\" y1=\"150\" x2=\"185\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"190\" y1=\"150\" x2=\"199\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"204\" y1=\"150\" x2=\"213\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"218\" y1=\"150\" x2=\"227\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"232\" y1=\"150\" x2=\"241\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"246\" y1=\"150\" x2=\"255\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"260\" y1=\"150\" x2=\"269\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"274\" y1=\"150\" x2=\"283\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"288\" y1=\"150\" x2=\"297\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"302\" y1=\"150\" x2=\"311\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"316\" y1=\"150\" x2=\"325\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"330\" y1=\"150\" x2=\"339\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"344\" y1=\"150\" x2=\"353\" y2=\"159\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"150\" y1=\"72\" x2=\"150\" y2=\"100\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"114\" y=\"100\" width=\"72\" height=\"40\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><text x=\"150\" y=\"125\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"var(--steel-900)\">load</text></svg>",
+    "o": [
+     "B",
+     "They carry equal shares",
+     "A",
+     "It depends on how heavy the pole is"
+    ],
+    "a": 2,
+    "e": "Each support carries a share that grows as the load moves toward it. Take moments about B: the load's distance from B is large, so A must push up hard to balance it. Moving a load to the middle is what equalizes the two, and moving it directly over one support puts the entire weight there."
+   },
+   {
+    "s": "Ignoring friction, how much force at F is needed to hold the 100-pound load?",
+    "fig": "<svg viewBox=\"0 0 400 200\" class=\"mech\" role=\"img\" aria-label=\"single fixed pulley lifting a load\"><line x1=\"120\" y1=\"18\" x2=\"280\" y2=\"18\" stroke=\"var(--steel-900)\" stroke-width=\"3\"/><line x1=\"120\" y1=\"18\" x2=\"129\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"134\" y1=\"18\" x2=\"143\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"148\" y1=\"18\" x2=\"157\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"162\" y1=\"18\" x2=\"171\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"176\" y1=\"18\" x2=\"185\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"190\" y1=\"18\" x2=\"199\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"204\" y1=\"18\" x2=\"213\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"218\" y1=\"18\" x2=\"227\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"232\" y1=\"18\" x2=\"241\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"246\" y1=\"18\" x2=\"255\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"260\" y1=\"18\" x2=\"269\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"274\" y1=\"18\" x2=\"283\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"200\" y1=\"18\" x2=\"200\" y2=\"34\" stroke=\"var(--steel-900)\" stroke-width=\"3\"/><circle cx=\"200\" cy=\"60\" r=\"26\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2.4\"/><circle cx=\"200\" cy=\"60\" r=\"5\" fill=\"var(--steel-900)\"/><path d=\"M 174 60 L 174 168\" stroke=\"var(--brass)\" stroke-width=\"2.4\" fill=\"none\" marker-end=\"url(#ahd)\"/><line x1=\"226\" y1=\"60\" x2=\"226\" y2=\"112\" stroke=\"var(--steel-900)\" stroke-width=\"2.4\"/><rect x=\"190\" y=\"112\" width=\"72\" height=\"46\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><text x=\"226\" y=\"140\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"var(--steel-900)\">100 lb</text><text x=\"174\" y=\"186\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--brass)\">F</text></svg>",
+    "o": [
+     "25 pounds",
+     "100 pounds",
+     "50 pounds",
+     "200 pounds"
+    ],
+    "a": 1,
+    "e": "A single fixed pulley turns the rope around but gives no mechanical advantage. Only one section of rope runs up to the load, so that section carries the whole 100 pounds. What you gain is direction: you can pull down, using your weight, instead of lifting up."
+   },
+   {
+    "s": "Ignoring friction, how much force at F is needed to hold the 100-pound load?",
+    "fig": "<svg viewBox=\"0 0 400 200\" class=\"mech\" role=\"img\" aria-label=\"single movable pulley supporting a load\"><line x1=\"120\" y1=\"18\" x2=\"280\" y2=\"18\" stroke=\"var(--steel-900)\" stroke-width=\"3\"/><line x1=\"120\" y1=\"18\" x2=\"129\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"134\" y1=\"18\" x2=\"143\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"148\" y1=\"18\" x2=\"157\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"162\" y1=\"18\" x2=\"171\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"176\" y1=\"18\" x2=\"185\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"190\" y1=\"18\" x2=\"199\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"204\" y1=\"18\" x2=\"213\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"218\" y1=\"18\" x2=\"227\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"232\" y1=\"18\" x2=\"241\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"246\" y1=\"18\" x2=\"255\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"260\" y1=\"18\" x2=\"269\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"274\" y1=\"18\" x2=\"283\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"152\" y1=\"18\" x2=\"152\" y2=\"86\" stroke=\"var(--steel-900)\" stroke-width=\"2.4\"/><path d=\"M 152 86 A 26 26 0 0 0 204 86\" fill=\"none\" stroke=\"var(--steel-900)\" stroke-width=\"2.4\"/><circle cx=\"178\" cy=\"86\" r=\"26\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2.4\"/><circle cx=\"178\" cy=\"86\" r=\"5\" fill=\"var(--steel-900)\"/><path d=\"M 204 86 L 204 22\" stroke=\"var(--brass)\" stroke-width=\"2.4\" fill=\"none\" marker-end=\"url(#ahd)\"/><text x=\"224\" y=\"30\" text-anchor=\"start\" font-size=\"15\" font-weight=\"700\" fill=\"var(--brass)\">F</text><line x1=\"178\" y1=\"112\" x2=\"178\" y2=\"126\" stroke=\"var(--steel-900)\" stroke-width=\"2.4\"/><rect x=\"142\" y=\"126\" width=\"72\" height=\"46\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><text x=\"178\" y=\"154\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"var(--steel-900)\">100 lb</text></svg>",
+    "o": [
+     "25 pounds",
+     "100 pounds",
+     "200 pounds",
+     "50 pounds"
+    ],
+    "a": 3,
+    "e": "Count the rope sections that run up from the movable pulley: there are two, one anchored and one held. The load is shared between them, so each carries 50 pounds. The trade is distance, since the rope must be pulled two feet for every foot the load rises."
+   },
+   {
+    "s": "Four rope sections support the lower block. To raise the load 2 feet, how much rope must be pulled at F?",
+    "fig": "<svg viewBox=\"0 0 400 216\" class=\"mech\" role=\"img\" aria-label=\"block and tackle with four supporting rope sections\"><line x1=\"120\" y1=\"14\" x2=\"280\" y2=\"14\" stroke=\"var(--steel-900)\" stroke-width=\"3\"/><line x1=\"120\" y1=\"14\" x2=\"129\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"134\" y1=\"14\" x2=\"143\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"148\" y1=\"14\" x2=\"157\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"162\" y1=\"14\" x2=\"171\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"176\" y1=\"14\" x2=\"185\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"190\" y1=\"14\" x2=\"199\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"204\" y1=\"14\" x2=\"213\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"218\" y1=\"14\" x2=\"227\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"232\" y1=\"14\" x2=\"241\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"246\" y1=\"14\" x2=\"255\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"260\" y1=\"14\" x2=\"269\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"274\" y1=\"14\" x2=\"283\" y2=\"23\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"200\" y1=\"14\" x2=\"200\" y2=\"32\" stroke=\"var(--steel-900)\" stroke-width=\"3\"/><rect x=\"146\" y=\"32\" width=\"108\" height=\"34\" rx=\"4\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><circle cx=\"172\" cy=\"49\" r=\"11\" fill=\"#fff\" stroke=\"var(--steel-900)\" stroke-width=\"1.8\"/><circle cx=\"228\" cy=\"49\" r=\"11\" fill=\"#fff\" stroke=\"var(--steel-900)\" stroke-width=\"1.8\"/><rect x=\"146\" y=\"118\" width=\"108\" height=\"34\" rx=\"4\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><circle cx=\"172\" cy=\"135\" r=\"11\" fill=\"#fff\" stroke=\"var(--steel-900)\" stroke-width=\"1.8\"/><circle cx=\"228\" cy=\"135\" r=\"11\" fill=\"#fff\" stroke=\"var(--steel-900)\" stroke-width=\"1.8\"/><line x1=\"161\" y1=\"66\" x2=\"161\" y2=\"118\" stroke=\"var(--steel-900)\" stroke-width=\"2.2\"/><line x1=\"183\" y1=\"66\" x2=\"183\" y2=\"118\" stroke=\"var(--steel-900)\" stroke-width=\"2.2\"/><line x1=\"217\" y1=\"66\" x2=\"217\" y2=\"118\" stroke=\"var(--steel-900)\" stroke-width=\"2.2\"/><line x1=\"239\" y1=\"66\" x2=\"239\" y2=\"118\" stroke=\"var(--steel-900)\" stroke-width=\"2.2\"/><path d=\"M 254 49 L 300 49 L 300 150\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2.4\" marker-end=\"url(#ahd)\"/><text x=\"316\" y=\"120\" text-anchor=\"start\" font-size=\"15\" font-weight=\"700\" fill=\"var(--brass)\">F</text><line x1=\"200\" y1=\"152\" x2=\"200\" y2=\"164\" stroke=\"var(--steel-900)\" stroke-width=\"2.4\"/><rect x=\"160\" y=\"164\" width=\"80\" height=\"40\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><text x=\"200\" y=\"189\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"var(--steel-900)\">200 lb</text><text x=\"72\" y=\"96\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--steel-700)\">four rope</text><text x=\"72\" y=\"112\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--steel-700)\">sections</text><line x1=\"108\" y1=\"92\" x2=\"152\" y2=\"92\" stroke=\"var(--steel-500)\" stroke-width=\"1.2\" marker-end=\"url(#ahd)\"/></svg>",
+    "o": [
+     "2 feet",
+     "4 feet",
+     "8 feet",
+     "16 feet"
+    ],
+    "a": 2,
+    "e": "Whatever a tackle divides in force it multiplies in distance, because the work put in cannot be less than the work got out. Four supporting sections means the pull is a quarter of the load, so the rope travels four times as far: 4 &times; 2 = 8 feet. Each of the four sections has to shorten by 2 feet, and that shortening comes off the free end."
+   },
+   {
+    "s": "If gear A turns clockwise, which way does gear B turn?",
+    "fig": "<svg viewBox=\"0 0 360 190\" class=\"mech\" role=\"img\" aria-label=\"two meshed gears\"><polygon points=\"175.0,95.0 184.9,98.1 184.6,101.7 174.2,102.8 173.3,106.6 172.0,110.3 179.9,117.0 178.2,120.1 168.3,117.2 165.9,120.4 163.3,123.3 168.1,132.5 165.3,134.7 157.2,128.3 153.9,130.3 150.3,132.0 151.2,142.3 147.8,143.3 142.8,134.2 138.9,134.8 135.0,135.0 131.9,144.9 128.3,144.6 127.2,134.2 123.4,133.3 119.7,132.0 113.0,139.9 109.9,138.2 112.8,128.3 109.6,125.9 106.7,123.3 97.5,128.1 95.3,125.3 101.7,117.2 99.7,113.9 98.0,110.3 87.7,111.2 86.7,107.8 95.8,102.8 95.2,98.9 95.0,95.0 85.1,91.9 85.4,88.3 95.8,87.2 96.7,83.4 98.0,79.7 90.1,73.0 91.8,69.9 101.7,72.8 104.1,69.6 106.7,66.7 101.9,57.5 104.7,55.3 112.8,61.7 116.1,59.7 119.7,58.0 118.8,47.7 122.2,46.7 127.2,55.8 131.1,55.2 135.0,55.0 138.1,45.1 141.7,45.4 142.8,55.8 146.6,56.7 150.3,58.0 157.0,50.1 160.1,51.8 157.2,61.7 160.4,64.1 163.3,66.7 172.5,61.9 174.7,64.7 168.3,72.8 170.3,76.1 172.0,79.7 182.3,78.8 183.3,82.2 174.2,87.2 174.8,91.1\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"135\" cy=\"95\" r=\"10.0\" fill=\"#fff\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><polygon points=\"264.2,102.8 273.3,107.8 272.3,111.2 262.0,110.3 260.3,113.9 258.3,117.2 264.7,125.3 262.5,128.1 253.3,123.3 250.4,125.9 247.2,128.3 250.1,138.2 247.0,139.9 240.3,132.0 236.6,133.3 232.8,134.2 231.7,144.6 228.1,144.9 225.0,135.0 221.1,134.8 217.2,134.2 212.2,143.3 208.8,142.3 209.7,132.0 206.1,130.3 202.8,128.3 194.7,134.7 191.9,132.5 196.7,123.3 194.1,120.4 191.7,117.2 181.8,120.1 180.1,117.0 188.0,110.3 186.7,106.6 185.8,102.8 175.4,101.7 175.1,98.1 185.0,95.0 185.2,91.1 185.8,87.2 176.7,82.2 177.7,78.8 188.0,79.7 189.7,76.1 191.7,72.8 185.3,64.7 187.5,61.9 196.7,66.7 199.6,64.1 202.8,61.7 199.9,51.8 203.0,50.1 209.7,58.0 213.4,56.7 217.2,55.8 218.3,45.4 221.9,45.1 225.0,55.0 228.9,55.2 232.8,55.8 237.8,46.7 241.2,47.7 240.3,58.0 243.9,59.7 247.2,61.7 255.3,55.3 258.1,57.5 253.3,66.7 255.9,69.6 258.3,72.8 268.2,69.9 269.9,73.0 262.0,79.7 263.3,83.4 264.2,87.2 274.6,88.3 274.9,91.9 265.0,95.0 264.8,98.9\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"225\" cy=\"95\" r=\"10.0\" fill=\"#fff\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><path d=\"M 123.2 69.6 A 28 28 0 0 1 160.4 106.8\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2.4\" marker-end=\"url(#ahd)\"/><text x=\"135\" y=\"101\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--steel-900)\">A</text><text x=\"225\" y=\"101\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--steel-900)\">B</text><text x=\"225\" y=\"168\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"700\" fill=\"var(--brass)\">?</text><text x=\"135\" y=\"168\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--steel-700)\">clockwise</text></svg>",
+    "o": [
+     "Counterclockwise",
+     "Clockwise",
+     "It will not turn",
+     "It depends on the number of teeth"
+    ],
+    "a": 0,
+    "e": "Teeth in mesh push against each other, so the surfaces in contact move the same way and the gears themselves must rotate in opposite directions. Tooth count changes speed, never direction."
+   },
+   {
+    "s": "If gear A turns clockwise, which way does gear C turn?",
+    "fig": "<svg viewBox=\"0 0 320 180\" class=\"mech\" role=\"img\" aria-label=\"three gears meshed in a row\"><polygon points=\"113.6,95.0 121.9,98.0 121.5,101.4 112.8,102.5 111.7,106.1 110.3,109.6 116.4,115.9 114.6,118.8 106.3,115.9 103.8,118.8 100.9,121.3 103.8,129.6 100.9,131.4 94.6,125.3 91.1,126.7 87.5,127.8 86.4,136.5 83.0,136.9 80.0,128.6 76.2,128.4 72.5,127.8 67.7,135.2 64.5,134.1 65.4,125.3 62.1,123.4 59.1,121.3 51.5,125.9 49.1,123.5 53.7,115.9 51.6,112.9 49.7,109.6 40.9,110.5 39.8,107.3 47.2,102.5 46.6,98.8 46.4,95.0 38.1,92.0 38.5,88.6 47.2,87.5 48.3,83.9 49.7,80.4 43.6,74.1 45.4,71.2 53.7,74.1 56.2,71.2 59.1,68.7 56.2,60.4 59.1,58.6 65.4,64.7 68.9,63.3 72.5,62.2 73.6,53.5 77.0,53.1 80.0,61.4 83.8,61.6 87.5,62.2 92.3,54.8 95.5,55.9 94.6,64.7 97.9,66.6 100.9,68.7 108.5,64.1 110.9,66.5 106.3,74.1 108.4,77.1 110.3,80.4 119.1,79.5 120.2,82.7 112.8,87.5 113.4,91.2\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"80\" cy=\"95\" r=\"8.4\" fill=\"#fff\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><polygon points=\"195.0,102.7 203.3,107.6 202.2,110.9 192.6,110.0 190.9,113.4 188.8,116.6 194.3,124.5 192.0,127.0 183.6,122.3 180.6,124.8 177.4,126.9 179.3,136.3 176.1,137.7 170.4,130.0 166.7,131.0 162.8,131.6 160.7,141.0 157.3,141.0 155.2,131.6 151.3,131.0 147.6,130.0 141.9,137.7 138.7,136.3 140.6,126.9 137.4,124.8 134.4,122.3 126.0,127.0 123.7,124.5 129.2,116.6 127.1,113.4 125.4,110.0 115.8,110.9 114.7,107.6 123.0,102.7 122.4,98.8 122.2,95.0 113.1,91.9 113.5,88.5 123.0,87.3 124.0,83.6 125.4,80.0 118.3,73.5 120.1,70.5 129.2,73.4 131.7,70.4 134.4,67.7 130.6,58.8 133.4,56.8 140.6,63.1 144.0,61.4 147.6,60.0 147.7,50.4 151.1,49.7 155.2,58.4 159.0,58.2 162.8,58.4 166.9,49.7 170.3,50.4 170.4,60.0 174.0,61.4 177.4,63.1 184.6,56.8 187.4,58.8 183.6,67.7 186.3,70.4 188.8,73.4 197.9,70.5 199.7,73.5 192.6,80.0 194.0,83.6 195.0,87.3 204.5,88.5 204.9,91.9 195.8,95.0 195.6,98.8\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"159\" cy=\"95\" r=\"9.2\" fill=\"#fff\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><polygon points=\"275.2,95.0 283.9,98.2 283.5,101.7 274.3,102.8 273.2,106.6 271.7,110.3 278.2,116.9 276.3,119.9 267.5,116.9 264.9,119.9 261.9,122.5 264.9,131.3 261.9,133.2 255.3,126.7 251.6,128.2 247.8,129.3 246.7,138.5 243.2,138.9 240.0,130.2 236.1,130.0 232.2,129.3 227.2,137.1 223.8,135.9 224.7,126.7 221.3,124.8 218.1,122.5 210.2,127.3 207.7,124.8 212.5,116.9 210.2,113.7 208.3,110.3 199.1,111.2 197.9,107.8 205.7,102.8 205.0,98.9 204.8,95.0 196.1,91.8 196.5,88.3 205.7,87.2 206.8,83.4 208.3,79.7 201.8,73.1 203.7,70.1 212.5,73.1 215.1,70.1 218.1,67.5 215.1,58.7 218.1,56.8 224.7,63.3 228.4,61.8 232.2,60.7 233.3,51.5 236.8,51.1 240.0,59.8 243.9,60.0 247.8,60.7 252.8,52.9 256.2,54.1 255.3,63.3 258.7,65.2 261.9,67.5 269.8,62.7 272.3,65.2 267.5,73.1 269.8,76.3 271.7,79.7 280.9,78.8 282.1,82.2 274.3,87.2 275.0,91.1\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"240\" cy=\"95\" r=\"8.8\" fill=\"#fff\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><path d=\"M 69.9 73.2 A 24 24 0 0 1 101.8 105.1\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2.4\" marker-end=\"url(#ahd)\"/><text x=\"80\" y=\"101\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--steel-900)\">A</text><text x=\"159\" y=\"101\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--steel-900)\">B</text><text x=\"240\" y=\"101\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--steel-900)\">C</text><text x=\"80\" y=\"162\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--steel-700)\">clockwise</text><text x=\"240\" y=\"162\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"700\" fill=\"var(--brass)\">?</text></svg>",
+    "o": [
+     "Counterclockwise",
+     "It alternates as it runs",
+     "Clockwise",
+     "It will not turn"
+    ],
+    "a": 2,
+    "e": "Each mesh reverses the direction, so A clockwise makes B counterclockwise, and B counterclockwise makes C clockwise again. A gear placed between two others only to restore direction is called an idler, and it has no effect on the overall speed ratio between A and C."
+   },
+   {
+    "s": "The 12-tooth gear drives the 36-tooth gear. If the small gear makes 3 complete turns, how many turns does the large gear make?",
+    "fig": "<svg viewBox=\"0 0 320 244\" class=\"mech\" role=\"img\" aria-label=\"a twelve tooth gear driving a thirty six tooth gear\"><polygon points=\"104.0,120.0 109.9,122.5 109.5,125.3 103.2,126.2 102.2,129.2 100.8,132.0 104.6,137.1 102.9,139.4 97.0,137.0 94.6,139.0 92.0,140.8 92.8,147.1 90.2,148.2 86.2,143.2 83.1,143.8 80.0,144.0 77.5,149.9 74.7,149.5 73.8,143.2 70.8,142.2 68.0,140.8 62.9,144.6 60.6,142.9 63.0,137.0 61.0,134.6 59.2,132.0 52.9,132.8 51.8,130.2 56.8,126.2 56.2,123.1 56.0,120.0 50.1,117.5 50.5,114.7 56.8,113.8 57.8,110.8 59.2,108.0 55.4,102.9 57.1,100.6 63.0,103.0 65.4,101.0 68.0,99.2 67.2,92.9 69.8,91.8 73.8,96.8 76.9,96.2 80.0,96.0 82.5,90.1 85.3,90.5 86.2,96.8 89.2,97.8 92.0,99.2 97.1,95.4 99.4,97.1 97.0,103.0 99.0,105.4 100.8,108.0 107.1,107.2 108.2,109.8 103.2,113.8 103.8,116.9\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"80\" cy=\"120\" r=\"6.0\" fill=\"#fff\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><polygon points=\"259.7,126.3 277.4,130.3 277.0,133.1 258.9,132.5 258.3,135.6 257.5,138.6 274.2,145.7 273.4,148.4 255.7,144.6 254.5,147.6 253.3,150.4 268.5,160.3 267.2,162.8 250.4,156.0 248.7,158.7 247.0,161.3 260.3,173.7 258.5,175.9 243.2,166.3 241.1,168.6 238.9,170.9 249.8,185.4 247.8,187.3 234.3,175.2 231.8,177.1 229.3,179.0 237.5,195.1 235.2,196.7 224.0,182.4 221.2,183.9 218.4,185.3 223.7,202.6 221.1,203.7 212.6,187.7 209.7,188.7 206.6,189.5 208.9,207.5 206.1,208.2 200.5,190.9 197.4,191.4 194.3,191.7 193.3,209.8 190.5,210.0 188.0,192.0 184.9,191.9 181.7,191.7 177.7,209.4 174.9,209.0 175.5,190.9 172.4,190.3 169.4,189.5 162.3,206.2 159.6,205.4 163.4,187.7 160.4,186.5 157.6,185.3 147.7,200.5 145.2,199.2 152.0,182.4 149.3,180.7 146.7,179.0 134.3,192.3 132.1,190.5 141.7,175.2 139.4,173.1 137.1,170.9 122.6,181.8 120.7,179.8 132.8,166.3 130.9,163.8 129.0,161.3 112.9,169.5 111.3,167.2 125.6,156.0 124.1,153.2 122.7,150.4 105.4,155.7 104.3,153.1 120.3,144.6 119.3,141.7 118.5,138.6 100.5,140.9 99.8,138.1 117.1,132.5 116.6,129.4 116.3,126.3 98.2,125.3 98.0,122.5 116.0,120.0 116.1,116.9 116.3,113.7 98.6,109.7 99.0,106.9 117.1,107.5 117.7,104.4 118.5,101.4 101.8,94.3 102.6,91.6 120.3,95.4 121.5,92.4 122.7,89.6 107.5,79.7 108.8,77.2 125.6,84.0 127.3,81.3 129.0,78.7 115.7,66.3 117.5,64.1 132.8,73.7 134.9,71.4 137.1,69.1 126.2,54.6 128.2,52.7 141.7,64.8 144.2,62.9 146.7,61.0 138.5,44.9 140.8,43.3 152.0,57.6 154.8,56.1 157.6,54.7 152.3,37.4 154.9,36.3 163.4,52.3 166.3,51.3 169.4,50.5 167.1,32.5 169.9,31.8 175.5,49.1 178.6,48.6 181.7,48.3 182.7,30.2 185.5,30.0 188.0,48.0 191.1,48.1 194.3,48.3 198.3,30.6 201.1,31.0 200.5,49.1 203.6,49.7 206.6,50.5 213.7,33.8 216.4,34.6 212.6,52.3 215.6,53.5 218.4,54.7 228.3,39.5 230.8,40.8 224.0,57.6 226.7,59.3 229.3,61.0 241.7,47.7 243.9,49.5 234.3,64.8 236.6,66.9 238.9,69.1 253.4,58.2 255.3,60.2 243.2,73.7 245.1,76.2 247.0,78.7 263.1,70.5 264.7,72.8 250.4,84.0 251.9,86.8 253.3,89.6 270.6,84.3 271.7,86.9 255.7,95.4 256.7,98.3 257.5,101.4 275.5,99.1 276.2,101.9 258.9,107.5 259.4,110.6 259.7,113.7 277.8,114.7 278.0,117.5 260.0,120.0 259.9,123.1\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\" stroke-linejoin=\"round\"/><circle cx=\"188\" cy=\"120\" r=\"18.0\" fill=\"#fff\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><text x=\"80\" y=\"126\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"var(--steel-900)\">12</text><text x=\"188\" y=\"126\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--steel-900)\">36</text><text x=\"80\" y=\"180\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--steel-700)\">driver</text><text x=\"80\" y=\"196\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--steel-700)\">12 teeth</text><text x=\"188\" y=\"230\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--steel-700)\">driven, 36 teeth</text><path d=\"M 60.6 78.3 A 46 46 0 0 1 121.7 139.4\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2.4\" marker-end=\"url(#ahd)\"/></svg>",
+    "o": [
+     "1/3",
+     "1",
+     "3",
+     "9"
+    ],
+    "a": 1,
+    "e": "The same number of teeth must pass through the mesh on both gears. Three turns of the 12-tooth gear sends 3 &times; 12 = 36 teeth through, and 36 teeth is exactly one turn of the 36-tooth gear. Driving a larger gear from a smaller one trades speed for turning effort."
+   },
+   {
+    "s": "The belt is crossed. If pulley A turns clockwise, which way does pulley B turn?",
+    "fig": "<svg viewBox=\"0 0 390 200\" class=\"mech\" role=\"img\" aria-label=\"two pulleys joined by a crossed belt\"><line x1=\"131.6\" y1=\"140.6\" x2=\"264.0\" y2=\"70.0\" stroke=\"var(--steel-500)\" stroke-width=\"3\"/><line x1=\"131.6\" y1=\"59.4\" x2=\"264.0\" y2=\"130.0\" stroke=\"var(--steel-500)\" stroke-width=\"3\"/><circle cx=\"110\" cy=\"100\" r=\"46\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2.4\"/><circle cx=\"280\" cy=\"100\" r=\"34\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2.4\"/><circle cx=\"110\" cy=\"100\" r=\"6\" fill=\"var(--steel-900)\"/><circle cx=\"280\" cy=\"100\" r=\"6\" fill=\"var(--steel-900)\"/><path d=\"M 99.0 76.4 A 26 26 0 0 1 133.6 111.0\" fill=\"none\" stroke=\"var(--brass)\" stroke-width=\"2.4\" marker-end=\"url(#ahd)\"/><text x=\"110\" y=\"176\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--steel-700)\">A, clockwise</text><text x=\"280\" y=\"166\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--steel-900)\">B</text><text x=\"280\" y=\"186\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"700\" fill=\"var(--brass)\">?</text></svg>",
+    "o": [
+     "Counterclockwise",
+     "Clockwise",
+     "At the same speed as A",
+     "The belt will slip off"
+    ],
+    "a": 0,
+    "e": "An open belt keeps both pulleys turning the same way. Crossing the belt makes the side that leaves the top of one pulley arrive at the bottom of the other, which reverses the second pulley. Follow one side of the belt with your finger and the answer falls out."
+   },
+   {
+    "s": "A force of 20 pounds presses on the small piston. Ignoring friction, what force appears at the large piston?",
+    "fig": "<svg viewBox=\"0 0 400 196\" class=\"mech\" role=\"img\" aria-label=\"two connected hydraulic cylinders of different size\"><path d=\"M 60 118 L 60 160 L 340 160 L 340 118 L 300 118 L 300 146 L 100 146 L 100 118 Z\" fill=\"#CFE0E6\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"60\" y=\"70\" width=\"40\" height=\"50\" fill=\"#CFE0E6\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"240\" y=\"70\" width=\"100\" height=\"50\" fill=\"#CFE0E6\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"58\" y=\"58\" width=\"44\" height=\"14\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"238\" y=\"58\" width=\"104\" height=\"14\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><path d=\"M 80 16 L 80 52\" stroke=\"var(--brass)\" stroke-width=\"2.6\" marker-end=\"url(#ahd)\"/><text x=\"80\" y=\"12\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" fill=\"var(--brass)\">20 lb</text><text x=\"290\" y=\"40\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"700\" fill=\"var(--brass)\">?</text><text x=\"80\" y=\"182\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--steel-700)\">2 sq in</text><text x=\"290\" y=\"182\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--steel-700)\">10 sq in</text></svg>",
+    "o": [
+     "100 pounds",
+     "40 pounds",
+     "50 pounds",
+     "200 pounds"
+    ],
+    "a": 0,
+    "e": "Pressure spreads equally through a confined liquid. The small piston creates 20 &divide; 2 = 10 pounds per square inch, and that same 10 psi acts on every square inch of the large piston: 10 &times; 10 = 100 pounds. As with a tackle, the distance pays for the force, so the large piston moves only a fifth as far."
+   },
+   {
+    "s": "The three containers are joined at the bottom and the water stands at one level. At which point is the pressure on the bottom greatest?",
+    "fig": "<svg viewBox=\"0 0 400 206\" class=\"mech\" role=\"img\" aria-label=\"three connected containers of different shape holding water at one level\"><path d=\"M 46 108 L 46 172 L 354 172 L 354 108 L 318 108 L 318 150 L 82 150 L 82 108 Z\" fill=\"#CFE0E6\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"46\" y=\"40\" width=\"36\" height=\"70\" fill=\"#CFE0E6\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"150\" y=\"40\" width=\"92\" height=\"70\" fill=\"#CFE0E6\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><path d=\"M 292 40 L 356 40 L 340 110 L 308 110 Z\" fill=\"#CFE0E6\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><line x1=\"30\" y1=\"40\" x2=\"370\" y2=\"40\" stroke=\"var(--brass)\" stroke-width=\"1.4\" stroke-dasharray=\"5 4\"/><text x=\"22\" y=\"44\" text-anchor=\"end\" font-size=\"11\" font-weight=\"500\" fill=\"var(--brass)\">level</text><line x1=\"150\" y1=\"110\" x2=\"150\" y2=\"150\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><line x1=\"242\" y1=\"110\" x2=\"242\" y2=\"150\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><circle cx=\"64\" cy=\"166\" r=\"4\" fill=\"var(--steel-900)\"/><text x=\"64\" y=\"196\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--steel-900)\">A</text><circle cx=\"196\" cy=\"166\" r=\"4\" fill=\"var(--steel-900)\"/><text x=\"196\" y=\"196\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--steel-900)\">B</text><circle cx=\"324\" cy=\"166\" r=\"4\" fill=\"var(--steel-900)\"/><text x=\"324\" y=\"196\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" fill=\"var(--steel-900)\">C</text></svg>",
+    "o": [
+     "A",
+     "B",
+     "C",
+     "It is the same at all three"
+    ],
+    "a": 3,
+    "e": "Pressure in a standing liquid depends only on the depth below the surface, not on the shape of the container or the amount it holds. All three points sit the same distance below the same water line, so the pressure is identical. This is also why water finds its own level in connected vessels no matter how they are shaped."
+   },
+   {
+    "s": "Hung from one spring, the weight stretches it 4 inches. Hung from two identical springs side by side, how far does each spring stretch?",
+    "fig": "<svg viewBox=\"0 0 400 190\" class=\"mech\" role=\"img\" aria-label=\"one spring beside a pair of identical springs carrying the same weight\"><line x1=\"30\" y1=\"18\" x2=\"180\" y2=\"18\" stroke=\"var(--steel-900)\" stroke-width=\"3\"/><line x1=\"30\" y1=\"18\" x2=\"39\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"44\" y1=\"18\" x2=\"53\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"58\" y1=\"18\" x2=\"67\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"72\" y1=\"18\" x2=\"81\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"86\" y1=\"18\" x2=\"95\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"100\" y1=\"18\" x2=\"109\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"114\" y1=\"18\" x2=\"123\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"128\" y1=\"18\" x2=\"137\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"142\" y1=\"18\" x2=\"151\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"156\" y1=\"18\" x2=\"165\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"170\" y1=\"18\" x2=\"179\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"220\" y1=\"18\" x2=\"370\" y2=\"18\" stroke=\"var(--steel-900)\" stroke-width=\"3\"/><line x1=\"220\" y1=\"18\" x2=\"229\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"234\" y1=\"18\" x2=\"243\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"248\" y1=\"18\" x2=\"257\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"262\" y1=\"18\" x2=\"271\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"276\" y1=\"18\" x2=\"285\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"290\" y1=\"18\" x2=\"299\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"304\" y1=\"18\" x2=\"313\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"318\" y1=\"18\" x2=\"327\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"332\" y1=\"18\" x2=\"341\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"346\" y1=\"18\" x2=\"355\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"360\" y1=\"18\" x2=\"369\" y2=\"27\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><path d=\"M 105 18 L 120 23.5714 L 90 29.1429 L 120 34.7143 L 90 40.2857 L 120 45.8571 L 90 51.4286 L 120 57 L 90 62.5714 L 120 68.1429 L 90 73.7143 L 120 79.2857 L 90 84.8571 L 120 90.4286 L 90 96 L 105 96\" fill=\"none\" stroke=\"var(--steel-900)\" stroke-width=\"2.2\" stroke-linejoin=\"round\"/><line x1=\"105\" y1=\"96\" x2=\"105\" y2=\"104\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"69\" y=\"104\" width=\"72\" height=\"40\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><text x=\"105\" y=\"129\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"var(--steel-900)\">W</text><text x=\"105\" y=\"176\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--steel-700)\">stretches 4 in</text><path d=\"M 272 18 L 287 22 L 257 26 L 287 30 L 257 34 L 287 38 L 257 42 L 287 46 L 257 50 L 287 54 L 257 58 L 287 62 L 257 66 L 287 70 L 257 74 L 272 74\" fill=\"none\" stroke=\"var(--steel-900)\" stroke-width=\"2.2\" stroke-linejoin=\"round\"/><path d=\"M 318 18 L 333 22 L 303 26 L 333 30 L 303 34 L 333 38 L 303 42 L 333 46 L 303 50 L 333 54 L 303 58 L 333 62 L 303 66 L 333 70 L 303 74 L 318 74\" fill=\"none\" stroke=\"var(--steel-900)\" stroke-width=\"2.2\" stroke-linejoin=\"round\"/><rect x=\"252\" y=\"74\" width=\"86\" height=\"8\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><line x1=\"295\" y1=\"82\" x2=\"295\" y2=\"94\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"259\" y=\"94\" width=\"72\" height=\"40\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><text x=\"295\" y=\"119\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"600\" fill=\"var(--steel-900)\">W</text><text x=\"295\" y=\"176\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"500\" fill=\"var(--brass)\">each stretches ?</text></svg>",
+    "o": [
+     "1 inch",
+     "4 inches",
+     "8 inches",
+     "2 inches"
+    ],
+    "a": 3,
+    "e": "Side by side, the two springs split the weight, so each carries half. Stretch is proportional to the load a spring carries, so half the load gives half the stretch. Hung one below the other instead, each would carry the full weight and the total stretch would be 8 inches."
+   },
+   {
+    "s": "Each dot marks the centre of gravity. Pushed sideways at the top, which block tips over most easily?",
+    "fig": "<svg viewBox=\"0 0 400 198\" class=\"mech\" role=\"img\" aria-label=\"three blocks of different proportions with centres of gravity marked\"><line x1=\"20\" y1=\"162\" x2=\"380\" y2=\"162\" stroke=\"var(--steel-900)\" stroke-width=\"3\"/><line x1=\"20\" y1=\"162\" x2=\"29\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"34\" y1=\"162\" x2=\"43\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"48\" y1=\"162\" x2=\"57\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"62\" y1=\"162\" x2=\"71\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"76\" y1=\"162\" x2=\"85\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"90\" y1=\"162\" x2=\"99\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"104\" y1=\"162\" x2=\"113\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"118\" y1=\"162\" x2=\"127\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"132\" y1=\"162\" x2=\"141\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"146\" y1=\"162\" x2=\"155\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"160\" y1=\"162\" x2=\"169\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"174\" y1=\"162\" x2=\"183\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"188\" y1=\"162\" x2=\"197\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"202\" y1=\"162\" x2=\"211\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"216\" y1=\"162\" x2=\"225\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"230\" y1=\"162\" x2=\"239\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"244\" y1=\"162\" x2=\"253\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"258\" y1=\"162\" x2=\"267\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"272\" y1=\"162\" x2=\"281\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"286\" y1=\"162\" x2=\"295\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"300\" y1=\"162\" x2=\"309\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"314\" y1=\"162\" x2=\"323\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"328\" y1=\"162\" x2=\"337\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"342\" y1=\"162\" x2=\"351\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"356\" y1=\"162\" x2=\"365\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><line x1=\"370\" y1=\"162\" x2=\"379\" y2=\"171\" stroke=\"var(--steel-500)\" stroke-width=\"1.4\"/><rect x=\"60\" y=\"44\" width=\"40\" height=\"118\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><circle cx=\"80\" cy=\"103\" r=\"5.5\" fill=\"var(--brass)\"/><text x=\"80\" y=\"186\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--steel-900)\">A</text><rect x=\"170\" y=\"108\" width=\"104\" height=\"54\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><circle cx=\"222\" cy=\"135\" r=\"5.5\" fill=\"var(--brass)\"/><text x=\"222\" y=\"186\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--steel-900)\">B</text><rect x=\"290\" y=\"46\" width=\"42\" height=\"116\" fill=\"var(--brass-soft)\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><rect x=\"290\" y=\"129.52\" width=\"42\" height=\"32.48\" fill=\"#E3E7E9\" stroke=\"var(--steel-900)\" stroke-width=\"2\"/><circle cx=\"311\" cy=\"141.12\" r=\"5.5\" fill=\"var(--brass)\"/><text x=\"311\" y=\"186\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"var(--steel-900)\">C</text><text x=\"330\" y=\"40\" text-anchor=\"start\" font-size=\"11\" font-weight=\"500\" fill=\"var(--steel-700)\">the dot marks</text><text x=\"330\" y=\"55\" text-anchor=\"start\" font-size=\"11\" font-weight=\"500\" fill=\"var(--steel-700)\">each centre</text><text x=\"330\" y=\"70\" text-anchor=\"start\" font-size=\"11\" font-weight=\"500\" fill=\"var(--steel-700)\">of gravity</text></svg>",
+    "o": [
+     "B",
+     "A",
+     "C",
+     "They all tip equally easily"
+    ],
+    "a": 1,
+    "e": "A block tips once its centre of gravity passes beyond the edge of its base. A is narrow and its centre of gravity sits high, so it needs only a small tilt. B is wide and low, so the centre has far to travel. C is just as tall as A but weighted at the bottom, which drops its centre of gravity and makes it much harder to upset."
+   }
+  ]
+ }
+];
+
+/* ==================== state ==================== */
+var S = {
+  mode:null, si:0, qi:0, ans:{}, locked:[], checked:{},
+  left:0, total:0, tick:null, started:false, done:false, perSection:false
+};
+SECTIONS.forEach(function(){S.locked.push(false)});
+
+var LTR=["A","B","C","D","E","F"];
+var app=document.getElementById("app");
+var bar=document.getElementById("bar");
+var navbar=document.getElementById("navbar");
+var pal=document.getElementById("pal");
+
+function qid(si,qi){return SECTIONS[si].id+"-"+qi}
+function mmss(s){s=Math.max(0,s);var m=Math.floor(s/60),x=s%60;return (m<10?"0":"")+m+":"+(x<10?"0":"")+x}
+
+/* ==================== screens ==================== */
+function home(){
+  stopClock(); bar.className=""; navbar.className="navbar";
+  var rows=""; var hdr="<tr><th>&nbsp;</th><th>Section</th><th>Items</th><th>Time</th></tr>";
+  SECTIONS.forEach(function(sec){
+    rows+="<tr><td class='n'>"+sec.n+"</td><td>"+sec.name+"</td><td class='n'>"+sec.count+"</td>"+
+      "<td class='n'>"+sec.mins+" min</td></tr>";
+  });
+  var totQ=0,totM=0; SECTIONS.forEach(function(s){totQ+=s.count;totM+=s.mins});
+
+  app.innerHTML="<div class='wrap'><div class='screen'>"+
+  "<div class='hero'>"+
+    "<h1>GAN Aptitude Battery</h1>"+
+    "<p class='lede'>A full-length practice sitting for the UA Plumbers Local 130 apprenticeship test. Same section order, same counts, same clocks, same conditions.</p>"+
+    "<hr class='rule'>"+
+    "<table class='spec'>"+hdr+rows+"</table>"+
+    "<p class='muted' style='margin-top:14px'>"+totQ+" items, "+totM+" minutes of testing time, plus the reading of instructions between sections.</p>"+
+  "</div>"+
+
+  "<div class='warn'><b>No calculator.</b> There is no calculator in this tool and none is allowed at the real test. Work on paper. Have scratch paper and a pencil in front of you before you start, the same way you will at the testing center.</div>"+
+
+  "<div class='modes'>"+
+    "<button class='mode' onclick=\"begin('timed')\"><b>Take it timed</b><span>Each section runs its own clock. When a section's time is called it locks and you move on. No going back. This is the one that tells you where you stand.</span></button>"+
+    "<button class='mode' onclick=\"begin('practice')\"><b>Work it untimed</b><span>No clocks, move anywhere, and check any answer as you go to see the worked solution. Use this after a timed run to clean up what you missed.</span></button>"+
+  "</div>"+
+
+  "<label class='optline'><input type='checkbox' id='persec'><span>Show my score at the end of each section. Off by default, since the real test gives you nothing until it is over, and a weak section can rattle you going into the next one. Turn it on when you are drilling rather than rehearsing.</span></label>"+
+
+  "<hr class='rule'>"+
+  "<div class='btnrow'>"+
+    "<button class='btn ghost' onclick='printAll()'>Print the booklet and answer key</button>"+
+  "</div>"+
+  "<p class='muted' style='margin-top:16px;max-width:66ch'>Scoring is reported three ways: raw count correct per section, percentage, and an approximate 9-point band. The band is an estimate. GAN does not publish its scaling formula, and the real cut score is set by the JAC, not by the test vendor.</p>"+
+  "</div></div>";
+}
+
+function begin(mode){
+  S.mode=mode;
+  var cb=document.getElementById("persec");
+  S.perSection = cb ? cb.checked : false;
+  S.si=0; S.qi=0; S.ans={}; S.checked={}; S.done=false;
+  S.locked=SECTIONS.map(function(){return false});
+  intro(0);
+}
+
+function intro(si){
+  stopClock(); S.si=si; S.qi=0;
+  bar.className=""; navbar.className="navbar";
+  var sec=SECTIONS[si];
+  app.innerHTML="<div class='wrap'><div class='screen'>"+
+   "<div class='card' style='border-top:4px solid var(--brass);max-width:660px'>"+
+     "<p class='muted' style='margin-bottom:4px'>Section "+sec.n+" of 6</p>"+
+     "<h1>"+sec.name+"</h1>"+
+     "<p class='lede'>"+sec.blurb+"</p>"+
+     "<hr class='rule'>"+
+     "<table class='spec'>"+
+       "<tr><td>Items</td><td class='n'>"+sec.count+"</td></tr>"+
+       "<tr><td>Time</td><td class='n'>"+(S.mode==="timed"? sec.mins+" minutes":"untimed")+"</td></tr>"+
+       "<tr><td>Pacing</td><td>"+sec.pace+"</td></tr>"+
+       "<tr><td>Calculator</td><td>Not permitted</td></tr>"+
+     "</table>"+
+     (S.mode==="timed"?"<div class='warn' style='margin-top:20px'>The clock starts when you press the button and does not pause. When it reaches zero this section locks and you move to the next one.</div>":"")+
+     "<div class='btnrow' style='margin-top:22px'>"+
+       "<button class='btn brass' onclick='startSection()'>"+(S.mode==="timed"?"Start the clock":"Start section")+"</button>"+
+       (si===0?"<button class='btn ghost' onclick='home()'>Back</button>":"")+
+     "</div>"+
+   "</div>"+
+  "</div></div>";
+}
+
+function startSection(){
+  var sec=SECTIONS[S.si];
+  S.qi=0;
+  if(S.mode==="timed"){ S.total=sec.mins*60; S.left=S.total; startClock(); }
+  bar.className="on"; navbar.className="navbar on";
+  renderQ();
+}
+
+/* ==================== clock ==================== */
+function startClock(){
+  stopClock();
+  S.tick=setInterval(function(){
+    S.left--;
+    paintClock();
+    if(S.left<=0){ stopClock(); timeCalled(); }
+  },1000);
+  paintClock();
+}
+function stopClock(){ if(S.tick){clearInterval(S.tick);S.tick=null} }
+function paintClock(){
+  var c=document.getElementById("clock"), d=document.querySelector("#drain i");
+  if(!c) return;
+  if(S.mode!=="timed"){ c.textContent="--:--"; document.getElementById("clock-note").textContent="untimed practice"; d.style.width="100%"; return; }
+  c.textContent=mmss(S.left);
+  var low=S.left<=60;
+  c.className="clock"+(low?" low":"");
+  d.style.width=(100*S.left/S.total)+"%";
+  d.className=low?"low":"";
+  document.getElementById("clock-note").textContent=low?"under one minute":"time left in this section";
+}
+
+function timeCalled(){
+  S.locked[S.si]=true;
+  var o=document.createElement("div");
+  o.className="overlay";
+  o.innerHTML="<div class='box'><h2>Time called</h2><p>Section "+SECTIONS[S.si].n+", "+SECTIONS[S.si].name+", is closed. Anything unanswered is scored as a miss, exactly as it would be at the testing center.</p>"+
+   "<div class='btnrow' style='margin-top:18px'><button class='btn brass' id='ov'>Continue</button></div></div>";
+  document.body.appendChild(o);
+  o.querySelector("#ov").focus();
+  o.querySelector("#ov").onclick=function(){ o.remove(); afterSection(); };
+}
+
+/* ==================== question render ==================== */
+function renderQ(){
+  var sec=SECTIONS[S.si], q=sec.q[S.qi], id=qid(S.si,S.qi);
+  document.getElementById("bar-sec").textContent="Section "+sec.n+" of 6: "+sec.name;
+  document.getElementById("bar-q").textContent="Question "+(S.qi+1)+" of "+sec.count;
+  paintClock();
+
+  var locked = S.locked[S.si];
+  var showAns = (S.mode==="practice" && S.checked[id]);
+  var sel = S.ans[id];
+
+  var opts="<ul class='opts"+(q.pf?" pf":"")+"'>";
+  q.o.forEach(function(txt,i){
+    var cls="opt";
+    if(showAns){
+      if(i===q.a) cls+=" right";
+      else if(i===sel) cls+=" wrong";
+    } else if(sel===i) cls+=" sel";
+    opts+="<li><button class='"+cls+"' aria-pressed='"+(sel===i)+"' "+((locked||showAns)?"disabled":"")+" onclick='pick("+i+")'>"+
+      "<span class='ltr'>"+LTR[i]+"</span><span class='txt'>"+txt+"</span></button></li>";
+  });
+  opts+="</ul>";
+
+  var stem = q.ser
+    ? "<p class='series'>"+q.ser.join(", ")+", <u>?</u></p><p class='muted' style='margin-top:-8px'>Which number continues the series?</p>"
+    : "<p class='qstem"+(q.calc?"":"")+"'>"+(q.calc?"<span class='calc'>"+q.s+"</span>":q.s)+"</p>";
+
+  var body="<div class='card'>"+
+    "<div class='qhead'><span class='qnum'>Question "+(S.qi+1)+"</span>"+
+    (locked?"<span class='verdict skip'>section closed</span>":"")+"</div>"+
+    (q.fig?"<div class='fig'>"+q.fig+"</div>":"")+stem+opts+
+    (showAns?"<div class='explain'><b>Worked solution</b>"+q.e+"</div>":"")+
+    (S.mode==="practice"?"<div class='btnrow' style='margin-top:16px'>"+(showAns?"<button class='btn ghost' onclick='retry()'>Clear and try again</button>":"<button class='btn ghost' onclick='check()'"+(sel===undefined?" disabled":"")+">Check this answer</button>")+"</div>":"")+
+  "</div>";
+
+  if(q.p){
+    var P=PASSAGES[q.p];
+    var para=P.b.map(function(x){return "<p>"+x+"</p>"}).join("");
+    app.innerHTML="<div class='wrap'><div class='screen'><div class='split'>"+
+      "<div class='passage'><h3>"+P.t+"</h3>"+para+"</div><div>"+body+"</div>"+
+    "</div></div></div>";
+  } else {
+    app.innerHTML="<div class='wrap'><div class='screen' style='max-width:640px'>"+body+"</div></div>";
+  }
+  paintPal();
+}
+
+function pick(i){
+  if(S.locked[S.si]) return;
+  S.ans[qid(S.si,S.qi)]=i;
+  renderQ();
+}
+function check(){
+  S.checked[qid(S.si,S.qi)]=true;
+  renderQ();
+}
+function retry(){
+  var id=qid(S.si,S.qi);
+  delete S.checked[id]; delete S.ans[id];
+  renderQ();
+}
+
+function paintPal(){
+  var sec=SECTIONS[S.si], h="";
+  for(var i=0;i<sec.count;i++){
+    var c="chip";
+    if(S.ans[qid(S.si,i)]!==undefined) c+=" done";
+    if(i===S.qi) c+=" here";
+    h+="<button class='"+c+"' onclick='jumpTo("+i+")' aria-label='Question "+(i+1)+"'>"+(i+1)+"</button>";
+  }
+  pal.innerHTML=h;
+  var sw=document.getElementById("switcher");
+  if(S.mode==="practice"){
+    var sh="";
+    SECTIONS.forEach(function(x,i){ sh+="<option value='"+i+"'"+(i===S.si?" selected":"")+">Section "+x.n+": "+x.name+"</option>" });
+    sw.innerHTML=sh; sw.classList.remove("hide");
+  } else { sw.classList.add("hide"); }
+  document.getElementById("nav-prev").disabled = (S.qi===0);
+  document.getElementById("nav-next").textContent = (S.qi===sec.count-1) ? "Finish section" : "Next";
+}
+
+function jumpTo(i){ S.qi=i; renderQ(); }
+document.getElementById("nav-prev").onclick=function(){ if(S.qi>0){S.qi--;renderQ()} };
+document.getElementById("switcher").onchange=function(){ S.si=parseInt(this.value,10); S.qi=0; renderQ(); };
+document.getElementById("nav-next").onclick=function(){
+  var sec=SECTIONS[S.si];
+  if(S.qi<sec.count-1){ S.qi++; renderQ(); }
+  else { confirmEnd(); }
+};
+
+function confirmEnd(){
+  var sec=SECTIONS[S.si], miss=0;
+  for(var i=0;i<sec.count;i++) if(S.ans[qid(S.si,i)]===undefined) miss++;
+  var o=document.createElement("div");
+  o.className="overlay";
+  o.innerHTML="<div class='box' style='border-top-color:var(--brass)'><h2>Close this section?</h2>"+
+   "<p>"+(miss? miss+" item"+(miss>1?"s are":" is")+" still blank. Blanks are scored as misses. There is no penalty for a guess, so fill them in before you close.":"Every item is answered.")+"</p>"+
+   (S.mode==="timed"?"<p class='muted'>You will not be able to return to this section.</p>":"")+
+   "<div class='btnrow' style='margin-top:18px'><button class='btn brass' id='yes'>Close section</button><button class='btn ghost' id='no'>Keep working</button></div></div>";
+  document.body.appendChild(o);
+  o.querySelector("#no").onclick=function(){o.remove()};
+  o.querySelector("#yes").onclick=function(){ o.remove(); if(S.mode==="timed") S.locked[S.si]=true; stopClock(); afterSection(); };
+}
+
+/* ==================== between sections ==================== */
+function afterSection(){
+  if(S.perSection) sectionScore();
+  else nextSection();
+}
+function nextSection(){
+  if(S.si < SECTIONS.length-1) intro(S.si+1);
+  else results();
+}
+function sectionScore(){
+  stopClock(); bar.className=""; navbar.className="navbar";
+  var sec=SECTIONS[S.si], r=scoreSection(S.si);
+  app.innerHTML="<div class='wrap'><div class='screen'>"+
+   "<div class='card' style='border-top:4px solid var(--brass);max-width:620px'>"+
+    "<p class='muted' style='margin-bottom:4px'>Section "+sec.n+" closed</p>"+
+    "<h1>"+sec.name+"</h1>"+
+    "<div style='display:flex;gap:34px;align-items:flex-end;margin:18px 0 6px'>"+
+      "<div><div class='big'>"+r.right+"<span style='font-size:24px;color:var(--steel-500)'>/"+sec.count+"</span></div><div class='bigsub'>correct</div></div>"+
+      "<div><div class='big'>"+r.pct+"<span style='font-size:24px;color:var(--steel-500)'>%</span></div><div class='bigsub'>band "+r.band+" of 9, approximate</div></div>"+
+    "</div>"+
+    "<p class='muted'>"+r.blank+" left blank."+"</p>"+
+    "<div class='btnrow' style='margin-top:20px'><button class='btn brass' onclick='nextSection()'>"+
+      (S.si<SECTIONS.length-1 ? "Go to section "+SECTIONS[S.si+1].n : "See full results")+"</button></div>"+
+   "</div></div></div>";
+}
+
+/* ==================== scoring ==================== */
+function scoreSection(si){
+  var sec=SECTIONS[si], right=0, blank=0;
+  sec.q.forEach(function(q,i){
+    var a=S.ans[qid(si,i)];
+    if(a===undefined) blank++;
+    else if(a===q.a) right++;
+  });
+  return {right:right,blank:blank,count:sec.count,
+    pct:Math.round(100*right/sec.count), band:bandOf(100*right/sec.count)};
+}
+function bandOf(p){
+  if(p>=96)return 9; if(p>=89)return 8; if(p>=77)return 7; if(p>=60)return 6;
+  if(p>=40)return 5; if(p>=23)return 4; if(p>=11)return 3; if(p>=4)return 2; return 1;
+}
+
+function results(){
+  stopClock(); S.done=true; bar.className=""; navbar.className="navbar";
+  var tot=0,cnt=0,rows="";
+  SECTIONS.forEach(function(sec,i){
+    var r=scoreSection(i); tot+=r.right; cnt+=sec.count;
+    rows+="<tr><td>"+sec.n+". "+sec.name+"</td>"+
+      "<td class='n'>"+r.right+" / "+sec.count+"</td>"+
+      "<td class='n'>"+r.pct+"%</td>"+
+      "<td style='width:34%'><div class='bar-mini'><i style='width:"+r.pct+"%'></i></div></td>"+
+      "<td class='n'>"+r.band+"</td></tr>";
+  });
+  var pct=Math.round(100*tot/cnt), band=bandOf(100*tot/cnt);
+  var bandbar=""; for(var b=1;b<=9;b++){ bandbar+="<i class='"+(b===band?"on":(b<band?"b":""))+"' style='height:"+(8+b*3)+"px'></i>" }
+
+  app.innerHTML="<div class='wrap'><div class='screen'>"+
+   "<div class='scorehead'>"+
+     "<div><div class='big'>"+tot+"<span style='font-size:26px;color:var(--steel-500)'>/"+cnt+"</span></div><div class='bigsub'>items correct across all six sections</div></div>"+
+     "<div><div class='big'>"+pct+"<span style='font-size:26px;color:var(--steel-500)'>%</span></div><div class='bigsub'>overall</div></div>"+
+     "<div><div class='band'>"+bandbar+"</div><div class='bigsub'>approximate band "+band+" of 9</div></div>"+
+   "</div>"+
+   "<div class='card'>"+
+     "<table class='results-tbl'><tr><th>Section</th><th class='n'>Raw</th><th class='n'>Percent</th><th></th><th class='n'>Band</th></tr>"+rows+"</table>"+
+     "<p class='muted' style='margin-top:16px;max-width:68ch'>The band is an approximation fitted to a normal curve. GAN does not publish its scaling, and Local 130's ranking also folds in the interview and, where it applies, direct-entry credit. Treat the band as a rough read on where you sit, and the raw counts as the thing to move.</p>"+
+   "</div>"+
+   "<div class='card'>"+
+     "<h2>What to do with this</h2>"+
+     "<p class='muted' style='max-width:68ch'>Read every explanation below, including the ones you got right, since a correct guess and a correct answer look identical on a score report and only one of them repeats. Then run the same sections untimed and see which misses were pace and which were method.</p>"+
+     "<div class='btnrow' style='margin-top:16px'>"+
+       "<button class='btn brass' onclick='review()'>Review every question</button>"+
+       "<button class='btn ghost' onclick='printAll()'>Print booklet and key</button>"+
+       "<button class='btn ghost' onclick='home()'>Start over</button>"+
+     "</div>"+
+   "</div>"+
+  "</div></div>";
+}
+
+function review(){
+  var h="<div class='wrap'><div class='screen'>"+
+   "<div class='card' style='border-top:4px solid var(--brass)'><h1>Answer review</h1>"+
+   "<p class='lede'>Every item, what you put, what was correct, and how to get there.</p></div>";
+  SECTIONS.forEach(function(sec,si){
+    h+="<div class='card'><h2>Section "+sec.n+": "+sec.name+"</h2>";
+    sec.q.forEach(function(q,i){
+      var a=S.ans[qid(si,i)];
+      var v = a===undefined ? "<span class='verdict skip'>blank</span>"
+            : a===q.a ? "<span class='verdict ok'>correct</span>"
+            : "<span class='verdict no'>missed</span>";
+      var stem = (q.ser ? "<span class='series' style='font-size:17px'>"+q.ser.join(", ")+", ?</span>" : q.s)
+        + (q.fig?"<div class='fig' style='margin:12px 0 4px'>"+q.fig+"</div>":"");
+      h+="<div class='review-q'><div class='qhead'><span class='qnum'>"+sec.n+"."+(i+1)+"</span>"+v+"</div>"+
+        "<p style='margin:0 0 10px;font-size:16.5px'>"+stem+"</p>"+
+        (q.pf
+          ? "<div class='pf-review'>"+(a===undefined?"":"<figure><figcaption>You chose "+LTR[a]+"</figcaption>"+q.o[a]+"</figure>")+
+            "<figure><figcaption>Correct, "+LTR[q.a]+"</figcaption>"+q.o[q.a]+"</figure></div>"
+          : "<p class='muted' style='margin:0 0 8px'>"+
+            (a===undefined?"You left this blank. ":"You chose "+LTR[a]+", "+optText(q,a)+". ")+
+            "Correct answer: "+LTR[q.a]+", "+optText(q,q.a)+"."+"</p>")+
+        "<div class='explain'><b>Why</b>"+q.e+"</div></div>";
+    });
+    h+="</div>";
+  });
+  h+="<div class='card'><div class='btnrow'><button class='btn ghost' onclick='results()'>Back to results</button>"+
+     "<button class='btn ghost' onclick='printAll()'>Print booklet and key</button>"+
+     "<button class='btn ghost' onclick='home()'>Start over</button></div></div>";
+  h+="</div></div>";
+  app.innerHTML=h;
+  window.scrollTo(0,0);
+}
+function optText(q,i){ var t=stripTags(q.o[i]); return t?t:"the pattern shown as "+LTR[i]; }
+function stripTags(s){var d=document.createElement("div");d.innerHTML=s;return d.textContent}
+
+/* ==================== print ==================== */
+function printAll(){
+  var pr=document.getElementById("print-root");
+  var h="<h1 style='margin:0 0 4px'>GAN Aptitude Battery &mdash; Practice Booklet</h1>"+
+    "<p style='margin:0 0 4px'>UA Plumbers Local 130 apprenticeship. Six sections, 140 items, 119 minutes. No calculator.</p>"+
+    "<p style='margin:0 0 18px'>"+SECTIONS.map(function(x){return x.name+" "+x.count+" items / "+x.mins+" min"}).join(" &nbsp;&bull;&nbsp; ")+"</p>";
+
+  SECTIONS.forEach(function(sec){
+    h+="<div class='p-sec'><h2>Section "+sec.n+": "+sec.name+"</h2><p><i>"+sec.blurb+"</i></p>";
+    var lastP=null;
+    sec.q.forEach(function(q,i){
+      if(q.p && q.p!==lastP){
+        lastP=q.p; var P=PASSAGES[q.p];
+        h+="<div class='p-passage'><b>"+P.t+"</b>"+P.b.map(function(x){return "<p>"+x+"</p>"}).join("")+"</div>";
+      }
+      var stem = q.ser ? q.ser.join(", ")+", ____" : q.s;
+      h+="<div class='p-q'><b>"+(i+1)+".</b> "+stem+"<br>";
+      if(q.fig) h+="<div class='p-fig'>"+q.fig+"</div>";
+      q.o.forEach(function(o,j){ h+=(q.pf?"<span class='p-ch'>("+LTR[j]+")"+o+"</span>":"&nbsp;&nbsp;("+LTR[j]+") "+o+"&nbsp;&nbsp;") });
+      h+="</div>";
+    });
+    h+="</div>";
+  });
+
+  h+="<div class='p-sec'><h2>Answer key and worked solutions</h2><table class='p-key' style='width:100%;border-collapse:collapse'>";
+  SECTIONS.forEach(function(sec){
+    h+="<tr><th colspan='3' style='padding-top:12px'>Section "+sec.n+": "+sec.name+"</th></tr>";
+    sec.q.forEach(function(q,i){
+      h+="<tr><td style='width:34px'><b>"+(i+1)+".</b></td><td style='width:150px'>"+LTR[q.a]+" &mdash; "+optText(q,q.a)+"</td><td>"+q.e+"</td></tr>";
+    });
+  });
+  h+="</table></div>";
+  pr.innerHTML=h;
+  window.print();
+}
+
+/* ==================== keyboard ==================== */
+document.addEventListener("keydown",function(e){
+  if(!document.querySelector(".opts")) return;
+  if(document.querySelector(".overlay")) return;
+  var k=e.key;
+  if(k>="1"&&k<="5"){ var i=parseInt(k,10)-1; var sec=SECTIONS[S.si]; if(i<sec.q[S.qi].o.length){pick(i);e.preventDefault()} }
+  else if(k==="ArrowRight"){ document.getElementById("nav-next").click(); e.preventDefault() }
+  else if(k==="ArrowLeft"){ if(S.qi>0){S.qi--;renderQ()} e.preventDefault() }
+});
+
+window.addEventListener("beforeunload",function(e){
+  if(S.mode&&!S.done){ e.preventDefault(); e.returnValue="" }
+});
+
+home();
+</script>
+</body>
+</html>

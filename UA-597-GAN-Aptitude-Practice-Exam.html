@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAN Aptitude Battery — Practice Exam · UA Pipefitters Local 597</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blueprint:#12303F;
+  --blueprint-deep:#0C222E;
+  --zinc:#E8EBE7;
+  --zinc-2:#DCE0DB;
+  --card:#FBFCFA;
+  --steel:#22323A;
+  --steel-soft:#5B6B72;
+  --rule:#C3CBC4;
+  --weld:#2B6E8E;
+  --signal:#D8A114;
+  --hot:#B4342A;
+  --good:#2F7A4E;
+  --s1:#2B6E8E;
+  --s2:#6A4E9C;
+  --s3:#1F7A6B;
+  --s4:#9C5A1F;
+  --s5:#8C2F52;
+  --s6:#3F6320;
+  --drill:#B4342A;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --cond:"Barlow Condensed","Arial Narrow",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--zinc);color:var(--steel);
+  font-family:var(--sans);font-size:16.5px;line-height:1.62;
+}
+h1,h2,h3,h4{font-family:var(--cond);font-weight:600;letter-spacing:.005em;margin:0;line-height:1.12}
+button{font:inherit;cursor:pointer}
+a{color:var(--weld)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.narrow{max-width:680px}
+
+/* ---------- masthead ---------- */
+.mast{
+  background:var(--blueprint);color:#EAF1F4;position:relative;overflow:hidden;
+  border-bottom:3px solid var(--signal);
+}
+.mast::before{
+  content:"";position:absolute;inset:0;opacity:.16;
+  background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
+  background-size:34px 34px;
+}
+.mast .wrap{position:relative;padding-top:38px;padding-bottom:34px}
+.mast .local{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:#8FBACB;margin-bottom:10px}
+.mast h1{font-size:clamp(34px,7.2vw,58px);font-weight:700;color:#fff;max-width:15ch}
+.mast p.sub{margin:14px 0 0;max-width:56ch;color:#C6DAE2;font-size:16px}
+.stamp{
+  display:inline-flex;align-items:center;gap:9px;margin-top:22px;
+  border:2px solid var(--signal);color:var(--signal);
+  font-family:var(--cond);font-size:19px;font-weight:600;letter-spacing:.04em;
+  padding:5px 14px;transform:rotate(-1.1deg);
+}
+
+/* ---------- blueprint table of sections ---------- */
+.sheet{background:var(--card);border:1px solid var(--rule);margin:30px 0}
+.sheet-h{padding:16px 20px;border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:baseline}
+.sheet-h h2{font-size:26px}
+.sheet-h span{font-family:var(--mono);font-size:12.5px;color:var(--steel-soft)}
+.row{display:grid;grid-template-columns:26px 1fr auto auto;gap:14px;align-items:center;padding:13px 20px;border-bottom:1px solid var(--zinc-2)}
+.row:last-child{border-bottom:0}
+.row .key{width:9px;height:30px;border-radius:1px}
+.row .nm{font-family:var(--cond);font-size:20px;font-weight:600}
+.row .ds{font-size:13.5px;color:var(--steel-soft);line-height:1.4;margin-top:1px}
+.row .meta{font-family:var(--mono);font-size:13px;color:var(--steel-soft);white-space:nowrap}
+.row button{
+  border:1px solid var(--weld);background:transparent;color:var(--weld);
+  font-family:var(--cond);font-size:16px;font-weight:600;padding:4px 12px;border-radius:2px;
+}
+.row button:hover{background:var(--weld);color:#fff}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--blueprint);color:#fff;border:1px solid var(--blueprint);
+  font-family:var(--cond);font-size:20px;font-weight:600;letter-spacing:.01em;
+  padding:11px 24px;border-radius:2px;
+}
+.btn:hover{background:var(--blueprint-deep)}
+.btn.ghost{background:transparent;color:var(--blueprint)}
+.btn.ghost:hover{background:var(--blueprint);color:#fff}
+.btn.warn{background:var(--hot);border-color:var(--hot)}
+.btn.sm{font-size:16px;padding:7px 15px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btnbar{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}
+
+/* ---------- mode toggle ---------- */
+.modes{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule);background:var(--card);margin-top:8px}
+.modes button{
+  flex:1 1 150px;background:transparent;border:0;border-right:1px solid var(--rule);
+  padding:12px 14px;text-align:left;color:var(--steel-soft);
+}
+.modes button:last-child{border-right:0}
+.modes button strong{display:block;font-family:var(--cond);font-size:19px;font-weight:600;color:var(--steel)}
+.modes button small{font-size:12.5px}
+.modes button[aria-pressed="true"]{background:var(--blueprint);color:#BDD5DE}
+.modes button[aria-pressed="true"] strong{color:#fff}
+
+/* ---------- exam chrome ---------- */
+.bar{position:sticky;top:0;z-index:30;background:var(--blueprint);color:#DCE9EE;border-bottom:1px solid rgba(255,255,255,.14)}
+.bar .wrap{display:flex;align-items:center;gap:14px;padding:10px 20px;flex-wrap:wrap}
+.bar .sect{font-family:var(--cond);font-size:21px;font-weight:600;color:#fff;line-height:1.1}
+.bar .cnt{font-family:var(--mono);font-size:12.5px;color:#93B7C5}
+.bar .spacer{flex:1}
+.clock{font-family:var(--mono);font-size:22px;font-weight:600;color:#fff;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.clock.low{color:var(--signal)}
+.clock.crit{color:#FF8D80}
+.progress{height:4px;background:rgba(255,255,255,.16)}
+.progress i{display:block;height:100%;background:var(--signal);width:0;transition:width .2s}
+
+/* ---------- question ---------- */
+.qcard{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--weld);margin:26px 0;padding:24px}
+.qnum{font-family:var(--mono);font-size:12.5px;color:var(--steel-soft);margin-bottom:10px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.tag{font-family:var(--sans);font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--zinc-2);color:var(--steel-soft)}
+.tag.sign{background:#F6DEDB;color:var(--drill)}
+.stem{font-size:17.5px;margin:0 0 6px}
+.stem .mono{font-family:var(--mono);font-size:.96em}
+.passage{background:#F4F6F2;border:1px solid var(--zinc-2);padding:18px 20px;margin:0 0 22px;font-size:16px;max-width:68ch}
+.passage h4{font-family:var(--cond);font-size:20px;margin-bottom:8px}
+.passage p{margin:0 0 11px}
+.passage p:last-child{margin-bottom:0}
+.fig{margin:16px 0 18px;text-align:center}
+.fig svg{max-width:100%;height:auto}
+.figcap{font-family:var(--mono);font-size:12px;color:var(--steel-soft);margin-top:6px}
+
+.opts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:9px}
+.opt{
+  display:flex;gap:13px;align-items:flex-start;width:100%;text-align:left;
+  background:#fff;border:1px solid var(--rule);border-radius:2px;padding:12px 15px;color:var(--steel);
+}
+.opt:hover{border-color:var(--weld)}
+.opt .ltr{
+  flex:0 0 auto;width:25px;height:25px;border:1px solid var(--rule);border-radius:50%;
+  display:grid;place-items:center;font-family:var(--mono);font-size:13px;font-weight:500;
+}
+.opt .txt{flex:1;padding-top:1px}
+.opt .txt svg{vertical-align:middle}
+.opt[aria-pressed="true"]{border-color:var(--blueprint);background:#EEF4F6}
+.opt[aria-pressed="true"] .ltr{background:var(--blueprint);border-color:var(--blueprint);color:#fff}
+.opt.correct{border-color:var(--good);background:#EDF6F0}
+.opt.correct .ltr{background:var(--good);border-color:var(--good);color:#fff}
+.opt.wrong{border-color:var(--hot);background:#FBEEEC}
+.opt.wrong .ltr{background:var(--hot);border-color:var(--hot);color:#fff}
+
+.qnav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:22px 0 40px}
+.flagbtn{background:transparent;border:1px solid var(--rule);color:var(--steel-soft);padding:9px 14px;border-radius:2px;font-family:var(--cond);font-size:16px}
+.flagbtn[aria-pressed="true"]{border-color:var(--signal);background:#FBF2DA;color:#7A5A05}
+
+/* ---------- grid of question chips ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 4px}
+.chip{
+  width:38px;height:34px;border:1px solid var(--rule);background:#fff;border-radius:2px;
+  font-family:var(--mono);font-size:12.5px;color:var(--steel-soft);
+}
+.chip.done{background:var(--blueprint);border-color:var(--blueprint);color:#fff}
+.chip.flag{border-color:var(--signal);border-width:2px}
+.chip.now{outline:2px solid var(--weld);outline-offset:1px}
+.chip.ok{background:#DDEFE4;border-color:var(--good);color:#1D5335}
+.chip.no{background:#F7DDD9;border-color:var(--hot);color:#8E251D}
+
+/* ---------- results ---------- */
+.score{background:var(--blueprint);color:#fff;padding:30px 24px;margin:30px 0;position:relative;overflow:hidden}
+.score::before{content:"";position:absolute;inset:0;opacity:.14;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:30px 30px}
+.score>*{position:relative}
+.score .big{font-family:var(--mono);font-size:clamp(46px,13vw,76px);font-weight:600;line-height:1;letter-spacing:-.02em}
+.score .of{font-family:var(--cond);font-size:22px;color:#9FC2CF;margin-left:6px}
+.score .verdict{font-family:var(--cond);font-size:21px;color:var(--signal);margin-top:10px}
+.bars{margin:8px 0 0}
+.barrow{padding:13px 0;border-bottom:1px solid var(--zinc-2)}
+.barrow:last-child{border-bottom:0}
+.barrow .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:6px}
+.barrow .nm{font-family:var(--cond);font-size:19px;font-weight:600}
+.barrow .pc{font-family:var(--mono);font-size:14px;color:var(--steel-soft)}
+.track{height:9px;background:var(--zinc-2);border-radius:1px;overflow:hidden}
+.track i{display:block;height:100%}
+.advice{font-size:14px;color:var(--steel-soft);margin-top:6px;max-width:66ch}
+
+.expl{border-top:1px dashed var(--rule);margin-top:18px;padding-top:15px;font-size:15.5px;max-width:70ch}
+.expl b{font-family:var(--cond);font-weight:600;font-size:17px;display:block;margin-bottom:4px}
+.expl .mono{font-family:var(--mono);font-size:.94em}
+
+/* ---------- rules panel ---------- */
+.rules{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--drill);padding:24px;margin:26px 0}
+.rule{padding:15px 0;border-bottom:1px solid var(--zinc-2)}
+.rule:last-child{border-bottom:0;padding-bottom:0}
+.rule h4{font-size:21px;margin-bottom:5px}
+.rule .eg{font-family:var(--mono);font-size:13.5px;background:#F1F3EF;border-left:3px solid var(--drill);padding:8px 12px;margin-top:9px;display:inline-block}
+
+/* ---------- misc ---------- */
+.note{font-size:14px;color:var(--steel-soft);max-width:68ch}
+.hr{height:1px;background:var(--rule);margin:34px 0;border:0}
+.hide{display:none !important}
+.screen{padding-bottom:60px}
+footer{background:var(--blueprint-deep);color:#8FA9B4;font-size:13px;padding:26px 0;margin-top:50px}
+footer .wrap{max-width:880px}
+:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:560px){
+  .row{grid-template-columns:10px 1fr;gap:10px}
+  .row .meta{grid-column:2;font-size:12px}
+  .row button{grid-column:2;justify-self:start}
+  .qcard{padding:18px 15px}
+  body{font-size:16px}
+}
+
+/* ---------- print ---------- */
+.printonly{display:none}
+@media print{
+  @page{margin:14mm}
+  body{background:#fff;font-size:10.5pt;line-height:1.42}
+  .mast,.bar,.progress,.btnbar,.qnav,.chips,.modes,footer,.noprint,.sheet-h span{display:none !important}
+  .printonly{display:block}
+  .wrap{max-width:none;padding:0}
+  .pq{break-inside:avoid;page-break-inside:avoid;margin:0 0 11pt;border-left:2px solid #999;padding-left:9pt}
+  .pq .stem{font-size:10.5pt;margin-bottom:4pt}
+  .pq ol{margin:3pt 0 0 16pt;padding:0}
+  .pq li{margin:0}
+  .psec{break-before:page;page-break-before:always;border-bottom:1.5pt solid #000;margin:0 0 12pt;padding-bottom:4pt}
+  .psec:first-of-type{break-before:auto;page-break-before:auto}
+  .psec h2{font-size:16pt}
+  .psec .meta{font-family:var(--mono);font-size:9pt}
+  .passage{background:#fff;border:1px solid #bbb;font-size:10pt}
+  .fig svg{max-height:150pt}
+  .key{font-size:9.5pt;columns:3;column-gap:16pt}
+  .key div{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<!-- ============ HOME ============ -->
+<div id="home" class="screen">
+  <header class="mast">
+    <div class="wrap">
+      <div class="local">UA Pipefitters Local 597 · Training Center, Mokena IL · apprenticeship applicants</div>
+      <h1>GAN Aptitude Battery practice exam</h1>
+      <p class="sub">Six sections, 140 questions, 1 hour 52 minutes of clock. Built to match the battery UA locals use to rank apprenticeship applicants — the same family of test IBEW Local 134 uses. Every question is explained.</p>
+      <div class="stamp"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="2.5" y="2.5" width="13" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 5l8 8M13 5l-8 8" stroke="currentColor" stroke-width="1.6"/></svg> No calculator</div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="sheet">
+      <div class="sheet-h">
+        <h2>Pick how you want to run it</h2>
+        <span id="modehint">full battery · timed</span>
+      </div>
+      <div style="padding:16px 20px">
+        <div class="modes" role="group" aria-label="Timing mode">
+          <button id="mTimed" aria-pressed="true"><strong>Timed</strong><small>Section clock runs. Auto-advances at zero.</small></button>
+          <button id="mUntimed" aria-pressed="false"><strong>Untimed</strong><small>No clock. Work a section until you're done.</small></button>
+        </div>
+        <p class="note" style="margin:14px 0 0">Take it timed the first time, cold, with scrap paper and a pencil and nothing else. That score tells you where you actually stand. Then use untimed section practice to fix what broke.</p>
+      </div>
+    </div>
+
+    <div class="sheet">
+      <div class="sheet-h">
+        <h2>The six sections</h2>
+        <span>140 questions · 112 minutes</span>
+      </div>
+      <div id="sectionRows"></div>
+    </div>
+
+    <div class="btnbar">
+      <button class="btn" id="startFull">Start the full battery</button>
+      <button class="btn ghost" id="openDrill">Sign analysis drill</button>
+      <button class="btn ghost noprint" id="doPrint">Print version</button>
+    </div>
+
+    <div class="rules">
+      <h2 style="font-size:26px">The four rules behind sign analysis</h2>
+      <p class="note" style="margin:8px 0 4px">These questions ask which direction something moves, not what it equals. Standard prep guides skip them and they show up in number series, problem solving, and mechanical reasoning alike. Learn the four rules and they stop being guesswork.</p>
+      <div class="rule">
+        <h4>1. Multiply on the same side, move the same way</h4>
+        <p>If two quantities are multiplied together to make a third, raising either one raises the result. Lowering either one lowers it. Direct relationship.</p>
+        <div class="eg">A = L × W &nbsp;→&nbsp; L ↑ (W fixed) → A ↑</div>
+      </div>
+      <div class="rule">
+        <h4>2. Anything under the bar moves the opposite way</h4>
+        <p>A quantity in the denominator is inverse. Raising it lowers the result. This is the rule people get backwards under time pressure — check where the variable sits before you answer.</p>
+        <div class="eg">P = F ÷ A &nbsp;→&nbsp; A ↑ (F fixed) → P ↓</div>
+      </div>
+      <div class="rule">
+        <h4>3. Hold the result still and the other two trade off</h4>
+        <p>When the answer is fixed and one input rises, the other input must move the opposite way to compensate. This is how "flow stays constant, pipe gets smaller" questions work.</p>
+        <div class="eg">Q = V × A, Q fixed &nbsp;→&nbsp; A ↓ → V ↑</div>
+      </div>
+      <div class="rule">
+        <h4>4. Count the negatives, then chain the arrows</h4>
+        <p>In a product or quotient, an odd number of negative factors gives a negative result and an even number gives a positive one. In a chain of relationships, follow each arrow in order — two reversals put you back where you started.</p>
+        <div class="eg">A ↑ → B ↓ → C ↓ &nbsp;⟹&nbsp; A ↑ gives C ↓</div>
+      </div>
+    </div>
+
+    <hr class="hr">
+    <p class="note">Practice material only. Not affiliated with, endorsed by, or produced by the United Association, Pipe Fitters' Local Union 597, the Pipe Fitters' Training Fund, or any testing vendor. Section names, counts, and timings mirror publicly described versions of the battery and may differ from the form you sit.</p>
+  </div>
+</div>
+
+<!-- ============ EXAM ============ -->
+<div id="exam" class="screen hide">
+  <div class="bar">
+    <div class="wrap">
+      <div>
+        <div class="sect" id="barSect">Section</div>
+        <div class="cnt" id="barCnt">Question 1 of 25</div>
+      </div>
+      <div class="spacer"></div>
+      <div class="clock" id="clock">—:—</div>
+      <button class="btn ghost sm" id="quitBtn" style="color:#BFD8E1;border-color:rgba(255,255,255,.35)">Quit</button>
+    </div>
+    <div class="progress"><i id="prog"></i></div>
+  </div>
+  <div class="wrap" id="qHost"></div>
+</div>
+
+<!-- ============ SECTION REVIEW ============ -->
+<div id="review" class="screen hide">
+  <div class="wrap" style="padding-top:34px">
+    <h2 style="font-size:30px" id="revTitle">Before you submit this section</h2>
+    <p class="note" id="revNote"></p>
+    <div class="chips" id="revChips"></div>
+    <p class="note" style="margin-top:14px">Filled squares are answered. A yellow border means you flagged it. Tap any number to go back.</p>
+    <div class="btnbar">
+      <button class="btn" id="submitSection">Submit section</button>
+      <button class="btn ghost" id="backToQs">Keep working</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ RESULTS ============ -->
+<div id="results" class="screen hide">
+  <div class="wrap" id="resHost"></div>
+</div>
+
+<!-- ============ PRINT ============ -->
+<div id="printView" class="hide">
+  <div class="wrap" id="printHost"></div>
+</div>
+
+<footer class="noprint">
+  <div class="wrap">
+    Original practice questions written for pipe trades apprenticeship prep. Fractions, series, technical reading, mechanical reasoning and paper folding — the five things the battery actually measures. Work the explanations, not just the score.
+  </div>
+</footer>
+
+<script>
+/* ================= EXAM DATA ================= */
+const SECTIONS = [
+  {id:1, name:"Numerical Computation", color:"var(--s1)", n:25, mins:15,
+   blurb:"Fractions, decimals, percentages and signed numbers, worked by hand.",
+   advice:"This is the section that sinks the most applicants. Drill fraction addition with unlike denominators and the decimal/fraction/percent conversions until they are automatic. Nobody has added 3/8 + 5/16 on paper since middle school, and the clock does not care."},
+  {id:2, name:"Number Series", color:"var(--s2)", n:20, mins:12,
+   blurb:"Find the pattern, give the next number. Simple steps up to interleaved series.",
+   advice:"The highest-payoff section to drill, because the patterns come from a short list. Write the differences between terms under the series before you guess. If the differences make no sense, check for two series taking turns, or a step that multiplies instead of adds."},
+  {id:3, name:"Problem Solving", color:"var(--s3)", n:25, mins:25,
+   blurb:"Word problems: ratios, rates, unit conversions, multi-step arithmetic in job-site language.",
+   advice:"Same arithmetic as section one, wrapped in a paragraph. The skill is translating to an equation fast. Underline the number you are asked for, convert everything to one unit before you calculate, and check whether the answer should be bigger or smaller than what you started with."},
+  {id:4, name:"Reading Comprehension", color:"var(--s4)", n:25, mins:30,
+   blurb:"Technical passages — procedures, safety rules, specifications — with detail and inference questions.",
+   advice:"Answer only from the passage. If a choice is true in the real world but not stated or implied in the text, it is wrong. Read the question first, then hunt the paragraph that holds the answer instead of re-reading the whole passage."},
+  {id:5, name:"Mechanical Aptitude", color:"var(--s5)", n:25, mins:18,
+   blurb:"Gears, pulleys, levers, springs and fluid systems. Diagrams, no formulas.",
+   advice:"Physical intuition, not equations. Trace the motion with your finger. Count supporting lines on a block and tackle. Remember that anything you gain in force you pay for in distance."},
+  {id:6, name:"Spatial Relations", color:"var(--s6)", n:20, mins:12,
+   blurb:"Paper folding: a sheet is folded, punched, then opened. Pick the result.",
+   advice:"Work backwards, one fold at a time. Each unfold mirrors every existing hole across the crease you just opened. Two folds means each punch becomes four holes, three folds means eight — unless the punch sits on a crease."}
+];
+
+const Q = [];
+const push = (s,t,o,a,e,tag,fig) => Q.push({s,t,o,a,e,tag:tag||null,fig:fig||null});
+
+/* ---------- SECTION 1 · NUMERICAL COMPUTATION (25) ---------- */
+push(1,'<span class="mono">3/8 + 5/16 = ?</span>',['8/24','11/16','1/2','15/32'],1,
+ 'Sixteenths is the common denominator. 3/8 becomes 6/16, so 6/16 + 5/16 = <span class="mono">11/16</span>. Never add the denominators together — that is where 8/24 comes from.');
+push(1,'<span class="mono">7/8 − 1/3 = ?</span>',['6/5','11/24','13/24','1/2'],2,
+ '24 is the common denominator. 7/8 = 21/24 and 1/3 = 8/24. 21 − 8 = 13, so <span class="mono">13/24</span>.');
+push(1,'<span class="mono">2 1/2 × 3 1/5 = ?</span>',['6 1/10','7 1/2','8','8 1/5'],2,
+ 'Convert to improper fractions first: 5/2 × 16/5. The fives cancel, leaving 16/2 = <span class="mono">8</span>. Multiplying the whole numbers and the fractions separately gives the wrong answer.');
+push(1,'<span class="mono">5/8 ÷ 1/4 = ?</span>',['5/32','1 1/4','2 1/2','3 1/5'],2,
+ 'Invert and multiply: 5/8 × 4/1 = 20/8 = <span class="mono">2 1/2</span>. Dividing by a fraction smaller than one always makes the answer bigger.');
+push(1,'Which fraction equals <span class="mono">0.375</span>?',['3/4','3/8','5/16','1/3'],1,
+ '0.375 = 375/1000 = 3/8. Worth memorising the eighths: .125, .25, .375, .5, .625, .75, .875.');
+push(1,'<span class="mono">5/16</span> written as a decimal is',['0.3125','0.516','0.625','0.35'],0,
+ '5 ÷ 16 = <span class="mono">0.3125</span>. Halving 5/8 (0.625) gets you there too, since 5/16 is half of 5/8.');
+push(1,'<span class="mono">12.5% of 96 = ?</span>',['8','10.5','12','14.4'],2,
+ '12.5% is 1/8. 96 ÷ 8 = <span class="mono">12</span>. Converting the percent to a simple fraction is faster than decimal multiplication.');
+push(1,'<span class="mono">28</span> is what percent of <span class="mono">80</span>?',['28%','32%','35%','40%'],2,
+ '28 ÷ 80 = 0.35 = <span class="mono">35%</span>. The number after "of" is always the bottom of the fraction.');
+push(1,'<span class="mono">−7 + 12 − 15 = ?</span>',['−10','−4','10','20'],0,
+ 'Work left to right: −7 + 12 = 5, then 5 − 15 = <span class="mono">−10</span>.');
+push(1,'<span class="mono">(−6)(−4)(−2) = ?</span>',['−48','48','−12','12'],0,
+ 'Three negative factors is an odd count, so the result is negative. 6 × 4 × 2 = 48, giving <span class="mono">−48</span>.','sign');
+push(1,'<span class="mono">−24 ÷ (−3) × 2 = ?</span>',['−16','−4','4','16'],3,
+ 'Two negatives divide to a positive: −24 ÷ −3 = 8. Then 8 × 2 = <span class="mono">16</span>.','sign');
+push(1,'<span class="mono">4.06 × 0.5 = ?</span>',['0.203','2.03','20.3','8.12'],1,
+ 'Multiplying by 0.5 is halving: 4.06 ÷ 2 = <span class="mono">2.03</span>.');
+push(1,'<span class="mono">18.6 ÷ 0.3 = ?</span>',['0.62','6.2','62','620'],2,
+ 'Move both decimals one place: 186 ÷ 3 = <span class="mono">62</span>. Dividing by a number less than one makes the answer larger.');
+push(1,'<span class="mono">3 3/4 + 2 7/8 = ?</span>',['5 5/8','6 1/8','6 5/8','6 3/4'],2,
+ 'Whole numbers: 3 + 2 = 5. Fractions: 6/8 + 7/8 = 13/8 = 1 5/8. Add them: <span class="mono">6 5/8</span>.');
+push(1,'<span class="mono">9 1/4 − 3 5/8 = ?</span>',['5 1/8','5 5/8','6 1/8','6 3/8'],1,
+ 'Borrow: 9 1/4 = 9 2/8 = 8 10/8. Then 8 10/8 − 3 5/8 = <span class="mono">5 5/8</span>.');
+push(1,'Which value is the largest?',['0.6','5/8','0.58','7/12'],1,
+ 'Convert everything to decimals: 0.600, 0.625, 0.580, 0.583. <span class="mono">5/8 = 0.625</span> wins.');
+push(1,'<span class="mono">2/3 × 5/8 = ?</span>',['7/11','10/11','5/12','16/15'],2,
+ 'Multiply straight across: 10/24, which reduces to <span class="mono">5/12</span>. Cancelling the 2 into the 8 first is quicker.');
+push(1,'<span class="mono">0.08 × 250 = ?</span>',['2','20','200','2000'],1,
+ '8% of 250. Ten percent is 25, so 8% is 25 − 5 = <span class="mono">20</span>.');
+push(1,'<span class="mono">(3/4)² = ?</span>',['3/8','6/8','9/16','3/16'],2,
+ 'Square the top and the bottom: 3² = 9 and 4² = 16, so <span class="mono">9/16</span>. Squaring is not doubling.');
+push(1,'<span class="mono">1 − 5/12 = ?</span>',['5/12','7/12','1/12','11/12'],1,
+ 'Write 1 as 12/12. 12/12 − 5/12 = <span class="mono">7/12</span>.');
+push(1,'<span class="mono">15% of 240 = ?</span>',['24','30','36','42'],2,
+ '10% is 24 and 5% is half of that, 12. Add: <span class="mono">36</span>.');
+push(1,'<span class="mono">60</span> increased by <span class="mono">25%</span> is',['65','70','75','85'],2,
+ '25% of 60 is 15. 60 + 15 = <span class="mono">75</span>. Or multiply by 1.25.');
+push(1,'<span class="mono">180</span> decreased by <span class="mono">15%</span> is',['150','153','155','165'],1,
+ '15% of 180 is 27. 180 − 27 = <span class="mono">153</span>. Or multiply by 0.85.');
+push(1,'<span class="mono">7/16 + 1/2 + 3/8 = ?</span>',['11/16','1 1/16','1 5/16','1 3/8'],2,
+ 'Convert to sixteenths: 7/16 + 8/16 + 6/16 = 21/16 = <span class="mono">1 5/16</span>.');
+push(1,'<span class="mono">6 ÷ 3/8 = ?</span>',['2 1/4','9/4','16','18'],2,
+ 'Invert and multiply: 6 × 8/3 = 48/3 = <span class="mono">16</span>. Ask yourself how many 3/8 pieces fit in 6 — the answer must be much larger than 6.');
+
+/* ---------- SECTION 2 · NUMBER SERIES (20) ---------- */
+const ser = (str)=>'<span class="mono" style="font-size:1.12em;letter-spacing:.06em">'+str+'</span>';
+push(2,ser('2, 5, 8, 11, ?'),['12','13','14','15'],2,
+ 'A steady +3 each step. 11 + 3 = <span class="mono">14</span>.');
+push(2,ser('3, 6, 12, 24, ?'),['30','36','42','48'],3,
+ 'Each term doubles. 24 × 2 = <span class="mono">48</span>. When terms grow fast, test multiplying before adding.');
+push(2,ser('1, 4, 9, 16, ?'),['20','24','25','36'],2,
+ 'The perfect squares: 1², 2², 3², 4², so next is 5² = <span class="mono">25</span>. The differences run 3, 5, 7, 9 — odd numbers in order.');
+push(2,ser('2, 3, 5, 8, 12, ?'),['15','16','17','18'],2,
+ 'The step itself grows: +1, +2, +3, +4, so next is +5. 12 + 5 = <span class="mono">17</span>.');
+push(2,ser('7, 14, 12, 24, 22, ?'),['20','32','44','48'],2,
+ 'Two operations alternate: ×2, then −2. After 22 comes ×2 = <span class="mono">44</span>.');
+push(2,ser('81, 27, 9, 3, ?'),['0','1','1.5','2'],1,
+ 'Divide by 3 each time. 3 ÷ 3 = <span class="mono">1</span>. A shrinking series usually means division or subtraction.');
+push(2,ser('5, 6, 8, 11, 15, ?'),['18','19','20','21'],2,
+ 'Growing steps: +1, +2, +3, +4, then +5. 15 + 5 = <span class="mono">20</span>.');
+push(2,ser('1, 1, 2, 3, 5, 8, ?'),['11','12','13','16'],2,
+ 'Each term is the sum of the two before it. 5 + 8 = <span class="mono">13</span>.');
+push(2,ser('100, 92, 85, 79, 74, ?'),['68','69','70','71'],2,
+ 'The steps shrink: −8, −7, −6, −5, then −4. 74 − 4 = <span class="mono">70</span>.');
+push(2,ser('4, 9, 6, 11, 8, 13, ?'),['9','10','11','15'],1,
+ 'Two series taking turns. Odd positions: 4, 6, 8 → next 10. Even positions: 9, 11, 13. The blank sits in the first series, so <span class="mono">10</span>.');
+push(2,ser('2, 6, 5, 15, 14, 42, ?'),['40','41','43','45'],1,
+ 'Alternating ×3 then −1. After 42 comes −1 = <span class="mono">41</span>.');
+push(2,ser('3, 7, 15, 31, ?'),['47','55','63','64'],2,
+ 'Each term is double the previous plus one. 31 × 2 + 1 = <span class="mono">63</span>. The differences double: 4, 8, 16, 32.');
+push(2,ser('64, 32, 48, 24, 36, ?'),['12','16','18','24'],2,
+ 'Alternating ÷2 then ×1.5. After 36 comes ÷2 = <span class="mono">18</span>.');
+push(2,ser('1, 3, 6, 10, 15, ?'),['18','20','21','22'],2,
+ 'Triangular numbers — the steps are +2, +3, +4, +5, then +6. 15 + 6 = <span class="mono">21</span>.');
+push(2,ser('120, 60, 20, 5, ?'),['0','1','2','2.5'],1,
+ 'The divisor grows: ÷2, ÷3, ÷4, then ÷5. 5 ÷ 5 = <span class="mono">1</span>.');
+push(2,ser('2, 4, 12, 48, ?'),['96','144','192','240'],3,
+ 'The multiplier grows: ×2, ×3, ×4, then ×5. 48 × 5 = <span class="mono">240</span>.');
+push(2,ser('−5, −1, 3, 7, ?'),['9','10','11','12'],2,
+ 'A steady +4. 7 + 4 = <span class="mono">11</span>. Going from −5 to −1 is an increase of 4, not a decrease — watch the direction on negatives.','sign');
+push(2,ser('8, −4, 2, −1, ?'),['−0.5','0','0.5','1'],2,
+ 'Each term is divided by −2, which halves the size and flips the sign. −1 ÷ −2 = <span class="mono">0.5</span>. Two negatives make a positive.','sign');
+push(2,ser('3, −6, 12, −24, ?'),['−48','−36','36','48'],3,
+ 'Multiply by −2 each time. −24 × −2 = <span class="mono">48</span>. The signs alternate, so after a negative term the next one is positive.','sign');
+push(2,ser('90, 80, 60, 30, ?'),['−20','−10','0','10'],1,
+ 'The subtraction grows: −10, −20, −30, then −40. 30 − 40 = <span class="mono">−10</span>. Do not stop at zero just because the series has been positive so far.','sign');
+
+/* ---------- SECTION 3 · PROBLEM SOLVING (25) ---------- */
+push(3,'A run of pipe measures 24 ft 6 in. It is cut into 6 equal pieces. Ignoring the saw kerf, how long is each piece?',
+ ["3 ft 9 in","4 ft 1 in","4 ft 6 in","4 ft 9 in"],1,
+ 'Convert to inches first: 24 × 12 + 6 = 294 in. 294 ÷ 6 = 49 in = <span class="mono">4 ft 1 in</span>.');
+push(3,'Four fitters install 180 ft of pipe in 6 hours. What is the crew average per man-hour?',
+ ["4.5 ft","7.5 ft","11.25 ft","30 ft"],1,
+ 'Man-hours = 4 × 6 = 24. Then 180 ÷ 24 = <span class="mono">7.5 ft</span> per man-hour.');
+push(3,'A job takes 3 fitters 8 days. At the same rate, how long would 4 fitters take?',
+ ["5 days","6 days","6.5 days","10.7 days"],1,
+ 'The job is 3 × 8 = 24 man-days. 24 ÷ 4 = <span class="mono">6 days</span>. More workers means fewer days — inverse relationship.','sign');
+push(3,'Schedule 40 pipe weighs 10.8 lb per foot. What does a 45 ft length weigh?',
+ ["405 lb","462 lb","486 lb","540 lb"],2,
+ '10.8 × 45. Break it up: 10 × 45 = 450, and 0.8 × 45 = 36. Total <span class="mono">486 lb</span>.');
+push(3,'A 750-gallon tank is filled at 25 gallons per minute. How long does it take?',
+ ["25 minutes","30 minutes","35 minutes","45 minutes"],1,
+ '750 ÷ 25 = <span class="mono">30 minutes</span>.');
+push(3,'On a drawing scaled 1/4 in = 1 ft 0 in, a pipe run measures 3 1/2 in. What is the actual length?',
+ ["7 ft","10 ft 6 in","14 ft","17 ft 6 in"],2,
+ 'Every quarter inch is one foot, so each full inch is 4 ft. 3.5 × 4 = <span class="mono">14 ft</span>.');
+push(3,'A 55-gallon drum of cutting oil is 15% used. How much remains?',
+ ["8.25 gal","40 gal","46.75 gal","48.5 gal"],2,
+ '15% of 55 is 8.25. 55 − 8.25 = <span class="mono">46.75 gal</span>. Or take 85% of 55 directly.');
+push(3,'A threading machine cuts 8 threads per inch. How many inches of pipe hold 120 threads?',
+ ["12 in","15 in","16 in","960 in"],1,
+ '120 ÷ 8 = <span class="mono">15 in</span>. If you are tempted to multiply, check the units: threads ÷ threads-per-inch leaves inches.');
+push(3,'An apprentice earns $22.40 an hour. In one week she works 40 regular hours plus 6 hours of overtime at time and a half. What is her gross pay?',
+ ["$1,030.40","$1,062.80","$1,097.60","$1,142.40"],2,
+ 'Regular: 40 × 22.40 = $896.00. Overtime rate: 22.40 × 1.5 = $33.60, so 6 × 33.60 = $201.60. Total <span class="mono">$1,097.60</span>.');
+push(3,'A material list calls for elbows and tees in a 5 to 2 ratio. If the job uses 35 elbows, how many tees are needed?',
+ ["7","12","14","17"],2,
+ '35 ÷ 5 = 7 groups. Each group has 2 tees, so 7 × 2 = <span class="mono">14</span>.');
+push(3,'A pump moves 12 gallons per minute. How many gallons does it move in 2 hours 15 minutes?',
+ ["1,440","1,530","1,620","1,800"],2,
+ '2 hours 15 minutes = 135 minutes. 135 × 12 = <span class="mono">1,620 gallons</span>. Convert to one unit before multiplying.');
+push(3,'How many pieces 2 ft 8 in long can be cut from one 20 ft stick of pipe?',
+ ["6","7","7.5","8"],1,
+ '20 ft = 240 in and 2 ft 8 in = 32 in. 240 ÷ 32 = 7.5, and you cannot use half a piece, so <span class="mono">7</span>.');
+push(3,'A job was estimated at 480 labor hours and finished in 408. By what percent did the crew come in under estimate?',
+ ["12%","15%","17.6%","72%"],1,
+ 'The difference is 72 hours. 72 ÷ 480 = 0.15 = <span class="mono">15%</span>. Divide by the estimate, not the actual.');
+push(3,'One cubic foot holds about 7.48 gallons. Roughly how many gallons does a 10 cubic foot tank hold?',
+ ["7.5","74.8","748","1.34"],1,
+ '10 × 7.48 = <span class="mono">74.8 gallons</span>.');
+push(3,'A steam line drops from 340 °F to 185 °F. What is the temperature drop?',
+ ["145 °F","155 °F","165 °F","525 °F"],1,
+ '340 − 185 = <span class="mono">155 °F</span>.');
+push(3,'A takeoff calls for 850 ft of pipe and the shop allows 6% for waste. How much waste is that?',
+ ["42 ft","48 ft","51 ft","55 ft"],2,
+ '6% of 850. One percent is 8.5, so six percent is 8.5 × 6 = <span class="mono">51 ft</span>.');
+push(3,'A glycol mix is made 3 parts water to 1 part glycol. In a 48-gallon batch, how much water is used?',
+ ["12 gal","16 gal","32 gal","36 gal"],3,
+ 'Three parts plus one part is four parts total. 48 ÷ 4 = 12 gal per part, and water is 3 parts: <span class="mono">36 gallons</span>.');
+push(3,'How long does it take to drive 54 miles at a steady 45 mph?',
+ ["1 hr 05 min","1 hr 12 min","1 hr 20 min","1 hr 30 min"],1,
+ '54 ÷ 45 = 1.2 hours. The 0.2 of an hour is 0.2 × 60 = 12 minutes, so <span class="mono">1 hr 12 min</span>. Careful: 1.2 hours is not 1 hour 20 minutes.');
+push(3,'A vessel is rated for 200 psi and its relief valve is set at 80% of that rating. If the gauge currently reads 145 psi, how far below the relief setting is it?',
+ ["15 psi","25 psi","40 psi","55 psi"],0,
+ 'Relief setting = 0.80 × 200 = 160 psi. 160 − 145 = <span class="mono">15 psi</span>. Two steps — do not compare the gauge to the 200 psi rating.');
+push(3,'Flow through a pipe follows Q = V × A, where V is velocity and A is the cross-sectional area. If the same flow passes from a 4-inch line into a 2-inch line, the velocity in the smaller line',
+ ["increases","decreases","stays the same","drops to zero"],0,
+ 'Q is fixed. A gets smaller, so V must get larger to keep the product the same. That is rule 3: hold the result still and the two inputs trade off. This is why reducers make water move faster, not slower.','sign');
+push(3,'Fourteen pipe hangers cost $27.50 each. With 8% sales tax, what is the total?',
+ ["$385.00","$401.80","$415.80","$431.20"],2,
+ '14 × 27.50 = $385.00. Tax: 8% of 385 = $30.80. Total <span class="mono">$415.80</span>.');
+push(3,'A pipe has an outside diameter of 2.375 in and a wall thickness of 0.280 in. What is the inside diameter?',
+ ["1.815 in","2.095 in","2.655 in","1.535 in"],0,
+ 'The wall is subtracted twice, once on each side: 2.375 − (2 × 0.280) = 2.375 − 0.560 = <span class="mono">1.815 in</span>.');
+push(3,'For a 45° offset, travel equals run × 1.414. If the run is 16 in, what is the travel, to the nearest tenth?',
+ ["11.3 in","20.4 in","22.6 in","24.0 in"],2,
+ '16 × 1.414 = 22.624, which rounds to <span class="mono">22.6 in</span>. On a 45° offset the travel is always longer than the run.');
+push(3,'A tank drains from 900 gallons to 315 gallons in 45 minutes. What is the average drain rate?',
+ ["9 gal/min","13 gal/min","15 gal/min","20 gal/min"],1,
+ 'The drop is 900 − 315 = 585 gallons. 585 ÷ 45 = <span class="mono">13 gal/min</span>.');
+push(3,'Six fitters each work 9 1/2 hours on a shutdown. How many man-hours were spent?',
+ ["54","55.5","57","60"],2,
+ '6 × 9.5 = <span class="mono">57 man-hours</span>.');
+
+/* ---------- SECTION 4 · READING COMPREHENSION (25) ---------- */
+const PASSAGES = {
+p1:{title:"Energy isolation before breaking a line", html:`
+<p>Before any work begins on a piping system that has held pressure, heat, or product, the system must be placed in a zero-energy state and verified there by the person who will do the work. Isolation is not complete when a valve has been closed. A closed valve is a control device, not an isolation device; valves leak, and a valve handle can be turned by someone who does not know a fitter is downstream of it. Acceptable isolation means the energy source is physically separated from the work: a blind flange installed, a spool piece removed, or a double block and bleed arrangement with the bleed left open to atmosphere.</p>
+<p>Each worker who will break into the system applies a personal lock at the isolation point. A single lock applied by a supervisor on behalf of a crew does not satisfy the procedure. Where several locks must go on one point, a group lockout hasp is used so the point cannot be reopened until the last lock comes off. Tags accompany locks but never replace them. A tag alone is permitted only where the isolating device cannot physically accept a lock, and in that case a second, independent safeguard is required.</p>
+<p>Verification follows isolation. The crew attempts a controlled start or opens a bleed to confirm that no pressure, flow, or stored energy remains, then returns every control to the off position. Stored energy in springs, elevated components, and trapped hydraulic fluid must be released or restrained before the first joint is broken. Only the worker who applied a lock may remove it. If that worker has left the site, removal requires written authorization from the site supervisor and a documented attempt to contact the worker.</p>`},
+
+p2:{title:"Hot work permits", html:`
+<p>Hot work is any operation that produces flame, sparks, or enough heat to ignite. Welding, cutting, brazing, grinding, and soldering all qualify. Where practical, hot work is moved into a designated area — a weld shop or cutting bay built for it — because a permit is not required inside a designated area. Everything outside one requires a written permit issued before work starts, valid only for the shift and the location named on it.</p>
+<p>The permit holder inspects a 35-foot radius around the work in every direction, including below the work and behind partitions. Combustible material inside that radius is removed. What cannot be moved is covered with fire-resistant blankets, and floor openings, cracks, and drains inside the radius are sealed so sparks cannot drop to a lower level. Sparks from overhead cutting can travel well beyond 35 feet, so work above open floor grating requires a spark containment plan no matter what has been cleared.</p>
+<p>A fire watch is posted whenever combustibles remain inside the radius, whenever wall or floor construction could conduct heat to combustibles on the far side, and whenever the work sits within 35 feet of an opening into an adjacent area. The fire watch holds extinguishing equipment, carries no other duties, and stays in place for a minimum of 60 minutes after the last spark, then walks the area once more before leaving. Permits are closed out at the end of the shift by the issuing authority, not by the worker who held the torch.</p>`},
+
+p3:{title:"Permit-required confined space entry", html:`
+<p>A permit-required confined space is one large enough to enter and work in, with limited means of entry or exit, and not designed for continuous occupancy — plus at least one added hazard: a hazardous atmosphere, a material that could engulf an entrant, an inwardly converging shape that could trap someone, or any other recognized serious hazard. Tanks, vaults, sewers, boilers, and pits commonly qualify.</p>
+<p>Atmospheric testing happens before entry and in a fixed order: oxygen first, then flammable gases and vapors, then toxic contaminants. Oxygen comes first because most combustible gas meters read accurately only within a normal oxygen range; an oxygen-deficient or oxygen-enriched atmosphere makes the flammability reading unreliable. Acceptable oxygen content runs between 19.5 and 23.5 percent. Flammable content must stay below 10 percent of the lower explosive limit. Readings are taken at the top, the middle, and the bottom of the space, because some gases are heavier than air and settle while others rise.</p>
+<p>An attendant remains outside for the whole entry, monitors conditions, keeps an accurate count of everyone inside, and maintains communication with the entrants. The attendant never enters to perform a rescue. Roughly two out of three confined-space deaths are would-be rescuers who went in unprotected, which is why retrieval equipment and a trained rescue team are arranged before the first entrant goes down, not after something goes wrong. If conditions inside change, or the ventilation stops, the attendant orders an evacuation and the permit is void until the space is re-tested.</p>`},
+
+p4:{title:"Excerpt: pipe support and hanger specification", html:`
+<p>Hanger spacing shall follow the schedule below unless the piping drawings show otherwise. For standard weight steel pipe carrying liquid, maximum support spacing is 7 ft for 1 in and smaller, 10 ft for 1 1/2 in through 2 in, 14 ft for 3 in through 4 in, and 17 ft for 6 in and larger. Where the same line carries vapor rather than liquid, spacing may be increased by 2 ft in each size range. A support shall be placed within 2 ft of every change of direction and within 2 ft of any concentrated load such as a valve.</p>
+<p>Copper tube shall not contact ferrous hangers. Where a steel hanger is used, a dielectric isolator or a copper-plated hanger is required at every point of contact. Insulated lines shall be supported on shields or saddles sized so the insulation is not crushed; hangers shall not clamp directly on insulation.</p>
+<p>Rods shall be sized so the working load does not exceed one-fifth of the rod's tensile strength. Rods 3/8 in and smaller shall not be used on pipe larger than 2 in. Trapeze hangers carrying more than one line shall be sized for the total load of all lines running full of water, not for the operating load.</p>
+<p>Lines subject to thermal movement shall be supported on rollers or slides rather than clevis hangers, and each support shall be positioned so the pipe sits centered on it at the mid-point of its expected travel.</p>`},
+
+p5:{title:"Hydrostatic testing of new piping", html:`
+<p>Before a new piping system is released to service it is proof-tested. Hydrostatic testing — filling with water and pressurizing — is preferred over pneumatic testing because water is very nearly incompressible. A water-filled line that fails releases its energy almost immediately and locally. A gas-filled line at the same pressure stores far more energy and fails violently. Pneumatic testing is used only where a system cannot tolerate water or cannot be fully drained, and then only with added precautions and a larger exclusion zone.</p>
+<p>Test pressure is normally 1.5 times the system design pressure, held for a minimum of 30 minutes, with no drop other than what can be accounted for by a change in water temperature. Before pressurizing, the system is vented at every high point so trapped air is expelled. A pocket of air defeats the safety advantage of testing with water, and it can also mask a slow leak by holding the gauge steady while the line quietly loses water.</p>
+<p>Components that cannot take the test pressure are removed or isolated: relief valves, rupture discs, instruments, expansion joints, and any equipment rated below the test pressure. Gauges are calibrated, and are chosen so the test pressure falls in the middle third of the gauge range, where a gauge reads most accurately. Nobody stands over a flange or a threaded joint while pressure is being raised, and the line is walked for inspection only after pressure has stabilized and the pump has been isolated.</p>`}
+};
+
+const pq = (p,t,o,a,e)=>Q.push({s:4,p:p,t:t,o:o,a:a,e:e,tag:null,fig:null});
+
+pq('p1','Which statement best expresses the main idea of the passage?',
+ ["Valves should be replaced regularly because they leak.",
+  "Isolation means physically separating the energy source and locking it out individually, not simply shutting a valve.",
+  "Supervisors are responsible for locking out equipment on behalf of their crews.",
+  "Tags are an acceptable substitute for locks in most situations."],1,
+ 'The whole passage builds one argument: closing a valve is not isolation, physical separation plus a personal lock is. The other choices each contradict something the passage says outright.');
+pq('p1','According to the passage, why is a closed valve not acceptable isolation?',
+ ["Valves are difficult to reach on most systems.",
+  "A valve cannot be fitted with a lock.",
+  "Valves leak, and someone may operate the handle without knowing a worker is downstream.",
+  "Valves are only rated for low pressure."],2,
+ 'Both reasons are stated directly: valves leak, and a handle can be turned by someone who does not know a fitter is on the other side. The passage never says a valve cannot accept a lock.');
+pq('p1','A worker who applied a personal lock has gone home for the day and the lock must come off. The passage requires',
+ ["any crew member to cut the lock and note it in the log",
+  "written authorization from the site supervisor plus a documented attempt to contact the worker",
+  "the lock to remain until the worker returns, with no exceptions",
+  "a second lock to be added by the supervisor"],1,
+ 'The last two sentences state exactly this. "No exceptions" is too strong — the passage lays out a procedure for that situation rather than forbidding removal.');
+pq('p1','A foreman puts one lock on the isolation point on behalf of his five-man crew. Under this procedure, that is',
+ ["acceptable, because the foreman is responsible for the crew",
+  "acceptable if the foreman also hangs a tag",
+  "not acceptable, because each worker must apply a personal lock",
+  "not acceptable, because a group hasp may never be used"],2,
+ 'The passage says a single lock applied by a supervisor on behalf of a crew does not satisfy the procedure. Group hasps are explicitly allowed — that is how five personal locks fit on one point.');
+pq('p1','The passage indicates that a tag used without a lock is permitted only when',
+ ["the work will last less than one shift",
+  "the isolating device cannot physically accept a lock, and a second safeguard is added",
+  "the supervisor signs the tag",
+  "the system has already been bled to atmosphere"],1,
+ 'Both halves matter — the device must be incapable of accepting a lock, and a second independent safeguard is then required. A choice that gives only half the condition is not the answer.');
+
+pq('p2','Which of these does the passage identify as hot work?',
+ ["Applying pipe dope to a threaded joint",
+  "Grinding a weld",
+  "Torquing a flange",
+  "Pulling a vacuum on a line"],1,
+ 'The opening sentence lists welding, cutting, brazing, grinding and soldering. Grinding throws sparks, which is why it counts.');
+pq('p2','How far does the required inspection radius extend around the work?',
+ ["10 feet","20 feet","35 feet","60 feet"],2,
+ 'Thirty-five feet in every direction, including below the work and behind partitions. The 60 in the passage is the fire watch time in minutes, not a distance.');
+pq('p2','After the last spark, the fire watch must remain for at least',
+ ["15 minutes","30 minutes","60 minutes","the rest of the shift"],2,
+ 'A minimum of 60 minutes, followed by one more walk of the area before leaving.');
+pq('p2','A fitter cuts pipe inside the shop\'s designated cutting bay. According to the passage, a written permit is',
+ ["required, because cutting always produces sparks",
+  "not required, because the work is inside a designated area",
+  "required, but only if a fire watch is unavailable",
+  "not required, because the work lasts less than one shift"],1,
+ 'The passage states plainly that a permit is not required inside a designated area. Permit duration is tied to the shift and location named on it, but that is about permits that exist, not about whether one is needed.');
+pq('p2','Why does the passage single out work performed above open floor grating?',
+ ["Grating cannot support a fire watch.",
+  "Sparks can travel farther than the cleared radius and fall to a lower level.",
+  "Permits are not valid on elevated work platforms.",
+  "Fire blankets cannot be used on grating."],1,
+ 'The passage says sparks from overhead cutting travel well beyond 35 feet, and that openings must be sealed so sparks cannot drop to a lower level. Grating is an opening you cannot seal, so a containment plan is required.');
+
+pq('p3','In what order does the passage require the atmosphere to be tested?',
+ ["Flammable, oxygen, toxic",
+  "Toxic, oxygen, flammable",
+  "Oxygen, flammable, toxic",
+  "Oxygen, toxic, flammable"],2,
+ 'Oxygen, then flammable gases and vapors, then toxic contaminants — a fixed order, stated directly.');
+pq('p3','Why is oxygen tested first?',
+ ["Oxygen deficiency is the most common hazard.",
+  "Combustible gas meters read accurately only within a normal oxygen range.",
+  "Oxygen readings take the longest to stabilize.",
+  "Ventilation cannot be started until oxygen is confirmed."],1,
+ 'The reason given is instrument accuracy: an oxygen-deficient or oxygen-enriched atmosphere makes the flammability reading unreliable. The other choices may sound sensible but the passage does not say them.');
+pq('p3','What oxygen content does the passage give as acceptable?',
+ ["16.0 to 21.0 percent","19.5 to 23.5 percent","20.9 percent exactly","Below 10 percent of the lower explosive limit"],1,
+ '19.5 to 23.5 percent. The 10 percent figure belongs to the flammable reading, not the oxygen reading — a classic swapped-detail distractor.');
+pq('p3','An attendant sees an entrant collapse at the bottom of a tank. Based on the passage, the attendant should',
+ ["enter immediately, since seconds matter",
+  "enter only after donning a respirator",
+  "stay outside and summon the rescue team that was arranged before entry",
+  "re-test the atmosphere before deciding"],2,
+ 'The passage says the attendant never enters to perform a rescue, and explains why: most confined-space deaths are would-be rescuers. The rescue team and retrieval gear were arranged in advance precisely for this moment.');
+pq('p3','Readings are taken at the top, middle, and bottom of the space because',
+ ["instruments drift over the length of a hose",
+  "gases differ in density, so some settle and others rise",
+  "the permit requires three separate signatures",
+  "oxygen is always lowest at the bottom"],1,
+ 'Stated directly at the end of the second paragraph. Saying oxygen is always lowest at the bottom overreaches — the passage says gases differ in density, not that one gas is always on the floor.');
+
+pq('p4','A 3-inch standard weight steel line carries liquid. What is the maximum hanger spacing?',
+ ["7 ft","10 ft","14 ft","17 ft"],2,
+ 'The schedule gives 14 ft for 3 in through 4 in carrying liquid.');
+pq('p4','A 6-inch line on the same job carries vapor rather than liquid. Maximum spacing is',
+ ["14 ft","17 ft","19 ft","21 ft"],2,
+ '17 ft for 6 in and larger, plus the 2 ft allowed for vapor service, gives <span class="mono">19 ft</span>. This is a two-step reading question — find the base figure, then apply the modifier.');
+pq('p4','A trapeze hanger carrying three lines must be sized for',
+ ["the operating load of the heaviest line",
+  "the total load of all lines running full of water",
+  "one-fifth of the rod tensile strength",
+  "the total operating load of all three lines"],1,
+ 'The specification is explicit: total load of all lines running full of water, not the operating load. The distractor reading &ldquo;total operating load&rdquo; is the trap; it changes a single word.');
+pq('p4','A copper tube run must hang from steel hangers. The specification allows this only with',
+ ["a dielectric isolator or copper-plated hanger at every contact point",
+  "a shield or saddle at every contact point",
+  "rods no smaller than 3/8 in",
+  "roller supports at every contact point"],0,
+ 'Copper shall not contact ferrous hangers; the fix is a dielectric isolator or a copper-plated hanger. Shields and saddles belong to the insulation requirement, and rollers belong to the thermal movement requirement.');
+pq('p4','A line that will expand and contract in service must be supported so that',
+ ["the clevis hanger is oversized by one pipe size",
+  "the pipe rests on rollers or slides, centered at the mid-point of its travel",
+  "supports are spaced 2 ft closer than the schedule",
+  "rods are sized at one-fifth of tensile strength"],1,
+ 'The last paragraph states both halves: rollers or slides instead of clevis hangers, positioned so the pipe sits centered at mid-travel. The one-fifth rod rule applies to every rod, not just thermal lines.');
+
+pq('p5','Why is hydrostatic testing preferred over pneumatic testing?',
+ ["Water is cheaper than compressed gas.",
+  "Water is nearly incompressible, so a failure releases far less stored energy.",
+  "Pneumatic testing cannot reach 1.5 times design pressure.",
+  "Water finds leaks that gas cannot."],1,
+ 'The stored-energy argument is the reason given. Pneumatic testing is not described as incapable of reaching test pressure — it is described as more dangerous when it fails.');
+pq('p5','The passage gives the normal test pressure and hold time as',
+ ["1.25 times design pressure for 15 minutes",
+  "1.5 times design pressure for 30 minutes",
+  "1.5 times operating pressure for 60 minutes",
+  "2 times design pressure for 30 minutes"],1,
+ '1.5 times the <em>design</em> pressure, held a minimum of 30 minutes. Note the wording — design pressure, not operating pressure.');
+pq('p5','Trapped air is vented before pressurizing because it',
+ ["slows the filling of the system",
+  "defeats the safety advantage of water and can hide a slow leak",
+  "corrodes the inside of the pipe",
+  "makes the gauge read high"],1,
+ 'Both effects are stated: an air pocket stores energy the way a pneumatic test would, and it can hold the gauge steady while the line loses water.');
+pq('p5','The passage says a test gauge should be selected so that the test pressure falls',
+ ["at the top of the gauge range","just above the midpoint","in the middle third of the gauge range","anywhere on a calibrated gauge"],2,
+ 'The middle third, because that is where a gauge reads most accurately. Calibration is also required, but it is not the whole requirement.');
+pq('p5','A relief valve rated below the test pressure is left in place when the system is pressurized. Based on the passage, this is a problem because',
+ ["the valve is listed among the components that must be removed or isolated",
+  "relief valves cannot be recalibrated after a hydro test",
+  "the valve would prevent the system from being vented",
+  "the valve adds weight to the trapeze hangers"],0,
+ 'The third paragraph lists relief valves first among components that cannot take test pressure and must be removed or isolated. The other choices bring in ideas the passage never raises.');
+
+/* ---------- SVG HELPERS ---------- */
+const LN='#22323A', FL='#DDE2DC', AC='#2B6E8E', WT='#8FC0D6', RD='#B4342A', YL='#D8A114';
+function gearPath(cx,cy,r,n){
+  const ro=r, ri=r*0.83, pts=[];
+  for(let i=0;i<n;i++){
+    const a0=(i/n)*2*Math.PI, a1=((i+0.28)/n)*2*Math.PI, a2=((i+0.5)/n)*2*Math.PI, a3=((i+0.78)/n)*2*Math.PI;
+    pts.push([cx+ro*Math.cos(a0),cy+ro*Math.sin(a0)],[cx+ro*Math.cos(a1),cy+ro*Math.sin(a1)],
+             [cx+ri*Math.cos(a2),cy+ri*Math.sin(a2)],[cx+ri*Math.cos(a3),cy+ri*Math.sin(a3)]);
+  }
+  return 'M'+pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join('L')+'Z';
+}
+function gear(cx,cy,r,n,label,fill){
+  return `<path d="${gearPath(cx,cy,r,n)}" fill="${fill||FL}" stroke="${LN}" stroke-width="2"/>`+
+         `<circle cx="${cx}" cy="${cy}" r="${(r*0.17).toFixed(1)}" fill="#fff" stroke="${LN}" stroke-width="2"/>`+
+         (label?`<text x="${cx}" y="${cy+r*0.45}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="15" font-weight="600" fill="${LN}">${label}</text>`:'');
+}
+function svg(w,h,inner){
+  return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg" role="img">
+  <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 z" fill="${LN}"/></marker>
+  <marker id="arb" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 z" fill="${AC}"/></marker>
+  <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 z" fill="${RD}"/></marker></defs>
+  ${inner}</svg>`;
+}
+const T=(x,y,s,sz,anchor,fill)=>`<text x="${x}" y="${y}" text-anchor="${anchor||'middle'}" font-family="IBM Plex Sans,sans-serif" font-size="${sz||14}" font-weight="600" fill="${fill||LN}">${s}</text>`;
+const TM=(x,y,s,sz,anchor,fill)=>`<text x="${x}" y="${y}" text-anchor="${anchor||'middle'}" font-family="IBM Plex Mono,monospace" font-size="${sz||13}" fill="${fill||LN}">${s}</text>`;
+const box=(x,y,w,h,f)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${f||FL}" stroke="${LN}" stroke-width="2"/>`;
+const ln=(x1,y1,x2,y2,w,c,d)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c||LN}" stroke-width="${w||2}"${d?' stroke-dasharray="'+d+'"':''}/>`;
+const arw=(x1,y1,x2,y2,c)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c||LN}" stroke-width="2.2" marker-end="url(#${c===AC?'arb':c===RD?'arr':'ar'})"/>`;
+/* curved rotation arrow */
+function rot(cx,cy,r,cw,c){
+  const a0=cw?-2.3:-0.85, a1=cw?-0.9:-2.25;
+  const x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0),x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);
+  return `<path d="M${x0.toFixed(1)},${y0.toFixed(1)} A${r},${r} 0 0 ${cw?1:0} ${x1.toFixed(1)},${y1.toFixed(1)}" fill="none" stroke="${c||AC}" stroke-width="2.4" marker-end="url(#arb)"/>`;
+}
+
+/* ---------- SECTION 5 · MECHANICAL APTITUDE (25) ---------- */
+const mq=(t,o,a,e,fig,cap)=>Q.push({s:5,t:t,o:o,a:a,e:e,tag:null,
+  fig:(cap?fig.replace('role="img"','role="img" aria-label="'+cap+'"'):fig), cap:cap||null});
+
+mq('Gear A drives gear B. Which statement is correct?',
+ ["B turns faster than A and in the same direction",
+  "B turns slower than A and in the opposite direction",
+  "B turns slower than A and in the same direction",
+  "B turns at the same speed as A"],1,
+ 'Meshed gears always turn opposite ways. The big gear turns slower: 12 teeth driving 36 teeth is a 3 to 1 reduction, so B makes one turn for every three of A. This is the classic trade-off — you give up speed to gain torque.',
+ svg(360,250, gear(70,125,36,12,'')+gear(214,125,108,36,'')+rot(70,125,50,true)+rot(214,125,74,false)+T(70,205,'A · 12 teeth',13)+T(214,248,'B · 36 teeth',13)),
+ 'Gear A drives gear B');
+
+mq('Gear A turns clockwise. Which way does gear C turn?',
+ ["Clockwise","Counter-clockwise","It does not turn","It alternates"],0,
+ 'Each mesh reverses direction. A clockwise makes B counter-clockwise, and B counter-clockwise makes C clockwise. An odd number of gears in a train puts the last gear the same way as the first. The middle gear is an idler: it changes direction but not the overall speed ratio.',
+ svg(320,190, gear(58,95,34,11,'A')+gear(144,95,52,17,'B')+gear(240,95,34,11,'C')+rot(58,95,46,true)+rot(144,95,64,false)+rot(240,95,46,true)),
+ 'Three-gear train');
+
+mq('A belt runs open (uncrossed) between a small drive pulley and a large driven pulley. Compared with the drive pulley, the driven pulley turns',
+ ["faster, in the same direction",
+  "slower, in the same direction",
+  "slower, in the opposite direction",
+  "faster, in the opposite direction"],1,
+ 'An open belt keeps both pulleys turning the same way. The larger pulley has more circumference to cover per turn, so it turns slower. Reverse the sizes and you get the opposite result.',
+ svg(340,190, `<circle cx="70" cy="95" r="30" fill="${FL}" stroke="${LN}" stroke-width="2"/><circle cx="230" cy="95" r="62" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+
+  ln(70,65,230,33,3,AC)+ln(70,125,230,157,3,AC)+`<circle cx="70" cy="95" r="5" fill="${LN}"/><circle cx="230" cy="95" r="5" fill="${LN}"/>`+rot(70,95,42,true)+T(70,175,'drive',13)+T(230,178,'driven',13)),
+ 'Open belt drive');
+
+mq('The same two pulleys are connected by a crossed belt. The driven pulley now turns',
+ ["in the same direction, at the same speed",
+  "in the opposite direction, at the same speed as before",
+  "in the same direction, faster",
+  "in the opposite direction, and it stalls"],1,
+ 'Crossing the belt reverses the direction of the driven pulley but changes nothing about the speed ratio, which depends only on the pulley diameters.',
+ svg(340,190, `<circle cx="70" cy="95" r="30" fill="${FL}" stroke="${LN}" stroke-width="2"/><circle cx="230" cy="95" r="62" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+
+  ln(70,65,230,157,3,AC)+ln(70,125,230,33,3,AC)+`<circle cx="70" cy="95" r="5" fill="${LN}"/><circle cx="230" cy="95" r="5" fill="${LN}"/>`+rot(70,95,42,true)+T(170,180,'crossed belt',13)),
+ 'Crossed belt drive');
+
+mq('A 300 lb valve sits on the end of a bar. To lift it with the least effort, the fulcrum should be placed at',
+ ["position X","position Y","position Z","it makes no difference"],2,
+ 'A lever multiplies force by the ratio of effort arm to load arm. Moving the fulcrum closer to the load lengthens the effort arm and shortens the load arm, so Z takes the least push. You pay for it in distance \u2014 the effort end travels much farther.',
+ svg(380,190, box(26,56,56,34)+T(54,48,'300 lb',13)+ln(18,100,352,100,6,LN)+
+  `<path d="M100,104 L116,132 L84,132 Z" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+
+  `<path d="M170,104 L186,132 L154,132 Z" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+
+  `<path d="M250,104 L266,132 L234,132 Z" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+
+  T(100,152,'Z',15)+T(170,152,'Y',15)+T(250,152,'X',15)+arw(342,66,342,94)+T(342,54,'effort',13)),
+ 'Bar with three possible fulcrum positions');
+
+mq('In a wheelbarrow, the wheel is the fulcrum, the load sits in the tray, and the operator lifts the handles. This arrangement means',
+ ["the load is between the fulcrum and the effort",
+  "the effort is between the fulcrum and the load",
+  "the fulcrum is between the load and the effort",
+  "there is no mechanical advantage"],0,
+ 'That is a second-class lever. Because the load sits between the wheel and the handles, the effort arm is always longer than the load arm, so a wheelbarrow always gives mechanical advantage. A seesaw, by contrast, has the fulcrum in the middle.',
+ svg(360,190, `<circle cx="60" cy="130" r="26" fill="${FL}" stroke="${LN}" stroke-width="2.4"/><circle cx="60" cy="130" r="6" fill="${LN}"/>`+
+  ln(60,130,320,80,5,LN)+`<path d="M108,118 L200,100 L196,62 L104,80 Z" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+
+  T(152,92,'load',13)+arw(316,110,316,84)+T(320,128,'effort',13)+T(60,176,'fulcrum',13)),
+ 'Wheelbarrow');
+
+mq('A single fixed pulley is bolted to a beam and used to raise a 200 lb load. Ignoring friction, the pull on the rope is about',
+ ["50 lb","100 lb","200 lb","400 lb"],2,
+ 'A fixed pulley gives a mechanical advantage of 1. It changes the direction of your pull — you can haul down instead of lifting up — but not the size of it. Count the rope sections actually supporting the load: here there is one.',
+ svg(300,240, ln(40,26,260,26,5,LN)+ln(150,26,150,48,3,LN)+`<circle cx="150" cy="72" r="24" fill="#fff" stroke="${LN}" stroke-width="2.4"/><circle cx="150" cy="72" r="5" fill="${LN}"/>`+
+  ln(126,72,126,176,2.6,AC)+ln(174,72,174,208,2.6,AC)+box(102,176,48,36)+T(126,199,'200',12)+arw(174,196,174,226,AC)+T(196,232,'pull',13,'start')),
+ 'Fixed pulley');
+
+mq('A single movable pulley carries a 200 lb load, with one rope end anchored to the beam. Ignoring friction, the pull required is about',
+ ["50 lb","100 lb","200 lb","300 lb"],1,
+ 'Two rope sections support the moving block, so the mechanical advantage is 2 and the pull is half the load — <span class="mono">100 lb</span>. The trade-off: you must pull two feet of rope for every foot the load rises.',
+ svg(300,250, ln(30,26,270,26,5,LN)+ln(100,26,100,120,2.6,AC)+ln(200,26,200,60,3,LN)+
+  `<circle cx="100" cy="144" r="26" fill="#fff" stroke="${LN}" stroke-width="2.4"/><circle cx="100" cy="144" r="5" fill="${LN}"/>`+
+  ln(126,144,126,120,2.6,AC)+`<path d="M126,120 L126,60" stroke="${AC}" stroke-width="2.6"/>`+ln(126,60,200,60,2.6,AC)+
+  ln(100,170,100,186,2.6,LN)+box(72,186,56,38)+T(100,211,'200',12)+arw(126,90,126,52,AC)+T(150,84,'pull',13,'start')),
+ 'Movable pulley');
+
+mq('The block and tackle shown has four rope sections supporting the load block. Lifting a 400 lb load takes a pull of roughly',
+ ["50 lb","100 lb","200 lb","400 lb"],1,
+ 'Divide the load by the number of supporting lines: 400 ÷ 4 = <span class="mono">100 lb</span>. Count only the sections that run to the moving block. To raise the load one foot you pull four feet of rope.',
+ svg(320,260, ln(30,24,290,24,5,LN)+
+  `<circle cx="120" cy="54" r="20" fill="#fff" stroke="${LN}" stroke-width="2.2"/><circle cx="176" cy="54" r="20" fill="#fff" stroke="${LN}" stroke-width="2.2"/>`+
+  ln(120,34,120,24,3,LN)+ln(176,34,176,24,3,LN)+
+  `<circle cx="120" cy="168" r="20" fill="#fff" stroke="${LN}" stroke-width="2.2"/><circle cx="176" cy="168" r="20" fill="#fff" stroke="${LN}" stroke-width="2.2"/>`+
+  ln(100,54,100,168,2.4,AC)+ln(140,54,140,168,2.4,AC)+ln(156,54,156,168,2.4,AC)+ln(196,54,196,168,2.4,AC)+
+  ln(196,54,196,232,2.4,AC)+arw(196,214,196,246,AC)+T(220,246,'pull',13,'start')+
+  box(110,196,76,34)+T(148,220,'400 lb',13)),
+ 'Four-part block and tackle');
+
+mq('Two identical springs support the same load, once side by side and once end to end. Compared with the pair side by side, the pair end to end will',
+ ["stretch less","stretch the same amount","stretch more","not stretch at all"],2,
+ 'Side by side, each spring carries half the load, so the assembly stretches half as much as one spring. End to end, each spring carries the full load and the stretches add, giving twice the travel of one spring. End to end is four times the stretch of side by side.',
+ svg(340,230, `<path d="M60,30 L60,44 M46,44 l28,12 -28,12 28,12 -28,12 28,12 -28,12 28,12 M60,116 L60,130" fill="none" stroke="${LN}" stroke-width="2.2"/>`+
+  `<path d="M120,30 L120,44 M106,44 l28,12 -28,12 28,12 -28,12 28,12 -28,12 28,12 M120,116 L120,130" fill="none" stroke="${LN}" stroke-width="2.2"/>`+
+  ln(30,30,150,30,4,LN)+box(66,130,48,30)+T(90,151,'W',13)+ln(60,130,120,130,3,LN)+T(90,186,'side by side',13)+
+  ln(230,26,290,26,4,LN)+
+  `<path d="M260,26 L260,36 M246,36 l28,11 -28,11 28,11 -28,11 28,11 -28,11 28,11 M260,113 L260,124" fill="none" stroke="${LN}" stroke-width="2.2"/>`+
+  `<path d="M246,124 l28,11 -28,11 28,11 -28,11 28,11 -28,11 28,11 M260,201 L260,206" fill="none" stroke="${LN}" stroke-width="2.2"/>`+
+  box(236,206,48,24)+T(260,223,'W',13)+T(300,186,'end to end',13,'middle')),
+ 'Two springs, side by side and end to end');
+
+mq('In the hydraulic jack shown, a 50 lb push on the 1 square inch piston will lift a load of about',
+ ["50 lb","100 lb","250 lb","500 lb"],3,
+ 'Pressure is the same everywhere in the fluid: 50 lb ÷ 1 sq in = 50 psi. Acting on 10 square inches, that pressure produces 50 × 10 = <span class="mono">500 lb</span>. The small piston must travel ten inches for every inch the big one rises.',
+ svg(360,220, `<path d="M40,120 L40,180 L320,180 L320,80 L250,80 L250,120 Z" fill="${WT}" stroke="${LN}" stroke-width="2"/>`+
+  box(36,104,48,18,'#fff')+ln(60,104,60,58,4,LN)+arw(60,34,60,54,RD)+T(60,26,'50 lb',13,'middle',RD)+
+  box(246,62,78,20,'#fff')+ln(285,62,285,40,4,LN)+box(244,16,82,24)+T(285,33,'load',13)+
+  TM(60,200,'1 sq in')+TM(285,200,'10 sq in')),
+ 'Hydraulic jack');
+
+mq('Three taps are cut into the side of a tank of water at different heights. Water shoots out hardest from',
+ ["tap 1","tap 2","tap 3","all three the same"],2,
+ 'Pressure from a column of liquid depends on depth, not on the shape or the total volume of the tank. The deepest tap has the most water above it, so it has the most pressure behind it.',
+ svg(340,230, `<path d="M50,24 L50,200 L250,200 L250,24" fill="none" stroke="${LN}" stroke-width="2.5"/>`+
+  `<rect x="52" y="44" width="196" height="155" fill="${WT}" opacity="0.75"/>`+ln(52,44,248,44,2,AC)+
+  ln(250,76,264,76,3,LN)+`<path d="M264,76 q26,6 34,26" fill="none" stroke="${AC}" stroke-width="2.4"/>`+T(272,64,'1',13)+
+  ln(250,124,264,124,3,LN)+`<path d="M264,124 q34,8 44,32" fill="none" stroke="${AC}" stroke-width="2.4"/>`+T(272,112,'2',13)+
+  ln(250,172,264,172,3,LN)+`<path d="M264,172 q44,6 52,22" fill="none" stroke="${AC}" stroke-width="2.4"/>`+T(272,160,'3',13)),
+ 'Tank with three taps');
+
+mq('Four vessels of different shapes are connected at the bottom and partly filled with water. The water level will be',
+ ["highest in the narrowest vessel",
+  "highest in the widest vessel",
+  "the same in all four",
+  "highest in the tallest vessel"],2,
+ 'Connected vessels settle to one level no matter what shape they are, because liquid pressure depends on depth alone. This is exactly why a water level or a clear hose works as a leveling tool on a job site.',
+ svg(340,200, `<rect x="30" y="160" width="280" height="22" fill="${WT}" stroke="${LN}" stroke-width="2"/>`+
+  `<path d="M46,60 L46,160 M86,60 L86,160" stroke="${LN}" stroke-width="2" fill="none"/><rect x="48" y="92" width="36" height="68" fill="${WT}"/>`+
+  `<path d="M118,60 L134,160 M170,60 L154,160" stroke="${LN}" stroke-width="2"/><path d="M127,92 L161,92 L154,160 L134,160 Z" fill="${WT}"/>`+
+  `<path d="M196,60 L196,160 M212,60 L212,160" stroke="${LN}" stroke-width="2"/><rect x="198" y="92" width="14" height="68" fill="${WT}"/>`+
+  `<path d="M244,60 q0,50 20,50 q-20,0 -20,50 M296,60 q0,50 -20,50 q20,0 20,50" stroke="${LN}" stroke-width="2" fill="none"/><path d="M246,92 q16,18 34,0 L296,92 L296,160 L244,160 Z" fill="${WT}" opacity=".85"/>`+
+  ln(24,92,316,92,1.6,RD,'6 4')),
+ 'Connected vessels of different shapes');
+
+mq('Water flows through a line that reduces from 4 in to 2 in. In the smaller section, the water moves',
+ ["faster","slower","at the same speed","in pulses"],0,
+ 'The same volume per minute has to get through a smaller opening, so it has to move faster. This is rule 3 from the sign analysis set: with flow held constant, area down means velocity up.',
+ svg(360,170, `<path d="M20,50 L170,50 L210,74 L340,74 L340,110 L210,110 L170,134 L20,134 Z" fill="${WT}" opacity=".55" stroke="${LN}" stroke-width="2.2"/>`+
+  arw(46,92,110,92,AC)+arw(240,92,306,92,AC)+TM(95,38,'4 in')+TM(275,64,'2 in')),
+ 'Pipe reducer');
+
+mq('The device shown is installed in a horizontal line. What does it do?',
+ ["Throttles the flow to a set rate",
+  "Allows flow in one direction only",
+  "Relieves excess pressure to atmosphere",
+  "Separates air from the water"],1,
+ 'A swing check valve: flow from the left pushes the disc open, and any reverse flow slams it shut against the seat. Check valves are why a pump does not spin backwards when it shuts down.',
+ svg(340,170, `<rect x="20" y="62" width="300" height="46" fill="${WT}" opacity=".5" stroke="${LN}" stroke-width="2.2"/>`+
+  ln(140,62,140,108,2.2,LN)+`<path d="M150,66 L196,98" stroke="${LN}" stroke-width="5" stroke-linecap="round"/><circle cx="148" cy="66" r="5" fill="${LN}"/>`+
+  `<path d="M186,108 L206,108" stroke="${LN}" stroke-width="4"/>`+arw(46,85,112,85,AC)+arw(292,85,250,85,RD)+
+  T(70,50,'flow',12,'middle',AC)+T(276,50,'reverse',12,'middle',RD)),
+ 'Valve in a horizontal line');
+
+mq('A U-tube manometer is connected between two points in a line. The fluid stands higher on the right. This means the pressure is',
+ ["higher on the right","higher on the left","equal on both sides","impossible to tell"],1,
+ 'The higher pressure pushes the fluid down on its own side and up on the other. Fluid standing high on the right means the push is coming from the left.',
+ svg(300,240, box(70,56,30,126,'#fff')+box(180,56,30,126,'#fff')+box(70,156,140,26,'#fff')+
+  `<rect x="72" y="120" width="26" height="60" fill="${WT}"/><rect x="182" y="82" width="26" height="98" fill="${WT}"/><rect x="72" y="158" width="136" height="22" fill="${WT}"/>`+
+  ln(70,182,210,182,2,LN)+
+  arw(85,24,85,52,AC)+arw(195,24,195,52,AC)+T(85,18,'from A',13)+T(195,18,'from B',13)+
+  ln(56,120,112,120,1.6,RD,'5 4')+ln(168,82,224,82,1.6,RD,'5 4')+
+  TM(52,116,'low','12','end',RD)+TM(228,78,'high','12','start',RD)),
+ 'U-tube manometer between two points');
+
+mq('A hose is used to siphon fuel from a drum into a can. The flow will continue as long as',
+ ["the hose stays completely full of air",
+  "the outlet end stays below the fuel surface in the drum",
+  "the can is higher than the drum",
+  "someone keeps pumping the hose"],1,
+ 'A siphon runs on the height difference. The column of liquid falling on the outlet side pulls liquid up and over the bend. Raise the outlet above the source surface and it stops, and if air breaks the column it stops too.',
+ svg(340,230, `<path d="M24,80 L24,200 L124,200 L124,80" fill="none" stroke="${LN}" stroke-width="2.4"/><rect x="26" y="104" width="96" height="95" fill="${WT}" opacity=".75"/>`+
+  `<path d="M220,150 L220,214 L296,214 L296,150" fill="none" stroke="${LN}" stroke-width="2.4"/><rect x="222" y="192" width="72" height="22" fill="${WT}" opacity=".75"/>`+
+  `<path d="M70,150 L70,52 q0,-22 24,-22 L214,30 q24,0 24,24 L238,186" fill="none" stroke="${LN}" stroke-width="4"/>`+
+  arw(94,44,150,40,AC)+ln(24,104,124,104,1.6,RD,'5 4')+ln(180,104,300,104,1.6,RD,'5 4')+T(258,96,'source level',12,'middle',RD)),
+ 'Siphon between two containers');
+
+mq('The same crate must be raised 4 ft up two different ramps. Ramp B is twice as long as ramp A. Pushing the crate up ramp B takes',
+ ["twice the force of ramp A",
+  "half the force of ramp A",
+  "the same force as ramp A",
+  "no force at all"],1,
+ 'A longer ramp to the same height is a gentler slope, so it takes about half the push — but you shove the crate twice as far. Every simple machine trades force for distance; neither ramp changes the total work.',
+ svg(360,200, `<path d="M20,150 L110,150 L110,86 Z" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+T(66,172,'ramp A',13)+
+  `<path d="M170,150 L340,150 L340,86 Z" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+T(256,172,'ramp B',13)+
+  ln(110,86,110,150,1.6,RD,'5 4')+ln(340,86,340,150,1.6,RD,'5 4')+TM(120,118,'4 ft','12','start',RD)+TM(350,118,'4 ft','12','end',RD)),
+ 'Two ramps to the same height');
+
+mq('Two threaded rods are the same diameter. Rod A has 8 threads per inch and rod B has 16 threads per inch. Turning a nut one full turn on rod B moves it',
+ ["twice as far as on rod A",
+  "half as far as on rod A",
+  "the same distance as on rod A",
+  "four times as far as on rod A"],1,
+ 'One turn advances the nut by one thread pitch. Rod A moves 1/8 in per turn, rod B 1/16 in — half as far. The finer thread gives more mechanical advantage, which is why fine threads hold heavier loads and tighten more precisely.',
+ svg(340,170, `<rect x="24" y="44" width="280" height="26" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+
+  Array.from({length:14},(_,i)=>ln(30+i*20,44,44+i*20,70,1.6)).join('')+T(164,32,'rod A · 8 threads per inch',13)+
+  `<rect x="24" y="110" width="280" height="26" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+
+  Array.from({length:28},(_,i)=>ln(28+i*10,110,35+i*10,136,1.6)).join('')+T(164,158,'rod B · 16 threads per inch',13)),
+ 'Coarse and fine thread');
+
+mq('A chain runs from a 15-tooth drive sprocket to a 45-tooth driven sprocket. The driven sprocket turns',
+ ["three times as fast, same direction",
+  "one third as fast, same direction",
+  "one third as fast, opposite direction",
+  "three times as fast, opposite direction"],1,
+ 'A chain drive keeps both sprockets turning the same way — unlike meshed gears. Tripling the tooth count cuts the speed to one third, and multiplies torque by three.',
+ svg(340,190, gear(66,96,30,15,'')+gear(236,96,72,30,'')+
+  ln(66,66,236,24,3,AC)+ln(66,126,236,168,3,AC)+rot(66,96,42,true)+rot(236,96,86,true)+
+  T(66,158,'15 teeth',13)+T(236,186,'45 teeth',13)),
+ 'Chain drive');
+
+mq('A beam balances on a center fulcrum. A 40 lb weight hangs 3 ft from the fulcrum on the left. To balance it, a 20 lb weight on the right must hang',
+ ["3 ft from the fulcrum","4 ft from the fulcrum","6 ft from the fulcrum","1.5 ft from the fulcrum"],2,
+ 'Balance means weight × distance is equal on both sides. Left: 40 × 3 = 120. Right: 20 × d = 120, so d = <span class="mono">6 ft</span>. Half the weight needs twice the distance — an inverse relationship.',
+ svg(360,180, ln(30,80,330,80,6,LN)+`<path d="M180,84 L200,124 L160,124 Z" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+
+  ln(90,80,90,110,2.2,LN)+box(70,110,40,30)+T(90,131,'40',13)+
+  ln(270,80,270,110,2.2,LN)+box(254,110,32,26)+T(270,129,'20',13)+
+  ln(90,62,180,62,1.6,RD,'5 4')+TM(135,54,'3 ft','12','middle',RD)+
+  ln(180,62,270,62,1.6,RD,'5 4')+TM(225,54,'d = ?','12','middle',RD)),
+ 'Balance beam');
+
+mq('Two workers carry a length of pipe on a plank between them. The load hangs closer to worker A. Compared with worker B, worker A carries',
+ ["less weight","more weight","the same weight","none of the weight"],1,
+ 'The worker nearer the load takes more of it. Think of the far worker as the effort on a lever and the near worker as the fulcrum: the shorter the load arm, the more of the weight that end supports.',
+ svg(360,190, ln(40,70,320,70,6,LN)+
+  `<circle cx="60" cy="46" r="15" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+ln(60,61,60,66,2.2)+T(60,110,'A',15)+
+  `<circle cx="300" cy="46" r="15" fill="${FL}" stroke="${LN}" stroke-width="2"/>`+ln(300,61,300,66,2.2)+T(300,110,'B',15)+
+  ln(120,70,120,104,2.2,LN)+box(88,104,64,34)+T(120,127,'load',13)+
+  ln(60,158,120,158,1.6,RD,'5 4')+ln(120,158,300,158,1.6,RD,'5 4')+TM(90,176,'short','12','middle',RD)+TM(210,176,'long','12','middle',RD)),
+ 'Pipe carried between two workers');
+
+mq('An expansion loop is welded into a long steam line. Its purpose is to',
+ ["increase the flow rate through the line",
+  "absorb the growth of the pipe as it heats up",
+  "drain condensate from the low point",
+  "reduce the pressure at the far end"],1,
+ 'Steel grows when it gets hot. A rigid straight run either buckles or tears its anchors apart, so a loop is built in to flex and take up the movement. That is also why such lines ride on rollers rather than clevis hangers.',
+ svg(360,200, `<path d="M20,150 L120,150 L120,50 L240,50 L240,150 L340,150" fill="none" stroke="${LN}" stroke-width="8" stroke-linejoin="round"/>`+
+  `<path d="M20,150 L120,150 L120,50 L240,50 L240,150 L340,150" fill="none" stroke="${WT}" stroke-width="3.5" stroke-linejoin="round"/>`+
+  arw(40,132,86,132,RD)+arw(320,132,274,132,RD)+T(180,182,'pipe grows toward the loop when hot',12,'middle',RD)),
+ 'Expansion loop');
+
+mq('Two steel drums of equal weight sit on a truck bed. Drum A is short and wide; drum B is tall and narrow. On a hard stop, the drum more likely to tip is',
+ ["drum A","drum B","neither, they are equal","whichever is loaded first"],1,
+ 'A tall narrow object has a high center of gravity over a small base, so it takes very little tilt before that center passes outside the base and it goes over. Short and wide is stable — which is why you crib and strap tall loads.',
+ svg(360,200, box(40,110,110,62)+`<circle cx="95" cy="141" r="5" fill="${RD}"/>`+ln(95,141,95,172,1.6,RD,'5 4')+T(95,192,'drum A',13)+
+  box(240,42,58,130)+`<circle cx="269" cy="107" r="5" fill="${RD}"/>`+ln(269,107,269,172,1.6,RD,'5 4')+T(269,192,'drum B',13)+
+  TM(95,102,'center of gravity','12','middle',RD)+TM(269,34,'center of gravity','12','middle',RD)),
+ 'Two drums of equal weight');
+
+mq('A pump must lift water 30 ft. If the discharge piping is changed to a smaller diameter with the same pump running, the flow delivered will',
+ ["increase, because pressure rises",
+  "decrease, because friction loss rises",
+  "stay the same, because the pump is unchanged",
+  "stop entirely"],1,
+ 'Smaller pipe means more friction for the same volume of water. The pump now spends more of its head fighting the pipe and less lifting water, so delivered flow drops. Notice the direction reasoning: diameter down, friction up, flow down.',
+ svg(360,190, `<circle cx="60" cy="120" r="30" fill="${FL}" stroke="${LN}" stroke-width="2.4"/><path d="M60,90 L88,104 L60,120 Z" fill="${LN}"/>`+T(60,172,'pump',13)+
+  `<rect x="90" y="104" width="90" height="26" fill="${WT}" stroke="${LN}" stroke-width="2"/>`+
+  `<rect x="180" y="111" width="150" height="12" fill="${WT}" stroke="${LN}" stroke-width="2"/>`+
+  arw(104,117,160,117,AC)+arw(210,117,300,117,AC)+TM(135,92,'original')+TM(255,98,'smaller')+
+  ln(340,40,340,120,1.6,RD,'5 4')+TM(332,36,'30 ft lift','12','end',RD)),
+ 'Pump with a reduced discharge line');
+
+/* ---------- SECTION 6 · SPATIAL RELATIONS (paper folding, generated) ---------- */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const FOLDNAME={left:"right half folded over to the left",right:"left half folded over to the right",up:"bottom half folded up",down:"top half folded down"};
+
+function doFolds(folds){
+  let r={x0:0,y0:0,x1:1,y1:1}; const creases=[]; const states=[{...r}];
+  folds.forEach(f=>{
+    if(f==='left'){const m=(r.x0+r.x1)/2;creases.push({ax:'x',v:m});r={...r,x1:m};}
+    else if(f==='right'){const m=(r.x0+r.x1)/2;creases.push({ax:'x',v:m});r={...r,x0:m};}
+    else if(f==='up'){const m=(r.y0+r.y1)/2;creases.push({ax:'y',v:m});r={...r,y1:m};}
+    else {const m=(r.y0+r.y1)/2;creases.push({ax:'y',v:m});r={...r,y0:m};}
+    states.push({...r});
+  });
+  return {rect:r,creases,states};
+}
+const snap=v=>Math.round(v*1e4+1e-7)/1e4;
+const kk=p=>snap(p[0]).toFixed(4)+'|'+snap(p[1]).toFixed(4);
+function dedupe(list){const m=new Map();list.forEach(p=>m.set(kk(p),[snap(p[0]),snap(p[1])]));return [...m.values()];}
+function unfold(holes,creases){
+  let set=holes.slice();
+  for(let i=creases.length-1;i>=0;i--){
+    const c=creases[i];
+    const mir=set.map(p=> c.ax==='x' ? [2*c.v-p[0],p[1]] : [p[0],2*c.v-p[1]]);
+    set=dedupe(set.concat(mir));
+  }
+  return set.sort((a,b)=> a[1]-b[1] || a[0]-b[0]);
+}
+
+const SQ=104, PAD=7;
+function sheet(holes,opts){
+  opts=opts||{};
+  const s=opts.size||SQ, p=PAD, in_=s-2*p;
+  let g=`<rect x="${p}" y="${p}" width="${in_}" height="${in_}" fill="#FBFCFA" stroke="${LN}" stroke-width="2"/>`;
+  (opts.creaseLines||[]).forEach(c=>{
+    if(c.ax==='x'){const x=p+c.v*in_;g+=ln(x,p,x,p+in_,1.4,'#9AA6A0','4 3');}
+    else{const y=p+c.v*in_;g+=ln(p,y,p+in_,y,1.4,'#9AA6A0','4 3');}
+  });
+  if(opts.rect){const r=opts.rect;
+    g+=`<rect x="${p+r.x0*in_}" y="${p+r.y0*in_}" width="${(r.x1-r.x0)*in_}" height="${(r.y1-r.y0)*in_}" fill="${AC}" fill-opacity=".12" stroke="${LN}" stroke-width="2.4"/>`;}
+  (holes||[]).forEach(h=>{g+=`<circle cx="${(p+h[0]*in_).toFixed(1)}" cy="${(p+h[1]*in_).toFixed(1)}" r="${(in_*0.062).toFixed(1)}" fill="${LN}"/>`;});
+  return `<svg viewBox="0 0 ${s} ${s}" width="${s}" height="${s}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${opts.label||'folded paper diagram'}">${g}</svg>`;
+}
+function stimulus(folds,punches,creases,states){
+  const panels=[]; const s=96;
+  panels.push(`<div style="text-align:center"><div>${sheet([],{size:s})}</div><div style="font:12px IBM Plex Mono,monospace;color:#5B6B72;margin-top:4px">sheet</div></div>`);
+  for(let i=0;i<folds.length;i++){
+    const cs=creases.slice(0,i+1);
+    const isLast=i===folds.length-1;
+    panels.push(`<div style="text-align:center"><div>${sheet(isLast?punches:[],{size:s,rect:states[i+1],creaseLines:cs})}</div><div style="font:12px IBM Plex Mono,monospace;color:#5B6B72;margin-top:4px">fold ${i+1}${isLast?' + punch':''}</div></div>`);
+  }
+  const arrow=`<div style="align-self:center;color:#5B6B72;font-size:22px;padding:0 2px" aria-hidden="true">&rsaquo;</div>`;
+  return `<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:flex-start">${panels.join(arrow)}</div>`;
+}
+
+const FOLDSPECS=[
+ {f:['left'],h:[[0.5,0.5]]},
+ {f:['up'],h:[[0.35,0.5]]},
+ {f:['right'],h:[[0.5,0.32]]},
+ {f:['down'],h:[[0.55,0.6]]},
+ {f:['left'],h:[[0.3,0.28],[0.7,0.74]]},
+ {f:['left','up'],h:[[0.5,0.5]]},
+ {f:['right','up'],h:[[0.35,0.4]]},
+ {f:['left','down'],h:[[0.62,0.35]]},
+ {f:['up','left'],h:[[0.3,0.66]]},
+ {f:['left','left'],h:[[0.5,0.5]]},
+ {f:['up','up'],h:[[0.45,0.5]]},
+ {f:['down','right'],h:[[0.5,0.45]]},
+ {f:['left','up'],h:[[0.28,0.3],[0.74,0.72]]},
+ {f:['right','down'],h:[[0.4,0.6],[0.72,0.3]]},
+ {f:['left'],h:[[1.0,0.5]]},
+ {f:['up','left'],h:[[0.5,1.0]]},
+ {f:['left','up','left'],h:[[0.5,0.5]]},
+ {f:['right','up'],h:[[0.32,0.3],[0.62,0.7]]},
+ {f:['up','left','down'],h:[[0.5,0.45]]},
+ {f:['left','up'],h:[[0.25,0.25],[0.75,0.28]]}
+];
+
+FOLDSPECS.forEach((spec,idx)=>{
+  const {rect,creases,states}=doFolds(spec.f);
+  const punches=spec.h.map(([fx,fy])=>[rect.x0+fx*(rect.x1-rect.x0), rect.y0+fy*(rect.y1-rect.y0)]);
+  const correct=dedupe(unfold(punches,creases)).sort((a,b)=>a[1]-b[1]||a[0]-b[0]);
+  const key=set=>set.map(kk).sort().join(';');
+  const ckey=key(correct);
+  const cand=[];
+  const cl=v=>Math.min(0.88,Math.max(0.12,v));
+  const addC=(arr)=>{if(cand.length>=3||!arr||!arr.length)return;
+    const d=dedupe(arr).sort((a,b)=>a[1]-b[1]||a[0]-b[0]);
+    if(key(d)!==ckey && !cand.some(c=>key(c)===key(d))) cand.push(d);};
+  const mid=[rect.x0+(rect.x1-rect.x0)/2, rect.y0+(rect.y1-rect.y0)/2];
+  [ ()=>correct.map(p=>[1-p[0],p[1]]),                                  // mirrored left to right
+    ()=>correct.map(p=>[p[0],1-p[1]]),                                  // mirrored top to bottom
+    ()=>unfold(punches.map(()=>mid.slice()),creases),                   // punch misread as centred
+    ()=>correct.map(p=>[1-p[1],p[0]]),                                  // rotated a quarter turn
+    ()=>unfold(punches,creases.slice(0,-1)),                            // one fold left unopened
+    ()=>correct.filter((_,i)=>i%2===0),                                 // half the holes
+    ()=>punches,                                                        // never unfolded
+    ()=>correct.concat([[0.24,0.24]]),                                  // an extra hole
+    ()=>correct.concat([[0.76,0.76]]),
+    ()=>correct.map(p=>[cl(p[0]+0.2),p[1]]),
+    ()=>correct.map(p=>[p[0],cl(p[1]+0.2)]),
+    ()=>correct.map(p=>[cl(p[0]-0.22),cl(p[1]+0.15)]),
+    ()=>correct.concat([[0.5,0.24],[0.5,0.76]])
+  ].forEach(g=>{try{addC(g())}catch(err){}});
+  const rnd=mulberry32(1000+idx*37);
+  const wrong=cand.slice(0,3);
+  const all=[{set:correct,ok:true},...wrong.map(w=>({set:w,ok:false}))];
+  for(let i=all.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[all[i],all[j]]=[all[j],all[i]];}
+  const ansIdx=all.findIndex(x=>x.ok);
+  const nF=spec.f.length, nP=spec.h.length, expect=Math.pow(2,nF)*nP;
+  const onCrease = correct.length < expect;
+  let e=`Unfold one crease at a time, in reverse order. Each time you open a fold, every hole you already have is mirrored across that crease. `+
+        `Here the sheet was folded ${nF} time${nF>1?'s':''} — ${spec.f.map(f=>FOLDNAME[f]).join(', then ')} — and punched ${nP} time${nP>1?'s':''}, `+
+        `which would normally open to ${expect} hole${expect>1?'s':''}.`;
+  e += onCrease
+    ? ` It opens to only <span class="mono">${correct.length}</span>, because a punch sitting on a fold line mirrors onto itself instead of making a second hole. Always check whether the punch is on a crease before you multiply.`
+    : ` It opens to <span class="mono">${correct.length}</span>. The pattern is symmetric about every crease, so an option that is lopsided across a fold line can be eliminated on sight.`;
+  Q.push({s:6, t:'The square below is folded as shown and then punched. Which choice shows the sheet unfolded?',
+    o: all.map(x=>sheet(x.set)), a: ansIdx, e:e, tag:null,
+    fig: stimulus(spec.f,punches,creases,states), cap:null, rawopts:true});
+});
+
+/* ---------- BONUS · SIGN ANALYSIS DRILL (15) ---------- */
+const dq=(t,o,a,e)=>Q.push({s:7,t:t,o:o,a:a,e:e,tag:'sign',fig:null});
+
+dq('If <span class="mono">z = x × y</span>, and x increases while z is held constant, then y',
+ ["increases","decreases","stays the same","cannot be determined"],1,
+ 'Rule 3. The result is pinned, so the two inputs have to trade off. If one goes up the other must come down to keep the product the same.');
+dq('Pressure is <span class="mono">P = F ÷ A</span>. If the force F stays the same and the area A increases, the pressure',
+ ["increases","decreases","stays the same","doubles"],1,
+ 'Rule 2. A is under the bar, so it moves the result the opposite way. Spread the same force over more area and the pressure drops — that is why a wide footing sinks less than a narrow one.');
+dq('In <span class="mono">R = V ÷ I</span>, if V increases and I decreases at the same time, then R',
+ ["increases","decreases","stays the same","cannot be determined"],0,
+ 'Both changes push the same way here. A bigger numerator raises R, and a smaller denominator also raises R. When two changes agree you get a definite answer.');
+dq('In <span class="mono">R = V ÷ I</span>, if V increases and I also increases, then R',
+ ["increases","decreases","stays the same","cannot be determined without the amounts"],3,
+ 'The two effects fight each other. A bigger V pushes R up, a bigger I pushes R down, and without knowing how much each changed you cannot say which wins. Recognising the indeterminate case is part of the skill — do not force an answer.');
+dq('A relationship chain: when A increases, B decreases. When B decreases, C decreases. If A increases, then C',
+ ["increases","decreases","stays the same","cannot be determined"],1,
+ 'Rule 4. Follow each arrow in order: A ↑ → B ↓ → C ↓. One reversal, so the end of the chain moves opposite to the start.');
+dq('A relationship chain: when A increases, B decreases. When B decreases, C increases. If A increases, then C',
+ ["increases","decreases","stays the same","cannot be determined"],0,
+ 'Rule 4 again. A ↑ → B ↓ → C ↑. Two reversals cancel out and put you back where you started.');
+dq('The product of five negative numbers is',
+ ["positive","negative","zero","positive or negative depending on size"],1,
+ 'Rule 4. Count the negatives. Five is odd, so the result is negative. Size never affects the sign.');
+dq('<span class="mono">(−3)(−2)(4)(−1) = ?</span>',
+ ["−24","24","−10","10"],0,
+ 'Three negative factors — an odd count — so the answer is negative. The magnitude is 3 × 2 × 4 × 1 = 24, giving <span class="mono">−24</span>.');
+dq('Time equals distance divided by speed. If the distance is fixed and the speed increases, the trip time',
+ ["increases","decreases","stays the same","cannot be determined"],1,
+ 'Rule 2. Speed sits under the bar, so raising it lowers the time. The sanity check is common sense: drive faster, arrive sooner.');
+dq('A crew has a fixed materials budget. Total cost is the number of fittings times the price per fitting. If the price per fitting rises, the number they can buy',
+ ["rises","falls","stays the same","cannot be determined"],1,
+ 'Rule 3. The total is held constant, so the two factors trade off. Price up, quantity down.');
+dq('Friction loss in a pipe run increases with length and decreases with diameter. A run is made both longer and larger in diameter. The friction loss',
+ ["increases","decreases","stays the same","cannot be determined from what is given"],3,
+ 'The two changes work against each other, and no amounts are given, so there is no single answer. On a real test this choice is correct far more often than people expect — when the arrows conflict, say so.');
+dq('If <span class="mono">x &lt; 0</span> and <span class="mono">y &gt; 0</span>, then <span class="mono">x × y</span> is',
+ ["positive","negative","zero","either positive or negative"],1,
+ 'One negative factor is an odd count, so the product is negative.');
+dq('If <span class="mono">a ÷ b</span> is negative and <span class="mono">b</span> is positive, then <span class="mono">a</span> must be',
+ ["positive","negative","zero","either sign"],1,
+ 'Work the sign rule backwards. For the quotient to be negative with a positive denominator, the numerator has to be negative.');
+dq('Work equals force times distance. If the work stays the same and the force is doubled, the distance is',
+ ["doubled","halved","unchanged","quadrupled"],1,
+ 'Rule 3. With the product fixed, doubling one factor halves the other. This is exactly the trade every lever, ramp and pulley makes.');
+dq('The mechanical advantage of a lever is the effort arm divided by the load arm. If the load arm gets longer while the effort arm stays the same, the effort needed to lift the load',
+ ["increases","decreases","stays the same","cannot be determined"],0,
+ 'Two steps. A longer load arm is a bigger denominator, so mechanical advantage falls (rule 2). Less mechanical advantage means more effort for the same load — that is why you move the fulcrum toward the load, not away from it.');
+
+/* ---------- balance where the correct answer sits ---------- */
+(function balance(){
+  const SKIP=['position ','stretch','tap ','drum ','ramp '];
+  const numeric=o=>/^[−\-$(]?\s*[\d.]/.test(String(o).replace(/<[^>]+>/g,'').trim());
+  const use=[0,0,0,0];
+  Q.forEach(q=>{use[q.a]++});
+  Q.forEach(q=>{
+    if(q.s===6||q.o.length!==4) return;
+    const plain=q.o.map(o=>String(o).replace(/<[^>]+>/g,'').toLowerCase());
+    if(plain.some(numeric)) return;
+    if(plain.some(o=>SKIP.some(k=>o.includes(k)))) return;
+    let target=0; for(let i=1;i<4;i++) if(use[i]<use[target]) target=i;
+    if(target===q.a) return;
+    const shift=(target-q.a+4)%4;
+    use[q.a]--; 
+    q.o=q.o.slice(4-shift).concat(q.o.slice(0,4-shift));
+    q.a=target; use[target]++;
+  });
+})();
+
+/* ================= APP ================= */
+const $=id=>document.getElementById(id);
+const LETTERS=['A','B','C','D','E'];
+const BY={}; Q.forEach((q,i)=>{(BY[q.s]=BY[q.s]||[]).push(i)});
+const DRILL={id:7,name:"Sign Analysis Drill",color:"var(--drill)",n:BY[7].length,mins:12,
+  blurb:"Direction and relationship reasoning — the question type standard guides leave out.",
+  advice:"Go back to the four rules on the home screen and work out loud: where does the variable sit, is the result pinned, how many negatives, which way does each arrow point."};
+const SECBYID={}; SECTIONS.concat([DRILL]).forEach(s=>SECBYID[s.id]=s);
+
+const st={mode:'timed', queue:[], qi:0, si:0, ans:{}, flags:new Set(), left:0, up:0, timer:null, done:false};
+
+/* ---------- home ---------- */
+function paintHome(){
+  $('sectionRows').innerHTML = SECTIONS.map(s=>`
+    <div class="row">
+      <div class="key" style="background:${s.color}"></div>
+      <div><div class="nm">${s.name}</div><div class="ds">${s.blurb}</div></div>
+      <div class="meta">${s.n} q · ${s.mins} min</div>
+      <button data-sec="${s.id}">Practice</button>
+    </div>`).join('');
+  $('sectionRows').querySelectorAll('button[data-sec]').forEach(b=>
+    b.onclick=()=>start([+b.dataset.sec]));
+}
+function setMode(m){
+  st.mode=m;
+  $('mTimed').setAttribute('aria-pressed', m==='timed');
+  $('mUntimed').setAttribute('aria-pressed', m==='untimed');
+  $('modehint').textContent = 'full battery · '+m;
+}
+$('mTimed').onclick=()=>setMode('timed');
+$('mUntimed').onclick=()=>setMode('untimed');
+$('startFull').onclick=()=>start([1,2,3,4,5,6]);
+$('openDrill').onclick=()=>start([7]);
+
+/* ---------- run control ---------- */
+function show(id){['home','exam','review','results'].forEach(s=>$(s).classList.toggle('hide',s!==id));window.scrollTo(0,0);}
+function start(queue){
+  st.queue=queue; st.si=0; st.qi=0; st.ans={}; st.flags=new Set(); st.done=false;
+  beginSection();
+}
+function curSec(){return SECBYID[st.queue[st.si]]}
+function curList(){return BY[st.queue[st.si]]}
+function beginSection(){
+  st.qi=0;
+  const s=curSec();
+  st.left=s.mins*60; st.up=0;
+  clearInterval(st.timer);
+  st.timer=setInterval(tick,1000);
+  show('exam'); paintQ();
+}
+function tick(){
+  if(st.mode==='timed'){ st.left--; if(st.left<=0){clearInterval(st.timer); st.left=0; paintClock(); endSection(true); return;} }
+  else st.up++;
+  paintClock();
+}
+function fmt(t){const m=Math.floor(t/60),s=t%60;return m+':'+String(s).padStart(2,'0')}
+function paintClock(){
+  const c=$('clock');
+  if(st.mode==='timed'){ c.textContent=fmt(st.left);
+    c.className='clock'+(st.left<=30?' crit':st.left<=120?' low':''); }
+  else { c.textContent=fmt(st.up); c.className='clock'; }
+}
+
+/* ---------- question rendering ---------- */
+function qHTML(gi,q,nLocal,iLocal,reviewMode){
+  const sec=SECBYID[q.s];
+  const chosen=st.ans[gi];
+  const tag = q.tag==='sign' ? '<span class="tag sign">sign analysis</span>' : '';
+  const pass = q.p ? `<div class="passage"><h4>${PASSAGES[q.p].title}</h4>${PASSAGES[q.p].html}</div>` : '';
+  const fig = q.fig ? `<div class="fig">${q.fig}${q.cap?`<div class="figcap">${q.cap}</div>`:''}</div>` : '';
+  const opts = q.o.map((o,i)=>{
+    let cls='opt';
+    if(reviewMode){ if(i===q.a) cls+=' correct'; else if(i===chosen) cls+=' wrong'; }
+    else if(i===chosen) cls+='';
+    return `<li><button class="${cls}" data-opt="${i}" aria-pressed="${!reviewMode&&i===chosen}" ${reviewMode?'disabled':''}>
+      <span class="ltr">${LETTERS[i]}</span><span class="txt">${o}</span></button></li>`;
+  }).join('');
+  const expl = reviewMode ? `<div class="expl"><b>${chosen===undefined?'Not answered':(chosen===q.a?'Correct':'Missed')} — answer ${LETTERS[q.a]}</b>${q.e}</div>` : '';
+  return `<article class="qcard" style="border-left-color:${sec.color}">
+    <div class="qnum">Question ${iLocal+1} of ${nLocal}${tag?' ':''}${tag}</div>
+    ${pass}<div class="stem">${q.t}</div>${fig}
+    <ul class="opts">${opts}</ul>${expl}
+  </article>`;
+}
+function paintQ(){
+  const s=curSec(), list=curList(), gi=list[st.qi], q=Q[gi];
+  $('barSect').textContent=s.name;
+  $('barCnt').textContent=`Question ${st.qi+1} of ${list.length}`+(st.queue.length>1?` · section ${st.si+1} of ${st.queue.length}`:'');
+  $('prog').style.width=((st.qi)/list.length*100).toFixed(1)+'%';
+  paintClock();
+  $('qHost').innerHTML = qHTML(gi,q,list.length,st.qi,false) + `
+    <div class="qnav">
+      <button class="btn ghost sm" id="prevQ" ${st.qi===0?'disabled':''}>Back</button>
+      <button class="btn sm" id="nextQ">${st.qi===list.length-1?'Review section':'Next'}</button>
+      <button class="flagbtn" id="flagQ" aria-pressed="${st.flags.has(gi)}">${st.flags.has(gi)?'Flagged':'Flag for review'}</button>
+    </div>`;
+  $('qHost').querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+    const wasBlank = st.ans[gi]===undefined;
+    st.ans[gi]=+b.dataset.opt;
+    $('qHost').querySelectorAll('.opt').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    if(wasBlank && st.qi<list.length-1) setTimeout(()=>{st.qi++;paintQ();},170);
+  });
+  $('prevQ').onclick=()=>{if(st.qi>0){st.qi--;paintQ()}};
+  $('nextQ').onclick=()=>{ if(st.qi<list.length-1){st.qi++;paintQ()} else openReview(); };
+  $('flagQ').onclick=()=>{ st.flags.has(gi)?st.flags.delete(gi):st.flags.add(gi); paintQ(); };
+}
+$('quitBtn').onclick=()=>{ if(confirm('Leave this attempt? Your answers will be lost.')){clearInterval(st.timer);show('home');} };
+
+/* ---------- section review ---------- */
+function openReview(){
+  const list=curList(), s=curSec();
+  const unanswered=list.filter(gi=>st.ans[gi]===undefined).length;
+  $('revTitle').textContent=`${s.name} — before you submit`;
+  $('revNote').textContent = unanswered===0
+    ? `All ${list.length} answered.`+(st.mode==='timed'?` You have ${fmt(st.left)} left on the clock.`:'')
+    : `${unanswered} of ${list.length} still blank. There is no penalty for a wrong answer, so never leave one empty.`;
+  $('revChips').innerHTML=list.map((gi,i)=>{
+    let c='chip'+(st.ans[gi]!==undefined?' done':'')+(st.flags.has(gi)?' flag':'');
+    return `<button class="${c}" data-i="${i}">${i+1}</button>`;
+  }).join('');
+  $('revChips').querySelectorAll('button').forEach(b=>b.onclick=()=>{st.qi=+b.dataset.i;show('exam');paintQ();});
+  show('review');
+}
+$('backToQs').onclick=()=>{show('exam');paintQ();};
+$('submitSection').onclick=()=>endSection(false);
+function endSection(auto){
+  clearInterval(st.timer);
+  if(st.si<st.queue.length-1){
+    st.si++;
+    if(auto) alert('Time is up on that section. Moving to '+curSec().name+'.');
+    beginSection();
+  } else { finish(); }
+}
+
+/* ---------- results ---------- */
+function finish(){
+  st.done=true; clearInterval(st.timer);
+  const per=st.queue.map(sid=>{
+    const list=BY[sid]; const right=list.filter(gi=>st.ans[gi]===Q[gi].a).length;
+    return {sec:SECBYID[sid], right, total:list.length, list};
+  });
+  const right=per.reduce((a,b)=>a+b.right,0), total=per.reduce((a,b)=>a+b.total,0);
+  const pct=Math.round(right/total*100);
+  const verdict = pct>=85?'Strong. This is interview-list territory — keep the streak going.'
+    : pct>=70?'Solid, not safe. The ranked list rewards the top of the pile, not the middle.'
+    : pct>=55?'Passing shape, well short of competitive. Pick your two weakest sections and live in them.'
+    : 'This is what a cold first attempt looks like for most people. The sections below tell you exactly where to start.';
+  const signQs=Q.map((q,i)=>[q,i]).filter(([q,i])=>q.tag==='sign'&&st.ans[i]!==undefined);
+  const signRight=signQs.filter(([q,i])=>st.ans[i]===q.a).length;
+
+  $('resHost').innerHTML=`
+  <div class="score">
+    <div><span class="big">${right}</span><span class="of">/ ${total}</span></div>
+    <div style="font-family:var(--mono);font-size:15px;color:#A9C9D6;margin-top:6px">${pct}% correct${st.mode==='timed'?' · timed':' · untimed'}</div>
+    <div class="verdict">${verdict}</div>
+  </div>
+  <h2 style="font-size:28px;margin-bottom:4px">Where you stand, section by section</h2>
+  <div class="bars">${per.map(p=>{
+    const pc=Math.round(p.right/p.total*100);
+    return `<div class="barrow">
+      <div class="top"><span class="nm">${p.sec.name}</span><span class="pc">${p.right}/${p.total} · ${pc}%</span></div>
+      <div class="track"><i style="width:${pc}%;background:${p.sec.color}"></i></div>
+      ${pc<75?`<div class="advice">${p.sec.advice}</div>`:''}
+    </div>`}).join('')}</div>
+  ${signQs.length?`<div class="rules" style="margin-top:26px">
+    <h2 style="font-size:24px">Sign analysis questions: ${signRight} of ${signQs.length}</h2>
+    <p class="note" style="margin-top:8px">These were scattered through the battery on purpose. ${signRight/signQs.length>=0.8?'You have the four rules down — keep them sharp.':'Go back to the four rules on the home screen, then run the sign analysis drill on its own before you take another full battery.'}</p>
+  </div>`:''}
+  <div class="btnbar">
+    <button class="btn" id="againBtn">Take it again</button>
+    <button class="btn ghost" id="homeBtn">Back to the start</button>
+    <button class="btn ghost" id="drillBtn">Run the sign analysis drill</button>
+  </div>
+  <hr class="hr">
+  <h2 style="font-size:28px">Every question, with the reasoning</h2>
+  <p class="note" style="margin:6px 0 18px">This is the part that moves your score. Read the explanation for everything you missed, and for anything you guessed right.</p>
+  ${per.map(p=>`<details ${p.right/p.total<0.75?'open':''} style="margin-bottom:14px">
+    <summary style="cursor:pointer;font-family:var(--cond);font-size:22px;font-weight:600;padding:10px 0;border-bottom:1px solid var(--rule)">${p.sec.name} — ${p.right}/${p.total}</summary>
+    ${p.list.map((gi,i)=>qHTML(gi,Q[gi],p.total,i,true)).join('')}
+  </details>`).join('')}`;
+  $('againBtn').onclick=()=>start(st.queue);
+  $('homeBtn').onclick=()=>show('home');
+  $('drillBtn').onclick=()=>start([7]);
+  show('results');
+}
+
+/* ---------- print ---------- */
+$('doPrint').onclick=()=>{
+  const secs=[1,2,3,4,5,6,7];
+  let html=`<div style="margin-bottom:14pt"><h1 style="font-size:22pt;margin:0">GAN Aptitude Battery — practice exam</h1>
+    <div style="font-family:var(--mono);font-size:9.5pt;margin-top:4pt">UA Pipefitters Local 597 format · 140 questions · 1 hr 52 min · no calculator · answer key at the end</div></div>`;
+  secs.forEach(sid=>{
+    const s=SECBYID[sid], list=BY[sid];
+    html+=`<div class="psec"><h2>${s.name}</h2><div class="meta">${list.length} questions · ${s.mins} minutes${sid===7?' · not part of the 140':''}</div></div>`;
+    let lastP=null;
+    list.forEach((gi,i)=>{
+      const q=Q[gi];
+      if(q.p && q.p!==lastP){ html+=`<div class="passage"><h4>${PASSAGES[q.p].title}</h4>${PASSAGES[q.p].html}</div>`; lastP=q.p; }
+      html+=`<div class="pq"><div class="stem"><b>${i+1}.</b> ${q.t}</div>
+        ${q.fig?`<div class="fig">${q.fig}</div>`:''}
+        <ol type="A">${q.o.map(o=>`<li>${o}</li>`).join('')}</ol></div>`;
+    });
+  });
+  html+=`<div class="psec"><h2>Answer key</h2></div><div class="key">`;
+  secs.forEach(sid=>{
+    const s=SECBYID[sid], list=BY[sid];
+    html+=`<div style="margin-bottom:7pt"><b>${s.name}</b><br>${list.map((gi,i)=>`${i+1}. ${LETTERS[Q[gi].a]}`).join(' &nbsp; ')}</div>`;
+  });
+  html+=`</div>`;
+  $('printHost').innerHTML=html;
+  $('printView').classList.remove('hide');
+  $('home').classList.add('hide');
+  const restore=()=>{ $('printView').classList.add('hide'); $('home').classList.remove('hide'); window.removeEventListener('afterprint',restore); };
+  window.addEventListener('afterprint',restore);
+  setTimeout(()=>window.print(),80);
+};
+
+/* ---------- keyboard ---------- */
+document.addEventListener('keydown',e=>{
+  if($('exam').classList.contains('hide'))return;
+  const k=e.key.toUpperCase(), i=LETTERS.indexOf(k);
+  if(i>=0){const b=$('qHost').querySelectorAll('.opt')[i]; if(b){b.click();e.preventDefault();}}
+  if(e.key==='ArrowRight'){const b=$('nextQ');if(b)b.click()}
+  if(e.key==='ArrowLeft'){const b=$('prevQ');if(b&&!b.disabled)b.click()}
+});
+
+paintHome(); setMode('timed');
+</script>
+</body>
+</html>
