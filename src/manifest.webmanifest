@@ -1,0 +1,14 @@
+{
+  "name": "Trades Aptitude Practice",
+  "short_name": "Trades Practice",
+  "description": "Practice exams and skill drills for Chicago-area apprenticeship aptitude tests.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f7f8fa",
+  "theme_color": "#14508c",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

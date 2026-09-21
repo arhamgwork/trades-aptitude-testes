@@ -77,6 +77,14 @@ sees the key. Anything that cannot be independently checked is marked
 
 See `docs/SCHEMA.md` for the full question and exam schema.
 
+## Offline use
+
+The hosted site installs as an app and keeps working with no signal once it
+has been opened online. A service worker caches the site's own files and every
+exam bank, network-first so a redeploy is still picked up when there is a
+connection. It never contacts another origin. For a copy that needs no browser
+support at all, `dist/single/<exam>.html` is one self-contained file per exam.
+
 ## Deploy
 
 GitHub Actions builds, runs every gate and the browser smoke test, and deploys

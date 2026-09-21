@@ -3,9 +3,11 @@ import { loadExam, findExamMeta } from './catalog.js';
 import { buildPlan, Run } from './runner.js';
 import { renderResults } from './results.js';
 import * as store from './store.js';
+import { enableOffline } from './offline.js';
 
 const main = $('#main');
 mountChrome(null);
+enableOffline();
 
 const examId = qs('exam');
 const mode = qs('mode', 'full');

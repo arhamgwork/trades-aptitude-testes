@@ -2,9 +2,11 @@ import { el, $, qs, mountChrome, announce } from './util.js';
 import { loadIndex, loadExam } from './catalog.js';
 import { buildPlan, Run } from './runner.js';
 import { renderResults } from './results.js';
+import { enableOffline } from './offline.js';
 
 const main = $('#main');
 mountChrome('drills.html');
+enableOffline();
 
 const SKILL_GROUPS = [
   ['Numbers', ['arith.fractions', 'arith.decimals', 'arith.percent', 'ratio.proportion', 'arith.scientific', 'convert.units']],

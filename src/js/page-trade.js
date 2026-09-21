@@ -1,8 +1,10 @@
 import { el, $, qs, mountChrome } from './util.js';
 import { loadIndex } from './catalog.js';
+import { enableOffline } from './offline.js';
 
 const main = $('#main');
 mountChrome(null);
+enableOffline();
 const slug = qs('trade');
 
 loadIndex().then((idx) => {

@@ -140,7 +140,12 @@ VERIFICATION_REPORT.md       counts, key distribution, check coverage
       shown to you before building at volume.**
 - [~] **Phase 3 — New trades.** Sheet metal first, then Tier 2 by reach.
       One section at a time, verified before moving on.
-- [ ] **Phase 4 — Depth.** Form B per trade, more drills, PWA offline mode.
+- [~] **Phase 4 — Depth.** Installable offline mode (PWA) done: a service
+      worker caches the site's own files and every exam bank, network-first so
+      a redeploy is still picked up, and the browser test proves it by going
+      offline and loading an exam. It never touches another origin.
+      Still open: a Form B for the other trades, and more drills where the
+      first pass shows gaps.
 
 ## Deployment
 

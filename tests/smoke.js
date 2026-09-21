@@ -76,7 +76,7 @@ async function main() {
   }
 
   // ---------- timer auto-advance (the section clock must move you along)
-  await checkAutoAdvance(ctx, base, catalog);
+  await checkAutoAdvance(browser, base, catalog);
 
   // ---------- drills + progress
   await page.goto(`${base}/drills.html`, { waitUntil: 'networkidle' });
@@ -99,6 +99,9 @@ async function main() {
   log(await page.locator('table').first().isVisible().catch(() => false)
       || (await page.locator('.muted').first().isVisible()),
     'progress shows history or an empty-state message');
+
+  // ---------- offline mode really works, not just registers
+  await checkOffline(browser, base);
 
   // ---------- storage-unavailable path
   const blocked = await browser.newContext();
@@ -179,9 +182,45 @@ async function runExam(page, base, e) {
   log(await page.locator('table').first().isVisible(), `results show a per-section table: ${e.id}`);
 }
 
-async function checkAutoAdvance(ctx, base, catalog) {
+async function checkOffline(browser, base) {
+  const ctx = await browser.newContext();
+  const page = await ctx.newPage();
+  const errs = [];
+  page.on('pageerror', (e) => errs.push(e.message));
+  await page.goto(`${base}/index.html`, { waitUntil: 'networkidle' });
+  const registered = await page.evaluate(async () => {
+    if (!('serviceWorker' in navigator)) return false;
+    const reg = await navigator.serviceWorker.ready.catch(() => null);
+    return !!reg;
+  });
+  log(registered, 'service worker registers');
+  if (!registered) { await ctx.close(); return; }
+
+  // prime the cache with a trade page and an exam bank
+  await page.goto(`${base}/trade.html?trade=electrical`, { waitUntil: 'networkidle' });
+  await page.goto(`${base}/exam.html?exam=ibew-701-formA`, { waitUntil: 'networkidle' });
+  await page.waitForTimeout(600);
+
+  await ctx.setOffline(true);
+  await page.goto(`${base}/index.html`, { waitUntil: 'domcontentloaded' });
+  const homeOk = await page.locator('h1').first().isVisible().catch(() => false);
+  log(homeOk, 'home page loads with the network offline');
+
+  await page.goto(`${base}/exam.html?exam=ibew-701-formA`, { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(400);
+  const examOffline = await page.locator('button[type=submit]:has-text("Start")').count();
+  log(examOffline > 0, 'an exam still loads its question bank offline');
+  log(errs.length === 0, `no page errors while offline (${errs.length})`);
+  await ctx.setOffline(false);
+  await ctx.close();
+}
+
+async function checkAutoAdvance(browser, base, catalog) {
   const e = catalog.trades.flatMap((t) => t.exams).find((x) => x.sections.length > 1);
   if (!e) { log(true, 'auto-advance: no multi-section exam to test (skipped)'); return; }
+  // Service workers are blocked here: this test rewrites the exam JSON with a
+  // route, and a worker serving its cached copy would defeat that.
+  const ctx = await browser.newContext({ serviceWorkers: 'block' });
   const page = await ctx.newPage();
   // Shorten the real section limits so the countdown can actually expire here.
   await page.route(`**/data/exams/${e.id}.json`, async (route) => {
@@ -210,6 +249,7 @@ async function checkAutoAdvance(ctx, base, catalog) {
     .then(() => log(true, `final section timeout ends the exam and shows results: ${e.id}`))
     .catch(() => log(false, `final section timeout ends the exam and shows results: ${e.id}`));
   await page.close();
+  await ctx.close();
 }
 
 async function checkPrint(page, base, e) {

@@ -1,9 +1,11 @@
 import { el, $, mountChrome } from './util.js';
 import { loadIndex } from './catalog.js';
 import * as store from './store.js';
+import { enableOffline } from './offline.js';
 
 const main = $('#main');
 mountChrome('index.html');
+enableOffline();
 
 loadIndex().then(render).catch((e) => {
   main.textContent = '';

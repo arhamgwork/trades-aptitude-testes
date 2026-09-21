@@ -1,9 +1,11 @@
 import { el, $, mountChrome, fmtDuration, choiceBody } from './util.js';
 import * as store from './store.js';
 import { loadIndex, loadExam } from './catalog.js';
+import { enableOffline } from './offline.js';
 
 const main = $('#main');
 mountChrome('progress.html');
+enableOffline();
 render();
 
 function render() {

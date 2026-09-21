@@ -1,8 +1,10 @@
 import { el, $, qs, mountChrome, LETTERS, svgFigure, DISCLAIMER, choiceBody, choiceText } from './util.js';
 import { loadExam } from './catalog.js';
+import { enableOffline } from './offline.js';
 
 const main = $('#main');
 mountChrome(null);
+enableOffline();
 const examId = qs('exam');
 
 if (!examId) {
