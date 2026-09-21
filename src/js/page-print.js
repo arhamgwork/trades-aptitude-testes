@@ -1,4 +1,4 @@
-import { el, $, qs, mountChrome, LETTERS, svgFigure, DISCLAIMER } from './util.js';
+import { el, $, qs, mountChrome, LETTERS, svgFigure, DISCLAIMER, choiceBody, choiceText } from './util.js';
 import { loadExam } from './catalog.js';
 
 const main = $('#main');
@@ -55,7 +55,7 @@ function render(exam) {
       b.appendChild(el('p', null, el('strong', { text: `${n}. ` }), q.stem));
       if (q.figure) b.appendChild(svgFigure(q.figure, 'Figure'));
       b.appendChild(el('div', null, q.choices.map((c, i) =>
-        el('div', { class: 'small', text: `${LETTERS[i]}. ${c}` }))));
+        el('div', { class: 'small' }, el('strong', { text: `${LETTERS[i]}. ` }), choiceBody(q, i)))));
       main.appendChild(b);
     }
   }

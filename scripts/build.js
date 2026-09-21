@@ -120,7 +120,9 @@ function singleFile(exam) {
       }
       body += `<div class="printq"><p><strong>${n}.</strong> ${esc(q.stem)}</p>`;
       if (q.figure) body += `<figure class="fig">${q.figure}</figure>`;
-      body += q.choices.map((c, i) => `<div class="small">${L[i]}. ${esc(c)}</div>`).join('');
+      body += q.choices.map((c, i) => q.choicesAreFigures
+        ? `<div class="small"><strong>${L[i]}.</strong> <span class="choicefig">${c}</span></div>`
+        : `<div class="small">${L[i]}. ${esc(c)}</div>`).join('');
       body += `</div>`;
     }
   }
@@ -131,7 +133,9 @@ function singleFile(exam) {
     key += `<h2>${esc(s.name)}</h2>`;
     for (const q of exam.questions.filter((x) => x.section === s.id)) {
       k++;
-      key += `<div class="printq"><p><strong>${k}. ${L[q.correctIndex]}</strong> — ${esc(q.choices[q.correctIndex])}</p>`;
+      const keyText = q.choicesAreFigures
+        ? `Diagram ${L[q.correctIndex]}` : esc(q.choices[q.correctIndex]);
+      key += `<div class="printq"><p><strong>${k}. ${L[q.correctIndex]}</strong> — ${keyText}</p>`;
       key += `<p class="small">${esc(q.explanation)}</p><ul class="small muted">`;
       q.choices.forEach((c, i) => {
         if (i === q.correctIndex) return;

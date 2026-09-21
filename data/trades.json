@@ -1,51 +1,310 @@
 {
-  "trades": [
+ "trades": [
+  {
+   "slug": "electrical",
+   "name": "Electrical",
+   "blurb": "IBEW apprenticeships. Cook and DuPage use different tests — check which local you are applying to.",
+   "locals": [
+    "IBEW Local 134 / EJATT (Cook)",
+    "IBEW Local 701 / DuPage JATC"
+   ],
+   "blueprints": [
     {
-      "slug": "electrical",
-      "name": "Electrical",
-      "blurb": "IBEW apprenticeships. Cook and DuPage use different tests — check which local you are applying to.",
-      "locals": ["IBEW Local 134 / EJATT (Cook)", "IBEW Local 701 / DuPage JATC"],
-      "blueprints": [
-        {
-          "doc": "docs/blueprints/electrical-ibew-701.md",
-          "testName": "Electrical Training Alliance Aptitude Test",
-          "provider": "Electrical Training Alliance",
-          "confidence": "CONFIRMED",
-          "dateChecked": "2026-09-21",
-          "totalQuestions": 69,
-          "totalMinutes": 97,
-          "calculator": false,
-          "locals": ["IBEW Local 701 / DuPage County JATC"],
-          "scoring": "Stanine 1-9. A 4 or higher is needed to be interviewed; the score is combined with an interview score to rank applicants.",
-          "sections": [
-            {"name": "Algebra and Functions", "questions": 33, "minutes": 46, "format": "Multiple choice", "calculator": false, "timeConfirmed": true},
-            {"name": "Reading Comprehension", "questions": 36, "minutes": 51, "format": "Four passages, multiple choice", "calculator": false, "timeConfirmed": true}
-          ],
-          "sources": [
-            "https://www.ibewjatc.org/aptitude-test",
-            "https://www.electricaltrainingalliance.org/SamplePage/PreparingfortheTest"
-          ],
-          "unverified": ""
-        },
-        {
-          "doc": "docs/blueprints/electrical-ibew-134.md",
-          "testName": "Format not confirmed — either the Electrical Training Alliance test or the GAN Aptitude Battery",
-          "provider": "Disputed",
-          "confidence": "PARTIAL",
-          "dateChecked": "2026-09-21",
-          "totalQuestions": 0,
-          "totalMinutes": 0,
-          "calculator": false,
-          "locals": ["IBEW Local 134 / EJATT (Cook County)"],
-          "scoring": "Stanine 1-9; a 4 is the minimum and Local 134 is competitive, so a 6 or higher is realistically needed.",
-          "sections": [],
-          "sources": [
-            "https://ejatt.com/about-in-tech/faqs/",
-            "https://ganhumanresources.com/gan-aptitude-test"
-          ],
-          "unverified": "Which instrument Local 134 actually administers. EJATT publishes no format. Two practice exams are provided, one in each format, so preparation is covered either way. Confirm with EJATT at 708-389-1340 before relying on one."
-        }
-      ]
+     "doc": "docs/blueprints/electrical-ibew-701.md",
+     "testName": "Electrical Training Alliance Aptitude Test",
+     "provider": "Electrical Training Alliance",
+     "confidence": "CONFIRMED",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 69,
+     "totalMinutes": 97,
+     "calculator": false,
+     "locals": [
+      "IBEW Local 701 / DuPage County JATC"
+     ],
+     "scoring": "Stanine 1-9. A 4 or higher is needed to be interviewed; the score is combined with an interview score to rank applicants.",
+     "sections": [
+      {
+       "name": "Algebra and Functions",
+       "questions": 33,
+       "minutes": 46,
+       "format": "Multiple choice",
+       "calculator": false,
+       "timeConfirmed": true
+      },
+      {
+       "name": "Reading Comprehension",
+       "questions": 36,
+       "minutes": 51,
+       "format": "Four passages, multiple choice",
+       "calculator": false,
+       "timeConfirmed": true
+      }
+     ],
+     "sources": [
+      "https://www.ibewjatc.org/aptitude-test",
+      "https://www.electricaltrainingalliance.org/SamplePage/PreparingfortheTest"
+     ],
+     "unverified": ""
+    },
+    {
+     "doc": "docs/blueprints/electrical-ibew-134.md",
+     "testName": "Format not confirmed — either the Electrical Training Alliance test or the GAN Aptitude Battery",
+     "provider": "Disputed",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 0,
+     "totalMinutes": 0,
+     "calculator": false,
+     "locals": [
+      "IBEW Local 134 / EJATT (Cook County)"
+     ],
+     "scoring": "Stanine 1-9; a 4 is the minimum and Local 134 is competitive, so a 6 or higher is realistically needed.",
+     "sections": [],
+     "sources": [
+      "https://ejatt.com/about-in-tech/faqs/",
+      "https://ganhumanresources.com/gan-aptitude-test"
+     ],
+     "unverified": "Which instrument Local 134 actually administers. EJATT publishes no format. Two practice exams are provided, one in each format, so preparation is covered either way. Confirm with EJATT at 708-389-1340 before relying on one."
     }
-  ]
+   ]
+  },
+  {
+   "slug": "pipefitting",
+   "name": "Pipefitting",
+   "blurb": "UA Local 597. The GAN battery — six sections, no calculator, ranked by score.",
+   "locals": [
+    "UA Pipefitters Local 597 (Chicago)"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/pipefitting-ua-597.md",
+     "testName": "GAN Aptitude Battery",
+     "provider": "GAN Human Resources",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 140,
+     "totalMinutes": 112,
+     "calculator": false,
+     "locals": [
+      "UA Pipefitters Local 597 (Chicago)"
+     ],
+     "scoring": "Applicants are ranked by score. A $20 study guide is sold by GAN at the time of application.",
+     "sections": [
+      {
+       "name": "Numerical Computation",
+       "questions": 25,
+       "minutes": 15,
+       "format": "Arithmetic, multiple choice",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Number Series",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Sequence completion",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Problem Solving",
+       "questions": 25,
+       "minutes": 25,
+       "format": "Word problems",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Reading Comprehension",
+       "questions": 25,
+       "minutes": 30,
+       "format": "Technical passages",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mechanical Aptitude",
+       "questions": 25,
+       "minutes": 18,
+       "format": "Diagram-based multiple choice",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Spatial Relations",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Paper folding, pick the unfolded sheet",
+       "calculator": false,
+       "timeConfirmed": false
+      }
+     ],
+     "sources": [
+      "https://www.pftf597.org/applications/testing/",
+      "https://www.pftf597.org/applications/",
+      "https://ganhumanresources.com/gan-aptitude-test"
+     ],
+     "unverified": "GAN is confirmed as the testing company, and the section names come from the locals' own sites. GAN publishes no per-section question counts or time limits, so every number in this table is derived from the exam as built rather than from an official source. The $20 GAN study guide sold at application time is the best way to confirm the real split."
+    }
+   ]
+  },
+  {
+   "slug": "plumbing",
+   "name": "Plumbing",
+   "blurb": "UA Local 130. The same GAN battery the pipefitters use, in a different section order.",
+   "locals": [
+    "UA Plumbers Local 130 (Chicago)"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/plumbing-ua-130.md",
+     "testName": "GAN Aptitude Battery",
+     "provider": "GAN Human Resources",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 140,
+     "totalMinutes": 119,
+     "calculator": false,
+     "locals": [
+      "UA Plumbers Local 130 (Chicago)"
+     ],
+     "scoring": "Commonly reported as pass/fail at 70%, but locals rank applicants by score and fill from the top down.",
+     "sections": [
+      {
+       "name": "Reading",
+       "questions": 42,
+       "minutes": 25,
+       "format": "Passage-based multiple choice",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Numerical Computation",
+       "questions": 28,
+       "minutes": 21,
+       "format": "Arithmetic, multiple choice",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Numerical Reasoning",
+       "questions": 10,
+       "minutes": 10,
+       "format": "Number series",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Problem Solving",
+       "questions": 35,
+       "minutes": 35,
+       "format": "Word problems",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Paper Folding",
+       "questions": 12,
+       "minutes": 15,
+       "format": "Fold sequence, pick the unfolded sheet",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mechanical Comprehension",
+       "questions": 13,
+       "minutes": 13,
+       "format": "Diagram-based multiple choice",
+       "calculator": false,
+       "timeConfirmed": false
+      }
+     ],
+     "sources": [
+      "https://www.pftf597.org/applications/testing/",
+      "https://www.pftf597.org/applications/",
+      "https://ganhumanresources.com/gan-aptitude-test",
+      "https://ganhumanresources.com/plumbers-130-apprentice-aptitude-testtaking-tips"
+     ],
+     "unverified": "GAN is confirmed as the testing company, and the section names come from the locals' own sites. GAN publishes no per-section question counts or time limits, so every number in this table is derived from the exam as built rather than from an official source. The $20 GAN study guide sold at application time is the best way to confirm the real split."
+    }
+   ]
+  },
+  {
+   "slug": "elevator",
+   "name": "Elevator constructor",
+   "blurb": "The EIAT. Three sections, cloze reading, and a math section with a “No answer” option.",
+   "locals": [
+    "IUEC locals, including Local 2 (Chicago)"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/elevator-eiat.md",
+     "testName": "Elevator Industry Aptitude Test (EIAT)",
+     "provider": "National Elevator Industry Educational Program (NEIEP)",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 100,
+     "totalMinutes": 90,
+     "calculator": false,
+     "locals": [
+      "IUEC locals, including Local 2 (Chicago)"
+     ],
+     "scoring": "Pass mark 70%. The score also sets position on the eligibility list, so a higher score is called sooner.",
+     "sections": [
+      {
+       "name": "Reading Comprehension",
+       "questions": 35,
+       "minutes": 25,
+       "format": "Cloze — fill the numbered blank",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mechanical Comprehension",
+       "questions": 35,
+       "minutes": 25,
+       "format": "Diagram-based, three choices",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mathematics",
+       "questions": 30,
+       "minutes": 40,
+       "format": "Multiple choice, five options, last is “No answer”",
+       "calculator": false,
+       "timeConfirmed": false
+      }
+     ],
+     "sources": [
+      "https://www.iprep.online/courses/elevator-industry-aptitude-test-eiat-free/",
+      "https://www.jobtestprep.com/free-eiat-practice-test"
+     ],
+     "unverified": "The three sections and the 35 / 35 / 30 split are confirmed against the NEIEP 2024 study guide. NEIEP does not publish per-section time limits; the 25 / 25 / 40 minute split shown here is what preparation courses consistently report, and is derived."
+    }
+   ]
+  },
+  {
+   "slug": "drills",
+   "name": "Cross-trade drills",
+   "blurb": "Skill sets that are not tied to one trade, including sign analysis and variable relationships.",
+   "locals": [],
+   "blueprints": []
+  }
+ ],
+ "pending": [
+  "sheet metal (next)",
+  "ironworkers",
+  "sprinkler fitters",
+  "steamfitters / HVACR",
+  "carpenters / millwrights",
+  "operating engineers",
+  "boilermakers",
+  "bricklayers",
+  "roofers",
+  "insulators",
+  "painters / glaziers",
+  "line construction",
+  "low-voltage / communications"
+ ]
 }

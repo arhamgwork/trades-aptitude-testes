@@ -1,6 +1,6 @@
 // Exam runner: builds a run plan, drives per-section timers, renders questions,
 // collects answers, and produces a result object.
-import { el, $, LETTERS, fmtClock, svgFigure, announce, pct } from './util.js';
+import { el, $, LETTERS, fmtClock, svgFigure, announce, pct, choiceBody } from './util.js';
 import * as store from './store.js';
 
 /**
@@ -302,7 +302,7 @@ export class Run {
       });
       if (this.answers.get(q.id) === i) input.checked = true;
       fs.appendChild(el('label', { class: 'choice', for: id },
-        input, el('span', { class: 'lab', text: LETTERS[i] + '.' }), el('span', null, c)));
+        input, el('span', { class: 'lab', text: LETTERS[i] + '.' }), choiceBody(q, i)));
     });
     host.appendChild(fs);
 

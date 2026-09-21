@@ -51,6 +51,23 @@ export function svgFigure(markup, label) {
   return fig;
 }
 
+/**
+ * Render one choice. Paper-folding style questions use pictures rather than
+ * text, so the choice body is markup from our own validated data files.
+ */
+export function choiceBody(q, i) {
+  const raw = q.choices[i];
+  if (!q.choicesAreFigures) return el('span', null, raw);
+  const holder = el('span', { class: 'choicefig', role: 'img', 'aria-label': `Option ${LETTERS[i]}, diagram` });
+  holder.innerHTML = raw;
+  return holder;
+}
+
+/** Plain-text stand-in for a picture choice, for print and screen readers. */
+export function choiceText(q, i) {
+  return q.choicesAreFigures ? `Diagram ${LETTERS[i]}` : q.choices[i];
+}
+
 export function announce(msg) {
   let live = document.getElementById('live-region');
   if (!live) {

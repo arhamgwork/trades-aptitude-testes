@@ -72,8 +72,10 @@ function validateExam(exam, file, errors) {
     if (!q.verify) fail(errors, id, `${qid}: missing verify field`);
 
     // Gate 2: correctIndex in range
-    if (!Array.isArray(q.choices) || q.choices.length < 4 || q.choices.length > 5) {
-      fail(errors, id, `${qid}: needs 4 or 5 choices`);
+    // 3 is legitimate: the EIAT mechanical section really does use three
+    // choices, and matching the real format matters more than a tidy rule.
+    if (!Array.isArray(q.choices) || q.choices.length < 3 || q.choices.length > 5) {
+      fail(errors, id, `${qid}: needs between 3 and 5 choices`);
     } else {
       if (!Number.isInteger(q.correctIndex) ||
           q.correctIndex < 0 || q.correctIndex >= q.choices.length) {
@@ -84,6 +86,13 @@ function validateExam(exam, file, errors) {
       if (new Set(norm).size !== norm.length) {
         fail(errors, id, `${qid}: has two identical options`);
       }
+      // Gate 7 also covers picture choices.
+      if (q.choicesAreFigures) {
+        q.choices.forEach((c, i) => {
+          const e = checkSvg(c);
+          if (e) fail(errors, id, `${qid}: choice ${i} figure ${e}`);
+        });
+      }
       // Gate 9: distractorNotes shape
       if (!Array.isArray(q.distractorNotes) ||
           q.distractorNotes.length !== q.choices.length) {
@@ -93,18 +102,26 @@ function validateExam(exam, file, errors) {
           if (i === q.correctIndex && n !== null) {
             fail(errors, id, `${qid}: distractorNotes must be null at the key`);
           }
-          if (i !== q.correctIndex && (!n || !String(n).trim())) {
+          // Migrated exams are preserved as authored. Their sources carry the
+          // error analysis inside the explanation rather than per choice, and
+          // inventing notes would mean writing content the author did not.
+          // Coverage is reported in VERIFICATION_REPORT.md instead.
+          if (!exam.migrated && i !== q.correctIndex && (!n || !String(n).trim())) {
             fail(errors, id, `${qid}: distractor ${i} needs an error note`);
           }
         });
       }
     }
 
-    // Gate 3: no duplicate stems
-    const key = String(q.stem || '').trim().toLowerCase();
-    if (!key) fail(errors, id, `${qid}: empty stem`);
+    // Gate 3: no duplicate questions. Figure-based items (paper folding) share
+    // one instruction by design, so the identity of such an item is its stem
+    // plus its diagram and choices, not the stem alone.
+    const stemText = String(q.stem || '').trim().toLowerCase();
+    if (!stemText) fail(errors, id, `${qid}: empty stem`);
+    const key = [stemText, q.figure || '', (q.choices || []).join('\u0001')]
+      .join('\u0002');
     if (seenStems.has(key)) {
-      fail(errors, id, `${qid}: duplicate stem, same as ${seenStems.get(key)}`);
+      fail(errors, id, `${qid}: duplicate question, same as ${seenStems.get(key)}`);
     } else seenStems.set(key, qid);
 
     // Gate 8: explanation must not reference a letter
@@ -131,27 +148,45 @@ function validateExam(exam, file, errors) {
       fail(errors, id,
         `section "${s.id}" declares ${s.questionCount} questions but has ${got}`);
     }
+    // A real section presents a consistent number of options.
+    const widths = new Set((exam.questions || [])
+      .filter((q) => q.section === s.id && Array.isArray(q.choices))
+      .map((q) => q.choices.length));
+    if (widths.size > 1) {
+      fail(errors, id,
+        `section "${s.id}" mixes option counts (${[...widths].sort().join(', ')})`);
+    }
   }
 
   // Gate 10: answer-key balance (skipped for migrated exams, which are reported only)
   if (!exam.migrated) checkBalance(exam, id, errors);
 }
 
+const VOID_TAGS = new Set(['br', 'hr', 'img', 'input', 'meta', 'link', 'source',
+  'path', 'circle', 'rect', 'line', 'ellipse', 'polygon', 'polyline', 'use',
+  'stop', 'image', 'animate', 'feoffset', 'fegaussianblur', 'femerge']);
+
+/**
+ * A figure is a markup fragment containing at least one <svg>. Some are a
+ * single drawing, others a fold sequence of several panels inside a layout
+ * wrapper, so a strict "starts with <svg>" rule would reject real content.
+ */
 function checkSvg(svg) {
   const s = String(svg).trim();
-  if (!/^<svg[\s>]/.test(s)) return 'must start with <svg';
-  if (!/<\/svg>$/.test(s)) return 'must end with </svg>';
+  if (!/<svg[\s>]/i.test(s)) return 'must contain an <svg> element';
   if (/<script/i.test(s)) return 'must not contain <script>';
   if (/\son[a-z]+\s*=/i.test(s)) return 'must not contain inline event handlers';
-  // balanced tags
+  if (/javascript:/i.test(s)) return 'must not contain a javascript: URL';
   const stack = [];
   const tag = /<\/?([a-zA-Z][\w:-]*)([^>]*?)(\/?)>/g;
   let m;
   while ((m = tag.exec(s))) {
-    const [full, name, , selfClose] = m;
+    const [full, rawName, , selfClose] = m;
+    const name = rawName.toLowerCase();
     if (full.startsWith('</')) {
-      if (stack.pop() !== name) return `has unbalanced tag </${name}>`;
-    } else if (!selfClose) {
+      const open = stack.pop();
+      if (open !== name) return `has unbalanced tag </${rawName}>`;
+    } else if (!selfClose && !VOID_TAGS.has(name)) {
       stack.push(name);
     }
   }

@@ -1,4 +1,4 @@
-import { el, $, mountChrome, fmtDuration } from './util.js';
+import { el, $, mountChrome, fmtDuration, choiceBody } from './util.js';
 import * as store from './store.js';
 import { loadIndex, loadExam } from './catalog.js';
 
@@ -173,7 +173,7 @@ function renderMissed(missed, lookup) {
       const isKey = i === q.correctIndex;
       const isPicked = r.picked === i;
       const o = el('div', { class: `opt ${isKey ? 'key' : ''} ${isPicked && !isKey ? 'picked-wrong' : ''}`.trim() },
-        el('strong', { text: `${LETTERS[i]}. ` }), c,
+        el('strong', { text: `${LETTERS[i]}. ` }), choiceBody(q, i),
         isKey ? el('span', { class: 'tag', text: 'correct' }) : null,
         isPicked ? el('span', { class: 'tag', text: 'your answer' }) : null);
       if (!isKey && q.distractorNotes && q.distractorNotes[i]) {

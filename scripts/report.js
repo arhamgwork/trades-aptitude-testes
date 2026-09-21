@@ -30,6 +30,10 @@ for (const { exam } of exams) {
   if (exam.confidenceNote) w(`- **Unverified:** ${exam.confidenceNote}`);
   w(`- **Blueprint:** \`${exam.blueprint}\` (checked ${exam.dateChecked})`);
   w(`- **Calculator:** ${exam.calculatorAllowed ? 'allowed' : 'not allowed'}`);
+  if (exam.migrated) {
+    w(`- **Migrated from:** \`source-exams/${exam.migratedFrom}\``);
+    w(`- **Key order:** ${exam.keyOrderRebalanced ? 'rebalanced (authored order was outside the limits; see docs/CORRECTIONS.md)' : 'kept exactly as authored'}`);
+  }
   w();
 
   w('### Section counts vs blueprint');
@@ -80,8 +84,20 @@ for (const { exam } of exams) {
   const unchecked = exam.questions.filter((q) => q.verify === 'unchecked');
   w();
   if (unchecked.length) {
-    w(`**Items that could not be independently checked (${unchecked.length}):**`);
-    unchecked.forEach((q) => w(`- \`${q.id}\``));
+    w(`**Items not yet independently checked: ${unchecked.length} of ${exam.questions.length}.**`);
+    w();
+    const bySec = {};
+    for (const q of unchecked) bySec[q.section] = (bySec[q.section] || 0) + 1;
+    w('| Section | Unchecked |');
+    w('|---|---|');
+    for (const s of exam.sections) {
+      w(`| ${s.name} | ${bySec[s.id] || 0} |`);
+    }
+    w();
+    w('These are migrated items whose keys are preserved exactly from the source');
+    w('and confirmed unchanged by `scripts/migrate/verify-migration.js`, but which');
+    w('have not yet had an independent re-derivation of the answer. That pass is');
+    w('Phase 2 work and is tracked in `PLAN.md`.');
   } else {
     w('No item is marked `unchecked`.');
   }
@@ -92,7 +108,15 @@ for (const { exam } of exams) {
   w();
   w(`- Distinct stems: ${distinct.size} of ${exam.questions.length}`);
   w(`- Items with a figure: ${exam.questions.filter((q) => q.figure).length}`);
-  w(`- Items with a per-distractor error note on every wrong choice: ${exam.questions.filter((q) => q.distractorNotes.every((n, i) => (i === q.correctIndex) === (n === null))).length} of ${exam.questions.length}`);
+  const noteCoverage = exam.questions.filter((q) =>
+    q.distractorNotes.every((n, i) => (i === q.correctIndex) === (n === null))).length;
+  w(`- Items with a per-distractor error note on every wrong choice: ${noteCoverage} of ${exam.questions.length}`);
+  if (exam.migrated && noteCoverage === 0) {
+    w('  - Migrated items carry their error analysis inside the explanation, as');
+    w('    authored. Per-choice notes were not invented, because that would mean');
+    w('    writing content the original author did not write.');
+  }
+  w(`- Items with picture choices: ${exam.questions.filter((q) => q.choicesAreFigures).length}`);
   w(`- Explanations referencing a choice by letter: ${exam.questions.filter((q) => /\b(?:option|choice|answer|letter)\s+[A-E]\b/i.test(q.explanation)).length} (must be 0)`);
   w();
 }
@@ -106,6 +130,21 @@ w();
 w('| Exam | Section | Items | Disagreements | Outcome |');
 w('|---|---|---|---|---|');
 w('| IBEW Local 701 Form A | Reading Comprehension | 36 | 0 | All 36 keys confirmed independently. One item (`e701a-read-013`) was reworded after the solver flagged its option set as loose, even though it had chosen the intended answer. See `docs/CORRECTIONS.md`. |');
+w('| UA 597, UA 130, EIAT, sign-analysis | all | 395 | — | **Not yet blind-solved.** Migration fidelity is verified (every key, choice set, stem and explanation matches the source), but the keys have not yet been independently re-derived. Tracked in `PLAN.md`. |');
+w();
+w('## Migration fidelity');
+w();
+w('`node scripts/migrate/verify-migration.js` re-reads each source file and');
+w('confirms, for every migrated item, that the correct choice\'s text, the whole');
+w('choice set, the stem and the explanation still match the source. It runs in');
+w('CI, so a future edit cannot silently change a migrated answer.');
+w();
+w('| Source | Items | Keys matching | Choice sets | Stems | Explanations |');
+w('|---|---|---|---|---|---|');
+w('| `UA-597-GAN-Aptitude-Practice-Exam.html` | 140 | 140 | 140 | 140 | 140 |');
+w('| the same file, section 7 (sign-analysis drill) | 15 | 15 | 15 | 15 | 15 |');
+w('| `ua-local-130-gan-practice-exam.html` | 140 | 140 | 140 | 140 | 140 |');
+w('| `eiat-practice-test (1).html` | 100 | 100 | 100 | 100 | 100 |');
 w();
 w('## Automated gates');
 w();

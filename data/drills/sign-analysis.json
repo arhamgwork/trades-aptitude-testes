@@ -1,0 +1,448 @@
+{
+ "id": "sign-analysis",
+ "trade": "drills",
+ "title": "Sign analysis — how one variable moves when another changes",
+ "testName": "Skill drill",
+ "provider": "This site",
+ "locals": [],
+ "confidence": "CONFIRMED",
+ "confidenceNote": "",
+ "blueprint": "docs/blueprints/_gan-battery.md",
+ "dateChecked": "2026-09-21",
+ "calculatorAllowed": false,
+ "selfPaced": true,
+ "migrated": true,
+ "migratedFrom": "UA-597-GAN-Aptitude-Practice-Exam.html",
+ "sections": [
+  {
+   "id": "sign",
+   "name": "Sign analysis",
+   "questionCount": 15,
+   "timeLimitSec": null
+  }
+ ],
+ "passages": [],
+ "questions": [
+  {
+   "id": "sign-001",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "If z = x × y, and x increases while z is held constant, then y",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "stays the same",
+    "decreases",
+    "increases",
+    "cannot be determined"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Rule 3. The result is pinned, so the two inputs have to trade off. If one goes up the other must come down to keep the product the same.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-002",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "Pressure is P = F ÷ A. If the force F stays the same and the area A increases, the pressure",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "doubles",
+    "stays the same",
+    "decreases",
+    "increases"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Rule 2. A is under the bar, so it moves the result the opposite way. Spread the same force over more area and the pressure drops — that is why a wide footing sinks less than a narrow one.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-003",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "In R = V ÷ I, if V increases and I decreases at the same time, then R",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "increases",
+    "stays the same",
+    "cannot be determined",
+    "decreases"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Both changes push the same way here. A bigger numerator raises R, and a smaller denominator also raises R. When two changes agree you get a definite answer.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-004",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "In R = V ÷ I, if V increases and I also increases, then R",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "cannot be determined without the amounts",
+    "increases",
+    "decreases",
+    "stays the same"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "The two effects fight each other. A bigger V pushes R up, a bigger I pushes R down, and without knowing how much each changed you cannot say which wins. Recognising the indeterminate case is part of the skill — do not force an answer.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-005",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "A relationship chain: when A increases, B decreases. When B decreases, C decreases. If A increases, then C",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "stays the same",
+    "decreases",
+    "increases",
+    "cannot be determined"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Rule 4. Follow each arrow in order: A ↑ → B ↓ → C ↓. One reversal, so the end of the chain moves opposite to the start.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-006",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "A relationship chain: when A increases, B decreases. When B decreases, C increases. If A increases, then C",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "cannot be determined",
+    "decreases",
+    "stays the same",
+    "increases"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "Rule 4 again. A ↑ → B ↓ → C ↑. Two reversals cancel out and put you back where you started.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-007",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "The product of five negative numbers is",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "positive",
+    "zero",
+    "positive or negative depending on size",
+    "negative"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "Rule 4. Count the negatives. Five is odd, so the result is negative. Size never affects the sign.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-008",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "(−3)(−2)(4)(−1) = ?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "24",
+    "−24",
+    "−10",
+    "10"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Three negative factors — an odd count — so the answer is negative. The magnitude is 3 × 2 × 4 × 1 = 24, giving −24.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-009",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "Time equals distance divided by speed. If the distance is fixed and the speed increases, the trip time",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "stays the same",
+    "cannot be determined",
+    "decreases",
+    "increases"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Rule 2. Speed sits under the bar, so raising it lowers the time. The sanity check is common sense: drive faster, arrive sooner.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-010",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "A crew has a fixed materials budget. Total cost is the number of fittings times the price per fitting. If the price per fitting rises, the number they can buy",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "cannot be determined",
+    "stays the same",
+    "falls",
+    "rises"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Rule 3. The total is held constant, so the two factors trade off. Price up, quantity down.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-011",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "Friction loss in a pipe run increases with length and decreases with diameter. A run is made both longer and larger in diameter. The friction loss",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "increases",
+    "decreases",
+    "cannot be determined from what is given",
+    "stays the same"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "The two changes work against each other, and no amounts are given, so there is no single answer. On a real test this choice is correct far more often than people expect — when the arrows conflict, say so.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-012",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "If x < 0 and y > 0, then x × y is",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "negative",
+    "either positive or negative",
+    "positive",
+    "zero"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "One negative factor is an odd count, so the product is negative.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-013",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "If a ÷ b is negative and b is positive, then a must be",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "negative",
+    "zero",
+    "either sign",
+    "positive"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Work the sign rule backwards. For the quotient to be negative with a positive denominator, the numerator has to be negative.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-014",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "Work equals force times distance. If the work stays the same and the force is doubled, the distance is",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "doubled",
+    "quadrupled",
+    "unchanged",
+    "halved"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "Rule 3. With the product fixed, doubling one factor halves the other. This is exactly the trade every lever, ramp and pulley makes.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "sign-015",
+   "section": "sign",
+   "skills": [
+    "sign.analysis"
+   ],
+   "type": "mc",
+   "stem": "The mechanical advantage of a lever is the effort arm divided by the load arm. If the load arm gets longer while the effort arm stays the same, the effort needed to lift the load",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "cannot be determined",
+    "increases",
+    "decreases",
+    "stays the same"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Two steps. A longer load arm is a bigger denominator, so mechanical advantage falls (rule 2). Less mechanical advantage means more effort for the same load — that is why you move the fulcrum toward the load, not away from it.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  }
+ ],
+ "keyOrderRebalanced": true
+}

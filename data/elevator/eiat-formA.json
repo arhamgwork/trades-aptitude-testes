@@ -1,0 +1,3036 @@
+{
+ "id": "eiat-formA",
+ "trade": "elevator",
+ "title": "Elevator Constructor (EIAT) — Practice Exam, Form A",
+ "testName": "Elevator Industry Aptitude Test (EIAT)",
+ "provider": "National Elevator Industry Educational Program (NEIEP)",
+ "locals": [
+  "IUEC locals, including Local 2 (Chicago)"
+ ],
+ "confidence": "PARTIAL",
+ "confidenceNote": "The three sections and the 35 / 35 / 30 split are confirmed against the NEIEP 2024 study guide. NEIEP does not publish per-section time limits; the 25 / 25 / 40 minute split used here is the one preparation courses consistently report and is derived, not official.",
+ "blueprint": "docs/blueprints/elevator-eiat.md",
+ "dateChecked": "2026-09-21",
+ "calculatorAllowed": false,
+ "selfPaced": false,
+ "migrated": true,
+ "migratedFrom": "eiat-practice-test (1).html",
+ "sections": [
+  {
+   "id": "read",
+   "name": "Part 1 · Reading comprehension",
+   "questionCount": 35,
+   "timeLimitSec": 1500,
+   "timeConfirmed": false
+  },
+  {
+   "id": "mech",
+   "name": "Part 2 · Mechanical comprehension",
+   "questionCount": 35,
+   "timeLimitSec": 1500,
+   "timeConfirmed": false
+  },
+  {
+   "id": "math",
+   "name": "Part 3 · Mathematics",
+   "questionCount": 30,
+   "timeLimitSec": 2400,
+   "timeConfirmed": false
+  }
+ ],
+ "passages": [
+  {
+   "id": "eiat-p1",
+   "title": "Passage 1 — Reporting hazards",
+   "text": "Every worker on a jobsite shares __1__ for safety. A hazard that one person notices but does not report can easily __2__ a coworker hours later. For that reason most contractors require unsafe conditions to be written up __3__ they are found, rather than at the end of the shift. Workers who speak up are not being difficult; they are __4__ the standard that keeps the whole crew healthy and working. Over time, a crew that treats reporting as routine builds a __5__ in which small problems get corrected before they turn into injuries."
+  },
+  {
+   "id": "eiat-p2",
+   "title": "Passage 2 — How an apprenticeship works",
+   "text": "An apprenticeship differs from a traditional college program because it pairs paid work with __6__ instruction. Apprentices earn wages from the first day, and their pay rises as they __7__ each measurable skill level. Employers value the model because graduates arrive already __8__ to the pace and the expectations of the trade. The arrangement also demands real __9__ from the apprentice: attendance, punctuality and steady effort are judged just as closely as test scores. Those who treat the program as a multi-year __10__ rather than a temporary job tend to advance fastest."
+  },
+  {
+   "id": "eiat-p3",
+   "title": "Passage 3 — Friction and heat",
+   "text": "Whenever two surfaces slide across one another, friction __11__ some of the energy of motion into heat. Engineers cannot remove friction completely, so they __12__ it instead, using lubricants, bearings and carefully chosen materials. A bearing that runs dry will overheat quickly, __13__ the metal to expand and bind. __14__, a properly lubricated bearing can run for years with very little wear."
+  },
+  {
+   "id": "eiat-p4",
+   "title": "Passage 4 — Hydraulic systems",
+   "text": "A hydraulic system transmits force through a confined __15__. Because liquids are very nearly incompressible, pressure applied at one point is __16__ equally in every direction. This lets a small force on a small piston lift a heavy load on a larger piston, provided the smaller piston travels a __17__ distance. Air trapped in the lines compresses under load and makes the controls feel spongy, so a technician must __18__ the system after any repair. Fluid levels should also be checked __19__, because a slow leak can go unnoticed until performance drops off."
+  },
+  {
+   "id": "eiat-p5",
+   "title": "Passage 5 — Talking through the work",
+   "text": "Clear communication prevents more accidents than any single piece of equipment. When a mechanic gives a helper a task, the helper should repeat it back so that any __20__ is caught right away. Vague phrases such as “over there” or “in a minute” leave far too much room for __21__. Written notes carry the further __22__ of leaving a record the next shift can read. Crews that communicate well waste less material, finish sooner and __23__ fewer callbacks."
+  },
+  {
+   "id": "eiat-p6",
+   "title": "Passage 6 — Codes and inspections",
+   "text": "Elevator equipment is governed by codes revised on a regular __24__. An installation that met every requirement ten years ago may no longer be __25__ today, and an inspector is obliged to cite it. Rather than treating the updates as a nuisance, experienced mechanics read them as a __26__ of lessons learned from past failures. Keeping a current copy of the applicable code on hand is therefore __27__ for anyone who signs off on work."
+  },
+  {
+   "id": "eiat-p7",
+   "title": "Passage 7 — Circuits",
+   "text": "Current flows through a circuit only when the path is __28__. Opening a switch creates a gap and the current stops. Resistance __29__ the flow of current, and the energy spent overcoming it shows up as heat in the conductor. A conductor too small for its load will therefore run hot, which is why wire is __30__ according to the current it has to carry. Before working on any circuit a technician confirms it is de-energized, because a meter reading is far more reliable than an __31__."
+  }
+ ],
+ "questions": [
+  {
+   "id": "eiat-a-001",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 1?",
+   "figure": null,
+   "passageId": "eiat-p1",
+   "choices": [
+    "employment",
+    "permission",
+    "curiosity",
+    "responsibility"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "Safety is something every worker shares a duty for. Responsibility is the only choice that fits a shared obligation.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-002",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 2?",
+   "figure": null,
+   "passageId": "eiat-p1",
+   "choices": [
+    "instruct",
+    "promote",
+    "injure",
+    "relieve"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "The sentence contrasts noticing a hazard with the harm it later causes. Injure carries that consequence.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-003",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 3?",
+   "figure": null,
+   "passageId": "eiat-p1",
+   "choices": [
+    "instead of",
+    "long before",
+    "as soon as",
+    "in case"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "The clause is contrasted with waiting until the end of the shift, so the writing-up happens immediately.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-004",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 4?",
+   "figure": null,
+   "passageId": "eiat-p1",
+   "choices": [
+    "upholding",
+    "avoiding",
+    "questioning",
+    "delaying"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Speaking up supports the standard rather than working against it, so upholding is the fit.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-005",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 5?",
+   "figure": null,
+   "passageId": "eiat-p1",
+   "choices": [
+    "shortage",
+    "culture",
+    "contract",
+    "rumor"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "A habit shared by a whole crew over time is a culture.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-006",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 6?",
+   "figure": null,
+   "passageId": "eiat-p2",
+   "choices": [
+    "unrelated",
+    "imaginary",
+    "optional",
+    "classroom"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "Paid work is being paired with its opposite: formal classroom instruction.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-007",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 7?",
+   "figure": null,
+   "passageId": "eiat-p2",
+   "choices": [
+    "forget",
+    "avoid",
+    "reach",
+    "reduce"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Pay rises as skill levels are achieved, so the apprentice reaches them.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-008",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 8?",
+   "figure": null,
+   "passageId": "eiat-p2",
+   "choices": [
+    "assigned",
+    "opposed",
+    "indifferent",
+    "accustomed"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "Graduates are already used to the pace. Accustomed to is the idiomatic pairing.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-009",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 9?",
+   "figure": null,
+   "passageId": "eiat-p2",
+   "choices": [
+    "commitment",
+    "payment",
+    "apology",
+    "vacation"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Attendance, punctuality and effort are all forms of commitment.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-010",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 10?",
+   "figure": null,
+   "passageId": "eiat-p2",
+   "choices": [
+    "investment",
+    "accident",
+    "rumor",
+    "penalty"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "The contrast is with a temporary job, so the program is framed as a long-term investment.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-011",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 11?",
+   "figure": null,
+   "passageId": "eiat-p3",
+   "choices": [
+    "conceals",
+    "converts",
+    "removes",
+    "measures"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Energy is not destroyed; friction changes motion into heat, so it converts.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-012",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 12?",
+   "figure": null,
+   "passageId": "eiat-p3",
+   "choices": [
+    "manage",
+    "ignore",
+    "worship",
+    "duplicate"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Since friction cannot be eliminated, the alternative is to control or manage it.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-013",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 13?",
+   "figure": null,
+   "passageId": "eiat-p3",
+   "choices": [
+    "preventing",
+    "causing",
+    "because",
+    "although"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Overheating leads to expansion and binding, so the participle causing continues the result.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-014",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 14?",
+   "figure": null,
+   "passageId": "eiat-p3",
+   "choices": [
+    "In short",
+    "For example",
+    "By contrast",
+    "As a result"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "The dry bearing fails and the lubricated one lasts. That opposition calls for a contrast signal.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-015",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 15?",
+   "figure": null,
+   "passageId": "eiat-p4",
+   "choices": [
+    "fluid",
+    "vacuum",
+    "spring",
+    "wire"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Hydraulics work through a confined liquid, and the next sentence talks about liquids.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-016",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 16?",
+   "figure": null,
+   "passageId": "eiat-p4",
+   "choices": [
+    "wasted",
+    "absorbed",
+    "reversed",
+    "transmitted"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "Pressure in a confined fluid is passed along undiminished in all directions.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-017",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 17?",
+   "figure": null,
+   "passageId": "eiat-p4",
+   "choices": [
+    "shorter",
+    "greater",
+    "equal",
+    "random"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Force is multiplied at the cost of distance, so the small piston must move farther.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-018",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 18?",
+   "figure": null,
+   "passageId": "eiat-p4",
+   "choices": [
+    "weigh",
+    "paint",
+    "bleed",
+    "shorten"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Removing trapped air from hydraulic lines is called bleeding the system.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-019",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 19?",
+   "figure": null,
+   "passageId": "eiat-p4",
+   "choices": [
+    "regularly",
+    "rarely",
+    "accidentally",
+    "never"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "A slow leak is only caught by routine checking.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-020",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 20?",
+   "figure": null,
+   "passageId": "eiat-p5",
+   "choices": [
+    "agreement",
+    "misunderstanding",
+    "delivery",
+    "promotion"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Repeating an instruction back is done to catch a misunderstanding.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-021",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 21?",
+   "figure": null,
+   "passageId": "eiat-p5",
+   "choices": [
+    "equipment",
+    "certainty",
+    "interpretation",
+    "measurement"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Vague wording is the opposite of certainty, so it invites differing interpretation.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-022",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 22?",
+   "figure": null,
+   "passageId": "eiat-p5",
+   "choices": [
+    "danger",
+    "expense",
+    "weight",
+    "advantage"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "The sentence adds a further benefit of written notes, so advantage fits.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-023",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 23?",
+   "figure": null,
+   "passageId": "eiat-p5",
+   "choices": [
+    "request",
+    "celebrate",
+    "generate",
+    "require"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Good crews produce fewer callbacks. Generate matches the list of positive results.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-024",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 24?",
+   "figure": null,
+   "passageId": "eiat-p6",
+   "choices": [
+    "accident",
+    "schedule",
+    "opinion",
+    "distance"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Something revised regularly follows a schedule.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-025",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 25?",
+   "figure": null,
+   "passageId": "eiat-p6",
+   "choices": [
+    "expensive",
+    "compliant",
+    "visible",
+    "painted"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "The subject is meeting code requirements, so the word needed is compliant.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-026",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 26?",
+   "figure": null,
+   "passageId": "eiat-p6",
+   "choices": [
+    "disguise",
+    "rejection",
+    "shortage",
+    "record"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "Lessons learned from past failures are preserved as a record.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-027",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 27?",
+   "figure": null,
+   "passageId": "eiat-p6",
+   "choices": [
+    "forbidden",
+    "optional",
+    "essential",
+    "temporary"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "The word therefore draws a conclusion: the code book is necessary, not optional.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-028",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 28?",
+   "figure": null,
+   "passageId": "eiat-p7",
+   "choices": [
+    "complete",
+    "broken",
+    "painted",
+    "vertical"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Current needs an unbroken path; the next sentence describes what happens when a gap is made.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-029",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 29?",
+   "figure": null,
+   "passageId": "eiat-p7",
+   "choices": [
+    "increases",
+    "opposes",
+    "stores",
+    "creates"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Resistance works against current flow, and that opposition produces heat.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-030",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 30?",
+   "figure": null,
+   "passageId": "eiat-p7",
+   "choices": [
+    "bent",
+    "labeled",
+    "sized",
+    "coiled"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Wire is selected by gauge for the current it carries, which is sizing.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-031",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word best fills blank 31?",
+   "figure": null,
+   "passageId": "eiat-p7",
+   "choices": [
+    "agreement",
+    "instrument",
+    "inspection",
+    "assumption"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "A meter reading is contrasted with simply assuming the circuit is dead.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-032",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Although the replacement part arrived late, the crew was able to ______ the schedule by working through the afternoon.",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "recovered",
+    "recovery",
+    "recovering",
+    "recover"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "After “able to” an English verb takes its base form: able to recover.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-033",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Which word is spelled correctly?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "maintenance",
+    "maintanance",
+    "maintenence",
+    "maintainance"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "The correct spelling is maintenance: main-ten-ance.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-034",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "Neither of the two hoistway doors ______ properly aligned.",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "was",
+    "were",
+    "have been",
+    "are"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Neither is singular, so it takes the singular verb was. The phrase “of the two doors” does not change that.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-035",
+   "section": "read",
+   "skills": [
+    "reading.cloze"
+   ],
+   "type": "cloze",
+   "stem": "The supervisor's instructions were concise. Concise most nearly means:",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "loud and firm",
+    "brief and clear",
+    "long and detailed",
+    "vague and uncertain"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Concise means saying much in few words — brief and clear.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-036",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Gear A turns clockwise, as the arrow shows. Which way does gear B turn?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><g class=\"ln\"><line x1=\"122.0\" y1=\"78.0\" x2=\"128.8\" y2=\"78.0\"/><line x1=\"118.6\" y1=\"92.8\" x2=\"124.8\" y2=\"95.7\"/><line x1=\"109.2\" y1=\"104.6\" x2=\"113.4\" y2=\"109.9\"/><line x1=\"95.6\" y1=\"111.1\" x2=\"97.1\" y2=\"117.8\"/><line x1=\"80.4\" y1=\"111.1\" x2=\"78.9\" y2=\"117.8\"/><line x1=\"66.8\" y1=\"104.6\" x2=\"62.6\" y2=\"109.9\"/><line x1=\"57.4\" y1=\"92.8\" x2=\"51.2\" y2=\"95.7\"/><line x1=\"54.0\" y1=\"78.0\" x2=\"47.2\" y2=\"78.0\"/><line x1=\"57.4\" y1=\"63.2\" x2=\"51.2\" y2=\"60.3\"/><line x1=\"66.8\" y1=\"51.4\" x2=\"62.6\" y2=\"46.1\"/><line x1=\"80.4\" y1=\"44.9\" x2=\"78.9\" y2=\"38.2\"/><line x1=\"95.6\" y1=\"44.9\" x2=\"97.1\" y2=\"38.2\"/><line x1=\"109.2\" y1=\"51.4\" x2=\"113.4\" y2=\"46.1\"/><line x1=\"118.6\" y1=\"63.2\" x2=\"124.8\" y2=\"60.3\"/><circle cx=\"88\" cy=\"78\" r=\"34\"/></g><text class=\"big\" x=\"88\" y=\"82\">A</text><g class=\"ln\"><line x1=\"204.0\" y1=\"78.0\" x2=\"210.8\" y2=\"78.0\"/><line x1=\"200.6\" y1=\"92.8\" x2=\"206.8\" y2=\"95.7\"/><line x1=\"191.2\" y1=\"104.6\" x2=\"195.4\" y2=\"109.9\"/><line x1=\"177.6\" y1=\"111.1\" x2=\"179.1\" y2=\"117.8\"/><line x1=\"162.4\" y1=\"111.1\" x2=\"160.9\" y2=\"117.8\"/><line x1=\"148.8\" y1=\"104.6\" x2=\"144.6\" y2=\"109.9\"/><line x1=\"139.4\" y1=\"92.8\" x2=\"133.2\" y2=\"95.7\"/><line x1=\"136.0\" y1=\"78.0\" x2=\"129.2\" y2=\"78.0\"/><line x1=\"139.4\" y1=\"63.2\" x2=\"133.2\" y2=\"60.3\"/><line x1=\"148.8\" y1=\"51.4\" x2=\"144.6\" y2=\"46.1\"/><line x1=\"162.4\" y1=\"44.9\" x2=\"160.9\" y2=\"38.2\"/><line x1=\"177.6\" y1=\"44.9\" x2=\"179.1\" y2=\"38.2\"/><line x1=\"191.2\" y1=\"51.4\" x2=\"195.4\" y2=\"46.1\"/><line x1=\"200.6\" y1=\"63.2\" x2=\"206.8\" y2=\"60.3\"/><circle cx=\"170\" cy=\"78\" r=\"34\"/></g><text class=\"big\" x=\"170\" y=\"82\">B</text><path class=\"acc\" d=\"M66.4 70.1 A 23 23 0 0 1 109.6 70.1\"/><polygon class=\"accf\" points=\"112.0,76.7 103.8,66.3 111.6,63.4\"/></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Counterclockwise",
+    "Clockwise",
+    "It will not turn"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Meshed gears always turn in opposite directions. Where the teeth touch, one gear's teeth push the other's the other way.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-037",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Gear A has 10 teeth and drives gear B, which has 30 teeth. Gear B turns:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><g class=\"ln\"><line x1=\"98.0\" y1=\"72.0\" x2=\"102.8\" y2=\"72.0\"/><line x1=\"93.4\" y1=\"86.1\" x2=\"97.3\" y2=\"88.9\"/><line x1=\"81.4\" y1=\"94.8\" x2=\"82.9\" y2=\"99.4\"/><line x1=\"66.6\" y1=\"94.8\" x2=\"65.1\" y2=\"99.4\"/><line x1=\"54.6\" y1=\"86.1\" x2=\"50.7\" y2=\"88.9\"/><line x1=\"50.0\" y1=\"72.0\" x2=\"45.2\" y2=\"72.0\"/><line x1=\"54.6\" y1=\"57.9\" x2=\"50.7\" y2=\"55.1\"/><line x1=\"66.6\" y1=\"49.2\" x2=\"65.1\" y2=\"44.6\"/><line x1=\"81.4\" y1=\"49.2\" x2=\"82.9\" y2=\"44.6\"/><line x1=\"93.4\" y1=\"57.9\" x2=\"97.3\" y2=\"55.1\"/><circle cx=\"74\" cy=\"72\" r=\"24\"/></g><text class=\"big\" x=\"74\" y=\"76\">A</text><g class=\"ln\"><line x1=\"204.0\" y1=\"72.0\" x2=\"212.8\" y2=\"72.0\"/><line x1=\"202.7\" y1=\"82.5\" x2=\"211.3\" y2=\"84.6\"/><line x1=\"199.0\" y1=\"92.4\" x2=\"206.8\" y2=\"96.5\"/><line x1=\"192.9\" y1=\"101.2\" x2=\"199.5\" y2=\"107.0\"/><line x1=\"185.0\" y1=\"108.2\" x2=\"190.0\" y2=\"115.5\"/><line x1=\"175.6\" y1=\"113.1\" x2=\"178.7\" y2=\"121.4\"/><line x1=\"165.3\" y1=\"115.7\" x2=\"166.4\" y2=\"124.4\"/><line x1=\"154.7\" y1=\"115.7\" x2=\"153.6\" y2=\"124.4\"/><line x1=\"144.4\" y1=\"113.1\" x2=\"141.3\" y2=\"121.4\"/><line x1=\"135.0\" y1=\"108.2\" x2=\"130.0\" y2=\"115.5\"/><line x1=\"127.1\" y1=\"101.2\" x2=\"120.5\" y2=\"107.0\"/><line x1=\"121.0\" y1=\"92.4\" x2=\"113.2\" y2=\"96.5\"/><line x1=\"117.3\" y1=\"82.5\" x2=\"108.7\" y2=\"84.6\"/><line x1=\"116.0\" y1=\"72.0\" x2=\"107.2\" y2=\"72.0\"/><line x1=\"117.3\" y1=\"61.5\" x2=\"108.7\" y2=\"59.4\"/><line x1=\"121.0\" y1=\"51.6\" x2=\"113.2\" y2=\"47.5\"/><line x1=\"127.1\" y1=\"42.8\" x2=\"120.5\" y2=\"37.0\"/><line x1=\"135.0\" y1=\"35.8\" x2=\"130.0\" y2=\"28.5\"/><line x1=\"144.4\" y1=\"30.9\" x2=\"141.3\" y2=\"22.6\"/><line x1=\"154.7\" y1=\"28.3\" x2=\"153.6\" y2=\"19.6\"/><line x1=\"165.3\" y1=\"28.3\" x2=\"166.4\" y2=\"19.6\"/><line x1=\"175.6\" y1=\"30.9\" x2=\"178.7\" y2=\"22.6\"/><line x1=\"185.0\" y1=\"35.8\" x2=\"190.0\" y2=\"28.5\"/><line x1=\"192.9\" y1=\"42.8\" x2=\"199.5\" y2=\"37.0\"/><line x1=\"199.0\" y1=\"51.6\" x2=\"206.8\" y2=\"47.5\"/><line x1=\"202.7\" y1=\"61.5\" x2=\"211.3\" y2=\"59.4\"/><circle cx=\"160\" cy=\"72\" r=\"44\"/></g><text class=\"big\" x=\"160\" y=\"76\">B</text><text x=\"74\" y=\"124\">10 teeth</text><text x=\"160\" y=\"132\">30 teeth</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Slower than gear A",
+    "Faster than gear A",
+    "At the same speed as gear A"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "The larger gear needs three of A's turns to complete one of its own, so it turns a third as fast. Bigger gear, slower speed.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-038",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Gear A turns clockwise. Which way does gear C turn?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><g class=\"ln\"><line x1=\"81.0\" y1=\"78.0\" x2=\"86.0\" y2=\"78.0\"/><line x1=\"77.7\" y1=\"90.5\" x2=\"82.0\" y2=\"93.0\"/><line x1=\"68.5\" y1=\"99.7\" x2=\"71.0\" y2=\"104.0\"/><line x1=\"56.0\" y1=\"103.0\" x2=\"56.0\" y2=\"108.0\"/><line x1=\"43.5\" y1=\"99.7\" x2=\"41.0\" y2=\"104.0\"/><line x1=\"34.3\" y1=\"90.5\" x2=\"30.0\" y2=\"93.0\"/><line x1=\"31.0\" y1=\"78.0\" x2=\"26.0\" y2=\"78.0\"/><line x1=\"34.3\" y1=\"65.5\" x2=\"30.0\" y2=\"63.0\"/><line x1=\"43.5\" y1=\"56.3\" x2=\"41.0\" y2=\"52.0\"/><line x1=\"56.0\" y1=\"53.0\" x2=\"56.0\" y2=\"48.0\"/><line x1=\"68.5\" y1=\"56.3\" x2=\"71.0\" y2=\"52.0\"/><line x1=\"77.7\" y1=\"65.5\" x2=\"82.0\" y2=\"63.0\"/><circle cx=\"56\" cy=\"78\" r=\"25\"/></g><text class=\"big\" x=\"56\" y=\"82\">A</text><g class=\"ln\"><line x1=\"143.0\" y1=\"78.0\" x2=\"148.0\" y2=\"78.0\"/><line x1=\"139.7\" y1=\"90.5\" x2=\"144.0\" y2=\"93.0\"/><line x1=\"130.5\" y1=\"99.7\" x2=\"133.0\" y2=\"104.0\"/><line x1=\"118.0\" y1=\"103.0\" x2=\"118.0\" y2=\"108.0\"/><line x1=\"105.5\" y1=\"99.7\" x2=\"103.0\" y2=\"104.0\"/><line x1=\"96.3\" y1=\"90.5\" x2=\"92.0\" y2=\"93.0\"/><line x1=\"93.0\" y1=\"78.0\" x2=\"88.0\" y2=\"78.0\"/><line x1=\"96.3\" y1=\"65.5\" x2=\"92.0\" y2=\"63.0\"/><line x1=\"105.5\" y1=\"56.3\" x2=\"103.0\" y2=\"52.0\"/><line x1=\"118.0\" y1=\"53.0\" x2=\"118.0\" y2=\"48.0\"/><line x1=\"130.5\" y1=\"56.3\" x2=\"133.0\" y2=\"52.0\"/><line x1=\"139.7\" y1=\"65.5\" x2=\"144.0\" y2=\"63.0\"/><circle cx=\"118\" cy=\"78\" r=\"25\"/></g><text class=\"big\" x=\"118\" y=\"82\">B</text><g class=\"ln\"><line x1=\"205.0\" y1=\"78.0\" x2=\"210.0\" y2=\"78.0\"/><line x1=\"201.7\" y1=\"90.5\" x2=\"206.0\" y2=\"93.0\"/><line x1=\"192.5\" y1=\"99.7\" x2=\"195.0\" y2=\"104.0\"/><line x1=\"180.0\" y1=\"103.0\" x2=\"180.0\" y2=\"108.0\"/><line x1=\"167.5\" y1=\"99.7\" x2=\"165.0\" y2=\"104.0\"/><line x1=\"158.3\" y1=\"90.5\" x2=\"154.0\" y2=\"93.0\"/><line x1=\"155.0\" y1=\"78.0\" x2=\"150.0\" y2=\"78.0\"/><line x1=\"158.3\" y1=\"65.5\" x2=\"154.0\" y2=\"63.0\"/><line x1=\"167.5\" y1=\"56.3\" x2=\"165.0\" y2=\"52.0\"/><line x1=\"180.0\" y1=\"53.0\" x2=\"180.0\" y2=\"48.0\"/><line x1=\"192.5\" y1=\"56.3\" x2=\"195.0\" y2=\"52.0\"/><line x1=\"201.7\" y1=\"65.5\" x2=\"206.0\" y2=\"63.0\"/><circle cx=\"180\" cy=\"78\" r=\"25\"/></g><text class=\"big\" x=\"180\" y=\"82\">C</text><path class=\"acc\" d=\"M40.0 72.2 A 17 17 0 0 1 72.0 72.2\"/><polygon class=\"accf\" points=\"74.4,78.8 66.1,68.3 74.0,65.5\"/></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Clockwise",
+    "Counterclockwise",
+    "It will not turn"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Each mesh reverses direction. A clockwise makes B counterclockwise, which makes C clockwise again. Odd-numbered gears match the first.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-039",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Pulley A drives pulley B through an ordinary uncrossed belt. Pulley A turns clockwise. Which way does B turn?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><circle class=\"ln\" cx=\"82\" cy=\"74\" r=\"30\"/><circle class=\"solid\" cx=\"82\" cy=\"74\" r=\"3\"/><circle class=\"ln\" cx=\"216\" cy=\"74\" r=\"30\"/><circle class=\"solid\" cx=\"216\" cy=\"74\" r=\"3\"/><line class=\"ln\" x1=\"82\" y1=\"44\" x2=\"216\" y2=\"44\"/><line class=\"ln\" x1=\"82\" y1=\"104\" x2=\"216\" y2=\"104\"/><path class=\"acc\" d=\"M65.1 67.8 A 18 18 0 0 1 98.9 67.8\"/><polygon class=\"accf\" points=\"101.3,74.4 93.1,64.0 100.9,61.1\"/><text x=\"82\" y=\"128\">A</text><text x=\"216\" y=\"128\">B</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "It will not turn",
+    "Counterclockwise",
+    "Clockwise"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "A straight belt carries motion without reversing it, so both pulleys turn the same way.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-040",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "The same two pulleys are now connected by a crossed belt. Pulley A turns clockwise. Which way does B turn?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><circle class=\"ln\" cx=\"82\" cy=\"74\" r=\"30\"/><circle class=\"solid\" cx=\"82\" cy=\"74\" r=\"3\"/><circle class=\"ln\" cx=\"216\" cy=\"74\" r=\"30\"/><circle class=\"solid\" cx=\"216\" cy=\"74\" r=\"3\"/><line class=\"ln\" x1=\"82\" y1=\"44\" x2=\"216\" y2=\"104\"/><line class=\"ln\" x1=\"82\" y1=\"104\" x2=\"216\" y2=\"44\"/><path class=\"acc\" d=\"M65.1 67.8 A 18 18 0 0 1 98.9 67.8\"/><polygon class=\"accf\" points=\"101.3,74.4 93.1,64.0 100.9,61.1\"/><text x=\"82\" y=\"128\">A</text><text x=\"216\" y=\"128\">B</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Clockwise",
+    "Counterclockwise",
+    "It will not turn"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Crossing the belt swaps which side of each pulley the belt pulls on, so the driven pulley turns the opposite way.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-041",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "A large pulley drives a small pulley by a belt. The small pulley turns:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><circle class=\"ln\" cx=\"74\" cy=\"76\" r=\"42\"/><circle class=\"solid\" cx=\"74\" cy=\"76\" r=\"3\"/><circle class=\"ln\" cx=\"228\" cy=\"76\" r=\"20\"/><circle class=\"solid\" cx=\"228\" cy=\"76\" r=\"3\"/><line class=\"ln\" x1=\"74\" y1=\"34\" x2=\"228\" y2=\"56\"/><line class=\"ln\" x1=\"74\" y1=\"118\" x2=\"228\" y2=\"96\"/><path class=\"acc\" d=\"M51.4 67.8 A 24 24 0 0 1 96.6 67.8\"/><polygon class=\"accf\" points=\"98.9,74.4 90.7,64.0 98.6,61.1\"/><text x=\"74\" y=\"140\">driver</text><text x=\"228\" y=\"128\">driven</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Faster than the driver",
+    "Slower than the driver",
+    "At the same speed as the driver"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "The belt moves at one speed, and the small pulley has less distance around it, so it must spin more times to keep up.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-042",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "A 100 lb load hangs from a single fixed pulley bolted to the ceiling. About how much force is needed to lift it?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"60\" y1=\"14\" x2=\"260\" y2=\"14\"/><g class=\"ln\"><line x1=\"60\" y1=\"14\" x2=\"54\" y2=\"8\"/><line x1=\"68\" y1=\"14\" x2=\"62\" y2=\"8\"/><line x1=\"76\" y1=\"14\" x2=\"70\" y2=\"8\"/><line x1=\"84\" y1=\"14\" x2=\"78\" y2=\"8\"/><line x1=\"92\" y1=\"14\" x2=\"86\" y2=\"8\"/><line x1=\"100\" y1=\"14\" x2=\"94\" y2=\"8\"/><line x1=\"108\" y1=\"14\" x2=\"102\" y2=\"8\"/><line x1=\"116\" y1=\"14\" x2=\"110\" y2=\"8\"/><line x1=\"124\" y1=\"14\" x2=\"118\" y2=\"8\"/><line x1=\"132\" y1=\"14\" x2=\"126\" y2=\"8\"/><line x1=\"140\" y1=\"14\" x2=\"134\" y2=\"8\"/><line x1=\"148\" y1=\"14\" x2=\"142\" y2=\"8\"/><line x1=\"156\" y1=\"14\" x2=\"150\" y2=\"8\"/><line x1=\"164\" y1=\"14\" x2=\"158\" y2=\"8\"/><line x1=\"172\" y1=\"14\" x2=\"166\" y2=\"8\"/><line x1=\"180\" y1=\"14\" x2=\"174\" y2=\"8\"/><line x1=\"188\" y1=\"14\" x2=\"182\" y2=\"8\"/><line x1=\"196\" y1=\"14\" x2=\"190\" y2=\"8\"/><line x1=\"204\" y1=\"14\" x2=\"198\" y2=\"8\"/><line x1=\"212\" y1=\"14\" x2=\"206\" y2=\"8\"/><line x1=\"220\" y1=\"14\" x2=\"214\" y2=\"8\"/><line x1=\"228\" y1=\"14\" x2=\"222\" y2=\"8\"/><line x1=\"236\" y1=\"14\" x2=\"230\" y2=\"8\"/><line x1=\"244\" y1=\"14\" x2=\"238\" y2=\"8\"/><line x1=\"252\" y1=\"14\" x2=\"246\" y2=\"8\"/></g><line class=\"ln\" x1=\"160\" y1=\"14\" x2=\"160\" y2=\"26\"/><circle class=\"ln\" cx=\"160\" cy=\"44\" r=\"18\"/><circle class=\"solid\" cx=\"160\" cy=\"44\" r=\"3\"/><line class=\"ln\" x1=\"142\" y1=\"44\" x2=\"142\" y2=\"96\"/><rect class=\"grey\" x=\"122\" y=\"96\" width=\"40\" height=\"26\"/><text x=\"142\" y=\"113\">100 lb</text><line class=\"ln\" x1=\"178\" y1=\"44\" x2=\"178\" y2=\"104\"/><line class=\"acc\" x1=\"178\" y1=\"108\" x2=\"178\" y2=\"130\"/><polygon class=\"accf\" points=\"178,130 180.9,123.6 175.1,123.6\"/><text x=\"212\" y=\"124\">pull</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "About 100 lb",
+    "About 50 lb",
+    "About 200 lb"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "A fixed pulley only changes the direction of your pull. It gives no mechanical advantage, so you still pull the full 100 lb.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-043",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "The same 100 lb load now hangs from a movable pulley. About how much force is needed to lift it?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"60\" y1=\"14\" x2=\"260\" y2=\"14\"/><g class=\"ln\"><line x1=\"60\" y1=\"14\" x2=\"54\" y2=\"8\"/><line x1=\"68\" y1=\"14\" x2=\"62\" y2=\"8\"/><line x1=\"76\" y1=\"14\" x2=\"70\" y2=\"8\"/><line x1=\"84\" y1=\"14\" x2=\"78\" y2=\"8\"/><line x1=\"92\" y1=\"14\" x2=\"86\" y2=\"8\"/><line x1=\"100\" y1=\"14\" x2=\"94\" y2=\"8\"/><line x1=\"108\" y1=\"14\" x2=\"102\" y2=\"8\"/><line x1=\"116\" y1=\"14\" x2=\"110\" y2=\"8\"/><line x1=\"124\" y1=\"14\" x2=\"118\" y2=\"8\"/><line x1=\"132\" y1=\"14\" x2=\"126\" y2=\"8\"/><line x1=\"140\" y1=\"14\" x2=\"134\" y2=\"8\"/><line x1=\"148\" y1=\"14\" x2=\"142\" y2=\"8\"/><line x1=\"156\" y1=\"14\" x2=\"150\" y2=\"8\"/><line x1=\"164\" y1=\"14\" x2=\"158\" y2=\"8\"/><line x1=\"172\" y1=\"14\" x2=\"166\" y2=\"8\"/><line x1=\"180\" y1=\"14\" x2=\"174\" y2=\"8\"/><line x1=\"188\" y1=\"14\" x2=\"182\" y2=\"8\"/><line x1=\"196\" y1=\"14\" x2=\"190\" y2=\"8\"/><line x1=\"204\" y1=\"14\" x2=\"198\" y2=\"8\"/><line x1=\"212\" y1=\"14\" x2=\"206\" y2=\"8\"/><line x1=\"220\" y1=\"14\" x2=\"214\" y2=\"8\"/><line x1=\"228\" y1=\"14\" x2=\"222\" y2=\"8\"/><line x1=\"236\" y1=\"14\" x2=\"230\" y2=\"8\"/><line x1=\"244\" y1=\"14\" x2=\"238\" y2=\"8\"/><line x1=\"252\" y1=\"14\" x2=\"246\" y2=\"8\"/></g><line class=\"ln\" x1=\"112\" y1=\"14\" x2=\"112\" y2=\"78\"/><circle class=\"ln\" cx=\"140\" cy=\"78\" r=\"20\"/><circle class=\"solid\" cx=\"140\" cy=\"78\" r=\"3\"/><line class=\"ln\" x1=\"168\" y1=\"78\" x2=\"168\" y2=\"20\"/><line class=\"acc\" x1=\"200\" y1=\"40\" x2=\"200\" y2=\"18\"/><polygon class=\"accf\" points=\"200,18 197.1,24.4 202.9,24.4\"/><text x=\"228\" y=\"36\">pull</text><line class=\"ln\" x1=\"140\" y1=\"98\" x2=\"140\" y2=\"108\"/><rect class=\"grey\" x=\"120\" y=\"108\" width=\"40\" height=\"26\"/><text x=\"140\" y=\"125\">100 lb</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "About 200 lb",
+    "About 100 lb",
+    "About 50 lb"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Two rope sections support the load, so each carries half the weight and you pull about 50 lb — but you pull twice as much rope.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-044",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "A block and tackle has four rope sections supporting the load. About how much force lifts the 200 lb load?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"60\" y1=\"12\" x2=\"260\" y2=\"12\"/><g class=\"ln\"><line x1=\"60\" y1=\"12\" x2=\"54\" y2=\"6\"/><line x1=\"68\" y1=\"12\" x2=\"62\" y2=\"6\"/><line x1=\"76\" y1=\"12\" x2=\"70\" y2=\"6\"/><line x1=\"84\" y1=\"12\" x2=\"78\" y2=\"6\"/><line x1=\"92\" y1=\"12\" x2=\"86\" y2=\"6\"/><line x1=\"100\" y1=\"12\" x2=\"94\" y2=\"6\"/><line x1=\"108\" y1=\"12\" x2=\"102\" y2=\"6\"/><line x1=\"116\" y1=\"12\" x2=\"110\" y2=\"6\"/><line x1=\"124\" y1=\"12\" x2=\"118\" y2=\"6\"/><line x1=\"132\" y1=\"12\" x2=\"126\" y2=\"6\"/><line x1=\"140\" y1=\"12\" x2=\"134\" y2=\"6\"/><line x1=\"148\" y1=\"12\" x2=\"142\" y2=\"6\"/><line x1=\"156\" y1=\"12\" x2=\"150\" y2=\"6\"/><line x1=\"164\" y1=\"12\" x2=\"158\" y2=\"6\"/><line x1=\"172\" y1=\"12\" x2=\"166\" y2=\"6\"/><line x1=\"180\" y1=\"12\" x2=\"174\" y2=\"6\"/><line x1=\"188\" y1=\"12\" x2=\"182\" y2=\"6\"/><line x1=\"196\" y1=\"12\" x2=\"190\" y2=\"6\"/><line x1=\"204\" y1=\"12\" x2=\"198\" y2=\"6\"/><line x1=\"212\" y1=\"12\" x2=\"206\" y2=\"6\"/><line x1=\"220\" y1=\"12\" x2=\"214\" y2=\"6\"/><line x1=\"228\" y1=\"12\" x2=\"222\" y2=\"6\"/><line x1=\"236\" y1=\"12\" x2=\"230\" y2=\"6\"/><line x1=\"244\" y1=\"12\" x2=\"238\" y2=\"6\"/><line x1=\"252\" y1=\"12\" x2=\"246\" y2=\"6\"/></g><rect class=\"ln\" x=\"112\" y=\"20\" width=\"72\" height=\"14\"/><rect class=\"ln\" x=\"112\" y=\"88\" width=\"72\" height=\"14\"/><line class=\"ln\" x1=\"126\" y1=\"34\" x2=\"126\" y2=\"88\"/><line class=\"ln\" x1=\"146\" y1=\"34\" x2=\"146\" y2=\"88\"/><line class=\"ln\" x1=\"166\" y1=\"34\" x2=\"166\" y2=\"88\"/><line class=\"ln\" x1=\"184\" y1=\"34\" x2=\"184\" y2=\"88\"/><line class=\"ln\" x1=\"184\" y1=\"34\" x2=\"216\" y2=\"34\"/><line class=\"acc\" x1=\"216\" y1=\"38\" x2=\"216\" y2=\"66\"/><polygon class=\"accf\" points=\"216,66 218.9,59.6 213.1,59.6\"/><text x=\"248\" y=\"58\">pull</text><line class=\"ln\" x1=\"148\" y1=\"102\" x2=\"148\" y2=\"110\"/><rect class=\"grey\" x=\"126\" y=\"110\" width=\"44\" height=\"26\"/><text x=\"148\" y=\"127\">200 lb</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "About 100 lb",
+    "About 50 lb",
+    "About 200 lb"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Count the rope sections holding the load. Four sections share 200 lb, so each carries 50 lb and that is what you pull.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-045",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Both ropes are pulled in at the same speed. Which system raises its box faster?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"24\" y1=\"12\" x2=\"150\" y2=\"12\"/><g class=\"ln\"><line x1=\"24\" y1=\"12\" x2=\"18\" y2=\"6\"/><line x1=\"32\" y1=\"12\" x2=\"26\" y2=\"6\"/><line x1=\"40\" y1=\"12\" x2=\"34\" y2=\"6\"/><line x1=\"48\" y1=\"12\" x2=\"42\" y2=\"6\"/><line x1=\"56\" y1=\"12\" x2=\"50\" y2=\"6\"/><line x1=\"64\" y1=\"12\" x2=\"58\" y2=\"6\"/><line x1=\"72\" y1=\"12\" x2=\"66\" y2=\"6\"/><line x1=\"80\" y1=\"12\" x2=\"74\" y2=\"6\"/><line x1=\"88\" y1=\"12\" x2=\"82\" y2=\"6\"/><line x1=\"96\" y1=\"12\" x2=\"90\" y2=\"6\"/><line x1=\"104\" y1=\"12\" x2=\"98\" y2=\"6\"/><line x1=\"112\" y1=\"12\" x2=\"106\" y2=\"6\"/><line x1=\"120\" y1=\"12\" x2=\"114\" y2=\"6\"/><line x1=\"128\" y1=\"12\" x2=\"122\" y2=\"6\"/><line x1=\"136\" y1=\"12\" x2=\"130\" y2=\"6\"/><line x1=\"144\" y1=\"12\" x2=\"138\" y2=\"6\"/></g><line class=\"ln\" x1=\"86\" y1=\"12\" x2=\"86\" y2=\"24\"/><circle class=\"ln\" cx=\"86\" cy=\"40\" r=\"16\"/><circle class=\"solid\" cx=\"86\" cy=\"40\" r=\"3\"/><line class=\"ln\" x1=\"70\" y1=\"40\" x2=\"70\" y2=\"86\"/><rect class=\"grey\" x=\"52\" y=\"86\" width=\"36\" height=\"22\"/><text x=\"70\" y=\"101\">box</text><line class=\"ln\" x1=\"102\" y1=\"40\" x2=\"102\" y2=\"100\"/><line class=\"acc\" x1=\"102\" y1=\"104\" x2=\"102\" y2=\"124\"/><polygon class=\"accf\" points=\"102,124 104.9,117.6 99.1,117.6\"/><text x=\"86\" y=\"142\">A</text><line class=\"ln\" x1=\"178\" y1=\"12\" x2=\"300\" y2=\"12\"/><g class=\"ln\"><line x1=\"178\" y1=\"12\" x2=\"172\" y2=\"6\"/><line x1=\"186\" y1=\"12\" x2=\"180\" y2=\"6\"/><line x1=\"194\" y1=\"12\" x2=\"188\" y2=\"6\"/><line x1=\"202\" y1=\"12\" x2=\"196\" y2=\"6\"/><line x1=\"210\" y1=\"12\" x2=\"204\" y2=\"6\"/><line x1=\"218\" y1=\"12\" x2=\"212\" y2=\"6\"/><line x1=\"226\" y1=\"12\" x2=\"220\" y2=\"6\"/><line x1=\"234\" y1=\"12\" x2=\"228\" y2=\"6\"/><line x1=\"242\" y1=\"12\" x2=\"236\" y2=\"6\"/><line x1=\"250\" y1=\"12\" x2=\"244\" y2=\"6\"/><line x1=\"258\" y1=\"12\" x2=\"252\" y2=\"6\"/><line x1=\"266\" y1=\"12\" x2=\"260\" y2=\"6\"/><line x1=\"274\" y1=\"12\" x2=\"268\" y2=\"6\"/><line x1=\"282\" y1=\"12\" x2=\"276\" y2=\"6\"/><line x1=\"290\" y1=\"12\" x2=\"284\" y2=\"6\"/><line x1=\"298\" y1=\"12\" x2=\"292\" y2=\"6\"/></g><line class=\"ln\" x1=\"206\" y1=\"12\" x2=\"206\" y2=\"64\"/><circle class=\"ln\" cx=\"232\" cy=\"64\" r=\"16\"/><circle class=\"solid\" cx=\"232\" cy=\"64\" r=\"3\"/><line class=\"ln\" x1=\"258\" y1=\"64\" x2=\"258\" y2=\"18\"/><line class=\"acc\" x1=\"282\" y1=\"42\" x2=\"282\" y2=\"20\"/><polygon class=\"accf\" points=\"282,20 279.1,26.4 284.9,26.4\"/><line class=\"ln\" x1=\"232\" y1=\"80\" x2=\"232\" y2=\"88\"/><rect class=\"grey\" x=\"214\" y=\"88\" width=\"36\" height=\"22\"/><text x=\"232\" y=\"103\">box</text><text x=\"238\" y=\"142\">B</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Both rise at the same speed",
+    "System B",
+    "System A"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "In A the box rises as fast as the rope moves. In B the rope splits between two sections, so the box rises only half as fast — the trade for the easier pull.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-046",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "A 60 lb weight sits 3 ft from the fulcrum. What weight 2 ft out on the other side will balance the bar?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><polygon class=\"ln\" points=\"160,104 146,128 174,128\"/><line class=\"ln\" x1=\"36\" y1=\"104\" x2=\"284\" y2=\"104\"/><line class=\"thin\" x1=\"70\" y1=\"104\" x2=\"70\" y2=\"46\"/><line class=\"thin\" x1=\"160\" y1=\"104\" x2=\"160\" y2=\"46\"/><line class=\"thin\" x1=\"216\" y1=\"104\" x2=\"216\" y2=\"46\"/><line class=\"ln\" x1=\"70\" y1=\"52\" x2=\"160\" y2=\"52\"/><line class=\"ln\" x1=\"160\" y1=\"52\" x2=\"216\" y2=\"52\"/><text x=\"115\" y=\"44\">3 ft</text><text x=\"188\" y=\"44\">2 ft</text><rect class=\"grey\" x=\"50\" y=\"66\" width=\"40\" height=\"24\"/><text x=\"70\" y=\"82\">60 lb</text><rect class=\"grey\" x=\"196\" y=\"66\" width=\"40\" height=\"24\"/><text class=\"big\" x=\"216\" y=\"83\">?</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "40 lb",
+    "90 lb",
+    "120 lb"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Weight times distance must match on both sides. 60 × 3 = 180, and 180 ÷ 2 = 90 lb.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-047",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "You are prying up the load with a bar. Which fulcrum position makes the lift easiest?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"20\" y1=\"126\" x2=\"300\" y2=\"126\"/><g class=\"ln\"><line x1=\"20\" y1=\"126\" x2=\"14\" y2=\"132\"/><line x1=\"28\" y1=\"126\" x2=\"22\" y2=\"132\"/><line x1=\"36\" y1=\"126\" x2=\"30\" y2=\"132\"/><line x1=\"44\" y1=\"126\" x2=\"38\" y2=\"132\"/><line x1=\"52\" y1=\"126\" x2=\"46\" y2=\"132\"/><line x1=\"60\" y1=\"126\" x2=\"54\" y2=\"132\"/><line x1=\"68\" y1=\"126\" x2=\"62\" y2=\"132\"/><line x1=\"76\" y1=\"126\" x2=\"70\" y2=\"132\"/><line x1=\"84\" y1=\"126\" x2=\"78\" y2=\"132\"/><line x1=\"92\" y1=\"126\" x2=\"86\" y2=\"132\"/><line x1=\"100\" y1=\"126\" x2=\"94\" y2=\"132\"/><line x1=\"108\" y1=\"126\" x2=\"102\" y2=\"132\"/><line x1=\"116\" y1=\"126\" x2=\"110\" y2=\"132\"/><line x1=\"124\" y1=\"126\" x2=\"118\" y2=\"132\"/><line x1=\"132\" y1=\"126\" x2=\"126\" y2=\"132\"/><line x1=\"140\" y1=\"126\" x2=\"134\" y2=\"132\"/><line x1=\"148\" y1=\"126\" x2=\"142\" y2=\"132\"/><line x1=\"156\" y1=\"126\" x2=\"150\" y2=\"132\"/><line x1=\"164\" y1=\"126\" x2=\"158\" y2=\"132\"/><line x1=\"172\" y1=\"126\" x2=\"166\" y2=\"132\"/><line x1=\"180\" y1=\"126\" x2=\"174\" y2=\"132\"/><line x1=\"188\" y1=\"126\" x2=\"182\" y2=\"132\"/><line x1=\"196\" y1=\"126\" x2=\"190\" y2=\"132\"/><line x1=\"204\" y1=\"126\" x2=\"198\" y2=\"132\"/><line x1=\"212\" y1=\"126\" x2=\"206\" y2=\"132\"/><line x1=\"220\" y1=\"126\" x2=\"214\" y2=\"132\"/><line x1=\"228\" y1=\"126\" x2=\"222\" y2=\"132\"/><line x1=\"236\" y1=\"126\" x2=\"230\" y2=\"132\"/><line x1=\"244\" y1=\"126\" x2=\"238\" y2=\"132\"/><line x1=\"252\" y1=\"126\" x2=\"246\" y2=\"132\"/><line x1=\"260\" y1=\"126\" x2=\"254\" y2=\"132\"/><line x1=\"268\" y1=\"126\" x2=\"262\" y2=\"132\"/><line x1=\"276\" y1=\"126\" x2=\"270\" y2=\"132\"/><line x1=\"284\" y1=\"126\" x2=\"278\" y2=\"132\"/><line x1=\"292\" y1=\"126\" x2=\"286\" y2=\"132\"/></g><rect class=\"grey\" x=\"36\" y=\"86\" width=\"54\" height=\"40\"/><text x=\"63\" y=\"110\">load</text><line class=\"ln\" x1=\"30\" y1=\"96\" x2=\"272\" y2=\"52\"/><polygon class=\"ln\" points=\"104,104 92,126 116,126\"/><text x=\"104\" y=\"140\">A</text><polygon class=\"thin\" points=\"210,84 198,126 222,126\"/><text x=\"210\" y=\"140\">B</text><line class=\"acc\" x1=\"268\" y1=\"44\" x2=\"268\" y2=\"22\"/><polygon class=\"accf\" points=\"268,22 265.1,28.4 270.9,28.4\"/></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Position B, close to your hands",
+    "Position A, close to the load",
+    "Neither; the effort is the same"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "The closer the fulcrum sits to the load, the longer the effort arm and the greater the advantage. Put the fulcrum near what you are lifting.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-048",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "The load in the wheelbarrow is shifted forward, closer to the wheel. Lifting the handles becomes:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"16\" y1=\"124\" x2=\"304\" y2=\"124\"/><g class=\"ln\"><line x1=\"16\" y1=\"124\" x2=\"10\" y2=\"130\"/><line x1=\"24\" y1=\"124\" x2=\"18\" y2=\"130\"/><line x1=\"32\" y1=\"124\" x2=\"26\" y2=\"130\"/><line x1=\"40\" y1=\"124\" x2=\"34\" y2=\"130\"/><line x1=\"48\" y1=\"124\" x2=\"42\" y2=\"130\"/><line x1=\"56\" y1=\"124\" x2=\"50\" y2=\"130\"/><line x1=\"64\" y1=\"124\" x2=\"58\" y2=\"130\"/><line x1=\"72\" y1=\"124\" x2=\"66\" y2=\"130\"/><line x1=\"80\" y1=\"124\" x2=\"74\" y2=\"130\"/><line x1=\"88\" y1=\"124\" x2=\"82\" y2=\"130\"/><line x1=\"96\" y1=\"124\" x2=\"90\" y2=\"130\"/><line x1=\"104\" y1=\"124\" x2=\"98\" y2=\"130\"/><line x1=\"112\" y1=\"124\" x2=\"106\" y2=\"130\"/><line x1=\"120\" y1=\"124\" x2=\"114\" y2=\"130\"/><line x1=\"128\" y1=\"124\" x2=\"122\" y2=\"130\"/><line x1=\"136\" y1=\"124\" x2=\"130\" y2=\"130\"/><line x1=\"144\" y1=\"124\" x2=\"138\" y2=\"130\"/><line x1=\"152\" y1=\"124\" x2=\"146\" y2=\"130\"/><line x1=\"160\" y1=\"124\" x2=\"154\" y2=\"130\"/><line x1=\"168\" y1=\"124\" x2=\"162\" y2=\"130\"/><line x1=\"176\" y1=\"124\" x2=\"170\" y2=\"130\"/><line x1=\"184\" y1=\"124\" x2=\"178\" y2=\"130\"/><line x1=\"192\" y1=\"124\" x2=\"186\" y2=\"130\"/><line x1=\"200\" y1=\"124\" x2=\"194\" y2=\"130\"/><line x1=\"208\" y1=\"124\" x2=\"202\" y2=\"130\"/><line x1=\"216\" y1=\"124\" x2=\"210\" y2=\"130\"/><line x1=\"224\" y1=\"124\" x2=\"218\" y2=\"130\"/><line x1=\"232\" y1=\"124\" x2=\"226\" y2=\"130\"/><line x1=\"240\" y1=\"124\" x2=\"234\" y2=\"130\"/><line x1=\"248\" y1=\"124\" x2=\"242\" y2=\"130\"/><line x1=\"256\" y1=\"124\" x2=\"250\" y2=\"130\"/><line x1=\"264\" y1=\"124\" x2=\"258\" y2=\"130\"/><line x1=\"272\" y1=\"124\" x2=\"266\" y2=\"130\"/><line x1=\"280\" y1=\"124\" x2=\"274\" y2=\"130\"/><line x1=\"288\" y1=\"124\" x2=\"282\" y2=\"130\"/><line x1=\"296\" y1=\"124\" x2=\"290\" y2=\"130\"/></g><circle class=\"ln\" cx=\"62\" cy=\"106\" r=\"18\"/><circle class=\"solid\" cx=\"62\" cy=\"106\" r=\"3\"/><line class=\"ln\" x1=\"62\" y1=\"88\" x2=\"252\" y2=\"56\"/><line class=\"ln\" x1=\"80\" y1=\"72\" x2=\"200\" y2=\"60\"/><line class=\"ln\" x1=\"80\" y1=\"72\" x2=\"80\" y2=\"92\"/><rect class=\"grey\" x=\"96\" y=\"48\" width=\"46\" height=\"26\"/><text x=\"119\" y=\"66\">load</text><line class=\"acc\" x1=\"180\" y1=\"40\" x2=\"120\" y2=\"50\"/><polygon class=\"accf\" points=\"120,50 126.8,51.8 125.8,46.1\"/><text x=\"252\" y=\"44\">lift</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Harder",
+    "Easier",
+    "Exactly the same"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "The wheel is the fulcrum. Moving the load toward it shortens the load's arm, so less effort is needed at the handles.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-049",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Two workers carry a plank with a load resting nearer worker A. Who carries more of the weight?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"40\" y1=\"60\" x2=\"280\" y2=\"60\"/><line class=\"ln\" x1=\"64\" y1=\"60\" x2=\"64\" y2=\"120\"/><circle class=\"ln\" cx=\"64\" cy=\"48\" r=\"11\"/><text x=\"64\" y=\"138\">A</text><line class=\"ln\" x1=\"256\" y1=\"60\" x2=\"256\" y2=\"120\"/><circle class=\"ln\" cx=\"256\" cy=\"48\" r=\"11\"/><text x=\"256\" y=\"138\">B</text><rect class=\"grey\" x=\"104\" y=\"24\" width=\"52\" height=\"30\"/><text x=\"130\" y=\"43\">load</text><line class=\"ln\" x1=\"20\" y1=\"124\" x2=\"300\" y2=\"124\"/><g class=\"ln\"><line x1=\"20\" y1=\"124\" x2=\"14\" y2=\"130\"/><line x1=\"28\" y1=\"124\" x2=\"22\" y2=\"130\"/><line x1=\"36\" y1=\"124\" x2=\"30\" y2=\"130\"/><line x1=\"44\" y1=\"124\" x2=\"38\" y2=\"130\"/><line x1=\"52\" y1=\"124\" x2=\"46\" y2=\"130\"/><line x1=\"60\" y1=\"124\" x2=\"54\" y2=\"130\"/><line x1=\"68\" y1=\"124\" x2=\"62\" y2=\"130\"/><line x1=\"76\" y1=\"124\" x2=\"70\" y2=\"130\"/><line x1=\"84\" y1=\"124\" x2=\"78\" y2=\"130\"/><line x1=\"92\" y1=\"124\" x2=\"86\" y2=\"130\"/><line x1=\"100\" y1=\"124\" x2=\"94\" y2=\"130\"/><line x1=\"108\" y1=\"124\" x2=\"102\" y2=\"130\"/><line x1=\"116\" y1=\"124\" x2=\"110\" y2=\"130\"/><line x1=\"124\" y1=\"124\" x2=\"118\" y2=\"130\"/><line x1=\"132\" y1=\"124\" x2=\"126\" y2=\"130\"/><line x1=\"140\" y1=\"124\" x2=\"134\" y2=\"130\"/><line x1=\"148\" y1=\"124\" x2=\"142\" y2=\"130\"/><line x1=\"156\" y1=\"124\" x2=\"150\" y2=\"130\"/><line x1=\"164\" y1=\"124\" x2=\"158\" y2=\"130\"/><line x1=\"172\" y1=\"124\" x2=\"166\" y2=\"130\"/><line x1=\"180\" y1=\"124\" x2=\"174\" y2=\"130\"/><line x1=\"188\" y1=\"124\" x2=\"182\" y2=\"130\"/><line x1=\"196\" y1=\"124\" x2=\"190\" y2=\"130\"/><line x1=\"204\" y1=\"124\" x2=\"198\" y2=\"130\"/><line x1=\"212\" y1=\"124\" x2=\"206\" y2=\"130\"/><line x1=\"220\" y1=\"124\" x2=\"214\" y2=\"130\"/><line x1=\"228\" y1=\"124\" x2=\"222\" y2=\"130\"/><line x1=\"236\" y1=\"124\" x2=\"230\" y2=\"130\"/><line x1=\"244\" y1=\"124\" x2=\"238\" y2=\"130\"/><line x1=\"252\" y1=\"124\" x2=\"246\" y2=\"130\"/><line x1=\"260\" y1=\"124\" x2=\"254\" y2=\"130\"/><line x1=\"268\" y1=\"124\" x2=\"262\" y2=\"130\"/><line x1=\"276\" y1=\"124\" x2=\"270\" y2=\"130\"/><line x1=\"284\" y1=\"124\" x2=\"278\" y2=\"130\"/><line x1=\"292\" y1=\"124\" x2=\"286\" y2=\"130\"/></g></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "They carry the same amount",
+    "Worker B",
+    "Worker A"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "The nearer end of a carried load always takes the larger share. Move the load to the middle and they split it evenly.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-050",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Two ramps reach the same height. Which takes less force to push a heavy barrel up?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"14\" y1=\"120\" x2=\"306\" y2=\"120\"/><g class=\"ln\"><line x1=\"14\" y1=\"120\" x2=\"8\" y2=\"126\"/><line x1=\"22\" y1=\"120\" x2=\"16\" y2=\"126\"/><line x1=\"30\" y1=\"120\" x2=\"24\" y2=\"126\"/><line x1=\"38\" y1=\"120\" x2=\"32\" y2=\"126\"/><line x1=\"46\" y1=\"120\" x2=\"40\" y2=\"126\"/><line x1=\"54\" y1=\"120\" x2=\"48\" y2=\"126\"/><line x1=\"62\" y1=\"120\" x2=\"56\" y2=\"126\"/><line x1=\"70\" y1=\"120\" x2=\"64\" y2=\"126\"/><line x1=\"78\" y1=\"120\" x2=\"72\" y2=\"126\"/><line x1=\"86\" y1=\"120\" x2=\"80\" y2=\"126\"/><line x1=\"94\" y1=\"120\" x2=\"88\" y2=\"126\"/><line x1=\"102\" y1=\"120\" x2=\"96\" y2=\"126\"/><line x1=\"110\" y1=\"120\" x2=\"104\" y2=\"126\"/><line x1=\"118\" y1=\"120\" x2=\"112\" y2=\"126\"/><line x1=\"126\" y1=\"120\" x2=\"120\" y2=\"126\"/><line x1=\"134\" y1=\"120\" x2=\"128\" y2=\"126\"/><line x1=\"142\" y1=\"120\" x2=\"136\" y2=\"126\"/><line x1=\"150\" y1=\"120\" x2=\"144\" y2=\"126\"/><line x1=\"158\" y1=\"120\" x2=\"152\" y2=\"126\"/><line x1=\"166\" y1=\"120\" x2=\"160\" y2=\"126\"/><line x1=\"174\" y1=\"120\" x2=\"168\" y2=\"126\"/><line x1=\"182\" y1=\"120\" x2=\"176\" y2=\"126\"/><line x1=\"190\" y1=\"120\" x2=\"184\" y2=\"126\"/><line x1=\"198\" y1=\"120\" x2=\"192\" y2=\"126\"/><line x1=\"206\" y1=\"120\" x2=\"200\" y2=\"126\"/><line x1=\"214\" y1=\"120\" x2=\"208\" y2=\"126\"/><line x1=\"222\" y1=\"120\" x2=\"216\" y2=\"126\"/><line x1=\"230\" y1=\"120\" x2=\"224\" y2=\"126\"/><line x1=\"238\" y1=\"120\" x2=\"232\" y2=\"126\"/><line x1=\"246\" y1=\"120\" x2=\"240\" y2=\"126\"/><line x1=\"254\" y1=\"120\" x2=\"248\" y2=\"126\"/><line x1=\"262\" y1=\"120\" x2=\"256\" y2=\"126\"/><line x1=\"270\" y1=\"120\" x2=\"264\" y2=\"126\"/><line x1=\"278\" y1=\"120\" x2=\"272\" y2=\"126\"/><line x1=\"286\" y1=\"120\" x2=\"280\" y2=\"126\"/><line x1=\"294\" y1=\"120\" x2=\"288\" y2=\"126\"/><line x1=\"302\" y1=\"120\" x2=\"296\" y2=\"126\"/></g><polygon class=\"ln\" points=\"20,120 150,120 150,56 20,120\"/><text x=\"92\" y=\"136\">ramp A</text><polygon class=\"ln\" points=\"192,120 292,120 292,56 192,120\"/><text x=\"242\" y=\"136\">ramp B</text><line class=\"thin\" x1=\"150\" y1=\"56\" x2=\"176\" y2=\"56\"/><line class=\"thin\" x1=\"292\" y1=\"56\" x2=\"306\" y2=\"56\"/><text x=\"176\" y=\"46\">same height</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Ramp B, the shorter one",
+    "Ramp A, the longer one",
+    "Both take the same force"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "A longer ramp is less steep, so the same height is gained over more distance and less force is needed at each moment.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-051",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Two ladders lean against a wall. Which is more likely to slip out at the bottom?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"16\" y1=\"16\" x2=\"16\" y2=\"118\"/><line class=\"ln\" x1=\"10\" y1=\"118\" x2=\"310\" y2=\"118\"/><g class=\"ln\"><line x1=\"10\" y1=\"118\" x2=\"4\" y2=\"124\"/><line x1=\"18\" y1=\"118\" x2=\"12\" y2=\"124\"/><line x1=\"26\" y1=\"118\" x2=\"20\" y2=\"124\"/><line x1=\"34\" y1=\"118\" x2=\"28\" y2=\"124\"/><line x1=\"42\" y1=\"118\" x2=\"36\" y2=\"124\"/><line x1=\"50\" y1=\"118\" x2=\"44\" y2=\"124\"/><line x1=\"58\" y1=\"118\" x2=\"52\" y2=\"124\"/><line x1=\"66\" y1=\"118\" x2=\"60\" y2=\"124\"/><line x1=\"74\" y1=\"118\" x2=\"68\" y2=\"124\"/><line x1=\"82\" y1=\"118\" x2=\"76\" y2=\"124\"/><line x1=\"90\" y1=\"118\" x2=\"84\" y2=\"124\"/><line x1=\"98\" y1=\"118\" x2=\"92\" y2=\"124\"/><line x1=\"106\" y1=\"118\" x2=\"100\" y2=\"124\"/><line x1=\"114\" y1=\"118\" x2=\"108\" y2=\"124\"/><line x1=\"122\" y1=\"118\" x2=\"116\" y2=\"124\"/><line x1=\"130\" y1=\"118\" x2=\"124\" y2=\"124\"/><line x1=\"138\" y1=\"118\" x2=\"132\" y2=\"124\"/><line x1=\"146\" y1=\"118\" x2=\"140\" y2=\"124\"/><line x1=\"154\" y1=\"118\" x2=\"148\" y2=\"124\"/><line x1=\"162\" y1=\"118\" x2=\"156\" y2=\"124\"/><line x1=\"170\" y1=\"118\" x2=\"164\" y2=\"124\"/><line x1=\"178\" y1=\"118\" x2=\"172\" y2=\"124\"/><line x1=\"186\" y1=\"118\" x2=\"180\" y2=\"124\"/><line x1=\"194\" y1=\"118\" x2=\"188\" y2=\"124\"/><line x1=\"202\" y1=\"118\" x2=\"196\" y2=\"124\"/><line x1=\"210\" y1=\"118\" x2=\"204\" y2=\"124\"/><line x1=\"218\" y1=\"118\" x2=\"212\" y2=\"124\"/><line x1=\"226\" y1=\"118\" x2=\"220\" y2=\"124\"/><line x1=\"234\" y1=\"118\" x2=\"228\" y2=\"124\"/><line x1=\"242\" y1=\"118\" x2=\"236\" y2=\"124\"/><line x1=\"250\" y1=\"118\" x2=\"244\" y2=\"124\"/><line x1=\"258\" y1=\"118\" x2=\"252\" y2=\"124\"/><line x1=\"266\" y1=\"118\" x2=\"260\" y2=\"124\"/><line x1=\"274\" y1=\"118\" x2=\"268\" y2=\"124\"/><line x1=\"282\" y1=\"118\" x2=\"276\" y2=\"124\"/><line x1=\"290\" y1=\"118\" x2=\"284\" y2=\"124\"/><line x1=\"298\" y1=\"118\" x2=\"292\" y2=\"124\"/><line x1=\"306\" y1=\"118\" x2=\"300\" y2=\"124\"/></g><line class=\"ln\" x1=\"16\" y1=\"24\" x2=\"72\" y2=\"118\"/><line class=\"ln\" x1=\"26\" y1=\"24\" x2=\"82\" y2=\"118\"/><text x=\"70\" y=\"136\">A</text><line class=\"ln\" x1=\"170\" y1=\"16\" x2=\"170\" y2=\"118\"/><line class=\"ln\" x1=\"170\" y1=\"26\" x2=\"290\" y2=\"118\"/><line class=\"ln\" x1=\"178\" y1=\"18\" x2=\"298\" y2=\"110\"/><text x=\"250\" y=\"136\">B</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Ladder A, the steeper one",
+    "Both are equally likely to slip",
+    "Ladder B, the shallower one"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "The flatter the ladder, the harder it pushes outward along the floor, and friction at the base has more to fight. Steeper is more secure.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-052",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Two containers weigh the same. Which tips over more easily if the floor is bumped?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"14\" y1=\"124\" x2=\"306\" y2=\"124\"/><g class=\"ln\"><line x1=\"14\" y1=\"124\" x2=\"8\" y2=\"130\"/><line x1=\"22\" y1=\"124\" x2=\"16\" y2=\"130\"/><line x1=\"30\" y1=\"124\" x2=\"24\" y2=\"130\"/><line x1=\"38\" y1=\"124\" x2=\"32\" y2=\"130\"/><line x1=\"46\" y1=\"124\" x2=\"40\" y2=\"130\"/><line x1=\"54\" y1=\"124\" x2=\"48\" y2=\"130\"/><line x1=\"62\" y1=\"124\" x2=\"56\" y2=\"130\"/><line x1=\"70\" y1=\"124\" x2=\"64\" y2=\"130\"/><line x1=\"78\" y1=\"124\" x2=\"72\" y2=\"130\"/><line x1=\"86\" y1=\"124\" x2=\"80\" y2=\"130\"/><line x1=\"94\" y1=\"124\" x2=\"88\" y2=\"130\"/><line x1=\"102\" y1=\"124\" x2=\"96\" y2=\"130\"/><line x1=\"110\" y1=\"124\" x2=\"104\" y2=\"130\"/><line x1=\"118\" y1=\"124\" x2=\"112\" y2=\"130\"/><line x1=\"126\" y1=\"124\" x2=\"120\" y2=\"130\"/><line x1=\"134\" y1=\"124\" x2=\"128\" y2=\"130\"/><line x1=\"142\" y1=\"124\" x2=\"136\" y2=\"130\"/><line x1=\"150\" y1=\"124\" x2=\"144\" y2=\"130\"/><line x1=\"158\" y1=\"124\" x2=\"152\" y2=\"130\"/><line x1=\"166\" y1=\"124\" x2=\"160\" y2=\"130\"/><line x1=\"174\" y1=\"124\" x2=\"168\" y2=\"130\"/><line x1=\"182\" y1=\"124\" x2=\"176\" y2=\"130\"/><line x1=\"190\" y1=\"124\" x2=\"184\" y2=\"130\"/><line x1=\"198\" y1=\"124\" x2=\"192\" y2=\"130\"/><line x1=\"206\" y1=\"124\" x2=\"200\" y2=\"130\"/><line x1=\"214\" y1=\"124\" x2=\"208\" y2=\"130\"/><line x1=\"222\" y1=\"124\" x2=\"216\" y2=\"130\"/><line x1=\"230\" y1=\"124\" x2=\"224\" y2=\"130\"/><line x1=\"238\" y1=\"124\" x2=\"232\" y2=\"130\"/><line x1=\"246\" y1=\"124\" x2=\"240\" y2=\"130\"/><line x1=\"254\" y1=\"124\" x2=\"248\" y2=\"130\"/><line x1=\"262\" y1=\"124\" x2=\"256\" y2=\"130\"/><line x1=\"270\" y1=\"124\" x2=\"264\" y2=\"130\"/><line x1=\"278\" y1=\"124\" x2=\"272\" y2=\"130\"/><line x1=\"286\" y1=\"124\" x2=\"280\" y2=\"130\"/><line x1=\"294\" y1=\"124\" x2=\"288\" y2=\"130\"/><line x1=\"302\" y1=\"124\" x2=\"296\" y2=\"130\"/></g><rect class=\"grey\" x=\"56\" y=\"34\" width=\"40\" height=\"90\"/><text x=\"76\" y=\"140\">A</text><rect class=\"grey\" x=\"184\" y=\"86\" width=\"92\" height=\"38\"/><text x=\"230\" y=\"140\">B</text><line class=\"thin\" x1=\"76\" y1=\"34\" x2=\"76\" y2=\"124\"/><line class=\"thin\" x1=\"230\" y1=\"86\" x2=\"230\" y2=\"124\"/></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Both tip at the same point",
+    "Box B, short and wide",
+    "Box A, tall and narrow"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "A tall narrow box has a high center of gravity and a small base, so a small tilt puts its weight past the edge.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-053",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "A 20 lb force presses on the small piston. About how much force does the large piston deliver?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><path class=\"ln\" d=\"M44 52 L44 106 L276 106 L276 40\"/><path class=\"ln\" d=\"M92 52 L92 78 L228 78 L228 40\"/><rect class=\"solid\" x=\"44\" y=\"46\" width=\"48\" height=\"8\"/><line class=\"ln\" x1=\"68\" y1=\"46\" x2=\"68\" y2=\"20\"/><rect class=\"solid\" x=\"228\" y=\"34\" width=\"48\" height=\"8\"/><line class=\"ln\" x1=\"252\" y1=\"34\" x2=\"252\" y2=\"14\"/><text x=\"68\" y=\"126\">1 sq in</text><text x=\"252\" y=\"126\">10 sq in</text><line class=\"acc\" x1=\"68\" y1=\"14\" x2=\"68\" y2=\"36\"/><polygon class=\"accf\" points=\"68,36 70.9,29.6 65.1,29.6\"/><text x=\"112\" y=\"16\">20 lb</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "2 lb",
+    "200 lb",
+    "20 lb"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Pressure is the same throughout the fluid: 20 lb on 1 sq in is 20 psi. Acting on 10 sq in, that gives 20 × 10 = 200 lb.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-054",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "In that same hydraulic jack, the large piston moves:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><path class=\"ln\" d=\"M44 52 L44 106 L276 106 L276 40\"/><path class=\"ln\" d=\"M92 52 L92 78 L228 78 L228 40\"/><rect class=\"solid\" x=\"44\" y=\"46\" width=\"48\" height=\"8\"/><rect class=\"solid\" x=\"228\" y=\"34\" width=\"48\" height=\"8\"/><text x=\"68\" y=\"126\">1 sq in</text><text x=\"252\" y=\"126\">10 sq in</text><line class=\"acc\" x1=\"68\" y1=\"18\" x2=\"68\" y2=\"40\"/><polygon class=\"accf\" points=\"68,40 70.9,33.6 65.1,33.6\"/><line class=\"acc\" x1=\"252\" y1=\"26\" x2=\"252\" y2=\"16\"/><polygon class=\"accf\" points=\"252,16 249.1,22.4 254.9,22.4\"/></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Farther than the small piston",
+    "Less than the small piston",
+    "Exactly as far as the small piston"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "You never get something for nothing. The force is multiplied ten times, so the distance is cut to a tenth.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-055",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Both tanks are filled with water to the same depth. The water pressure at the bottom is:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><path class=\"ln\" d=\"M30 30 L30 122 L134 122 L134 30\"/><rect class=\"grey\" x=\"30\" y=\"58\" width=\"104\" height=\"64\"/><text x=\"82\" y=\"140\">wide tank</text><path class=\"ln\" d=\"M204 30 L204 122 L248 122 L248 30\"/><rect class=\"grey\" x=\"204\" y=\"58\" width=\"44\" height=\"64\"/><text x=\"226\" y=\"140\">narrow tank</text><line class=\"thin\" x1=\"134\" y1=\"58\" x2=\"204\" y2=\"58\"/><text x=\"169\" y=\"50\">same depth</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Greater in the wide tank",
+    "Greater in the narrow tank",
+    "The same in both tanks"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Pressure in a liquid depends only on depth, not on how much water sits above. Same depth means same pressure at the bottom.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-056",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Setup B hangs the same 50 lb load from two identical springs side by side. Compared with setup A, the springs in B:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"20\" y1=\"14\" x2=\"300\" y2=\"14\"/><g class=\"ln\"><line x1=\"20\" y1=\"14\" x2=\"14\" y2=\"8\"/><line x1=\"28\" y1=\"14\" x2=\"22\" y2=\"8\"/><line x1=\"36\" y1=\"14\" x2=\"30\" y2=\"8\"/><line x1=\"44\" y1=\"14\" x2=\"38\" y2=\"8\"/><line x1=\"52\" y1=\"14\" x2=\"46\" y2=\"8\"/><line x1=\"60\" y1=\"14\" x2=\"54\" y2=\"8\"/><line x1=\"68\" y1=\"14\" x2=\"62\" y2=\"8\"/><line x1=\"76\" y1=\"14\" x2=\"70\" y2=\"8\"/><line x1=\"84\" y1=\"14\" x2=\"78\" y2=\"8\"/><line x1=\"92\" y1=\"14\" x2=\"86\" y2=\"8\"/><line x1=\"100\" y1=\"14\" x2=\"94\" y2=\"8\"/><line x1=\"108\" y1=\"14\" x2=\"102\" y2=\"8\"/><line x1=\"116\" y1=\"14\" x2=\"110\" y2=\"8\"/><line x1=\"124\" y1=\"14\" x2=\"118\" y2=\"8\"/><line x1=\"132\" y1=\"14\" x2=\"126\" y2=\"8\"/><line x1=\"140\" y1=\"14\" x2=\"134\" y2=\"8\"/><line x1=\"148\" y1=\"14\" x2=\"142\" y2=\"8\"/><line x1=\"156\" y1=\"14\" x2=\"150\" y2=\"8\"/><line x1=\"164\" y1=\"14\" x2=\"158\" y2=\"8\"/><line x1=\"172\" y1=\"14\" x2=\"166\" y2=\"8\"/><line x1=\"180\" y1=\"14\" x2=\"174\" y2=\"8\"/><line x1=\"188\" y1=\"14\" x2=\"182\" y2=\"8\"/><line x1=\"196\" y1=\"14\" x2=\"190\" y2=\"8\"/><line x1=\"204\" y1=\"14\" x2=\"198\" y2=\"8\"/><line x1=\"212\" y1=\"14\" x2=\"206\" y2=\"8\"/><line x1=\"220\" y1=\"14\" x2=\"214\" y2=\"8\"/><line x1=\"228\" y1=\"14\" x2=\"222\" y2=\"8\"/><line x1=\"236\" y1=\"14\" x2=\"230\" y2=\"8\"/><line x1=\"244\" y1=\"14\" x2=\"238\" y2=\"8\"/><line x1=\"252\" y1=\"14\" x2=\"246\" y2=\"8\"/><line x1=\"260\" y1=\"14\" x2=\"254\" y2=\"8\"/><line x1=\"268\" y1=\"14\" x2=\"262\" y2=\"8\"/><line x1=\"276\" y1=\"14\" x2=\"270\" y2=\"8\"/><line x1=\"284\" y1=\"14\" x2=\"278\" y2=\"8\"/><line x1=\"292\" y1=\"14\" x2=\"286\" y2=\"8\"/></g><path class=\"ln\" d=\"M76 14 L85 18.833333333333332 L76 23.666666666666664 L67 28.5 L76 33.33333333333333 L85 38.166666666666664 L76 43 L67 47.83333333333333 L76 52.666666666666664 L85 57.5 L76 62.33333333333333 L67 67.16666666666666 L76 72\"/><line class=\"ln\" x1=\"76\" y1=\"72\" x2=\"76\" y2=\"80\"/><rect class=\"grey\" x=\"52\" y=\"80\" width=\"48\" height=\"26\"/><text x=\"76\" y=\"97\">50 lb</text><text x=\"76\" y=\"126\">A</text><path class=\"ln\" d=\"M206 14 L215 18.833333333333332 L206 23.666666666666664 L197 28.5 L206 33.33333333333333 L215 38.166666666666664 L206 43 L197 47.83333333333333 L206 52.666666666666664 L215 57.5 L206 62.33333333333333 L197 67.16666666666666 L206 72\"/><path class=\"ln\" d=\"M250 14 L259 18.833333333333332 L250 23.666666666666664 L241 28.5 L250 33.33333333333333 L259 38.166666666666664 L250 43 L241 47.83333333333333 L250 52.666666666666664 L259 57.5 L250 62.33333333333333 L241 67.16666666666666 L250 72\"/><line class=\"ln\" x1=\"206\" y1=\"72\" x2=\"206\" y2=\"80\"/><line class=\"ln\" x1=\"250\" y1=\"72\" x2=\"250\" y2=\"80\"/><rect class=\"grey\" x=\"196\" y=\"80\" width=\"64\" height=\"26\"/><text x=\"228\" y=\"97\">50 lb</text><text x=\"228\" y=\"126\">B</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Stretch more",
+    "Stretch the same amount",
+    "Stretch less"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Two springs side by side each carry only 25 lb, so each stretches half as far as the single spring carrying the whole load.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-057",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Setup B hangs the same 50 lb load from two identical springs joined end to end. Compared with setup A, the load in B hangs:",
+   "figure": "<figure><svg viewBox=\"0 0 320 152\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"20\" y1=\"14\" x2=\"300\" y2=\"14\"/><g class=\"ln\"><line x1=\"20\" y1=\"14\" x2=\"14\" y2=\"8\"/><line x1=\"28\" y1=\"14\" x2=\"22\" y2=\"8\"/><line x1=\"36\" y1=\"14\" x2=\"30\" y2=\"8\"/><line x1=\"44\" y1=\"14\" x2=\"38\" y2=\"8\"/><line x1=\"52\" y1=\"14\" x2=\"46\" y2=\"8\"/><line x1=\"60\" y1=\"14\" x2=\"54\" y2=\"8\"/><line x1=\"68\" y1=\"14\" x2=\"62\" y2=\"8\"/><line x1=\"76\" y1=\"14\" x2=\"70\" y2=\"8\"/><line x1=\"84\" y1=\"14\" x2=\"78\" y2=\"8\"/><line x1=\"92\" y1=\"14\" x2=\"86\" y2=\"8\"/><line x1=\"100\" y1=\"14\" x2=\"94\" y2=\"8\"/><line x1=\"108\" y1=\"14\" x2=\"102\" y2=\"8\"/><line x1=\"116\" y1=\"14\" x2=\"110\" y2=\"8\"/><line x1=\"124\" y1=\"14\" x2=\"118\" y2=\"8\"/><line x1=\"132\" y1=\"14\" x2=\"126\" y2=\"8\"/><line x1=\"140\" y1=\"14\" x2=\"134\" y2=\"8\"/><line x1=\"148\" y1=\"14\" x2=\"142\" y2=\"8\"/><line x1=\"156\" y1=\"14\" x2=\"150\" y2=\"8\"/><line x1=\"164\" y1=\"14\" x2=\"158\" y2=\"8\"/><line x1=\"172\" y1=\"14\" x2=\"166\" y2=\"8\"/><line x1=\"180\" y1=\"14\" x2=\"174\" y2=\"8\"/><line x1=\"188\" y1=\"14\" x2=\"182\" y2=\"8\"/><line x1=\"196\" y1=\"14\" x2=\"190\" y2=\"8\"/><line x1=\"204\" y1=\"14\" x2=\"198\" y2=\"8\"/><line x1=\"212\" y1=\"14\" x2=\"206\" y2=\"8\"/><line x1=\"220\" y1=\"14\" x2=\"214\" y2=\"8\"/><line x1=\"228\" y1=\"14\" x2=\"222\" y2=\"8\"/><line x1=\"236\" y1=\"14\" x2=\"230\" y2=\"8\"/><line x1=\"244\" y1=\"14\" x2=\"238\" y2=\"8\"/><line x1=\"252\" y1=\"14\" x2=\"246\" y2=\"8\"/><line x1=\"260\" y1=\"14\" x2=\"254\" y2=\"8\"/><line x1=\"268\" y1=\"14\" x2=\"262\" y2=\"8\"/><line x1=\"276\" y1=\"14\" x2=\"270\" y2=\"8\"/><line x1=\"284\" y1=\"14\" x2=\"278\" y2=\"8\"/><line x1=\"292\" y1=\"14\" x2=\"286\" y2=\"8\"/></g><path class=\"ln\" d=\"M96 14 L105 19 L96 24 L87 29 L96 34 L105 39 L96 44 L87 49 L96 54 L105 59 L96 64 L87 69 L96 74\"/><line class=\"ln\" x1=\"96\" y1=\"74\" x2=\"96\" y2=\"82\"/><rect class=\"grey\" x=\"72\" y=\"82\" width=\"48\" height=\"26\"/><text x=\"96\" y=\"99\">50 lb</text><text x=\"96\" y=\"128\">A</text><path class=\"ln\" d=\"M224 14 L233 19.5 L224 25 L215 30.5 L224 36 L233 41.5 L224 47 L215 52.5 L224 58\"/><path class=\"ln\" d=\"M224 58 L233 63.5 L224 69 L215 74.5 L224 80 L233 85.5 L224 91 L215 96.5 L224 102\"/><line class=\"ln\" x1=\"224\" y1=\"102\" x2=\"224\" y2=\"110\"/><rect class=\"grey\" x=\"200\" y=\"110\" width=\"48\" height=\"26\"/><text x=\"224\" y=\"127\">50 lb</text><text x=\"224\" y=\"146\">B</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Higher, because the springs stretch less in total",
+    "Lower, because the springs stretch more in total",
+    "At exactly the same height"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Springs end to end each feel the full 50 lb, so each stretches the full amount and the stretches add up.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-058",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "A 10 lb weight stretches this spring 2 inches. If a 20 lb weight is hung on it instead, the spring stretches about:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"20\" y1=\"14\" x2=\"300\" y2=\"14\"/><g class=\"ln\"><line x1=\"20\" y1=\"14\" x2=\"14\" y2=\"8\"/><line x1=\"28\" y1=\"14\" x2=\"22\" y2=\"8\"/><line x1=\"36\" y1=\"14\" x2=\"30\" y2=\"8\"/><line x1=\"44\" y1=\"14\" x2=\"38\" y2=\"8\"/><line x1=\"52\" y1=\"14\" x2=\"46\" y2=\"8\"/><line x1=\"60\" y1=\"14\" x2=\"54\" y2=\"8\"/><line x1=\"68\" y1=\"14\" x2=\"62\" y2=\"8\"/><line x1=\"76\" y1=\"14\" x2=\"70\" y2=\"8\"/><line x1=\"84\" y1=\"14\" x2=\"78\" y2=\"8\"/><line x1=\"92\" y1=\"14\" x2=\"86\" y2=\"8\"/><line x1=\"100\" y1=\"14\" x2=\"94\" y2=\"8\"/><line x1=\"108\" y1=\"14\" x2=\"102\" y2=\"8\"/><line x1=\"116\" y1=\"14\" x2=\"110\" y2=\"8\"/><line x1=\"124\" y1=\"14\" x2=\"118\" y2=\"8\"/><line x1=\"132\" y1=\"14\" x2=\"126\" y2=\"8\"/><line x1=\"140\" y1=\"14\" x2=\"134\" y2=\"8\"/><line x1=\"148\" y1=\"14\" x2=\"142\" y2=\"8\"/><line x1=\"156\" y1=\"14\" x2=\"150\" y2=\"8\"/><line x1=\"164\" y1=\"14\" x2=\"158\" y2=\"8\"/><line x1=\"172\" y1=\"14\" x2=\"166\" y2=\"8\"/><line x1=\"180\" y1=\"14\" x2=\"174\" y2=\"8\"/><line x1=\"188\" y1=\"14\" x2=\"182\" y2=\"8\"/><line x1=\"196\" y1=\"14\" x2=\"190\" y2=\"8\"/><line x1=\"204\" y1=\"14\" x2=\"198\" y2=\"8\"/><line x1=\"212\" y1=\"14\" x2=\"206\" y2=\"8\"/><line x1=\"220\" y1=\"14\" x2=\"214\" y2=\"8\"/><line x1=\"228\" y1=\"14\" x2=\"222\" y2=\"8\"/><line x1=\"236\" y1=\"14\" x2=\"230\" y2=\"8\"/><line x1=\"244\" y1=\"14\" x2=\"238\" y2=\"8\"/><line x1=\"252\" y1=\"14\" x2=\"246\" y2=\"8\"/><line x1=\"260\" y1=\"14\" x2=\"254\" y2=\"8\"/><line x1=\"268\" y1=\"14\" x2=\"262\" y2=\"8\"/><line x1=\"276\" y1=\"14\" x2=\"270\" y2=\"8\"/><line x1=\"284\" y1=\"14\" x2=\"278\" y2=\"8\"/><line x1=\"292\" y1=\"14\" x2=\"286\" y2=\"8\"/></g><path class=\"ln\" d=\"M110 14 L119 18.166666666666668 L110 22.333333333333336 L101 26.5 L110 30.666666666666668 L119 34.833333333333336 L110 39 L101 43.16666666666667 L110 47.333333333333336 L119 51.5 L110 55.66666666666667 L101 59.833333333333336 L110 64\"/><line class=\"ln\" x1=\"110\" y1=\"64\" x2=\"110\" y2=\"72\"/><rect class=\"grey\" x=\"86\" y=\"72\" width=\"48\" height=\"26\"/><text x=\"110\" y=\"89\">10 lb</text><line class=\"thin\" x1=\"110\" y1=\"14\" x2=\"188\" y2=\"14\"/><line class=\"thin\" x1=\"110\" y1=\"64\" x2=\"188\" y2=\"64\"/><line class=\"acc\" x1=\"180\" y1=\"20\" x2=\"180\" y2=\"58\"/><polygon class=\"accf\" points=\"180,58 182.9,51.6 177.1,51.6\"/><text x=\"216\" y=\"44\">2 in</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "4 inches",
+    "2 inches",
+    "8 inches"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "A spring stretches in proportion to the pull. Double the weight, double the stretch: 4 inches.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-059",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "The round gear turns clockwise against the toothed bar below it. Which way does the bar slide?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><g class=\"ln\"><line x1=\"194.0\" y1=\"58.0\" x2=\"200.8\" y2=\"58.0\"/><line x1=\"190.6\" y1=\"72.8\" x2=\"196.8\" y2=\"75.7\"/><line x1=\"181.2\" y1=\"84.6\" x2=\"185.4\" y2=\"89.9\"/><line x1=\"167.6\" y1=\"91.1\" x2=\"169.1\" y2=\"97.8\"/><line x1=\"152.4\" y1=\"91.1\" x2=\"150.9\" y2=\"97.8\"/><line x1=\"138.8\" y1=\"84.6\" x2=\"134.6\" y2=\"89.9\"/><line x1=\"129.4\" y1=\"72.8\" x2=\"123.2\" y2=\"75.7\"/><line x1=\"126.0\" y1=\"58.0\" x2=\"119.2\" y2=\"58.0\"/><line x1=\"129.4\" y1=\"43.2\" x2=\"123.2\" y2=\"40.3\"/><line x1=\"138.8\" y1=\"31.4\" x2=\"134.6\" y2=\"26.1\"/><line x1=\"152.4\" y1=\"24.9\" x2=\"150.9\" y2=\"18.2\"/><line x1=\"167.6\" y1=\"24.9\" x2=\"169.1\" y2=\"18.2\"/><line x1=\"181.2\" y1=\"31.4\" x2=\"185.4\" y2=\"26.1\"/><line x1=\"190.6\" y1=\"43.2\" x2=\"196.8\" y2=\"40.3\"/><circle cx=\"160\" cy=\"58\" r=\"34\"/></g><path class=\"acc\" d=\"M141.2 51.2 A 20 20 0 0 1 178.8 51.2\"/><polygon class=\"accf\" points=\"181.2,57.7 172.9,47.3 180.8,44.5\"/><rect class=\"ln\" x=\"40\" y=\"104\" width=\"240\" height=\"20\"/><g class=\"ln\"><line x1=\"60\" y1=\"104\" x2=\"60\" y2=\"94\"/><line x1=\"80\" y1=\"104\" x2=\"80\" y2=\"94\"/><line x1=\"100\" y1=\"104\" x2=\"100\" y2=\"94\"/><line x1=\"120\" y1=\"104\" x2=\"120\" y2=\"94\"/><line x1=\"140\" y1=\"104\" x2=\"140\" y2=\"94\"/><line x1=\"160\" y1=\"104\" x2=\"160\" y2=\"94\"/><line x1=\"180\" y1=\"104\" x2=\"180\" y2=\"94\"/><line x1=\"200\" y1=\"104\" x2=\"200\" y2=\"94\"/><line x1=\"220\" y1=\"104\" x2=\"220\" y2=\"94\"/><line x1=\"240\" y1=\"104\" x2=\"240\" y2=\"94\"/></g><text x=\"160\" y=\"140\">toothed bar</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "To the right",
+    "To the left",
+    "It will not move"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Look at the bottom of the gear, where the teeth meet the bar. On a clockwise gear the bottom travels left, dragging the bar left with it.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-060",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "The rope you pull is wrapped around the large outer wheel; the load hangs from the small inner axle. Making the outer wheel larger gives:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><circle class=\"ln\" cx=\"150\" cy=\"70\" r=\"52\"/><circle class=\"ln\" cx=\"150\" cy=\"70\" r=\"20\"/><circle class=\"solid\" cx=\"150\" cy=\"70\" r=\"3\"/><line class=\"ln\" x1=\"202\" y1=\"70\" x2=\"202\" y2=\"120\"/><line class=\"acc\" x1=\"202\" y1=\"96\" x2=\"202\" y2=\"124\"/><polygon class=\"accf\" points=\"202,124 204.9,117.6 199.1,117.6\"/><text x=\"236\" y=\"118\">effort</text><line class=\"ln\" x1=\"130\" y1=\"70\" x2=\"130\" y2=\"110\"/><rect class=\"grey\" x=\"110\" y=\"110\" width=\"40\" height=\"24\"/><text x=\"130\" y=\"126\">load</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "More lifting force for the same effort",
+    "Less lifting force for the same effort",
+    "No change in lifting force"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "A bigger wheel means a longer lever arm for your pull against the same axle, so the advantage grows — at the cost of pulling more rope.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-061",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Both wrenches fit the same stubborn nut. Which loosens it with less effort from your hand?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><circle class=\"ln\" cx=\"60\" cy=\"44\" r=\"14\"/><rect class=\"ln\" x=\"60\" y=\"37\" width=\"150\" height=\"14\"/><text x=\"135\" y=\"26\">wrench A</text><circle class=\"ln\" cx=\"60\" cy=\"104\" r=\"14\"/><rect class=\"ln\" x=\"60\" y=\"97\" width=\"70\" height=\"14\"/><text x=\"100\" y=\"86\">wrench B</text><line class=\"acc\" x1=\"206\" y1=\"60\" x2=\"206\" y2=\"80\"/><polygon class=\"accf\" points=\"206,80 208.9,73.6 203.1,73.6\"/><line class=\"acc\" x1=\"126\" y1=\"120\" x2=\"126\" y2=\"136\"/><polygon class=\"accf\" points=\"126,136 128.9,129.6 123.1,129.6\"/></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Wrench A, the longer one",
+    "Wrench B, the shorter one",
+    "Both take the same effort"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Turning force is your push multiplied by the handle length. A longer handle produces more torque from the same hand force.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-062",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Compared with the coarse screw, one full turn of the fine-threaded screw drives it:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"70\" y1=\"30\" x2=\"70\" y2=\"120\"/><line class=\"ln\" x1=\"94\" y1=\"30\" x2=\"94\" y2=\"120\"/><g class=\"ln\"><line x1=\"70\" y1=\"40\" x2=\"94\" y2=\"46\"/><line x1=\"70\" y1=\"52\" x2=\"94\" y2=\"58\"/><line x1=\"70\" y1=\"64\" x2=\"94\" y2=\"70\"/><line x1=\"70\" y1=\"76\" x2=\"94\" y2=\"82\"/><line x1=\"70\" y1=\"88\" x2=\"94\" y2=\"94\"/><line x1=\"70\" y1=\"100\" x2=\"94\" y2=\"106\"/></g><text x=\"82\" y=\"138\">fine</text><line class=\"ln\" x1=\"212\" y1=\"30\" x2=\"212\" y2=\"120\"/><line class=\"ln\" x1=\"236\" y1=\"30\" x2=\"236\" y2=\"120\"/><g class=\"ln\"><line x1=\"212\" y1=\"48\" x2=\"236\" y2=\"60\"/><line x1=\"212\" y1=\"76\" x2=\"236\" y2=\"88\"/><line x1=\"212\" y1=\"104\" x2=\"236\" y2=\"116\"/></g><text x=\"224\" y=\"138\">coarse</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "A shorter distance into the material",
+    "A longer distance into the material",
+    "Exactly the same distance"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Threads closer together advance less per turn. That is why fine threads turn more easily but need more turns.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-063",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "The two blocks are identical. Which needs more force to start sliding?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><g class=\"ln\"><line x1=\"16\" y1=\"96\" x2=\"150\" y2=\"96\"/></g><g class=\"ln\"><line x1=\"20\" y1=\"96\" x2=\"26\" y2=\"104\"/><line x1=\"34\" y1=\"96\" x2=\"40\" y2=\"104\"/><line x1=\"48\" y1=\"96\" x2=\"54\" y2=\"104\"/><line x1=\"62\" y1=\"96\" x2=\"68\" y2=\"104\"/><line x1=\"76\" y1=\"96\" x2=\"82\" y2=\"104\"/><line x1=\"90\" y1=\"96\" x2=\"96\" y2=\"104\"/><line x1=\"104\" y1=\"96\" x2=\"110\" y2=\"104\"/><line x1=\"118\" y1=\"96\" x2=\"124\" y2=\"104\"/><line x1=\"132\" y1=\"96\" x2=\"138\" y2=\"104\"/></g><rect class=\"grey\" x=\"54\" y=\"60\" width=\"52\" height=\"36\"/><text x=\"80\" y=\"82\">A</text><text x=\"80\" y=\"126\">rough</text><line class=\"acc\" x1=\"24\" y1=\"78\" x2=\"48\" y2=\"78\"/><polygon class=\"accf\" points=\"48,78 41.6,75.1 41.6,80.9\"/><line class=\"ln\" x1=\"176\" y1=\"96\" x2=\"306\" y2=\"96\"/><rect class=\"grey\" x=\"214\" y=\"60\" width=\"52\" height=\"36\"/><text x=\"240\" y=\"82\">B</text><text x=\"240\" y=\"126\">smooth</text><line class=\"acc\" x1=\"184\" y1=\"78\" x2=\"208\" y2=\"78\"/><polygon class=\"accf\" points=\"208,78 201.6,75.1 201.6,80.9\"/></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Both need the same force",
+    "Block B, on the smooth surface",
+    "Block A, on the rough surface"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "A rougher surface produces more friction, and friction is what your push has to overcome before the block moves.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-064",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Two pendulums are released together. Pendulum A, the longer one:",
+   "figure": "<figure><svg viewBox=\"0 0 320 152\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"30\" y1=\"14\" x2=\"290\" y2=\"14\"/><g class=\"ln\"><line x1=\"30\" y1=\"14\" x2=\"24\" y2=\"8\"/><line x1=\"38\" y1=\"14\" x2=\"32\" y2=\"8\"/><line x1=\"46\" y1=\"14\" x2=\"40\" y2=\"8\"/><line x1=\"54\" y1=\"14\" x2=\"48\" y2=\"8\"/><line x1=\"62\" y1=\"14\" x2=\"56\" y2=\"8\"/><line x1=\"70\" y1=\"14\" x2=\"64\" y2=\"8\"/><line x1=\"78\" y1=\"14\" x2=\"72\" y2=\"8\"/><line x1=\"86\" y1=\"14\" x2=\"80\" y2=\"8\"/><line x1=\"94\" y1=\"14\" x2=\"88\" y2=\"8\"/><line x1=\"102\" y1=\"14\" x2=\"96\" y2=\"8\"/><line x1=\"110\" y1=\"14\" x2=\"104\" y2=\"8\"/><line x1=\"118\" y1=\"14\" x2=\"112\" y2=\"8\"/><line x1=\"126\" y1=\"14\" x2=\"120\" y2=\"8\"/><line x1=\"134\" y1=\"14\" x2=\"128\" y2=\"8\"/><line x1=\"142\" y1=\"14\" x2=\"136\" y2=\"8\"/><line x1=\"150\" y1=\"14\" x2=\"144\" y2=\"8\"/><line x1=\"158\" y1=\"14\" x2=\"152\" y2=\"8\"/><line x1=\"166\" y1=\"14\" x2=\"160\" y2=\"8\"/><line x1=\"174\" y1=\"14\" x2=\"168\" y2=\"8\"/><line x1=\"182\" y1=\"14\" x2=\"176\" y2=\"8\"/><line x1=\"190\" y1=\"14\" x2=\"184\" y2=\"8\"/><line x1=\"198\" y1=\"14\" x2=\"192\" y2=\"8\"/><line x1=\"206\" y1=\"14\" x2=\"200\" y2=\"8\"/><line x1=\"214\" y1=\"14\" x2=\"208\" y2=\"8\"/><line x1=\"222\" y1=\"14\" x2=\"216\" y2=\"8\"/><line x1=\"230\" y1=\"14\" x2=\"224\" y2=\"8\"/><line x1=\"238\" y1=\"14\" x2=\"232\" y2=\"8\"/><line x1=\"246\" y1=\"14\" x2=\"240\" y2=\"8\"/><line x1=\"254\" y1=\"14\" x2=\"248\" y2=\"8\"/><line x1=\"262\" y1=\"14\" x2=\"256\" y2=\"8\"/><line x1=\"270\" y1=\"14\" x2=\"264\" y2=\"8\"/><line x1=\"278\" y1=\"14\" x2=\"272\" y2=\"8\"/><line x1=\"286\" y1=\"14\" x2=\"280\" y2=\"8\"/></g><line class=\"ln\" x1=\"86\" y1=\"14\" x2=\"86\" y2=\"110\"/><circle class=\"grey\" cx=\"86\" cy=\"118\" r=\"12\"/><text x=\"86\" y=\"142\">A</text><line class=\"ln\" x1=\"230\" y1=\"14\" x2=\"230\" y2=\"62\"/><circle class=\"grey\" cx=\"230\" cy=\"70\" r=\"12\"/><text x=\"230\" y=\"142\">B</text><path class=\"thin\" d=\"M56 110 A 40 40 0 0 0 116 110\"/><path class=\"thin\" d=\"M206 64 A 26 26 0 0 0 254 64\"/></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Swings back and forth more slowly",
+    "Swings back and forth more quickly",
+    "Swings at exactly the same rate as B"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "A longer pendulum takes longer to complete each swing. Its weight does not matter — only its length.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-065",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "These two gears are meshed and running. Which one delivers more turning force at its shaft?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><g class=\"ln\"><line x1=\"104.0\" y1=\"74.0\" x2=\"109.2\" y2=\"74.0\"/><line x1=\"100.5\" y1=\"87.0\" x2=\"105.0\" y2=\"89.6\"/><line x1=\"91.0\" y1=\"96.5\" x2=\"93.6\" y2=\"101.0\"/><line x1=\"78.0\" y1=\"100.0\" x2=\"78.0\" y2=\"105.2\"/><line x1=\"65.0\" y1=\"96.5\" x2=\"62.4\" y2=\"101.0\"/><line x1=\"55.5\" y1=\"87.0\" x2=\"51.0\" y2=\"89.6\"/><line x1=\"52.0\" y1=\"74.0\" x2=\"46.8\" y2=\"74.0\"/><line x1=\"55.5\" y1=\"61.0\" x2=\"51.0\" y2=\"58.4\"/><line x1=\"65.0\" y1=\"51.5\" x2=\"62.4\" y2=\"47.0\"/><line x1=\"78.0\" y1=\"48.0\" x2=\"78.0\" y2=\"42.8\"/><line x1=\"91.0\" y1=\"51.5\" x2=\"93.6\" y2=\"47.0\"/><line x1=\"100.5\" y1=\"61.0\" x2=\"105.0\" y2=\"58.4\"/><circle cx=\"78\" cy=\"74\" r=\"26\"/></g><text class=\"big\" x=\"78\" y=\"78\">A</text><g class=\"ln\"><line x1=\"226.0\" y1=\"74.0\" x2=\"235.6\" y2=\"74.0\"/><line x1=\"224.1\" y1=\"87.5\" x2=\"233.3\" y2=\"90.2\"/><line x1=\"218.4\" y1=\"100.0\" x2=\"226.5\" y2=\"105.1\"/><line x1=\"209.4\" y1=\"110.3\" x2=\"215.7\" y2=\"117.5\"/><line x1=\"197.9\" y1=\"117.7\" x2=\"201.9\" y2=\"126.4\"/><line x1=\"184.8\" y1=\"121.5\" x2=\"186.2\" y2=\"131.0\"/><line x1=\"171.2\" y1=\"121.5\" x2=\"169.8\" y2=\"131.0\"/><line x1=\"158.1\" y1=\"117.7\" x2=\"154.1\" y2=\"126.4\"/><line x1=\"146.6\" y1=\"110.3\" x2=\"140.3\" y2=\"117.5\"/><line x1=\"137.6\" y1=\"100.0\" x2=\"129.5\" y2=\"105.1\"/><line x1=\"131.9\" y1=\"87.5\" x2=\"122.7\" y2=\"90.2\"/><line x1=\"130.0\" y1=\"74.0\" x2=\"120.4\" y2=\"74.0\"/><line x1=\"131.9\" y1=\"60.5\" x2=\"122.7\" y2=\"57.8\"/><line x1=\"137.6\" y1=\"48.0\" x2=\"129.5\" y2=\"42.9\"/><line x1=\"146.6\" y1=\"37.7\" x2=\"140.3\" y2=\"30.5\"/><line x1=\"158.1\" y1=\"30.3\" x2=\"154.1\" y2=\"21.6\"/><line x1=\"171.2\" y1=\"26.5\" x2=\"169.8\" y2=\"17.0\"/><line x1=\"184.8\" y1=\"26.5\" x2=\"186.2\" y2=\"17.0\"/><line x1=\"197.9\" y1=\"30.3\" x2=\"201.9\" y2=\"21.6\"/><line x1=\"209.4\" y1=\"37.7\" x2=\"215.7\" y2=\"30.5\"/><line x1=\"218.4\" y1=\"48.0\" x2=\"226.5\" y2=\"42.9\"/><line x1=\"224.1\" y1=\"60.5\" x2=\"233.3\" y2=\"57.8\"/><circle cx=\"178\" cy=\"74\" r=\"48\"/></g><text class=\"big\" x=\"178\" y=\"78\">B</text><text x=\"78\" y=\"126\">small</text><text x=\"178\" y=\"136\">large</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Gear B, the large one",
+    "Gear A, the small one",
+    "Both deliver the same turning force"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Gears trade speed for force. The large gear turns slower, and what it gives up in speed it gains in torque.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-066",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Sprocket A drives sprocket B through a chain. Sprocket A turns counterclockwise. Which way does B turn?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><circle class=\"ln\" cx=\"86\" cy=\"74\" r=\"28\"/><circle class=\"solid\" cx=\"86\" cy=\"74\" r=\"3\"/><circle class=\"ln\" cx=\"214\" cy=\"74\" r=\"28\"/><circle class=\"solid\" cx=\"214\" cy=\"74\" r=\"3\"/><line class=\"ln\" x1=\"86\" y1=\"46\" x2=\"214\" y2=\"46\"/><line class=\"ln\" x1=\"86\" y1=\"102\" x2=\"214\" y2=\"102\"/><line class=\"thin\" x1=\"86\" y1=\"50\" x2=\"214\" y2=\"50\"/><line class=\"thin\" x1=\"86\" y1=\"98\" x2=\"214\" y2=\"98\"/><path class=\"acc\" d=\"M102.0 68.2 A 17 17 0 0 0 70.0 68.2\"/><polygon class=\"accf\" points=\"67.6,74.8 68.0,61.5 75.9,64.3\"/><text x=\"86\" y=\"128\">A</text><text x=\"214\" y=\"128\">B</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Clockwise",
+    "Counterclockwise",
+    "It will not turn"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "A chain runs like an uncrossed belt and does not reverse anything, so both sprockets turn the same way.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-067",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "The oval cam turns on its shaft and pushes the follower rod up and down. In one full turn of the cam, the follower rises:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"150\" y1=\"34\" x2=\"150\" y2=\"66\"/><rect class=\"grey\" x=\"134\" y=\"18\" width=\"32\" height=\"16\"/><ellipse class=\"ln\" cx=\"150\" cy=\"90\" rx=\"54\" ry=\"30\"/><circle class=\"solid\" cx=\"150\" cy=\"90\" r=\"4\"/><circle class=\"ln\" cx=\"150\" cy=\"90\" r=\"10\"/><text x=\"240\" y=\"94\">cam</text><text x=\"150\" y=\"140\">one lobe</text><line class=\"acc\" x1=\"196\" y1=\"34\" x2=\"196\" y2=\"16\"/><polygon class=\"accf\" points=\"196,16 193.1,22.4 198.9,22.4\"/></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Once",
+    "Twice",
+    "It does not rise at all"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "An oval has two long sides. Each one sweeps past the follower in a single revolution, so the follower is pushed up twice per turn.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-068",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "As the tank fills, the float rises and swings the lever. The valve:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><path class=\"ln\" d=\"M40 26 L40 126 L280 126 L280 26\"/><rect class=\"grey\" x=\"40\" y=\"76\" width=\"240\" height=\"50\"/><text x=\"230\" y=\"68\">water rising</text><circle class=\"ln\" cx=\"196\" cy=\"72\" r=\"16\"/><line class=\"ln\" x1=\"180\" y1=\"72\" x2=\"92\" y2=\"52\"/><circle class=\"solid\" cx=\"92\" cy=\"52\" r=\"4\"/><rect class=\"ln\" x=\"56\" y=\"34\" width=\"36\" height=\"20\"/><text x=\"74\" y=\"26\">valve</text><line class=\"acc\" x1=\"196\" y1=\"44\" x2=\"196\" y2=\"32\"/><polygon class=\"accf\" points=\"196,32 193.1,38.4 198.9,38.4\"/></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Closes, slowing or stopping the flow",
+    "Opens further, speeding up the flow",
+    "Is unaffected by the float"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "That is the point of a float valve: rising water lifts the float, the lever pushes the valve shut, and the tank stops filling.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-069",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "Water flows steadily through this pipe. In the narrow section the water moves:",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><path class=\"ln\" d=\"M20 40 L150 40 L200 66 L300 66\"/><path class=\"ln\" d=\"M20 110 L150 110 L200 84 L300 84\"/><line class=\"acc\" x1=\"50\" y1=\"76\" x2=\"96\" y2=\"76\"/><polygon class=\"accf\" points=\"96,76 89.6,73.1 89.6,78.9\"/><line class=\"acc\" x1=\"238\" y1=\"76\" x2=\"286\" y2=\"76\"/><polygon class=\"accf\" points=\"286,76 279.6,73.1 279.6,78.9\"/><text x=\"80\" y=\"30\">wide</text><text x=\"250\" y=\"52\">narrow</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "At the same speed as in the wide section",
+    "Slower than in the wide section",
+    "Faster than in the wide section"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "The same amount of water must pass every second. Squeezed into a smaller opening, it has to travel faster.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-070",
+   "section": "mech",
+   "skills": [
+    "mech.gears",
+    "mech.pulleys",
+    "mech.levers",
+    "mech.hydraulics"
+   ],
+   "type": "mc",
+   "stem": "The same 100 lb load is hung two ways. In which setup is each rope under more tension?",
+   "figure": "<figure><svg viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line class=\"ln\" x1=\"20\" y1=\"14\" x2=\"148\" y2=\"14\"/><g class=\"ln\"><line x1=\"20\" y1=\"14\" x2=\"14\" y2=\"8\"/><line x1=\"28\" y1=\"14\" x2=\"22\" y2=\"8\"/><line x1=\"36\" y1=\"14\" x2=\"30\" y2=\"8\"/><line x1=\"44\" y1=\"14\" x2=\"38\" y2=\"8\"/><line x1=\"52\" y1=\"14\" x2=\"46\" y2=\"8\"/><line x1=\"60\" y1=\"14\" x2=\"54\" y2=\"8\"/><line x1=\"68\" y1=\"14\" x2=\"62\" y2=\"8\"/><line x1=\"76\" y1=\"14\" x2=\"70\" y2=\"8\"/><line x1=\"84\" y1=\"14\" x2=\"78\" y2=\"8\"/><line x1=\"92\" y1=\"14\" x2=\"86\" y2=\"8\"/><line x1=\"100\" y1=\"14\" x2=\"94\" y2=\"8\"/><line x1=\"108\" y1=\"14\" x2=\"102\" y2=\"8\"/><line x1=\"116\" y1=\"14\" x2=\"110\" y2=\"8\"/><line x1=\"124\" y1=\"14\" x2=\"118\" y2=\"8\"/><line x1=\"132\" y1=\"14\" x2=\"126\" y2=\"8\"/><line x1=\"140\" y1=\"14\" x2=\"134\" y2=\"8\"/></g><line class=\"ln\" x1=\"72\" y1=\"14\" x2=\"82\" y2=\"80\"/><line class=\"ln\" x1=\"96\" y1=\"14\" x2=\"86\" y2=\"80\"/><rect class=\"grey\" x=\"64\" y=\"80\" width=\"40\" height=\"26\"/><text x=\"84\" y=\"97\">100 lb</text><text x=\"84\" y=\"130\">A</text><line class=\"ln\" x1=\"176\" y1=\"14\" x2=\"306\" y2=\"14\"/><g class=\"ln\"><line x1=\"176\" y1=\"14\" x2=\"170\" y2=\"8\"/><line x1=\"184\" y1=\"14\" x2=\"178\" y2=\"8\"/><line x1=\"192\" y1=\"14\" x2=\"186\" y2=\"8\"/><line x1=\"200\" y1=\"14\" x2=\"194\" y2=\"8\"/><line x1=\"208\" y1=\"14\" x2=\"202\" y2=\"8\"/><line x1=\"216\" y1=\"14\" x2=\"210\" y2=\"8\"/><line x1=\"224\" y1=\"14\" x2=\"218\" y2=\"8\"/><line x1=\"232\" y1=\"14\" x2=\"226\" y2=\"8\"/><line x1=\"240\" y1=\"14\" x2=\"234\" y2=\"8\"/><line x1=\"248\" y1=\"14\" x2=\"242\" y2=\"8\"/><line x1=\"256\" y1=\"14\" x2=\"250\" y2=\"8\"/><line x1=\"264\" y1=\"14\" x2=\"258\" y2=\"8\"/><line x1=\"272\" y1=\"14\" x2=\"266\" y2=\"8\"/><line x1=\"280\" y1=\"14\" x2=\"274\" y2=\"8\"/><line x1=\"288\" y1=\"14\" x2=\"282\" y2=\"8\"/><line x1=\"296\" y1=\"14\" x2=\"290\" y2=\"8\"/><line x1=\"304\" y1=\"14\" x2=\"298\" y2=\"8\"/></g><line class=\"ln\" x1=\"182\" y1=\"14\" x2=\"236\" y2=\"80\"/><line class=\"ln\" x1=\"298\" y1=\"14\" x2=\"244\" y2=\"80\"/><rect class=\"grey\" x=\"220\" y=\"80\" width=\"40\" height=\"26\"/><text x=\"240\" y=\"97\">100 lb</text><text x=\"240\" y=\"130\">B</text></svg></figure>",
+   "passageId": null,
+   "choices": [
+    "Setup A, with the ropes nearly vertical",
+    "The tension is the same in both",
+    "Setup B, with the ropes spread wide"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Spread ropes pull mostly sideways against each other, so only part of each rope's pull holds the weight up. The wider the angle, the higher the tension.",
+   "distractorNotes": [
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-071",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "148.8 ÷ 6.2 =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "2.4",
+    "24",
+    "240",
+    "0.24",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Move both decimals one place: 1488 ÷ 62 = 24.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-072",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "3½ × ⅔ =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "1⅔",
+    "2⅚",
+    "3⅓",
+    "2⅓",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "7/2 × 2/3 = 14/6 = 7/3 = 2⅓.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-073",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "⅝ + ¾ =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "1⅜",
+    "1⅛",
+    "⅞",
+    "1½",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Common denominator 8: 5/8 + 6/8 = 11/8 = 1⅜.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-074",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "⅞ − ⅓ =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "6/5",
+    "1/2",
+    "13/24",
+    "11/24",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Common denominator 24: 21/24 − 8/24 = 13/24.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-075",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "0.045 × 200 =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "0.9",
+    "90",
+    "9",
+    "4.5",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "45 × 200 = 9000, then move the decimal three places: 9.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-076",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "18 is what percent of 45?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "40%",
+    "36%",
+    "25%",
+    "45%",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "18 ÷ 45 = 0.40, which is 40%.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-077",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "What is 15% of 340?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "41",
+    "55",
+    "5.1",
+    "51",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "10% is 34 and 5% is 17. 34 + 17 = 51.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-078",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "A cable is 27 ft 8 in long. If 9 ft 11 in is cut off, how much is left?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "18 ft 3 in",
+    "17 ft 9 in",
+    "17 ft 3 in",
+    "18 ft 9 in",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "332 in − 119 in = 213 in, and 213 ÷ 12 = 17 ft 9 in.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-079",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "A 12-tooth gear drives a 36-tooth gear. Written in lowest terms, the gear ratio is:",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "1:2",
+    "1:3",
+    "2:3",
+    "3:1",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Divide both by 12: 12:36 becomes 1:3.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-080",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "Solve: 4x − 7 = 29",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "5.5",
+    "9",
+    "7",
+    "36",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Add 7 to get 4x = 36, then divide by 4: x = 9.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-081",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "Solve: 3(x + 2) = 21",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "6.33",
+    "7",
+    "9",
+    "5",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "Divide both sides by 3: x + 2 = 7, so x = 5.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-082",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "(8 + 4) ÷ 3 × 2 − 5 =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "1",
+    "5",
+    "3",
+    "8",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Parentheses first: 12 ÷ 3 = 4, × 2 = 8, − 5 = 3.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-083",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "5 + 3 × 4² =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "77",
+    "128",
+    "53",
+    "37",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Exponent first: 4² = 16. Then 3 × 16 = 48, plus 5 = 53.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-084",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "Written as a decimal, ⅝ equals:",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "0.58",
+    "1.6",
+    "0.85",
+    "0.625",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "5 ÷ 8 = 0.625.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-085",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "2¾ ÷ ½ =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "1⅜",
+    "5½",
+    "4½",
+    "6",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Invert and multiply: 11/4 × 2/1 = 22/4 = 5½.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-086",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "A crew installs 3 elevators in 12 days. Working at the same rate, how many days will 7 elevators take?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "28",
+    "24",
+    "21",
+    "30",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "12 ÷ 3 = 4 days each, and 4 × 7 = 28 days.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-087",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "A motor turns at 1,200 rpm and drives a machine through a 3:1 speed reduction. The machine turns at:",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "300 rpm",
+    "360 rpm",
+    "3,600 rpm",
+    "400 rpm",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "A 3:1 reduction divides the speed by 3: 1,200 ÷ 3 = 400 rpm.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-088",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "What is the area of a rectangle 8.5 ft by 6 ft?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "29 sq ft",
+    "14.5 sq ft",
+    "51 sq ft",
+    "48 sq ft",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "Area is length × width: 8.5 × 6 = 51 sq ft.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-089",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "What is the perimeter of a rectangle 12 ft by 7.5 ft?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "90 ft",
+    "39 ft",
+    "19.5 ft",
+    "45 ft",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "Perimeter is 2(12) + 2(7.5) = 24 + 15 = 39 ft.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-090",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "A load weighs 1,250 lb. A cable must be rated for 5 times the load. The rating needed is:",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "6,250 lb",
+    "5,250 lb",
+    "6,000 lb",
+    "62,500 lb",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "1,250 × 5 = 6,250 lb.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-091",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "A part's cost rises from $80 to $100. That is an increase of:",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "20%",
+    "80%",
+    "25%",
+    "125%",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "The increase is $20 measured against the original $80: 20 ÷ 80 = 25%.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-092",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "¾ of 128 =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "96",
+    "86",
+    "94",
+    "102",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "128 ÷ 4 = 32, and 32 × 3 = 96.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-093",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "0.6 ÷ 0.02 =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "30",
+    "3",
+    "300",
+    "0.3",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "Move both decimals two places: 60 ÷ 2 = 30.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-094",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "A worker earns $28.50 an hour and works 38 hours. Gross pay is:",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "$1,083.00",
+    "$1,038.00",
+    "$1,140.00",
+    "$980.50",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 0,
+   "explanation": "28.50 × 38 = 28.50 × 40 − 28.50 × 2 = 1,140 − 57 = $1,083.00.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-095",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "7.5 × 2.4 =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "16.5",
+    "17.5",
+    "18.5",
+    "19.2",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 4,
+   "explanation": "75 × 24 = 1,800, so the product is 18.0. That is not offered, so the answer is No answer.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-096",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "⁹⁄₁₀ − ⅘ =",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "7/5",
+    "3/5",
+    "2/5",
+    "7/10",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 4,
+   "explanation": "9/10 − 4/10 = 5/10 = 1/2. That is not offered, so the answer is No answer.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-097",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "Solve: x ÷ 6 = 4.5",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "0.75",
+    "10.5",
+    "24",
+    "30",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 4,
+   "explanation": "Multiply both sides by 6: x = 27. That is not offered, so the answer is No answer.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-098",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "A 240-gallon tank fills at 15 gallons per minute. How long does it take to fill?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "14 min",
+    "16 min",
+    "15 min",
+    "18 min",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 1,
+   "explanation": "240 ÷ 15 = 16 minutes.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-099",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "How many inches are in 3 ft 6 in?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "36",
+    "38",
+    "46",
+    "42",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 3,
+   "explanation": "3 × 12 = 36, plus 6 = 42 inches.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  },
+  {
+   "id": "eiat-a-100",
+   "section": "math",
+   "skills": [
+    "arith.fractions",
+    "arith.percent",
+    "algebra.linear"
+   ],
+   "type": "mc",
+   "stem": "Pressure equals force divided by area (P = F ÷ A). If F = 180 lb and A = 9 sq in, then P equals:",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "0.05 psi",
+    "1,620 psi",
+    "20 psi",
+    "2 psi",
+    "No answer"
+   ],
+   "choicesAreFigures": false,
+   "correctIndex": 2,
+   "explanation": "180 ÷ 9 = 20 pounds per square inch.",
+   "distractorNotes": [
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "unchecked"
+  }
+ ],
+ "keyOrderRebalanced": true
+}

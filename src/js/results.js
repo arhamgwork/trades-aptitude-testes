@@ -1,5 +1,5 @@
 // Results rendering: overall, per-section, per-question review, skill breakdown.
-import { el, LETTERS, fmtDuration, svgFigure, pct } from './util.js';
+import { el, LETTERS, fmtDuration, svgFigure, pct, choiceBody } from './util.js';
 
 export function renderResults(result, exam, host, opts = {}) {
   host.textContent = '';
@@ -68,7 +68,7 @@ export function renderResults(result, exam, host, opts = {}) {
       const o = el('div', {
         class: `opt ${isKey ? 'key' : ''} ${isPicked && !isKey ? 'picked-wrong' : ''}`.trim(),
       },
-        el('strong', { text: `${LETTERS[i]}. ` }), c,
+        el('strong', { text: `${LETTERS[i]}. ` }), choiceBody(q, i),
         isKey ? el('span', { class: 'tag', text: 'correct' }) : null,
         isPicked ? el('span', { class: 'tag', text: 'your answer' }) : null);
       if (!isKey && q.distractorNotes && q.distractorNotes[i]) {
