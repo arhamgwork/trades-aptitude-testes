@@ -272,8 +272,10 @@ function checkBalance(exam, id, errors) {
  * the wrong skill, so it is a build failure rather than a style note.
  */
 function checkLengthBias(exam, id, errors) {
+  // Any item whose key cannot be computed is exposed to this heuristic,
+  // including the conceptual mechanical ones.
   const rows = exam.questions.filter(
-    (q) => q.verify === 'blind-solve' && !q.choicesAreFigures);
+    (q) => q.verify.includes('blind-solve') && !q.choicesAreFigures);
   if (rows.length < 10) return;
   const mean = (xs) => xs.reduce((a, b) => a + b, 0) / xs.length;
 

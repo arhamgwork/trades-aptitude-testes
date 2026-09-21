@@ -3,7 +3,7 @@
   {
    "slug": "electrical",
    "name": "Electrical",
-   "blurb": "IBEW apprenticeships. Cook and DuPage use different tests — check which local you are applying to.",
+   "blurb": "IBEW apprenticeships. Cook and DuPage may sit different tests — 701 is confirmed on the Electrical Training Alliance paper, and 134 is unresolved, so both formats are provided.",
    "locals": [
     "IBEW Local 134 / EJATT (Cook)",
     "IBEW Local 701 / DuPage JATC"
@@ -65,6 +65,81 @@
       "https://ganhumanresources.com/gan-aptitude-test"
      ],
      "unverified": "Which instrument Local 134 actually administers. EJATT publishes no format. Two practice exams are provided, one in each format, so preparation is covered either way. Confirm with EJATT at 708-389-1340 before relying on one."
+    },
+    {
+     "doc": "docs/blueprints/electrical-ibew-134.md",
+     "testName": "GAN Aptitude Battery — the other possibility for Local 134",
+     "provider": "GAN Human Resources",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 140,
+     "totalMinutes": 112,
+     "calculator": false,
+     "locals": [
+      "IBEW Local 134 / EJATT (Cook County) — if EJATT tests through GAN"
+     ],
+     "scoring": "If this is the instrument, ranking is by score as with the other GAN programs.",
+     "sections": [
+      {
+       "name": "Numerical Computation",
+       "questions": 25,
+       "minutes": 15,
+       "format": "Arithmetic",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Number Series",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Sequence completion",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Problem Solving",
+       "questions": 25,
+       "minutes": 25,
+       "format": "Word problems",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Reading Comprehension",
+       "questions": 25,
+       "minutes": 30,
+       "format": "Technical passages",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mechanical Aptitude",
+       "questions": 25,
+       "minutes": 18,
+       "format": "Diagrams",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Spatial Relations",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Paper folding",
+       "calculator": false,
+       "timeConfirmed": false
+      }
+     ],
+     "sources": [
+      "https://ganhumanresources.com/gan-aptitude-test",
+      "https://ejatt.com/about-in-tech/faqs/"
+     ],
+     "unverified": "Whether Local 134 uses this at all. GAN's own site lists electricians among the Chicagoland trades it tests, and EJATT hands out a study guide at registration, which fits GAN's $20 guide rather than the free ETA sample. Against that, EJATT is an IBEW+NECA trust and IBEW/NECA programs nationally use the ETA test. Both formats are provided so preparation is covered either way. Settle it with EJATT on 708-389-1340."
+    }
+   ],
+   "sharedExams": [
+    {
+     "id": "gan-battery-formB",
+     "note": "Local 134, GAN-format variant. This is the shared GAN battery paper. Use it if EJATT turns out to test through GAN rather than the Electrical Training Alliance — which is still unresolved, so practise both if you are applying to 134."
     }
    ]
   },
@@ -371,21 +446,656 @@
    "blurb": "Skill sets that are not tied to one trade: sign analysis (four underlying rules) and variable relationships (all four sub-types).",
    "locals": [],
    "blueprints": []
+  },
+  {
+   "slug": "ironworking",
+   "name": "Ironworking",
+   "blurb": "Iron Workers Local 1. The only trade here where GAN is confirmed by GAN itself selling the test registration.",
+   "locals": [
+    "Iron Workers Local 1 (structural)",
+    "Local 63 (architectural/ornamental)",
+    "Local 136 (machinery movers and riggers)"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/_gan-battery.md",
+     "testName": "GAN Aptitude Battery",
+     "provider": "GAN Human Resources",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 140,
+     "totalMinutes": 112,
+     "calculator": false,
+     "locals": [
+      "Iron Workers Local 1 (structural)",
+      "Local 63 (architectural/ornamental)",
+      "Local 136 (machinery movers and riggers)"
+     ],
+     "scoring": "Applicants are ranked by score. Testing has been held at UIC; arrive early, bring photo ID, no late entry.",
+     "sections": [
+      {
+       "name": "Numerical Computation",
+       "questions": 25,
+       "minutes": 15,
+       "format": "Arithmetic",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Number Series",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Sequence completion",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Problem Solving",
+       "questions": 25,
+       "minutes": 25,
+       "format": "Word problems",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Reading Comprehension",
+       "questions": 25,
+       "minutes": 30,
+       "format": "Technical passages",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mechanical Aptitude",
+       "questions": 25,
+       "minutes": 18,
+       "format": "Diagrams",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Spatial Relations",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Paper folding",
+       "calculator": false,
+       "timeConfirmed": false
+      }
+     ],
+     "sources": [
+      "https://ganhumanresources.com/store-1/iron-workers-local-1-aptitude-test-registration-july-12-2025-9am-p82bs-cf4n9",
+      "https://ganhumanresources.com/gan-aptitude-test",
+      "https://www.pftf597.org/applications/testing/",
+      "https://chicagobuildingtrades.org/index.php/apprenticeship/apprentice-program-info/"
+     ],
+     "unverified": "The per-section split and timings. GAN is CONFIRMED as the testing company for Local 1 — GAN's own store sells the aptitude test registration for it — but GAN publishes no section counts or time limits for any local, so the table shown is derived from UA Local 597. Whether Locals 63 and 136 use the same instrument has not been checked."
+    }
+   ],
+   "sharedExams": [
+    {
+     "id": "gan-battery-formB",
+     "note": "This is the shared GAN battery practice exam. GAN administers one instrument across many Chicago-area programs, so this is the same paper the other GAN trades practise on — it is not a separate test written for this trade. The section split follows UA Local 597 and is derived."
+    }
+   ]
+  },
+  {
+   "slug": "sprinklerfitting",
+   "name": "Sprinkler fitting",
+   "blurb": "Sprinkler Fitters Local 281. A UA local, so the GAN battery is the expected instrument.",
+   "locals": [
+    "Sprinkler Fitters Local 281 (Alsip)"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/_gan-battery.md",
+     "testName": "GAN Aptitude Battery",
+     "provider": "GAN Human Resources",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 140,
+     "totalMinutes": 112,
+     "calculator": false,
+     "locals": [
+      "Sprinkler Fitters Local 281 (Alsip)"
+     ],
+     "scoring": "Aptitude test plus an interview with the Training Center; $25 application fee; five-year apprenticeship.",
+     "sections": [
+      {
+       "name": "Numerical Computation",
+       "questions": 25,
+       "minutes": 15,
+       "format": "Arithmetic",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Number Series",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Sequence completion",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Problem Solving",
+       "questions": 25,
+       "minutes": 25,
+       "format": "Word problems",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Reading Comprehension",
+       "questions": 25,
+       "minutes": 30,
+       "format": "Technical passages",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mechanical Aptitude",
+       "questions": 25,
+       "minutes": 18,
+       "format": "Diagrams",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Spatial Relations",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Paper folding",
+       "calculator": false,
+       "timeConfirmed": false
+      }
+     ],
+     "sources": [
+      "https://sprinklerfitterchicago.org/apprenticeship.aspx",
+      "https://ganhumanresources.com/gan-aptitude-test",
+      "https://www.pftf597.org/applications/testing/",
+      "https://chicagobuildingtrades.org/index.php/apprenticeship/apprentice-program-info/"
+     ],
+     "unverified": "Everything about the format. Local 281 confirms an aptitude test is part of the process but publishes no format. It is a UA local, and the other two UA locals in this project (597 and 130) both use GAN, which is why this battery is shown — but that is an inference, not a confirmation."
+    }
+   ],
+   "sharedExams": [
+    {
+     "id": "gan-battery-formB",
+     "note": "This is the shared GAN battery practice exam. GAN administers one instrument across many Chicago-area programs, so this is the same paper the other GAN trades practise on — it is not a separate test written for this trade. The section split follows UA Local 597 and is derived."
+    }
+   ]
+  },
+  {
+   "slug": "roofing",
+   "name": "Roofing",
+   "blurb": "Roofers Local 11. Ranked by test score; the local publishes no format.",
+   "locals": [
+    "Roofers Local 11 / Chicagoland Roofers JATC"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/_gan-battery.md",
+     "testName": "GAN Aptitude Battery",
+     "provider": "GAN Human Resources",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 140,
+     "totalMinutes": 112,
+     "calculator": false,
+     "locals": [
+      "Roofers Local 11 / Chicagoland Roofers JATC"
+     ],
+     "scoring": "Applicants are notified of a testing date by mail and are contacted for a position by score ranking.",
+     "sections": [
+      {
+       "name": "Numerical Computation",
+       "questions": 25,
+       "minutes": 15,
+       "format": "Arithmetic",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Number Series",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Sequence completion",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Problem Solving",
+       "questions": 25,
+       "minutes": 25,
+       "format": "Word problems",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Reading Comprehension",
+       "questions": 25,
+       "minutes": 30,
+       "format": "Technical passages",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mechanical Aptitude",
+       "questions": 25,
+       "minutes": 18,
+       "format": "Diagrams",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Spatial Relations",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Paper folding",
+       "calculator": false,
+       "timeConfirmed": false
+      }
+     ],
+     "sources": [
+      "https://chicagoroofers.org/application/",
+      "https://ganhumanresources.com/gan-aptitude-test",
+      "https://www.pftf597.org/applications/testing/",
+      "https://chicagobuildingtrades.org/index.php/apprenticeship/apprentice-program-info/"
+     ],
+     "unverified": "Everything about the format. The JATC confirms an aptitude test and that applicants are contacted by score ranking, but publishes no blueprint. GAN lists roofers among the Chicagoland trades it tests, which is why this battery is shown — an inference, not a confirmation."
+    }
+   ],
+   "sharedExams": [
+    {
+     "id": "gan-battery-formB",
+     "note": "This is the shared GAN battery practice exam. GAN administers one instrument across many Chicago-area programs, so this is the same paper the other GAN trades practise on — it is not a separate test written for this trade. The section split follows UA Local 597 and is derived."
+    }
+   ]
+  },
+  {
+   "slug": "masonry",
+   "name": "Bricklaying and masonry",
+   "blurb": "BAC Local 21 through the District Council Training Center in Addison.",
+   "locals": [
+    "Bricklayers & Allied Craftworkers Local 21",
+    "BAC District Council Training Center (Addison)"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/_gan-battery.md",
+     "testName": "GAN Aptitude Battery",
+     "provider": "GAN Human Resources",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 140,
+     "totalMinutes": 112,
+     "calculator": false,
+     "locals": [
+      "Bricklayers & Allied Craftworkers Local 21",
+      "BAC District Council Training Center (Addison)"
+     ],
+     "scoring": "Aptitude test included in the $20 application fee. Applications taken year-round in Addison.",
+     "sections": [
+      {
+       "name": "Numerical Computation",
+       "questions": 25,
+       "minutes": 15,
+       "format": "Arithmetic",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Number Series",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Sequence completion",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Problem Solving",
+       "questions": 25,
+       "minutes": 25,
+       "format": "Word problems",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Reading Comprehension",
+       "questions": 25,
+       "minutes": 30,
+       "format": "Technical passages",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mechanical Aptitude",
+       "questions": 25,
+       "minutes": 18,
+       "format": "Diagrams",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Spatial Relations",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Paper folding",
+       "calculator": false,
+       "timeConfirmed": false
+      }
+     ],
+     "sources": [
+      "https://www.bac2school.org/",
+      "https://ganhumanresources.com/gan-aptitude-test",
+      "https://www.pftf597.org/applications/testing/",
+      "https://chicagobuildingtrades.org/index.php/apprenticeship/apprentice-program-info/"
+     ],
+     "unverified": "Everything about the format. The training center confirms an aptitude test covered by the $20 application fee but publishes no blueprint. GAN lists bricklayers and tile-setters among the trades it tests, which is why this battery is shown — an inference."
+    }
+   ],
+   "sharedExams": [
+    {
+     "id": "gan-battery-formB",
+     "note": "This is the shared GAN battery practice exam. GAN administers one instrument across many Chicago-area programs, so this is the same paper the other GAN trades practise on — it is not a separate test written for this trade. The section split follows UA Local 597 and is derived."
+    }
+   ]
+  },
+  {
+   "slug": "carpentry",
+   "name": "Carpentry and millwrighting",
+   "blurb": "Mid-America Carpenters Regional Council.",
+   "locals": [
+    "Mid-America Carpenters Regional Council (Chicago and Illinois)"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/_gan-battery.md",
+     "testName": "GAN Aptitude Battery",
+     "provider": "GAN Human Resources",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 140,
+     "totalMinutes": 112,
+     "calculator": false,
+     "locals": [
+      "Mid-America Carpenters Regional Council (Chicago and Illinois)"
+     ],
+     "scoring": "Applicants must pass maths tests without a calculator before starting. Ranked by score.",
+     "sections": [
+      {
+       "name": "Numerical Computation",
+       "questions": 25,
+       "minutes": 15,
+       "format": "Arithmetic",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Number Series",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Sequence completion",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Problem Solving",
+       "questions": 25,
+       "minutes": 25,
+       "format": "Word problems",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Reading Comprehension",
+       "questions": 25,
+       "minutes": 30,
+       "format": "Technical passages",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mechanical Aptitude",
+       "questions": 25,
+       "minutes": 18,
+       "format": "Diagrams",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Spatial Relations",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Paper folding",
+       "calculator": false,
+       "timeConfirmed": false
+      }
+     ],
+     "sources": [
+      "https://mactc.org/",
+      "https://ganhumanresources.com/gan-aptitude-test",
+      "https://www.pftf597.org/applications/testing/",
+      "https://chicagobuildingtrades.org/index.php/apprenticeship/apprentice-program-info/"
+     ],
+     "unverified": "Everything about the format. The Council publishes no blueprint. GAN lists carpenters among the trades it tests, which is why this battery is shown. Third-party sources describe carpenter entrance exams with a maths, reading and science split that does not match the GAN battery, so this one is less certain than the other GAN trades here."
+    }
+   ],
+   "sharedExams": [
+    {
+     "id": "gan-battery-formB",
+     "note": "This is the shared GAN battery practice exam. GAN administers one instrument across many Chicago-area programs, so this is the same paper the other GAN trades practise on — it is not a separate test written for this trade. The section split follows UA Local 597 and is derived."
+    }
+   ]
+  },
+  {
+   "slug": "operating-engineers",
+   "name": "Operating engineers",
+   "blurb": "IUOE Local 150, through the Apprenticeship and Skill Improvement Program.",
+   "locals": [
+    "IUOE Local 150 (ASIP, Wilmington IL)"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/_gan-battery.md",
+     "testName": "GAN Aptitude Battery",
+     "provider": "GAN Human Resources",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 140,
+     "totalMinutes": 112,
+     "calculator": false,
+     "locals": [
+      "IUOE Local 150 (ASIP, Wilmington IL)"
+     ],
+     "scoring": "Not published by the local.",
+     "sections": [
+      {
+       "name": "Numerical Computation",
+       "questions": 25,
+       "minutes": 15,
+       "format": "Arithmetic",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Number Series",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Sequence completion",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Problem Solving",
+       "questions": 25,
+       "minutes": 25,
+       "format": "Word problems",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Reading Comprehension",
+       "questions": 25,
+       "minutes": 30,
+       "format": "Technical passages",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Mechanical Aptitude",
+       "questions": 25,
+       "minutes": 18,
+       "format": "Diagrams",
+       "calculator": false,
+       "timeConfirmed": false
+      },
+      {
+       "name": "Spatial Relations",
+       "questions": 20,
+       "minutes": 12,
+       "format": "Paper folding",
+       "calculator": false,
+       "timeConfirmed": false
+      }
+     ],
+     "sources": [
+      "https://www.asiplocal150.org/",
+      "https://ganhumanresources.com/gan-aptitude-test",
+      "https://www.pftf597.org/applications/testing/",
+      "https://chicagobuildingtrades.org/index.php/apprenticeship/apprentice-program-info/"
+     ],
+     "unverified": "Everything about the format. Local 150 publishes no blueprint. GAN lists operating engineers among the trades it tests, which is why this battery is shown — an inference. Third-party sources describe IUOE tests covering mechanical reasoning, reading and maths, which is consistent but not confirmation."
+    }
+   ],
+   "sharedExams": [
+    {
+     "id": "gan-battery-formB",
+     "note": "This is the shared GAN battery practice exam. GAN administers one instrument across many Chicago-area programs, so this is the same paper the other GAN trades practise on — it is not a separate test written for this trade. The section split follows UA Local 597 and is derived."
+    }
+   ]
+  },
+  {
+   "slug": "boilermaking",
+   "name": "Boilermaking",
+   "blurb": "Boilermakers Local 1. The format reported for this trade does not match the GAN battery, so no exam is offered yet.",
+   "locals": [
+    "Boilermakers Local 1 (Chicago)"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/_gan-battery.md",
+     "testName": "Boilermaker apprenticeship exam",
+     "provider": "Not published by the local",
+     "confidence": "UNKNOWN",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 0,
+     "totalMinutes": 0,
+     "calculator": false,
+     "locals": [
+      "Boilermakers Local 1 (Chicago)"
+     ],
+     "scoring": "Not published. Applications are taken on the third Thursday of each month at 2941 S. Archer Ave.",
+     "sections": [],
+     "sources": [
+      "https://www.boilermakerslocalone.com/",
+      "https://www.cisco.org/apprenticeship/boilermakers/"
+     ],
+     "unverified": "The format entirely. Local 1 publishes no blueprint. Third-party prep sources describe a boilermaker exam of roughly 100 questions split into Mathematics (about 50), English and Reading (about 22) and Science (about 28) — a structure unlike the GAN battery. Because that split is third-party only and unconfirmed for this local, no full-length exam is offered here. Use the skill drills, and confirm the format with the local before relying on any practice paper."
+    }
+   ]
+  },
+  {
+   "slug": "insulating",
+   "name": "Heat and frost insulating",
+   "blurb": "Insulators Local 17. Reported as a written maths test rather than a full battery, so no full-length exam is offered.",
+   "locals": [
+    "Heat & Frost Insulators Local 17 (Chicago)"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/_gan-battery.md",
+     "testName": "Written maths aptitude test",
+     "provider": "Not published by the local",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 0,
+     "totalMinutes": 0,
+     "calculator": false,
+     "locals": [
+      "Heat & Frost Insulators Local 17 (Chicago)"
+     ],
+     "scoring": "Reported pass mark 70%, followed by an oral interview.",
+     "sections": [],
+     "sources": [
+      "https://www.local17insulators.com/join-local-17/",
+      "https://www.local17insulators.com/apprentice/"
+     ],
+     "unverified": "Question count, time limit and the exact topics. What is reported is that the test is a written maths aptitude test with a 70% pass mark plus an oral interview — narrower than the multi-section batteries the other trades here sit. Because it appears to be maths-only, offering a six-section battery would misrepresent it, so this trade points at the arithmetic, fractions, percent and geometry drills instead."
+    }
+   ]
+  },
+  {
+   "slug": "line-construction",
+   "name": "Outside line construction",
+   "blurb": "IBEW outside line work. Same Electrical Training Alliance test as the inside wireman, with a lower qualifying score at some JATCs.",
+   "locals": [
+    "IBEW outside construction locals"
+   ],
+   "blueprints": [
+    {
+     "doc": "docs/blueprints/electrical-ibew-701.md",
+     "testName": "Electrical Industry Aptitude Test",
+     "provider": "Electrical Training Alliance",
+     "confidence": "PARTIAL",
+     "dateChecked": "2026-09-21",
+     "totalQuestions": 69,
+     "totalMinutes": 97,
+     "calculator": false,
+     "locals": [
+      "IBEW outside construction / line JATCs"
+     ],
+     "scoring": "Stanine 1-9. Some outside line JATCs qualify applicants at 3 rather than the 4 most inside programs require.",
+     "sections": [
+      {
+       "name": "Algebra and Functions",
+       "questions": 33,
+       "minutes": 46,
+       "format": "Multiple choice",
+       "calculator": false,
+       "timeConfirmed": true
+      },
+      {
+       "name": "Reading Comprehension",
+       "questions": 36,
+       "minutes": 51,
+       "format": "Four passages, multiple choice",
+       "calculator": false,
+       "timeConfirmed": true
+      }
+     ],
+     "sources": [
+      "https://www.ibewjatc.org/aptitude-test",
+      "https://www.electricaltrainingalliance.org/SamplePage/PreparingfortheTest"
+     ],
+     "unverified": "Whether every outside line JATC uses the same two-section paper as the inside wireman programs. The section counts and timings are CONFIRMED for the Electrical Training Alliance test itself; what is not confirmed is that no outside program substitutes a different instrument. The qualifying score does differ by program."
+    }
+   ],
+   "sharedExams": [
+    {
+     "id": "ibew-701-formA",
+     "note": "This is the shared Electrical Training Alliance practice exam. The ETA test is one instrument used across IBEW/NECA programs, so this is the same paper the inside wireman applicants practise on. Check the qualifying score your JATC actually uses."
+    }
+   ]
   }
  ],
  "pending": [
-  "ironworkers",
-  "sprinkler fitters",
+  "IBEW 134: confirm which instrument EJATT actually uses",
   "steamfitters / HVACR",
-  "carpenters / millwrights",
-  "operating engineers",
-  "boilermakers",
-  "bricklayers",
-  "roofers",
-  "insulators",
-  "painters / glaziers",
-  "line construction",
-  "low-voltage / communications",
-  "IBEW 134 (both format variants)"
+  "cement masons Local 502",
+  "painters and glaziers, District Council 14",
+  "low-voltage / communications (IBEW 134 IN-TECH)",
+  "Form B for each trade",
+  "offline (PWA) mode"
  ]
 }

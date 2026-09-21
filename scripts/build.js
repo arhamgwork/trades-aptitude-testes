@@ -82,7 +82,22 @@ function buildCatalog(exams) {
       })),
     });
   }
-  const trades = tradesMeta.trades.map((t) => ({ ...t, exams: byTrade[t.slug] || [] }));
+  // A trade may practise on an exam that "belongs" to another trade, because
+  // several Chicago locals sit the same instrument. Those are attached here
+  // with a note, rather than duplicating the question bank per trade.
+  const allExams = Object.values(byTrade).flat();
+  const trades = tradesMeta.trades.map((t) => {
+    const own = byTrade[t.slug] || [];
+    const shared = (t.sharedExams || []).map((ref) => {
+      const found = allExams.find((e) => e.id === ref.id);
+      if (!found) {
+        errors.push(`data/trades.json: trade "${t.slug}" references unknown exam "${ref.id}"`);
+        return null;
+      }
+      return { ...found, sharedNote: ref.note };
+    }).filter(Boolean);
+    return { ...t, exams: [...own, ...shared] };
+  });
   for (const slug of Object.keys(byTrade)) {
     if (!trades.find((t) => t.slug === slug)) {
       errors.push(`data/trades.json has no entry for trade "${slug}" used by an exam`);

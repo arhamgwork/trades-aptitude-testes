@@ -117,7 +117,7 @@ for (const { exam } of exams) {
     w('    writing content the original author did not write.');
   }
   w(`- Items with picture choices: ${exam.questions.filter((q) => q.choicesAreFigures).length}`);
-  const bias = exam.questions.filter((q) => q.verify === 'blind-solve' && !q.choicesAreFigures);
+  const bias = exam.questions.filter((q) => q.verify.includes('blind-solve') && !q.choicesAreFigures);
   if (bias.length >= 10) {
     const mean = (xs) => xs.reduce((a, b) => a + b, 0) / xs.length;
     let longest = 0;

@@ -37,6 +37,7 @@ function render(t) {
       el('h3', { style: 'margin-top:0' }, e.title,
         el('span', { class: `badge ${e.confidence}`, text: e.confidence, style: 'margin-left:8px' })),
       el('p', { class: 'small muted', text: `${e.totalQuestions} questions · ${e.sections.length} section${e.sections.length === 1 ? '' : 's'} · ${e.totalMinutes} minutes · ${e.calculatorAllowed ? 'calculator allowed' : 'no calculator'}` }),
+      e.sharedNote ? el('p', { class: 'notice small', text: e.sharedNote }) : null,
       el('div', { class: 'btnrow' },
         el('a', { class: 'btn primary', href: `exam.html?exam=${encodeURIComponent(e.id)}`, text: 'Start exam' }),
         el('a', { class: 'btn', href: `print.html?exam=${encodeURIComponent(e.id)}`, text: 'Print' })),

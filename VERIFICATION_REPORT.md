@@ -449,10 +449,10 @@ No item is marked `unchecked`.
 - Items with a figure: 42
 - Items with a per-distractor error note on every wrong choice: 140 of 140
 - Items with picture choices: 20
-- Option-length bias on the 25 non-computational items: the correct choice is
-  the longest in 7 of them (28%, chance is about 25%, limit 40%),
-  and correct choices average 55 characters against 54 for distractors
-  (ratio 1.02, limit 1.25). This is a build gate: a correct option that is
+- Option-length bias on the 32 non-computational items: the correct choice is
+  the longest in 10 of them (31%, chance is about 25%, limit 40%),
+  and correct choices average 52 characters against 50 for distractors
+  (ratio 1.03, limit 1.25). This is a build gate: a correct option that is
   reliably longer lets a test-wise candidate score without reading the passage.
 - Explanations referencing a choice by letter: 0 (must be 0)
 
