@@ -65,6 +65,73 @@ Phase 2 work and is tracked in `PLAN.md`.
 - Items with picture choices: 0
 - Explanations referencing a choice by letter: 0 (must be 0)
 
+## Variable relationships — all four sub-types
+
+- **Id:** `variable-relationships`
+- **Test:** Skill drill — This site
+- **Confidence:** CONFIRMED
+- **Blueprint:** `docs/blueprints/_gan-battery.md` (checked 2026-09-21)
+- **Calculator:** not allowed
+
+### Section counts vs blueprint
+
+| Section | Blueprint questions | Actual | Time | Time source |
+|---|---|---|---|---|
+| Inequality chains | 15 | 15 | 0 min | official |
+| Two-statement sufficiency | 15 | 15 | 0 min | official |
+| Symbolic and functional substitution | 15 | 15 | 0 min | official |
+| If-then chains | 15 | 15 | 0 min | official |
+
+### Answer-key distribution
+
+Uniform target 20.0%. Limits: 8 points overall, 12 points within a section of 30+ items, no more than 3 identical in a row.
+
+| Letter | Count | Share | Deviation |
+|---|---|---|---|
+| A | 15 | 25.0% | +5.0 |
+| B | 15 | 25.0% | +5.0 |
+| C | 15 | 25.0% | +5.0 |
+| D | 12 | 20.0% | +0.0 |
+| E | 3 | 5.0% | -15.0 |
+
+Longest run of the same correct letter: **2**.
+
+### How each key was checked
+
+| Method | Items | Share |
+|---|---|---|
+| `python:exhaustive (all assignments over the search range enumerated)` | 15 | 25.0% |
+| `python:substitution (evaluated directly; each distractor reproduced from its named error)` | 15 | 25.0% |
+| `python:truth-table (8 assignments, 1 satisfying)` | 6 | 10.0% |
+| `python:truth-table (4 assignments, 1 satisfying)` | 5 | 8.3% |
+| `python:truth-table (4 assignments, 2 satisfying)` | 4 | 6.7% |
+| `python:exhaustive (37 models)` | 2 | 3.3% |
+| `python:exhaustive (2024 models)` | 1 | 1.7% |
+| `python:exhaustive (9139 models)` | 1 | 1.7% |
+| `python:exhaustive (276 models)` | 1 | 1.7% |
+| `python:exhaustive (16206 models)` | 1 | 1.7% |
+| `python:exhaustive (288 models)` | 1 | 1.7% |
+| `python:exhaustive (21 models)` | 1 | 1.7% |
+| `python:exhaustive (1540 models)` | 1 | 1.7% |
+| `python:exhaustive (552 models)` | 1 | 1.7% |
+| `python:exhaustive (190 models)` | 1 | 1.7% |
+| `python:exhaustive (144 models)` | 1 | 1.7% |
+| `python:exhaustive (6 models)` | 1 | 1.7% |
+| `python:exhaustive (35 models)` | 1 | 1.7% |
+| `python:exhaustive (588 models)` | 1 | 1.7% |
+
+**Computationally checked: 60 of 60 (100.0%).**
+
+No item is marked `unchecked`.
+
+### Structural checks
+
+- Distinct stems: 60 of 60
+- Items with a figure: 0
+- Items with a per-distractor error note on every wrong choice: 60 of 60
+- Items with picture choices: 0
+- Explanations referencing a choice by letter: 0 (must be 0)
+
 ## IBEW Local 701 (DuPage) — Practice Exam, Form A
 
 - **Id:** `ibew-701-formA`

@@ -1,0 +1,1693 @@
+{
+ "id": "variable-relationships",
+ "trade": "drills",
+ "title": "Variable relationships — all four sub-types",
+ "testName": "Skill drill",
+ "provider": "This site",
+ "locals": [],
+ "confidence": "CONFIRMED",
+ "confidenceNote": "",
+ "blueprint": "docs/blueprints/_gan-battery.md",
+ "dateChecked": "2026-09-21",
+ "calculatorAllowed": false,
+ "selfPaced": true,
+ "sections": [
+  {
+   "id": "inequality",
+   "name": "Inequality chains",
+   "questionCount": 15,
+   "timeLimitSec": null
+  },
+  {
+   "id": "sufficiency",
+   "name": "Two-statement sufficiency",
+   "questionCount": 15,
+   "timeLimitSec": null
+  },
+  {
+   "id": "symbolic",
+   "name": "Symbolic and functional substitution",
+   "questionCount": 15,
+   "timeLimitSec": null
+  },
+  {
+   "id": "ifthen",
+   "name": "If-then chains",
+   "questionCount": 15,
+   "timeLimitSec": null
+  }
+ ],
+ "passages": [],
+ "questions": [
+  {
+   "id": "varrel-ineq-001",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Three gauge readings satisfy x > y, y > z, and z > 0.\nWhich statement MUST be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "x > 2z",
+    "x > z",
+    "x is negative",
+    "y = z"
+   ],
+   "correctIndex": 1,
+   "explanation": "Checked against every assignment satisfying the constraints (2024 of them): the stated relationship holds in all of them.",
+   "distractorNotes": [
+    "this one is only sometimes true under the stated relationships — doubling z is not supported by the chain",
+    null,
+    "this one is never true under the stated relationships — everything above a positive z is positive",
+    "this one is never true under the stated relationships — y is strictly greater than z"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (2024 models)"
+  },
+  {
+   "id": "varrel-ineq-002",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Two lengths satisfy a ≤ b and b ≤ c.\nWhich statement MUST be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "a ≤ c",
+    "a < c",
+    "a ≠ c",
+    "b is the largest of the three"
+   ],
+   "correctIndex": 0,
+   "explanation": "Checked against every assignment satisfying the constraints (9139 of them): the stated relationship holds in all of them.",
+   "distractorNotes": [
+    null,
+    "this one is only sometimes true under the stated relationships — all three can be equal",
+    "this one is only sometimes true under the stated relationships — all three can be equal",
+    "this one is only sometimes true under the stated relationships — c can exceed b"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (9139 models)"
+  },
+  {
+   "id": "varrel-ineq-003",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Readings satisfy p > q and q > 0.\nWhich statement CANNOT be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "q < p",
+    "p > 1",
+    "p ≤ 0",
+    "p − q > 0"
+   ],
+   "correctIndex": 2,
+   "explanation": "Checked against every assignment satisfying the constraints (276 of them): the stated relationship holds in none of them.",
+   "distractorNotes": [
+    "this one is never true under the stated relationships — this is always true, not never",
+    "this one is only sometimes true under the stated relationships — this is sometimes true",
+    null,
+    "this one is never true under the stated relationships — this is always true, not never"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (276 models)"
+  },
+  {
+   "id": "varrel-ineq-004",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Three values satisfy m > n and n < k.\nWhich statement MIGHT be true but is not guaranteed?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "m > n",
+    "m > k",
+    "n < k",
+    "n > m"
+   ],
+   "correctIndex": 1,
+   "explanation": "Checked against every assignment satisfying the constraints (16206 of them): the stated relationship holds in some but not all of them.",
+   "distractorNotes": [
+    "this one is never true under the stated relationships — this is stated outright, so it is guaranteed",
+    null,
+    "this one is never true under the stated relationships — this is stated outright, so it is guaranteed",
+    "this one is never true under the stated relationships — this contradicts the first relationship"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (16206 models)"
+  },
+  {
+   "id": "varrel-ineq-005",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Two readings satisfy r ≥ s and s ≥ r.\nWhich statement MUST be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "r and s are both positive",
+    "r > s",
+    "r = s",
+    "r ≠ s"
+   ],
+   "correctIndex": 2,
+   "explanation": "Checked against every assignment satisfying the constraints (37 of them): the stated relationship holds in all of them.",
+   "distractorNotes": [
+    "this one is only sometimes true under the stated relationships — both could be zero or negative",
+    "this one is never true under the stated relationships — the two constraints force equality, not strict order",
+    null,
+    "this one is never true under the stated relationships — the constraints force them equal"
+   ],
+   "difficulty": "easy",
+   "verify": "python:exhaustive (37 models)"
+  },
+  {
+   "id": "varrel-ineq-006",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Pressures satisfy a > 0, b < 0, and a > b.\nWhich statement MUST be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "a + b < 0",
+    "a + b > 0",
+    "a × b > 0",
+    "a − b > 0"
+   ],
+   "correctIndex": 3,
+   "explanation": "Checked against every assignment satisfying the constraints (288 of them): the stated relationship holds in all of them.",
+   "distractorNotes": [
+    "this one is only sometimes true under the stated relationships — a can outweigh b",
+    "this one is only sometimes true under the stated relationships — the negative b can outweigh a",
+    "this one is never true under the stated relationships — a positive times a negative is negative",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (288 models)"
+  },
+  {
+   "id": "varrel-ineq-007",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Values satisfy x > y and y > 0 and x < 4.\nWhich statement CANNOT be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "y < 2",
+    "y ≥ 4",
+    "x > 3",
+    "x − y > 0"
+   ],
+   "correctIndex": 1,
+   "explanation": "Checked against every assignment satisfying the constraints (21 of them): the stated relationship holds in none of them.",
+   "distractorNotes": [
+    "this one is only sometimes true under the stated relationships — this is sometimes true",
+    null,
+    "this one is only sometimes true under the stated relationships — this is sometimes true",
+    "this one is never true under the stated relationships — this is always true, not never"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (21 models)"
+  },
+  {
+   "id": "varrel-ineq-008",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Three values satisfy u > v, v > w, and u < 5.\nWhich statement MUST be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "w < 5",
+    "w > 0",
+    "u − w < 1",
+    "v = 3"
+   ],
+   "correctIndex": 0,
+   "explanation": "Checked against every assignment satisfying the constraints (1540 of them): the stated relationship holds in all of them.",
+   "distractorNotes": [
+    null,
+    "this one is only sometimes true under the stated relationships — nothing puts a floor under w",
+    "this one is never true under the stated relationships — the gap can be large",
+    "this one is only sometimes true under the stated relationships — v is not pinned to any single value"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (1540 models)"
+  },
+  {
+   "id": "varrel-ineq-009",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Two readings satisfy c ≠ d and c > 0 and d > 0.\nWhich statement MIGHT be true but is not guaranteed?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "c × d < 0",
+    "c = d",
+    "c + d > 0",
+    "c > d"
+   ],
+   "correctIndex": 3,
+   "explanation": "Checked against every assignment satisfying the constraints (552 of them): the stated relationship holds in some but not all of them.",
+   "distractorNotes": [
+    "this one is never true under the stated relationships — two positives never multiply to a negative",
+    "this one is never true under the stated relationships — this contradicts the stated inequality",
+    "this one is never true under the stated relationships — two positives always sum to a positive",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (552 models)"
+  },
+  {
+   "id": "varrel-ineq-010",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Values satisfy g ≥ h, h ≥ j, and g = j.\nWhich statement MUST be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "h = g",
+    "h > g",
+    "h < j",
+    "g > j"
+   ],
+   "correctIndex": 0,
+   "explanation": "Checked against every assignment satisfying the constraints (37 of them): the stated relationship holds in all of them.",
+   "distractorNotes": [
+    null,
+    "this one is never true under the stated relationships — h cannot exceed g",
+    "this one is never true under the stated relationships — h cannot fall below j",
+    "this one is never true under the stated relationships — they are stated equal"
+   ],
+   "difficulty": "hard",
+   "verify": "python:exhaustive (37 models)"
+  },
+  {
+   "id": "varrel-ineq-011",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Values satisfy a > b, b > c, and a = 4.\nWhich statement MUST be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "c < 4",
+    "c > 0",
+    "b = 3",
+    "c ≥ b"
+   ],
+   "correctIndex": 0,
+   "explanation": "Checked against every assignment satisfying the constraints (190 of them): the stated relationship holds in all of them.",
+   "distractorNotes": [
+    null,
+    "this one is only sometimes true under the stated relationships — nothing stops c being negative",
+    "this one is only sometimes true under the stated relationships — b is not pinned to one value",
+    "this one is never true under the stated relationships — this reverses the stated order"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (190 models)"
+  },
+  {
+   "id": "varrel-ineq-012",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Readings satisfy x < 0 and y < 0.\nWhich statement MUST be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "x > y",
+    "x + y > 0",
+    "x × y > 0",
+    "x × y < 0"
+   ],
+   "correctIndex": 2,
+   "explanation": "Checked against every assignment satisfying the constraints (144 of them): the stated relationship holds in all of them.",
+   "distractorNotes": [
+    "this one is only sometimes true under the stated relationships — their order is not stated",
+    "this one is never true under the stated relationships — two negatives always sum to a negative",
+    null,
+    "this one is never true under the stated relationships — two negatives multiply to a positive"
+   ],
+   "difficulty": "easy",
+   "verify": "python:exhaustive (144 models)"
+  },
+  {
+   "id": "varrel-ineq-013",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Values satisfy p ≥ 0, q > p, and q < 2.\nWhich statement CANNOT be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "q − p > 0",
+    "p = 0",
+    "q > 1",
+    "p ≥ 2"
+   ],
+   "correctIndex": 3,
+   "explanation": "Checked against every assignment satisfying the constraints (6 of them): the stated relationship holds in none of them.",
+   "distractorNotes": [
+    "this one is never true under the stated relationships — this is always true, not never",
+    "this one is only sometimes true under the stated relationships — this is sometimes true",
+    "this one is only sometimes true under the stated relationships — this is sometimes true",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (6 models)"
+  },
+  {
+   "id": "varrel-ineq-014",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Three values satisfy k > m, m > n, and k − n = 1.\nWhich statement MUST be true?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "m − n > 1",
+    "k − m = 1",
+    "k − m < 1",
+    "k = n"
+   ],
+   "correctIndex": 2,
+   "explanation": "Checked against every assignment satisfying the constraints (35 of them): the stated relationship holds in all of them.",
+   "distractorNotes": [
+    "this one is never true under the stated relationships — the whole span is only 1",
+    "this one is never true under the stated relationships — that would put m at n, but m is above n",
+    null,
+    "this one is never true under the stated relationships — they differ by exactly 1"
+   ],
+   "difficulty": "hard",
+   "verify": "python:exhaustive (35 models)"
+  },
+  {
+   "id": "varrel-ineq-015",
+   "section": "inequality",
+   "skills": [
+    "varrel.inequality"
+   ],
+   "type": "mc",
+   "stem": "Values satisfy w > 0 and w > z.\nWhich statement MIGHT be true but is not guaranteed?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "z > w",
+    "z is negative",
+    "w > z",
+    "w ≤ 0"
+   ],
+   "correctIndex": 1,
+   "explanation": "Checked against every assignment satisfying the constraints (588 of them): the stated relationship holds in some but not all of them.",
+   "distractorNotes": [
+    "this one is never true under the stated relationships — this contradicts the stated order",
+    null,
+    "this one is never true under the stated relationships — this is stated outright, so it is guaranteed",
+    "this one is never true under the stated relationships — w is stated positive"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (588 models)"
+  },
+  {
+   "id": "varrel-suff-001",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of a?\n  (1) a + b = 10\n  (2) b = 4",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Each statement alone is enough",
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Neither statement alone is enough, but together they are enough",
+    "Even together, the two statements are not enough"
+   ],
+   "correctIndex": 3,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "assumes each statement settles the value by itself",
+    "credits the first statement with pinning a value it does not pin on its own",
+    "credits the second statement with pinning a value it does not pin on its own",
+    null,
+    "concludes nothing is determined when the statements do determine it"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-002",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of x?\n  (1) x = 7\n  (2) x + y > 0",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Even together, the two statements are not enough",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Neither statement alone is enough, but together they are enough",
+    "Each statement alone is enough",
+    "Statement (1) alone is enough, but statement (2) alone is not"
+   ],
+   "correctIndex": 4,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "concludes nothing is determined when the statements do determine it",
+    "credits the second statement with pinning a value it does not pin on its own",
+    "assumes the two must be combined when that is not what the statements do here",
+    "assumes each statement settles the value by itself",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-003",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of m?\n  (1) m > 3\n  (2) m < 6",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Even together, the two statements are not enough",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Neither statement alone is enough, but together they are enough",
+    "Each statement alone is enough"
+   ],
+   "correctIndex": 1,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "credits the first statement with pinning a value it does not pin on its own",
+    null,
+    "credits the second statement with pinning a value it does not pin on its own",
+    "assumes the two must be combined when that is not what the statements do here",
+    "assumes each statement settles the value by itself"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-004",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of p?\n  (1) 2p = 9\n  (2) p is positive",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Neither statement alone is enough, but together they are enough",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Each statement alone is enough",
+    "Even together, the two statements are not enough"
+   ],
+   "correctIndex": 2,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "assumes the two must be combined when that is not what the statements do here",
+    "credits the second statement with pinning a value it does not pin on its own",
+    null,
+    "assumes each statement settles the value by itself",
+    "concludes nothing is determined when the statements do determine it"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-005",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of c?\n  (1) c − d = 2\n  (2) d = 5",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Neither statement alone is enough, but together they are enough",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Each statement alone is enough",
+    "Even together, the two statements are not enough"
+   ],
+   "correctIndex": 1,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "credits the first statement with pinning a value it does not pin on its own",
+    null,
+    "credits the second statement with pinning a value it does not pin on its own",
+    "assumes each statement settles the value by itself",
+    "concludes nothing is determined when the statements do determine it"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-006",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of r?\n  (1) r + s = 8\n  (2) r − s = 2",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Even together, the two statements are not enough",
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Each statement alone is enough",
+    "Neither statement alone is enough, but together they are enough"
+   ],
+   "correctIndex": 4,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "concludes nothing is determined when the statements do determine it",
+    "credits the first statement with pinning a value it does not pin on its own",
+    "credits the second statement with pinning a value it does not pin on its own",
+    "assumes each statement settles the value by itself",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-007",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of k?\n  (1) k > 0\n  (2) k < 10",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Even together, the two statements are not enough",
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Neither statement alone is enough, but together they are enough",
+    "Each statement alone is enough"
+   ],
+   "correctIndex": 0,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    null,
+    "credits the first statement with pinning a value it does not pin on its own",
+    "credits the second statement with pinning a value it does not pin on its own",
+    "assumes the two must be combined when that is not what the statements do here",
+    "assumes each statement settles the value by itself"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-008",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of y?\n  (1) 3y = 12\n  (2) y + 1 = 5",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Even together, the two statements are not enough",
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Neither statement alone is enough, but together they are enough",
+    "Each statement alone is enough"
+   ],
+   "correctIndex": 4,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "concludes nothing is determined when the statements do determine it",
+    "credits the first statement with pinning a value it does not pin on its own",
+    "credits the second statement with pinning a value it does not pin on its own",
+    "assumes the two must be combined when that is not what the statements do here",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-009",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of t?\n  (1) t = u\n  (2) u = 6",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Each statement alone is enough",
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Neither statement alone is enough, but together they are enough",
+    "Even together, the two statements are not enough"
+   ],
+   "correctIndex": 3,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "assumes each statement settles the value by itself",
+    "credits the first statement with pinning a value it does not pin on its own",
+    "credits the second statement with pinning a value it does not pin on its own",
+    null,
+    "concludes nothing is determined when the statements do determine it"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-010",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of g?\n  (1) g + h = 7\n  (2) 2g + 2h = 14",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Even together, the two statements are not enough",
+    "Neither statement alone is enough, but together they are enough",
+    "Each statement alone is enough"
+   ],
+   "correctIndex": 2,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "credits the second statement with pinning a value it does not pin on its own",
+    "credits the first statement with pinning a value it does not pin on its own",
+    null,
+    "assumes the two must be combined when that is not what the statements do here",
+    "assumes each statement settles the value by itself"
+   ],
+   "difficulty": "hard",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-011",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of n?\n  (1) n is greater than 2 and less than 4\n  (2) n is a whole number",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Each statement alone is enough",
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Neither statement alone is enough, but together they are enough",
+    "Even together, the two statements are not enough"
+   ],
+   "correctIndex": 3,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "assumes each statement settles the value by itself",
+    "credits the first statement with pinning a value it does not pin on its own",
+    "credits the second statement with pinning a value it does not pin on its own",
+    null,
+    "concludes nothing is determined when the statements do determine it"
+   ],
+   "difficulty": "hard",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-012",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of v?\n  (1) v × 2 = 11\n  (2) v − 1 = 4.5",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Each statement alone is enough",
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Neither statement alone is enough, but together they are enough",
+    "Even together, the two statements are not enough"
+   ],
+   "correctIndex": 0,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    null,
+    "credits the first statement with pinning a value it does not pin on its own",
+    "credits the second statement with pinning a value it does not pin on its own",
+    "assumes the two must be combined when that is not what the statements do here",
+    "concludes nothing is determined when the statements do determine it"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-013",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of a?\n  (1) a = b + 3\n  (2) b > 0",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Even together, the two statements are not enough",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Neither statement alone is enough, but together they are enough",
+    "Each statement alone is enough"
+   ],
+   "correctIndex": 1,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "credits the first statement with pinning a value it does not pin on its own",
+    null,
+    "credits the second statement with pinning a value it does not pin on its own",
+    "assumes the two must be combined when that is not what the statements do here",
+    "assumes each statement settles the value by itself"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-014",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of w?\n  (1) w + 2 = 9\n  (2) w > 5",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Neither statement alone is enough, but together they are enough",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Each statement alone is enough",
+    "Even together, the two statements are not enough"
+   ],
+   "correctIndex": 2,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    "assumes the two must be combined when that is not what the statements do here",
+    "credits the second statement with pinning a value it does not pin on its own",
+    null,
+    "assumes each statement settles the value by itself",
+    "concludes nothing is determined when the statements do determine it"
+   ],
+   "difficulty": "medium",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-suff-015",
+   "section": "sufficiency",
+   "skills": [
+    "varrel.sufficiency"
+   ],
+   "type": "mc",
+   "stem": "What is the value of z?\n  (1) z + q = 4\n  (2) q + z = 4",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Even together, the two statements are not enough",
+    "Statement (1) alone is enough, but statement (2) alone is not",
+    "Statement (2) alone is enough, but statement (1) alone is not",
+    "Neither statement alone is enough, but together they are enough",
+    "Each statement alone is enough"
+   ],
+   "correctIndex": 0,
+   "explanation": "Decided by working out which values survive each statement alone and then both together. A statement is sufficient only when exactly one value of the quantity asked about remains.",
+   "distractorNotes": [
+    null,
+    "credits the first statement with pinning a value it does not pin on its own",
+    "credits the second statement with pinning a value it does not pin on its own",
+    "assumes the two must be combined when that is not what the statements do here",
+    "assumes each statement settles the value by itself"
+   ],
+   "difficulty": "hard",
+   "verify": "python:exhaustive (all assignments over the search range enumerated)"
+  },
+  {
+   "id": "varrel-sym-001",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "The operation a ▲ b means 2a − b.\nWhat is the value of (5 ▲ 3) ▲ 4?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "8",
+    "10",
+    "1",
+    "3"
+   ],
+   "correctIndex": 1,
+   "explanation": "Evaluate the bracket first: doubling 5 and subtracting 3 gives 7. Then doubling 7 and subtracting 4 gives 10.",
+   "distractorNotes": [
+    "worked the operation from right to left instead of evaluating the bracket first",
+    null,
+    "reversed the two operands inside the bracket",
+    "subtracted both numbers in one step instead of applying the operation twice"
+   ],
+   "difficulty": "medium",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-002",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "The operation x ★ y means x + 2y.\nWhat is the value of 3 ★ 5?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "13",
+    "11",
+    "8",
+    "16"
+   ],
+   "correctIndex": 0,
+   "explanation": "The first operand is used as is and the second is doubled, so 3 + 10 = 13.",
+   "distractorNotes": [
+    null,
+    "doubled the wrong operand",
+    "ignored the factor of 2",
+    "doubled the whole sum instead of only the second operand"
+   ],
+   "difficulty": "easy",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-003",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "The operation a ◆ b means (a − b) × 2.\nWhat is the value of 9 ◆ 4?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "10",
+    "-10",
+    "1",
+    "5"
+   ],
+   "correctIndex": 0,
+   "explanation": "Take the difference first, 9 − 4 = 5, then double it to get 10.",
+   "distractorNotes": [
+    null,
+    "subtracted in the wrong order",
+    "doubled only the second operand",
+    "forgot to double the difference"
+   ],
+   "difficulty": "easy",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-004",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "For any number n, f(n) = 3n − 1.\nWhat is f(f(2))?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "17",
+    "5",
+    "10",
+    "14"
+   ],
+   "correctIndex": 3,
+   "explanation": "Work outward: f(2) = 5, then f(5) = 3(5) − 1 = 14.",
+   "distractorNotes": [
+    "multiplied by 3 twice but subtracted only once",
+    "applied the function once instead of twice",
+    "doubled the inner result instead of putting it back through the function",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-005",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "The operation p △ q means p² − q.\nWhat is the value of 4 △ 7?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "9",
+    "45",
+    "23",
+    "1"
+   ],
+   "correctIndex": 0,
+   "explanation": "Square the first operand and subtract the second: 16 − 7 = 9.",
+   "distractorNotes": [
+    null,
+    "squared the wrong operand",
+    "added the second operand instead of subtracting it",
+    "doubled the first operand instead of squaring it"
+   ],
+   "difficulty": "medium",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-006",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "The operation a ⊙ b means a × b + a.\nWhat is the value of 6 ⊙ 2?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "14",
+    "18",
+    "12",
+    "6"
+   ],
+   "correctIndex": 1,
+   "explanation": "Multiply the two operands to get 12, then add the first operand to get 18.",
+   "distractorNotes": [
+    "added the second operand instead of the first",
+    null,
+    "dropped the added term",
+    "subtracted the first operand instead of adding it"
+   ],
+   "difficulty": "medium",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-007",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "For any number n, g(n) = n/2 + 4.\nWhat is g(10)?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "7",
+    "9",
+    "5",
+    "24"
+   ],
+   "correctIndex": 1,
+   "explanation": "Halve the input first to get 5, then add 4, giving 9.",
+   "distractorNotes": [
+    "added before dividing instead of after",
+    null,
+    "left off the added 4",
+    "multiplied by 2 instead of dividing"
+   ],
+   "difficulty": "easy",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-008",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "The operation x ⊞ y means 2(x + y).\nWhat is the value of 3 ⊞ 4?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "7",
+    "10",
+    "14",
+    "24"
+   ],
+   "correctIndex": 2,
+   "explanation": "Add the operands first to get 7, then double the sum to get 14.",
+   "distractorNotes": [
+    "forgot to double the sum",
+    "doubled only the first operand",
+    null,
+    "multiplied the operands instead of adding them"
+   ],
+   "difficulty": "easy",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-009",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "The operation a ⊖ b means a − 2b.\nWhich is larger, 8 ⊖ 1 or 5 ⊖ (−1)?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "8 ⊖ 1, because subtracting a negative makes it smaller",
+    "8 ⊖ 1, because 8 is the larger starting number",
+    "They are equal",
+    "5 ⊖ (−1), because it equals 7 while 8 ⊖ 1 equals 6"
+   ],
+   "correctIndex": 3,
+   "explanation": "The first gives 8 − 2 = 6. The second subtracts twice a negative, which adds: 5 + 2 = 7.",
+   "distractorNotes": [
+    "reversed the effect of subtracting a negative",
+    "compared the first operands instead of evaluating both expressions",
+    "did not carry the double negative through",
+    null
+   ],
+   "difficulty": "hard",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-010",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "For any numbers a and b, h(a, b) = a² + b.\nWhat is h(3, h(1, 2))?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "11",
+    "6",
+    "12",
+    "18"
+   ],
+   "correctIndex": 2,
+   "explanation": "The inner call gives 1 + 2 = 3. The outer call then squares 3 and adds that 3, giving 12.",
+   "distractorNotes": [
+    "used the inner second operand directly instead of the inner result",
+    "added the first operand instead of squaring it",
+    null,
+    "combined the two first operands before squaring"
+   ],
+   "difficulty": "hard",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-011",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "The operation m ▷ n means the larger of m and n, minus the smaller.\nWhat is the value of (−3) ▷ 5?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "-15",
+    "-8",
+    "2",
+    "8"
+   ],
+   "correctIndex": 3,
+   "explanation": "The larger value is 5 and the smaller is −3, and subtracting a negative adds, so the result is 8.",
+   "distractorNotes": [
+    "multiplied instead of subtracting",
+    "subtracted in the order written instead of larger minus smaller",
+    "added the two values",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-012",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "For any number n, f(n) = 2n and g(n) = n + 3.\nWhat is f(g(4))?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "7",
+    "11",
+    "14",
+    "24"
+   ],
+   "correctIndex": 2,
+   "explanation": "Apply g first: 4 + 3 = 7. Then f doubles that to 14.",
+   "distractorNotes": [
+    "never applied the doubling",
+    "applied the functions in the reverse order",
+    null,
+    "multiplied by 3 instead of adding it"
+   ],
+   "difficulty": "medium",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-013",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "The operation a ⊕ b means (a + b) ÷ 2.\nWhat is the value of 7 ⊕ 2?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "9",
+    "11/2",
+    "9/2",
+    "5/2"
+   ],
+   "correctIndex": 2,
+   "explanation": "Add the operands to get 9, then halve it, giving 4.5.",
+   "distractorNotes": [
+    "forgot to halve the sum",
+    "halved only the first operand",
+    null,
+    "subtracted instead of adding"
+   ],
+   "difficulty": "medium",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-014",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "The operation x ⊙ y means x × y − (x + y).\nWhat is the value of 5 ⊙ 3?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "7",
+    "13",
+    "23",
+    "15"
+   ],
+   "correctIndex": 0,
+   "explanation": "The product is 15 and the sum is 8, so the result is 7.",
+   "distractorNotes": [
+    null,
+    "subtracted only the first operand instead of the whole sum",
+    "added the sum instead of subtracting it",
+    "dropped the subtracted term"
+   ],
+   "difficulty": "medium",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-sym-015",
+   "section": "symbolic",
+   "skills": [
+    "varrel.symbolic"
+   ],
+   "type": "mc",
+   "stem": "For any number n, f(n) = n − 4.\nFor which value of n does f(f(n)) equal 0?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "4",
+    "8",
+    "0",
+    "-8"
+   ],
+   "correctIndex": 1,
+   "explanation": "Applying the function twice subtracts 4 twice, so the input must be 8 for the result to be 0.",
+   "distractorNotes": [
+    "solved f(n) = 0 instead of applying the function twice",
+    null,
+    "assumed the input equals the output",
+    "applied the subtraction in the wrong direction"
+   ],
+   "difficulty": "hard",
+   "verify": "python:substitution (evaluated directly; each distractor reproduced from its named error)"
+  },
+  {
+   "id": "varrel-if-001",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If the pump is running, the tank is filling.\nIf the tank is filling, the alarm is off.\nThe alarm is on.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Nothing can be concluded about the pump",
+    "The pump is running",
+    "The tank is filling",
+    "The pump is not running"
+   ],
+   "correctIndex": 3,
+   "explanation": "Checked against all 8 truth assignments: 1 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    "this does not follow — the chain does settle the pump",
+    "this does not follow — this is the opposite of what the chain gives",
+    "this does not follow — an alarm that is on rules filling out",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:truth-table (8 assignments, 1 satisfying)"
+  },
+  {
+   "id": "varrel-if-002",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If the breaker trips, the light goes out.\nThe breaker trips.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "The breaker does not trip",
+    "The light stays on",
+    "The light goes out",
+    "Nothing follows about the light"
+   ],
+   "correctIndex": 2,
+   "explanation": "Checked against all 4 truth assignments: 1 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    "this does not follow — the premise states that it does",
+    "this does not follow — this contradicts the conditional",
+    null,
+    "this does not follow — the conditional settles it"
+   ],
+   "difficulty": "easy",
+   "verify": "python:truth-table (4 assignments, 1 satisfying)"
+  },
+  {
+   "id": "varrel-if-003",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If the valve is open, flow is present.\nFlow is not present.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Flow is present",
+    "The valve is open",
+    "The valve is not open",
+    "Nothing follows about the valve"
+   ],
+   "correctIndex": 2,
+   "explanation": "Checked against all 4 truth assignments: 1 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    "this does not follow — the premise says it is not",
+    "this does not follow — an open valve would produce flow",
+    null,
+    "this does not follow — denying the consequent does settle it"
+   ],
+   "difficulty": "easy",
+   "verify": "python:truth-table (4 assignments, 1 satisfying)"
+  },
+  {
+   "id": "varrel-if-004",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If the switch is on, the motor runs.\nThe motor runs.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "The switch is on",
+    "Nothing follows about the switch",
+    "The switch is off",
+    "The motor does not run"
+   ],
+   "correctIndex": 1,
+   "explanation": "Checked against all 4 truth assignments: 2 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    "this does not follow — this affirms the consequent, which is not valid",
+    null,
+    "this does not follow — nothing rules the switch out either",
+    "this does not follow — the premise states that it does"
+   ],
+   "difficulty": "hard",
+   "verify": "python:truth-table (4 assignments, 2 satisfying)"
+  },
+  {
+   "id": "varrel-if-005",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If A then B.\nIf B then C.\nA is true.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "B is false",
+    "C is false",
+    "C is true",
+    "Nothing follows about C"
+   ],
+   "correctIndex": 2,
+   "explanation": "Checked against all 8 truth assignments: 1 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    "this does not follow — A being true forces B",
+    "this does not follow — this contradicts the chain",
+    null,
+    "this does not follow — the chain reaches C"
+   ],
+   "difficulty": "medium",
+   "verify": "python:truth-table (8 assignments, 1 satisfying)"
+  },
+  {
+   "id": "varrel-if-006",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If A then B.\nIf B then C.\nC is false.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "B is true",
+    "A is true",
+    "A is false",
+    "Nothing follows about A"
+   ],
+   "correctIndex": 2,
+   "explanation": "Checked against all 8 truth assignments: 1 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    "this does not follow — a true B would force C true",
+    "this does not follow — a true A would force C true",
+    null,
+    "this does not follow — the chain does settle A"
+   ],
+   "difficulty": "medium",
+   "verify": "python:truth-table (8 assignments, 1 satisfying)"
+  },
+  {
+   "id": "varrel-if-007",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If the guard is fitted, the machine can start.\nIf the machine can start, the light is green.\nThe light is not green.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "The guard is not fitted",
+    "The guard is fitted",
+    "The machine can start",
+    "Nothing follows about the guard"
+   ],
+   "correctIndex": 0,
+   "explanation": "Checked against all 8 truth assignments: 1 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    null,
+    "this does not follow — a fitted guard would make the light green",
+    "this does not follow — that would make the light green",
+    "this does not follow — the chain settles the guard"
+   ],
+   "difficulty": "medium",
+   "verify": "python:truth-table (8 assignments, 1 satisfying)"
+  },
+  {
+   "id": "varrel-if-008",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If P then not Q.\nQ is true.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "P is true",
+    "P is false",
+    "Q is false",
+    "Nothing follows about P"
+   ],
+   "correctIndex": 1,
+   "explanation": "Checked against all 4 truth assignments: 1 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    "this does not follow — that would make Q false",
+    null,
+    "this does not follow — the premise states Q is true",
+    "this does not follow — the premise settles P"
+   ],
+   "difficulty": "medium",
+   "verify": "python:truth-table (4 assignments, 1 satisfying)"
+  },
+  {
+   "id": "varrel-if-009",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If the tank is full, the pump stops.\nThe pump has not stopped.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "The tank is not full",
+    "The tank is full",
+    "The pump has stopped",
+    "Nothing follows about the tank"
+   ],
+   "correctIndex": 0,
+   "explanation": "Checked against all 4 truth assignments: 1 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    null,
+    "this does not follow — that would have stopped the pump",
+    "this does not follow — the premise says it has not",
+    "this does not follow — it does follow"
+   ],
+   "difficulty": "easy",
+   "verify": "python:truth-table (4 assignments, 1 satisfying)"
+  },
+  {
+   "id": "varrel-if-010",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If A then B.\nA is false.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "B is false",
+    "Nothing follows about B",
+    "B is true",
+    "A is true"
+   ],
+   "correctIndex": 1,
+   "explanation": "Checked against all 4 truth assignments: 2 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    "this does not follow — this denies the antecedent, which proves nothing",
+    null,
+    "this does not follow — nothing forces B either way",
+    "this does not follow — the premise states A is false"
+   ],
+   "difficulty": "hard",
+   "verify": "python:truth-table (4 assignments, 2 satisfying)"
+  },
+  {
+   "id": "varrel-if-011",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If the feed is jammed, the sensor trips.\nIf the sensor trips, the line halts.\nThe feed is jammed.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Nothing follows about the line",
+    "The line keeps running",
+    "The sensor does not trip",
+    "The line halts"
+   ],
+   "correctIndex": 3,
+   "explanation": "Checked against all 8 truth assignments: 1 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    "this does not follow — the chain reaches the line",
+    "this does not follow — this contradicts the chain",
+    "this does not follow — a jam forces the sensor to trip",
+    null
+   ],
+   "difficulty": "medium",
+   "verify": "python:truth-table (8 assignments, 1 satisfying)"
+  },
+  {
+   "id": "varrel-if-012",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If X then Y.\nIf Y then not Z.\nZ is true.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "X is false",
+    "X is true",
+    "Y is true",
+    "Nothing follows about X"
+   ],
+   "correctIndex": 0,
+   "explanation": "Checked against all 8 truth assignments: 1 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    null,
+    "this does not follow — that would rule Z out",
+    "this does not follow — a true Y would rule Z out",
+    "this does not follow — the chain settles X"
+   ],
+   "difficulty": "medium",
+   "verify": "python:truth-table (8 assignments, 1 satisfying)"
+  },
+  {
+   "id": "varrel-if-013",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If the permit is signed, work may begin.\nWork may not begin.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Nothing follows about the permit",
+    "The permit is signed",
+    "Work may begin",
+    "The permit is not signed"
+   ],
+   "correctIndex": 3,
+   "explanation": "Checked against all 4 truth assignments: 1 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    "this does not follow — it does follow",
+    "this does not follow — that would allow work to begin",
+    "this does not follow — the premise says it may not",
+    null
+   ],
+   "difficulty": "easy",
+   "verify": "python:truth-table (4 assignments, 1 satisfying)"
+  },
+  {
+   "id": "varrel-if-014",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If A then B.\nIf not A then B.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "A is true",
+    "B is true",
+    "A is false",
+    "Nothing follows about B"
+   ],
+   "correctIndex": 1,
+   "explanation": "Checked against all 4 truth assignments: 2 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    "this does not follow — A is not settled by these premises",
+    null,
+    "this does not follow — A is not settled by these premises",
+    "this does not follow — both branches lead to B"
+   ],
+   "difficulty": "hard",
+   "verify": "python:truth-table (4 assignments, 2 satisfying)"
+  },
+  {
+   "id": "varrel-if-015",
+   "section": "ifthen",
+   "skills": [
+    "varrel.ifthen"
+   ],
+   "type": "mc",
+   "stem": "If the line is pressurised, the gauge reads above zero.\nThe gauge reads above zero.\nWhat follows?",
+   "figure": null,
+   "passageId": null,
+   "choices": [
+    "Nothing follows about whether the line is pressurised",
+    "The line is pressurised",
+    "The line is not pressurised",
+    "The gauge reads zero"
+   ],
+   "correctIndex": 0,
+   "explanation": "Checked against all 4 truth assignments: 2 satisfy the premises, and the stated conclusion holds in every one of them.",
+   "distractorNotes": [
+    null,
+    "this does not follow — this affirms the consequent, which is not valid",
+    "this does not follow — nothing rules it out either",
+    "this does not follow — the premise says it reads above zero"
+   ],
+   "difficulty": "hard",
+   "verify": "python:truth-table (4 assignments, 2 satisfying)"
+  }
+ ]
+}

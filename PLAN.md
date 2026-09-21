@@ -138,7 +138,7 @@ VERIFICATION_REPORT.md       counts, key distribution, check coverage
       until `source-exams/` is re-uploaded; re-verified on arrival. Sign-analysis and
       variable-relationship drill sets. **Sample variable-relationship items
       shown to you before building at volume.**
-- [ ] **Phase 3 — New trades.** Sheet metal first, then Tier 2 by reach.
+- [~] **Phase 3 — New trades.** Sheet metal first, then Tier 2 by reach.
       One section at a time, verified before moving on.
 - [ ] **Phase 4 — Depth.** Form B per trade, more drills, PWA offline mode.
 

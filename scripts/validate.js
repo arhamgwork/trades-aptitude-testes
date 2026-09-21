@@ -206,21 +206,36 @@ function letterDist(exam) {
 }
 
 function checkBalance(exam, id, errors) {
-  const width = Math.max(...exam.questions.map((q) => q.choices.length));
-  const { counts, total } = letterDist(exam);
-  if (!total) return;
-  const uniform = 100 / width;
-  for (let i = 0; i < width; i++) {
-    const L = String.fromCharCode(65 + i);
-    const pct = ((counts[L] || 0) / total) * 100;
-    if (Math.abs(pct - uniform) > 8) {
-      fail(errors, id,
-        `answer-key balance: ${L} is ${pct.toFixed(1)}% vs uniform ${uniform.toFixed(1)}% (limit 8 points)`);
+  if (!exam.questions.length) return;
+  // Sections can legitimately differ in option count (a 3-choice mechanical
+  // section beside a 5-choice maths one), so balance is measured within each
+  // width rather than against one global uniform.
+  const byWidth = {};
+  for (const q of exam.questions) {
+    (byWidth[q.choices.length] = byWidth[q.choices.length] || []).push(q);
+  }
+  for (const [w, qs] of Object.entries(byWidth)) {
+    const width = Number(w);
+    const uniform = 100 / width;
+    const counts = {};
+    for (const q of qs) {
+      const L = String.fromCharCode(65 + q.correctIndex);
+      counts[L] = (counts[L] || 0) + 1;
+    }
+    for (let i = 0; i < width; i++) {
+      const L = String.fromCharCode(65 + i);
+      const pct = ((counts[L] || 0) / qs.length) * 100;
+      if (Math.abs(pct - uniform) > 8) {
+        fail(errors, id,
+          `answer-key balance among ${width}-choice items: ${L} is ${pct.toFixed(1)}% vs uniform ${uniform.toFixed(1)}% (limit 8 points)`);
+      }
     }
   }
   for (const s of exam.sections) {
     const qs = exam.questions.filter((q) => q.section === s.id);
     if (qs.length < 30) continue;
+    const width = Math.max(...qs.map((q) => q.choices.length));
+    const uniform = 100 / width;
     const sc = {};
     qs.forEach((q) => {
       const L = String.fromCharCode(65 + q.correctIndex);
