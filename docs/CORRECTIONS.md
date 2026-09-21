@@ -137,3 +137,45 @@ rebalancing could not break one; the build gate re-checks this.
 Terminal options that are part of the real format — EIAT's "No answer" and
 UA 130's "None of these", both always last — are pinned and never moved. Where
 such an option is itself the correct answer, that key is left in place.
+
+---
+
+## 2026-09-21 — option-length bias found and removed (IBEW 701 and GAN Form B)
+
+**Found by:** the blind-solve pass on GAN Form B. The solver matched all 32
+keys, then flagged something the keys alone did not show: across the reading
+section the correct option was almost always the longest and most qualified
+choice, while the distractors were short and blunt.
+
+**Measured:** in GAN Form B the correct choice was the longest option in 19 of
+25 reading items (76%, against about 25% by chance), averaging 61 characters
+to the distractors' 36. Re-measuring IBEW 701 Form A, which had already passed
+its own blind solve, found the same defect at 19 of 36 (53%), ratio 1.28.
+
+**Why this matters here:** it is not a style complaint. A candidate who knows
+the "pick the longest, most hedged answer" heuristic could score well on these
+sections without reading the passage at all. That inflates a practice score,
+gives false confidence, and trains the wrong habit for a real test — the exact
+failure mode this project is meant to avoid.
+
+**Done:** distractors were rewritten as fuller, parallel statements and
+over-qualified keys were trimmed, in both exams, without changing any
+answer. Result: GAN Form B 7 of 25 (28%), ratio 1.02; IBEW 701 9 of 36 (25%),
+ratio 1.05 — both at chance. A build gate (gate 11) now fails the build above
+40% or a ratio above 1.25, so the defect cannot come back unnoticed. All 61
+reworded items were then re-blind-solved to confirm no key had moved.
+
+## 2026-09-21 — three construction defects in GAN Form B
+
+Also raised by the blind-solve pass, and fixed:
+
+- `ganb-s4-008`: two distractors ("produce the same clamping force either way"
+  and "make no practical difference") said the same thing. One was replaced
+  with a distractor that picks a direction the passage never states.
+- `ganb-s4-010`: the stem asserted the over-tightened joint is "harder to
+  catch", which the passage implies but never states. Reworded to ask how the
+  two cases differ.
+- `ganb-s5-020`: framing the item as a "sealed hydraulic system" invited
+  confusion with Pascal's-law force/area problems, where a smaller area means
+  a smaller force. The physics of the answer was right but the framing was a
+  foreseeable misread, so it is now a plain steady-flow question.

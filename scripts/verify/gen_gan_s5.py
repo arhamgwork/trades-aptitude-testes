@@ -145,12 +145,12 @@ for n, (a_small, a_big, f_in) in enumerate(HYD, start=17):
         fmt=lambda v: f"{num(v)} lb")
 
 add(20, ["mech.hydraulics"],
-    "A sealed hydraulic system has no leaks. If the fluid is pushed into a narrower section of pipe, "
-    "the speed of the fluid in that section",
+    "Fluid flows at a steady rate through a pipe that narrows partway along its length. "
+    "In the narrower section, the speed of the fluid",
     "increases",
-    [("decreases", "the same volume per second through a smaller opening must move faster, not slower"),
-     ("stays the same", "the cross-section changed, so the speed must change"),
-     ("drops to zero", "the fluid keeps flowing")],
+    [("decreases in proportion to the smaller area", "the same volume per second through a smaller opening must move faster, not slower"),
+     ("stays the same as in the wider section", "the cross-section changed, so the speed must change"),
+     ("depends only on the pressure, not the pipe size", "the flow rate and the cross-section together fix the speed")],
     "The same volume passes every point each second, so a smaller cross-section "
     "forces the fluid to move faster.",
     "conceptual:blind-solve", fmt=str)

@@ -66,18 +66,18 @@ Q(1, "gb1", ["reading.detail"],
 Q(2, "gb1", ["reading.detail"],
   "The passage explains that the gauge convention originally recorded",
   "how many passes through dies the metal had been through",
-  [("the weight of a standard sheet in pounds", "weight per area is what a gauge refers to now, not what the number originally counted"),
-   ("the number of sheets in a standard bundle", "the passage never mentions bundling"),
-   ("the thickness in thousandths of an inch", "the passage contrasts gauge numbers with decimal thickness")],
+  [("the weight in pounds of one standard sheet of the stock", "weight per area is what a gauge refers to now, not what the number originally counted"),
+   ("the number of sheets packed into one standard bundle", "the passage never mentions bundling"),
+   ("the finished thickness measured in thousandths of an inch", "the passage contrasts gauge numbers with decimal thickness")],
   "The passage says the number recorded how many passes the metal had been "
   "drawn through, and that more passes meant thinner stock.")
 
 Q(3, "gb1", ["reading.inference"],
   "Based on the passage, ordering “sixteen gauge” without naming the material is a problem because",
-  "the same gauge number means a different thickness in different metals",
-  [("sixteen gauge is too thin for most work", "the passage makes no claim about what thickness is suitable"),
-   ("gauge numbers are no longer used by any supplier", "the passage says specifications often give gauge alongside a decimal"),
-   ("aluminum cannot be ordered by gauge at all", "the passage gives sixteen gauge aluminum as an example")],
+  "the same gauge number is a different thickness in each metal",
+  [("sixteen gauge stock is too thin to be used for most fabrication", "the passage makes no claim about what thickness is suitable"),
+   ("gauge numbers have been withdrawn and no supplier still quotes them", "the passage says specifications often give gauge alongside a decimal"),
+   ("aluminum is never ordered by gauge number under any circumstances", "the passage gives sixteen gauge aluminum as an example")],
   "The passage says a gauge number refers to weight per unit area, and because "
   "metals differ in density the same number is a different thickness in each.")
 
@@ -93,9 +93,9 @@ Q(4, "gb1", ["reading.detail"],
 Q(5, "gb1", ["reading.purpose"],
   "The final paragraph is included mainly to",
   "warn that repair work may involve an older gauge table, so the material should be measured",
-  [("argue that old drawings should be destroyed", "the passage recommends measuring, not discarding drawings"),
-   ("explain how a micrometer works", "the tool is mentioned but not explained"),
-   ("show that repair work is more profitable than new work", "the passage makes no comparison of that kind")],
+  [("argue that drawings more than a few years old should be destroyed", "the passage recommends measuring, not discarding drawings"),
+   ("explain in detail how a micrometer is calibrated and read on sheet", "the tool is mentioned but not explained"),
+   ("show that repair work is more profitable for a shop than new work", "the passage makes no comparison of that kind")],
   "The paragraph says existing material may have been ordered under a table no "
   "longer in use, and that measuring the old sheet settles the question.")
 
@@ -133,46 +133,46 @@ bolt. Both are about preserving the stretch that does the actual holding.
 
 Q(6, "gb2", ["reading.main-idea"],
   "Which best states the main idea of the passage?",
-  "A bolted joint holds by the tension in a stretched bolt, and torque is only an indirect way of producing it",
-  [("Torque wrenches are unreliable and should not be used", "the passage recommends checking them, not abandoning them"),
-   ("Stronger bolts make for better joints", "the passage opens by denying that strength is what makes the joint hold"),
-   ("Over-tightening is always worse than under-tightening", "the passage describes two different failure modes without ranking them")],
+  "A joint holds by the tension in a stretched bolt, and torque aims at that stretch indirectly",
+  [("Torque wrenches are too unreliable to be trusted and should be replaced by direct measurement of stretch", "the passage recommends checking them, not abandoning them"),
+   ("Using bolts of a higher strength grade is the surest way to make a joint hold", "the passage opens by denying that strength is what makes the joint hold"),
+   ("Over-tightening a fastener is always more damaging to a joint than under-tightening it", "the passage describes two different failure modes without ranking them")],
   "The passage argues that clamping comes from bolt stretch, that torque aims at "
   "that stretch indirectly, and that both practices at the end exist to preserve it.")
 
 Q(7, "gb2", ["reading.detail"],
   "According to the passage, much of the torque applied at the wrench is consumed by",
   "friction under the nut face and in the threads",
-  [("stretching the bolt", "that is the remainder, after friction takes its share"),
-   ("bending the parts being clamped", "the passage does not mention bending"),
-   ("heat in the wrench itself", "the passage does not mention the wrench absorbing effort")],
+  [("stretching the bolt, which is what produces the clamping force", "that is the remainder, after friction takes its share"),
+   ("bending the parts being clamped against one another", "the passage does not mention bending"),
+   ("heat absorbed by the wrench and the operator's arm", "the passage does not mention the wrench absorbing effort")],
   "The passage states that a large share is consumed by friction under the nut "
   "face and in the threads, with only the remainder stretching the fastener.")
 
 Q(8, "gb2", ["reading.inference"],
   "The passage implies that applying the same torque figure to a dry joint and an oiled joint will",
   "produce different clamping forces",
-  [("produce the same clamping force either way", "contradicts the passage's point about lubrication condition"),
-   ("strip the threads on the oiled joint", "the passage does not describe this outcome"),
-   ("make no practical difference", "the passage calls the difference substantial")],
+  [("produce the same clamping force on both joints", "contradicts the passage's point about lubrication condition"),
+   ("strip the threads on the oiled joint as it is tightened", "the passage does not describe this outcome"),
+   ("produce more clamping force on the dry joint than the oiled one", "picks a direction the passage never states; it says only that the forces differ")],
   "The passage says the split between friction and stretch depends on the "
   "condition of the parts, so the same torque gives different clamping forces.")
 
 Q(9, "gb2", ["reading.detail"],
   "The passage says a joint that is too loose fails because",
   "repeated movement between the parts works the fastener loose or fatigues it",
-  [("the bolt yields on assembly and loses its spring", "that is how the over-tightened joint fails"),
-   ("the threads corrode more quickly", "corrosion is not mentioned"),
-   ("the clamping force was never applied at all", "the passage describes a joint under some clamp, just too little")],
+  [("the bolt yields during assembly and no longer springs back to clamp", "that is how the over-tightened joint fails"),
+   ("the exposed threads corrode far more quickly than they otherwise would", "corrosion is not mentioned"),
+   ("the clamping force was never applied to the joint in the first place", "the passage describes a joint under some clamp, just too little")],
   "The passage says a loose joint lets the parts move under load, and that "
   "repeated movement works the fastener loose or fatigues it until it breaks.")
 
 Q(10, "gb2", ["reading.inference"],
-  "Why does the passage say an over-tightened joint is harder to catch than a loose one?",
+  "According to the passage, the over-tightened joint differs from the loose one in that",
   "It may already have lost its clamp before the assembly leaves the bench",
-  [("It makes no noise when it fails", "the passage does not discuss noise"),
-   ("It always fails later than a loose joint", "the passage suggests the opposite timing"),
-   ("It cannot be detected with any instrument", "the passage does not claim this")],
+  [("It gives no audible or visible warning of any kind while it is failing", "the passage does not discuss noise"),
+   ("It always takes longer to fail than an under-tightened joint does", "the passage suggests the opposite timing"),
+   ("It cannot be detected by any instrument available on a job site", "the passage does not claim this")],
   "The passage contrasts the loose joint, which announces itself gradually, with "
   "the over-tightened one, which may have already lost its clamp on the bench.")
 
@@ -210,10 +210,10 @@ confirmed, however carefully the ductwork was installed.
 
 Q(11, "gb3", ["reading.main-idea"],
   "The passage is mainly about",
-  "why an installed duct system must be measured and adjusted rather than trusted to the drawing",
-  [("how to design a duct system from scratch", "design is discussed only as the thing balancing reconciles"),
-   ("why duct drawings are usually wrong", "the passage explicitly denies the design was wrong"),
-   ("how to choose the right fan for a building", "fan selection is not the subject")],
+  "why an installed duct system must be measured and adjusted, not trusted",
+  [("how to design a duct system from scratch for a new building", "design is discussed only as the thing balancing reconciles"),
+   ("why duct drawings are usually wrong and have to be reissued", "the passage explicitly denies the design was wrong"),
+   ("how to choose a fan of the right capacity for a given building", "fan selection is not the subject")],
   "The passage explains why actual resistance differs from the calculation and "
   "presents balancing as the step that reconciles design with behaviour.")
 
@@ -229,18 +229,18 @@ Q(12, "gb3", ["reading.detail"],
 Q(13, "gb3", ["reading.inference"],
   "The passage suggests that balancing one outlet at a time and moving on is ineffective because",
   "each adjustment changes the outlets already set",
-  [("dampers wear out if adjusted repeatedly", "wear is not mentioned"),
-   ("the fan cannot respond quickly enough", "fan response time is not discussed"),
-   ("only one outlet can be measured per visit", "the passage does not describe such a limit")],
+  [("dampers wear out quickly if they are adjusted repeatedly", "wear is not mentioned"),
+   ("the fan cannot respond quickly enough to each adjustment", "fan response time is not discussed"),
+   ("only one outlet can be measured on any single visit", "the passage does not describe such a limit")],
   "Because closing one damper redistributes air to the others, working outlet by "
   "outlet undoes earlier work continuously.")
 
 Q(14, "gb3", ["reading.detail"],
   "When readings disagree between passes by more than a small margin, the passage says the usual cause is",
   "the position the measurement was taken from",
-  [("a real change in the system", "the passage names this as the less likely explanation"),
-   ("a faulty instrument", "instrument faults are not mentioned"),
-   ("a damper that has slipped", "the passage does not offer this explanation")],
+  [("a real change somewhere in the system itself", "the passage names this as the less likely explanation"),
+   ("an instrument that has drifted out of calibration", "instrument faults are not mentioned"),
+   ("a damper that has slipped out of its set position", "the passage does not offer this explanation")],
   "The passage states that where readings disagree from pass to pass, the usual "
   "cause is the measurement position rather than a change in the system.")
 
@@ -287,46 +287,46 @@ than the original entrant.
 
 Q(16, "gb4", ["reading.detail"],
   "According to the passage, a confined space is defined by",
-  "three conditions: it can be entered and worked in, entry or exit is limited, and it is not meant for continuous occupancy",
-  [("how physically tight the space is", "the passage opens by denying this"),
-   ("whether it contains a hazardous atmosphere", "that is what makes a confined space permit-required, not what defines one"),
-   ("whether a permit has been issued for it", "the permit follows from the definition, it does not create it")],
+  "three conditions taken together, one of which is limited entry or exit",
+  [("how physically tight and uncomfortable the space is to work in", "the passage opens by denying this"),
+   ("whether the space contains, or could contain, a hazardous atmosphere", "that is what makes a confined space permit-required, not what defines one"),
+   ("whether a permit has already been issued and signed for the space", "the permit follows from the definition, it does not create it")],
   "The passage lists exactly those three conditions taken together, and says the "
   "definition turns on the difficulty of getting out.")
 
 Q(17, "gb4", ["reading.detail"],
   "The passage says oxygen is tested first because",
   "readings for other hazards cannot be trusted when oxygen is out of range",
-  [("oxygen deficiency is the most common hazard", "the passage gives a different reason"),
-   ("oxygen meters take the longest to stabilise", "timing of the instrument is not mentioned"),
-   ("the permit requires it in that order for record-keeping", "the passage gives a technical reason, not a clerical one")],
+  [("oxygen deficiency is by far the most common hazard found in such spaces", "the passage gives a different reason"),
+   ("oxygen meters take the longest of the three to settle to a stable reading", "timing of the instrument is not mentioned"),
+   ("the permit requires that order so the record reads consistently", "the passage gives a technical reason, not a clerical one")],
   "The passage states that a meter reading for anything else cannot be trusted in "
   "an atmosphere that is oxygen-deficient or oxygen-enriched.")
 
 Q(18, "gb4", ["reading.inference"],
   "Testing is done working downward through the space because",
-  "gases settle at different levels, so a reading at the opening does not describe the bottom",
-  [("the meter is more accurate when lowered slowly", "meter accuracy is not the stated reason"),
-   ("the entrant will be working at the bottom", "the passage gives stratification as the reason"),
-   ("the space must be tested after entry begins", "the passage says testing is done from outside")],
+  "gases settle at different levels within the space",
+  [("the meter gives a more accurate reading when it is lowered slowly", "meter accuracy is not the stated reason"),
+   ("the entrant will be doing the work at the bottom of the space", "the passage gives stratification as the reason"),
+   ("the space has to be tested once entry has already begun", "the passage says testing is done from outside")],
   "The passage says gases stratify and a reading at the opening says nothing "
   "about conditions at the bottom.")
 
 Q(19, "gb4", ["reading.detail"],
   "The passage says the attendant's defining responsibility is to",
   "remain outside the space while staying in contact and able to summon rescue",
-  [("enter first to check conditions", "the passage states the attendant does not enter"),
-   ("complete the permit paperwork", "the permit records the assessment but is not named as the attendant's role"),
-   ("perform the atmospheric testing", "testing is described separately from the attendant's role")],
+  [("enter the space ahead of the others in order to check conditions for them", "the passage states the attendant does not enter"),
+   ("complete and sign the permit paperwork before work begins", "the permit records the assessment but is not named as the attendant's role"),
+   ("carry out the atmospheric testing before anyone goes in", "testing is described separately from the attendant's role")],
   "The passage says the attendant does not enter, and that the whole point of the "
   "position is that someone outside stays outside.")
 
 Q(20, "gb4", ["reading.inference"],
   "The last sentence is included to show that",
   "an attendant who enters to help usually adds a casualty rather than preventing one",
-  [("rescue teams are poorly trained", "the passage makes no claim about training"),
-   ("confined space work should be avoided entirely", "the passage describes how to do it safely"),
-   ("the original entrant is rarely in real danger", "the passage does not minimise the entrant's risk")],
+  [("rescue teams are generally too poorly trained for confined space work", "the passage makes no claim about training"),
+   ("confined space work should be avoided entirely wherever it is possible", "the passage describes how to do it safely"),
+   ("the original entrant is rarely the one in any real danger", "the passage does not minimise the entrant's risk")],
   "The sentence follows the statement that an attendant who enters becomes a "
   "second casualty, and reports that most deaths are among would-be rescuers.")
 
@@ -362,36 +362,36 @@ reader who treats it as a shopping list will order confidently and be wrong.
 Q(21, "gb5", ["reading.main-idea"],
   "The passage is chiefly concerned with",
   "the conventions a material list follows and what a reader misses by ignoring them",
-  [("how to calculate a waste allowance", "allowances are one example, not the subject"),
-   ("why material lists should be replaced by drawings", "the passage compares the two without recommending replacement"),
-   ("how material is delivered to a job site", "delivery units are mentioned only as one convention")],
+  [("how to calculate a waste allowance for a given quantity of material", "allowances are one example, not the subject"),
+   ("why material lists ought to be replaced altogether by a set of marked-up drawings", "the passage compares the two without recommending replacement"),
+   ("how material is packaged and delivered to a job site", "delivery units are mentioned only as one convention")],
   "The passage works through ordering, units and allowances as conventions, and "
   "closes by contrasting a reader who learns them with one who does not.")
 
 Q(22, "gb5", ["reading.detail"],
   "According to the passage, items on a material list are grouped",
   "by system, then by size with the largest first",
-  [("alphabetically by material name", "the passage names system and size as the grouping"),
-   ("in the order the items were priced", "pricing order is not mentioned"),
-   ("by supplier", "suppliers are not discussed")],
+  [("alphabetically by the name of the material", "the passage names system and size as the grouping"),
+   ("in whatever order the items happened to be priced up", "pricing order is not mentioned"),
+   ("by the supplier each item is bought from", "suppliers are not discussed")],
   "The passage states that items are grouped by system and then by size, largest "
   "first, matching the sequence material is set out and installed in.", "easy")
 
 Q(23, "gb5", ["reading.inference"],
   "The passage suggests that a line appearing out of the usual order deserves attention because",
   "it was probably added after the original count",
-  [("it is probably priced incorrectly", "the passage does not connect ordering to price"),
-   ("it indicates the list is a forgery", "the passage suggests nothing of the kind"),
-   ("it always means the quantity is wrong", "the passage recommends a second look, not a conclusion")],
+  [("it has probably been priced incorrectly", "the passage does not connect ordering to price"),
+   ("it indicates that the list has been tampered with", "the passage suggests nothing of the kind"),
+   ("it always means the quantity given is wrong", "the passage recommends a second look, not a conclusion")],
   "The passage says a line out of that order is usually an addition made after "
   "the original takeoff, and is worth a second look for that reason.")
 
 Q(24, "gb5", ["reading.detail"],
   "The passage says quantities are given in",
   "the unit the material is purchased in",
-  [("the unit used on the drawing", "the passage explicitly contrasts the two"),
-   ("whichever unit is shortest to write", "the passage gives a purchasing reason"),
-   ("metric units throughout", "units of measurement systems are not discussed")],
+  [("the same unit that is used on the drawing", "the passage explicitly contrasts the two"),
+   ("whichever unit happens to be shortest to write", "the passage gives a purchasing reason"),
+   ("metric units throughout the whole list", "units of measurement systems are not discussed")],
   "The passage states that quantities appear in the unit the material is "
   "purchased in, not the unit it is measured in on the drawing.")
 

@@ -2021,10 +2021,10 @@
    "figure": null,
    "passageId": "gb1",
    "choices": [
-    "the number of sheets in a standard bundle",
-    "the weight of a standard sheet in pounds",
+    "the number of sheets packed into one standard bundle",
+    "the weight in pounds of one standard sheet of the stock",
     "how many passes through dies the metal had been through",
-    "the thickness in thousandths of an inch"
+    "the finished thickness measured in thousandths of an inch"
    ],
    "correctIndex": 2,
    "explanation": "The passage says the number recorded how many passes the metal had been drawn through, and that more passes meant thinner stock.",
@@ -2048,10 +2048,10 @@
    "figure": null,
    "passageId": "gb1",
    "choices": [
-    "the same gauge number means a different thickness in different metals",
-    "sixteen gauge is too thin for most work",
-    "gauge numbers are no longer used by any supplier",
-    "aluminum cannot be ordered by gauge at all"
+    "the same gauge number is a different thickness in each metal",
+    "sixteen gauge stock is too thin to be used for most fabrication",
+    "gauge numbers have been withdrawn and no supplier still quotes them",
+    "aluminum is never ordered by gauge number under any circumstances"
    ],
    "correctIndex": 0,
    "explanation": "The passage says a gauge number refers to weight per unit area, and because metals differ in density the same number is a different thickness in each.",
@@ -2102,9 +2102,9 @@
    "figure": null,
    "passageId": "gb1",
    "choices": [
-    "show that repair work is more profitable than new work",
-    "argue that old drawings should be destroyed",
-    "explain how a micrometer works",
+    "show that repair work is more profitable for a shop than new work",
+    "argue that drawings more than a few years old should be destroyed",
+    "explain in detail how a micrometer is calibrated and read on sheet",
     "warn that repair work may involve an older gauge table, so the material should be measured"
    ],
    "correctIndex": 3,
@@ -2129,10 +2129,10 @@
    "figure": null,
    "passageId": "gb2",
    "choices": [
-    "Torque wrenches are unreliable and should not be used",
-    "A bolted joint holds by the tension in a stretched bolt, and torque is only an indirect way of producing it",
-    "Stronger bolts make for better joints",
-    "Over-tightening is always worse than under-tightening"
+    "Torque wrenches are too unreliable to be trusted and should be replaced by direct measurement of stretch",
+    "A joint holds by the tension in a stretched bolt, and torque aims at that stretch indirectly",
+    "Using bolts of a higher strength grade is the surest way to make a joint hold",
+    "Over-tightening a fastener is always more damaging to a joint than under-tightening it"
    ],
    "correctIndex": 1,
    "explanation": "The passage argues that clamping comes from bolt stretch, that torque aims at that stretch indirectly, and that both practices at the end exist to preserve it.",
@@ -2157,9 +2157,9 @@
    "passageId": "gb2",
    "choices": [
     "friction under the nut face and in the threads",
-    "stretching the bolt",
-    "bending the parts being clamped",
-    "heat in the wrench itself"
+    "stretching the bolt, which is what produces the clamping force",
+    "bending the parts being clamped against one another",
+    "heat absorbed by the wrench and the operator's arm"
    ],
    "correctIndex": 0,
    "explanation": "The passage states that a large share is consumed by friction under the nut face and in the threads, with only the remainder stretching the fastener.",
@@ -2183,15 +2183,15 @@
    "figure": null,
    "passageId": "gb2",
    "choices": [
-    "make no practical difference",
-    "produce the same clamping force either way",
-    "strip the threads on the oiled joint",
+    "produce more clamping force on the dry joint than the oiled one",
+    "produce the same clamping force on both joints",
+    "strip the threads on the oiled joint as it is tightened",
     "produce different clamping forces"
    ],
    "correctIndex": 3,
    "explanation": "The passage says the split between friction and stretch depends on the condition of the parts, so the same torque gives different clamping forces.",
    "distractorNotes": [
-    "the passage calls the difference substantial",
+    "picks a direction the passage never states; it says only that the forces differ",
     "contradicts the passage's point about lubrication condition",
     "the passage does not describe this outcome",
     null
@@ -2210,10 +2210,10 @@
    "figure": null,
    "passageId": "gb2",
    "choices": [
-    "the bolt yields on assembly and loses its spring",
+    "the bolt yields during assembly and no longer springs back to clamp",
     "repeated movement between the parts works the fastener loose or fatigues it",
-    "the threads corrode more quickly",
-    "the clamping force was never applied at all"
+    "the exposed threads corrode far more quickly than they otherwise would",
+    "the clamping force was never applied to the joint in the first place"
    ],
    "correctIndex": 1,
    "explanation": "The passage says a loose joint lets the parts move under load, and that repeated movement works the fastener loose or fatigues it until it breaks.",
@@ -2233,14 +2233,14 @@
     "reading.inference"
    ],
    "type": "mc",
-   "stem": "Why does the passage say an over-tightened joint is harder to catch than a loose one?",
+   "stem": "According to the passage, the over-tightened joint differs from the loose one in that",
    "figure": null,
    "passageId": "gb2",
    "choices": [
-    "It always fails later than a loose joint",
-    "It makes no noise when it fails",
+    "It always takes longer to fail than an under-tightened joint does",
+    "It gives no audible or visible warning of any kind while it is failing",
     "It may already have lost its clamp before the assembly leaves the bench",
-    "It cannot be detected with any instrument"
+    "It cannot be detected by any instrument available on a job site"
    ],
    "correctIndex": 2,
    "explanation": "The passage contrasts the loose joint, which announces itself gradually, with the over-tightened one, which may have already lost its clamp on the bench.",
@@ -2264,10 +2264,10 @@
    "figure": null,
    "passageId": "gb3",
    "choices": [
-    "why an installed duct system must be measured and adjusted rather than trusted to the drawing",
-    "how to design a duct system from scratch",
-    "why duct drawings are usually wrong",
-    "how to choose the right fan for a building"
+    "why an installed duct system must be measured and adjusted, not trusted",
+    "how to design a duct system from scratch for a new building",
+    "why duct drawings are usually wrong and have to be reissued",
+    "how to choose a fan of the right capacity for a given building"
    ],
    "correctIndex": 0,
    "explanation": "The passage explains why actual resistance differs from the calculation and presents balancing as the step that reconciles design with behaviour.",
@@ -2318,9 +2318,9 @@
    "figure": null,
    "passageId": "gb3",
    "choices": [
-    "only one outlet can be measured per visit",
-    "dampers wear out if adjusted repeatedly",
-    "the fan cannot respond quickly enough",
+    "only one outlet can be measured on any single visit",
+    "dampers wear out quickly if they are adjusted repeatedly",
+    "the fan cannot respond quickly enough to each adjustment",
     "each adjustment changes the outlets already set"
    ],
    "correctIndex": 3,
@@ -2345,9 +2345,9 @@
    "figure": null,
    "passageId": "gb3",
    "choices": [
-    "a damper that has slipped",
-    "a real change in the system",
-    "a faulty instrument",
+    "a damper that has slipped out of its set position",
+    "a real change somewhere in the system itself",
+    "an instrument that has drifted out of calibration",
     "the position the measurement was taken from"
    ],
    "correctIndex": 3,
@@ -2399,10 +2399,10 @@
    "figure": null,
    "passageId": "gb4",
    "choices": [
-    "how physically tight the space is",
-    "three conditions: it can be entered and worked in, entry or exit is limited, and it is not meant for continuous occupancy",
-    "whether it contains a hazardous atmosphere",
-    "whether a permit has been issued for it"
+    "how physically tight and uncomfortable the space is to work in",
+    "three conditions taken together, one of which is limited entry or exit",
+    "whether the space contains, or could contain, a hazardous atmosphere",
+    "whether a permit has already been issued and signed for the space"
    ],
    "correctIndex": 1,
    "explanation": "The passage lists exactly those three conditions taken together, and says the definition turns on the difficulty of getting out.",
@@ -2427,9 +2427,9 @@
    "passageId": "gb4",
    "choices": [
     "readings for other hazards cannot be trusted when oxygen is out of range",
-    "oxygen deficiency is the most common hazard",
-    "oxygen meters take the longest to stabilise",
-    "the permit requires it in that order for record-keeping"
+    "oxygen deficiency is by far the most common hazard found in such spaces",
+    "oxygen meters take the longest of the three to settle to a stable reading",
+    "the permit requires that order so the record reads consistently"
    ],
    "correctIndex": 0,
    "explanation": "The passage states that a meter reading for anything else cannot be trusted in an atmosphere that is oxygen-deficient or oxygen-enriched.",
@@ -2453,10 +2453,10 @@
    "figure": null,
    "passageId": "gb4",
    "choices": [
-    "the entrant will be working at the bottom",
-    "the meter is more accurate when lowered slowly",
-    "gases settle at different levels, so a reading at the opening does not describe the bottom",
-    "the space must be tested after entry begins"
+    "the entrant will be doing the work at the bottom of the space",
+    "the meter gives a more accurate reading when it is lowered slowly",
+    "gases settle at different levels within the space",
+    "the space has to be tested once entry has already begun"
    ],
    "correctIndex": 2,
    "explanation": "The passage says gases stratify and a reading at the opening says nothing about conditions at the bottom.",
@@ -2480,10 +2480,10 @@
    "figure": null,
    "passageId": "gb4",
    "choices": [
-    "enter first to check conditions",
+    "enter the space ahead of the others in order to check conditions for them",
     "remain outside the space while staying in contact and able to summon rescue",
-    "complete the permit paperwork",
-    "perform the atmospheric testing"
+    "complete and sign the permit paperwork before work begins",
+    "carry out the atmospheric testing before anyone goes in"
    ],
    "correctIndex": 1,
    "explanation": "The passage says the attendant does not enter, and that the whole point of the position is that someone outside stays outside.",
@@ -2508,9 +2508,9 @@
    "passageId": "gb4",
    "choices": [
     "an attendant who enters to help usually adds a casualty rather than preventing one",
-    "rescue teams are poorly trained",
-    "confined space work should be avoided entirely",
-    "the original entrant is rarely in real danger"
+    "rescue teams are generally too poorly trained for confined space work",
+    "confined space work should be avoided entirely wherever it is possible",
+    "the original entrant is rarely the one in any real danger"
    ],
    "correctIndex": 0,
    "explanation": "The sentence follows the statement that an attendant who enters becomes a second casualty, and reports that most deaths are among would-be rescuers.",
@@ -2534,9 +2534,9 @@
    "figure": null,
    "passageId": "gb5",
    "choices": [
-    "how material is delivered to a job site",
-    "how to calculate a waste allowance",
-    "why material lists should be replaced by drawings",
+    "how material is packaged and delivered to a job site",
+    "how to calculate a waste allowance for a given quantity of material",
+    "why material lists ought to be replaced altogether by a set of marked-up drawings",
     "the conventions a material list follows and what a reader misses by ignoring them"
    ],
    "correctIndex": 3,
@@ -2562,9 +2562,9 @@
    "passageId": "gb5",
    "choices": [
     "by system, then by size with the largest first",
-    "alphabetically by material name",
-    "in the order the items were priced",
-    "by supplier"
+    "alphabetically by the name of the material",
+    "in whatever order the items happened to be priced up",
+    "by the supplier each item is bought from"
    ],
    "correctIndex": 0,
    "explanation": "The passage states that items are grouped by system and then by size, largest first, matching the sequence material is set out and installed in.",
@@ -2588,9 +2588,9 @@
    "figure": null,
    "passageId": "gb5",
    "choices": [
-    "it always means the quantity is wrong",
-    "it is probably priced incorrectly",
-    "it indicates the list is a forgery",
+    "it always means the quantity given is wrong",
+    "it has probably been priced incorrectly",
+    "it indicates that the list has been tampered with",
     "it was probably added after the original count"
    ],
    "correctIndex": 3,
@@ -2615,10 +2615,10 @@
    "figure": null,
    "passageId": "gb5",
    "choices": [
-    "the unit used on the drawing",
+    "the same unit that is used on the drawing",
     "the unit the material is purchased in",
-    "whichever unit is shortest to write",
-    "metric units throughout"
+    "whichever unit happens to be shortest to write",
+    "metric units throughout the whole list"
    ],
    "correctIndex": 1,
    "explanation": "The passage states that quantities appear in the unit the material is purchased in, not the unit it is measured in on the drawing.",
@@ -3178,14 +3178,14 @@
     "mech.hydraulics"
    ],
    "type": "mc",
-   "stem": "A sealed hydraulic system has no leaks. If the fluid is pushed into a narrower section of pipe, the speed of the fluid in that section",
+   "stem": "Fluid flows at a steady rate through a pipe that narrows partway along its length. In the narrower section, the speed of the fluid",
    "figure": null,
    "passageId": null,
    "choices": [
     "increases",
-    "decreases",
-    "stays the same",
-    "drops to zero"
+    "decreases in proportion to the smaller area",
+    "stays the same as in the wider section",
+    "depends only on the pressure, not the pipe size"
    ],
    "correctIndex": 0,
    "explanation": "The same volume passes every point each second, so a smaller cross-section forces the fluid to move faster.",
@@ -3193,7 +3193,7 @@
     null,
     "the same volume per second through a smaller opening must move faster, not slower",
     "the cross-section changed, so the speed must change",
-    "the fluid keeps flowing"
+    "the flow rate and the cross-section together fix the speed"
    ],
    "difficulty": "medium",
    "verify": "conceptual:blind-solve"

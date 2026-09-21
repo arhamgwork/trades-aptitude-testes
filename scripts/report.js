@@ -117,6 +117,24 @@ for (const { exam } of exams) {
     w('    writing content the original author did not write.');
   }
   w(`- Items with picture choices: ${exam.questions.filter((q) => q.choicesAreFigures).length}`);
+  const bias = exam.questions.filter((q) => q.verify === 'blind-solve' && !q.choicesAreFigures);
+  if (bias.length >= 10) {
+    const mean = (xs) => xs.reduce((a, b) => a + b, 0) / xs.length;
+    let longest = 0;
+    const kl = [], dl = [];
+    for (const q of bias) {
+      const lens = q.choices.map((c) => String(c).length);
+      const mx = Math.max(...lens);
+      if (lens[q.correctIndex] === mx && lens.filter((l) => l === mx).length === 1) longest++;
+      kl.push(lens[q.correctIndex]);
+      dl.push(mean(lens.filter((_, i) => i !== q.correctIndex)));
+    }
+    w(`- Option-length bias on the ${bias.length} non-computational items: the correct choice is`);
+    w(`  the longest in ${longest} of them (${Math.round((longest / bias.length) * 100)}%, chance is about 25%, limit 40%),`);
+    w(`  and correct choices average ${Math.round(mean(kl))} characters against ${Math.round(mean(dl))} for distractors`);
+    w(`  (ratio ${(mean(kl) / mean(dl)).toFixed(2)}, limit 1.25). This is a build gate: a correct option that is`);
+    w('  reliably longer lets a test-wise candidate score without reading the passage.');
+  }
   w(`- Explanations referencing a choice by letter: ${exam.questions.filter((q) => /\b(?:option|choice|answer|letter)\s+[A-E]\b/i.test(q.explanation)).length} (must be 0)`);
   w();
 }
@@ -130,6 +148,7 @@ w();
 w('| Exam | Section | Items | Disagreements | Outcome |');
 w('|---|---|---|---|---|');
 w('| IBEW Local 701 Form A | Reading Comprehension | 36 | 0 | All 36 keys confirmed independently. One item (`e701a-read-013`) was reworded after the solver flagged its option set as loose, even though it had chosen the intended answer. See `docs/CORRECTIONS.md`. |');
+w('| GAN Battery Form B | Reading Comprehension + conceptual mechanical | 32 | 0 | All 32 keys confirmed independently. The solver flagged a set-level defect the keys themselves did not show: the correct option was the longest in 76% of reading items, so a test-wise candidate could have scored well without reading. Options were rewritten to remove it (now 28%), and a build gate enforces it. Three construction defects were also fixed. See `docs/CORRECTIONS.md`. |');
 w('| UA 597, UA 130, EIAT, sign-analysis | all | 395 | — | **Not yet blind-solved.** Migration fidelity is verified (every key, choice set, stem and explanation matches the source), but the keys have not yet been independently re-derived. Tracked in `PLAN.md`. |');
 w();
 w('## Migration fidelity');
@@ -155,6 +174,8 @@ w('2. `correctIndex` in range. 3. No duplicate stems. 4. No identical options.')
 w('5. `node --check` on every JS file. 6. No third-party script or tracking URLs.');
 w('7. Every SVG parses. 8. No explanation names a choice by letter.');
 w('9. `distractorNotes` aligned with `choices`. 10. Answer-key balance limits.');
+w('11. Option-length bias on non-computational items, so the longest choice is not');
+w('    reliably the correct one.');
 w();
 w('`node tests/plan.test.js` checks that timers come from the blueprint per-section');
 w('table and that Real, Untimed and Custom draw the same question set.');

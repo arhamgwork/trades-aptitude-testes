@@ -959,7 +959,7 @@
    "passageId": "p1",
    "choices": [
     "Water towers are an outdated technology that modern pumps have largely replaced.",
-    "A water tower's height and shape are both driven by the need to deliver steady pressure and reserve capacity.",
+    "A water tower's height and shape both follow from the need for steady pressure and reserve.",
     "Municipal utilities use water towers mainly to reduce their nighttime electricity costs.",
     "The chief purpose of a water tower is to guarantee water during a fire."
    ],
@@ -1013,7 +1013,7 @@
    "passageId": "p1",
    "choices": [
     "buy larger pumps that would run below capacity much of the time",
-    "raise the price of water to cover higher nighttime electricity costs",
+    "raise the price of water to cover the higher nighttime electricity costs it would face",
     "reduce the pressure available at household fixtures",
     "build a second tower at a different elevation"
    ],
@@ -1095,7 +1095,7 @@
    "choices": [
     "argue that utilities should invest in backup generators",
     "warn that water service is fragile during storms",
-    "show that the tower supplies pressure without depending on the electrical grid",
+    "show that the tower supplies pressure without the electrical grid",
     "explain why pumps are sized for average demand"
    ],
    "correctIndex": 2,
@@ -1120,7 +1120,7 @@
    "figure": null,
    "passageId": "p1",
    "choices": [
-    "it would hold too little water to be useful during a fire",
+    "it would hold far too little water to be of any use during a fire",
     "its pressure would drop noticeably as the water level fell",
     "it would cost more to build than a bowl on a pedestal",
     "it would freeze more readily in cold weather"
@@ -1148,7 +1148,7 @@
    "passageId": "p1",
    "choices": [
     "A common belief is introduced and then refuted with evidence",
-    "A central principle is stated, then several consequences of it are developed in turn",
+    "A principle is stated, then its consequences are developed in turn",
     "Two competing designs are compared point by point throughout",
     "A chronological account traces the development of a technology"
    ],
@@ -1203,7 +1203,7 @@
    "choices": [
     "Solar and battery resources have made grid frequency impossible to control.",
     "North American grids run at sixty cycles per second because regulators chose that standard.",
-    "Grid frequency reflects the balance of generation and load, and the system defends it in layers that new technology has had to reproduce.",
+    "Grid frequency reflects the balance of generation and load, and is defended in layers.",
     "Grid operators must identify which generator has failed before they can respond."
    ],
    "correctIndex": 2,
@@ -1284,7 +1284,7 @@
    "choices": [
     "contributes automatically, without being commanded",
     "transfers on the condition that it be repaid",
-    "contributes only after a deliberate decision",
+    "contributes only after a deliberate decision has been taken by an operator",
     "wastes through unavoidable loss"
    ],
    "correctIndex": 0,
@@ -1311,7 +1311,7 @@
    "choices": [
     "require operators to abandon the sixty-cycle standard",
     "be unable to detect a generator failure at all",
-    "experience a faster frequency drop after losing a generator unless inverters are programmed to respond",
+    "drop in frequency faster after losing a generator unless inverters are programmed",
     "have more inertia than a conventional grid"
    ],
    "correctIndex": 2,
@@ -1339,7 +1339,7 @@
     "identical at every point on every grid in the world",
     "too complex for operators to influence",
     "measured by instruments that can drift out of calibration",
-    "a measured result of conditions rather than a value anyone chooses"
+    "a measured result rather than a value anyone chooses"
    ],
    "correctIndex": 3,
    "explanation": "The sentence closes a paragraph arguing that nobody sets the number and that it follows from the balance of generation and load.",
@@ -1390,8 +1390,8 @@
    "figure": null,
    "passageId": "p2",
    "choices": [
-    "responds more slowly, giving operators time to think",
-    "can be adjusted, whereas the behavior of a spinning mass cannot",
+    "responds more slowly, which gives operators more time to think about it",
+    "can be adjusted, whereas a spinning mass cannot",
     "eliminates the need for governor response entirely",
     "produces more total energy than a turbine of the same size"
    ],
@@ -1444,7 +1444,7 @@
    "figure": null,
    "passageId": "p3",
    "choices": [
-    "how standardizing cargo reshaped shipping, industry and port communities",
+    "how standardizing cargo reshaped shipping, industry and ports",
     "how engineers designed a stronger and lighter cargo box",
     "why longshoremen resisted the introduction of new technology",
     "how trade policy rather than technology drove industrial relocation"
@@ -1501,7 +1501,7 @@
     "steel prices were the main obstacle to adoption",
     "the container was poorly built and needed frequent repair",
     "labor agreements with dockworkers were the decisive factor",
-    "the value lay in everyone adopting common dimensions, not in the box itself"
+    "the value lay in common dimensions, not in the box itself"
    ],
    "correctIndex": 3,
    "explanation": "The sentence follows the observation that one crane could lift them all and one chassis would fit any, which depends on shared dimensions.",
@@ -1553,7 +1553,7 @@
    "passageId": "p3",
    "choices": [
     "declined as the container system spread",
-    "specialized in handling containers for smaller vessels",
+    "specialized instead in handling containers for smaller coastal vessels",
     "retained its workforce longer than deep-water ports",
     "become a hub because it faced less competition"
    ],
@@ -1609,7 +1609,7 @@
     "show that the relocation of industry has been exaggerated",
     "dismiss economists as unable to agree on anything",
     "argue that trade policy mattered more than the container",
-    "acknowledge that the container's exact share of the change is uncertain"
+    "acknowledge that the container's exact share is uncertain"
    ],
    "correctIndex": 3,
    "explanation": "The passage reports that industries relocated and then notes the open question of how much to attribute to the container versus trade policy.",
@@ -1662,7 +1662,7 @@
    "choices": [
     "confined mostly to the shipping industry itself",
     "smaller than historians originally believed",
-    "larger and less predictable than the efficiency argument for it suggested",
+    "larger and less predictable than the efficiency case suggested",
     "fully anticipated by the people who promoted it"
    ],
    "correctIndex": 2,
@@ -1690,7 +1690,7 @@
     "modern fasteners have eliminated problems caused by expansion",
     "thermal expansion is too small to matter in most buildings",
     "aluminum should be avoided in structures exposed to weather",
-    "structures must be designed to accommodate thermal movement rather than to resist it"
+    "structures must accommodate thermal movement rather than resist it"
    ],
    "correctIndex": 3,
    "explanation": "The passage argues that expansion will occur or else generate stress, and that good design directs the movement instead of preventing it.",
@@ -1715,7 +1715,7 @@
    "passageId": "p4",
    "choices": [
     "A hundredth of an inch",
-    "Three quarters of a foot",
+    "Three quarters of a foot, measured along the beam",
     "Three inches",
     "Three quarters of an inch"
    ],
@@ -1741,7 +1741,7 @@
    "figure": null,
    "passageId": "p4",
    "choices": [
-    "the length of the member",
+    "the overall length of the restrained member",
     "the stiffness of the material",
     "the size of the movement that was prevented",
     "the type of fastener used at the connection"
@@ -1769,7 +1769,7 @@
    "passageId": "p4",
    "choices": [
     "about ten times as much",
-    "about half as much",
+    "about half as much for the same temperature change",
     "about the same amount",
     "about twice as much"
    ],
@@ -1795,7 +1795,7 @@
    "figure": null,
    "passageId": "p4",
    "choices": [
-    "the two materials move by different amounts, concentrating stress at the connection",
+    "the two materials move by different amounts, stressing the connection",
     "aluminum is inherently weaker than steel",
     "the joint is exposed to more weather than the members are",
     "neither material is strong enough for the load applied"
@@ -1824,7 +1824,7 @@
    "choices": [
     "argue that older construction methods were superior",
     "show that bridges require more care than buildings",
-    "give varied examples of designs that give movement somewhere to go",
+    "give varied examples of giving movement somewhere to go",
     "explain how each of those components is manufactured"
    ],
    "correctIndex": 2,
@@ -1877,7 +1877,7 @@
    "passageId": "p4",
    "choices": [
     "structures gradually become more flexible as they age",
-    "if movement is not planned for, the structure will crack or deform instead",
+    "unplanned movement leaves the structure to crack or deform",
     "stress in a structure dissipates harmlessly over time",
     "repairs will always restore a structure to its original condition"
    ],
@@ -1903,7 +1903,7 @@
    "figure": null,
    "passageId": "p4",
    "choices": [
-    "A physical effect is described, then its design consequences, then a case where it is worst, then a general conclusion",
+    "An effect, then its design consequences, then the worst case, then a conclusion",
     "A problem is posed and two competing solutions are weighed",
     "A historical development is traced from early practice to the present",
     "A general rule is stated and then shown to have many exceptions"

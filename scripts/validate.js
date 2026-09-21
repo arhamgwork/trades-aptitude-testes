@@ -160,6 +160,8 @@ function validateExam(exam, file, errors) {
 
   // Gate 10: answer-key balance (skipped for migrated exams, which are reported only)
   if (!exam.migrated) checkBalance(exam, id, errors);
+  // Gate 11: option-length bias on items that cannot be solved by computation
+  if (!exam.migrated) checkLengthBias(exam, id, errors);
 }
 
 const VOID_TAGS = new Set(['br', 'hr', 'img', 'input', 'meta', 'link', 'source',
@@ -260,6 +262,46 @@ function checkBalance(exam, id, errors) {
           `more than 3 identical correct letters in a row at ${exam.questions[i].id}`);
       }
     } else run = 1;
+  }
+}
+
+/**
+ * On items whose answer cannot be computed, a correct option that is reliably
+ * longer and more qualified than its distractors lets a test-wise candidate
+ * score without reading the passage. That inflates practice scores and trains
+ * the wrong skill, so it is a build failure rather than a style note.
+ */
+function checkLengthBias(exam, id, errors) {
+  const rows = exam.questions.filter(
+    (q) => q.verify === 'blind-solve' && !q.choicesAreFigures);
+  if (rows.length < 10) return;
+  const mean = (xs) => xs.reduce((a, b) => a + b, 0) / xs.length;
+
+  let longestIsKey = 0;
+  const keyLens = [];
+  const distLens = [];
+  for (const q of rows) {
+    const lens = q.choices.map((c) => String(c).length);
+    const max = Math.max(...lens);
+    if (lens[q.correctIndex] === max && lens.filter((l) => l === max).length === 1) {
+      longestIsKey++;
+    }
+    keyLens.push(lens[q.correctIndex]);
+    distLens.push(mean(lens.filter((_, i) => i !== q.correctIndex)));
+  }
+
+  const share = longestIsKey / rows.length;
+  if (share > 0.4) {
+    fail(errors, id,
+      `option-length bias: the correct choice is the longest in ${longestIsKey}/${rows.length} ` +
+      `non-computational items (${Math.round(share * 100)}%, limit 40%) — a test-wise candidate ` +
+      `could score without reading`);
+  }
+  const ratio = mean(keyLens) / mean(distLens);
+  if (ratio > 1.25) {
+    fail(errors, id,
+      `option-length bias: correct choices average ${Math.round(mean(keyLens))} characters vs ` +
+      `${Math.round(mean(distLens))} for distractors (ratio ${ratio.toFixed(2)}, limit 1.25)`);
   }
 }
 

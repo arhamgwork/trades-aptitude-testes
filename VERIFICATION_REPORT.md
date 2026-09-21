@@ -178,6 +178,11 @@ No item is marked `unchecked`.
 - Items with a figure: 0
 - Items with a per-distractor error note on every wrong choice: 69 of 69
 - Items with picture choices: 0
+- Option-length bias on the 36 non-computational items: the correct choice is
+  the longest in 9 of them (25%, chance is about 25%, limit 40%),
+  and correct choices average 49 characters against 46 for distractors
+  (ratio 1.05, limit 1.25). This is a build gate: a correct option that is
+  reliably longer lets a test-wise candidate score without reading the passage.
 - Explanations referencing a choice by letter: 0 (must be 0)
 
 ## Elevator Constructor (EIAT) — Practice Exam, Form A
@@ -444,6 +449,11 @@ No item is marked `unchecked`.
 - Items with a figure: 42
 - Items with a per-distractor error note on every wrong choice: 140 of 140
 - Items with picture choices: 20
+- Option-length bias on the 25 non-computational items: the correct choice is
+  the longest in 7 of them (28%, chance is about 25%, limit 40%),
+  and correct choices average 55 characters against 54 for distractors
+  (ratio 1.02, limit 1.25). This is a build gate: a correct option that is
+  reliably longer lets a test-wise candidate score without reading the passage.
 - Explanations referencing a choice by letter: 0 (must be 0)
 
 ## Blind-solve passes
@@ -455,6 +465,7 @@ before the item ships.
 | Exam | Section | Items | Disagreements | Outcome |
 |---|---|---|---|---|
 | IBEW Local 701 Form A | Reading Comprehension | 36 | 0 | All 36 keys confirmed independently. One item (`e701a-read-013`) was reworded after the solver flagged its option set as loose, even though it had chosen the intended answer. See `docs/CORRECTIONS.md`. |
+| GAN Battery Form B | Reading Comprehension + conceptual mechanical | 32 | 0 | All 32 keys confirmed independently. The solver flagged a set-level defect the keys themselves did not show: the correct option was the longest in 76% of reading items, so a test-wise candidate could have scored well without reading. Options were rewritten to remove it (now 28%), and a build gate enforces it. Three construction defects were also fixed. See `docs/CORRECTIONS.md`. |
 | UA 597, UA 130, EIAT, sign-analysis | all | 395 | — | **Not yet blind-solved.** Migration fidelity is verified (every key, choice set, stem and explanation matches the source), but the keys have not yet been independently re-derived. Tracked in `PLAN.md`. |
 
 ## Migration fidelity
@@ -480,6 +491,8 @@ CI, so a future edit cannot silently change a migrated answer.
 5. `node --check` on every JS file. 6. No third-party script or tracking URLs.
 7. Every SVG parses. 8. No explanation names a choice by letter.
 9. `distractorNotes` aligned with `choices`. 10. Answer-key balance limits.
+11. Option-length bias on non-computational items, so the longest choice is not
+    reliably the correct one.
 
 `node tests/plan.test.js` checks that timers come from the blueprint per-section
 table and that Real, Untimed and Custom draw the same question set.
