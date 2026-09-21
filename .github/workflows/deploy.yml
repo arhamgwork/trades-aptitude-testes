@@ -70,6 +70,9 @@ jobs:
       - name: Browser smoke test
         run: node tests/smoke.js
 
+      - name: Independently re-derive migrated answer keys
+        run: python3 scripts/verify/recheck_migrated.py
+
       - name: Regenerate the verification report and confirm it is current
         run: |
           node scripts/report.js

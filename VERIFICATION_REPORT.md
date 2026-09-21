@@ -382,7 +382,7 @@ Phase 2 work and is tracked in `PLAN.md`.
 
 ### Structural checks
 
-- Distinct stems: 119 of 140
+- Distinct stems: 128 of 140
 - Items with a figure: 25
 - Items with a per-distractor error note on every wrong choice: 0 of 140
   - Migrated items carry their error analysis inside the explanation, as

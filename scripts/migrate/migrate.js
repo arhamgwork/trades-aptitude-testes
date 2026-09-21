@@ -139,6 +139,18 @@ function tagSkill(tag) {
   return map[tag] || `source.${tag}`;
 }
 
+/**
+ * The Numerical Reasoning items carry their question as a `ser` array of terms
+ * rather than a stem string, and the source renders them as the series
+ * followed by "Which number continues the series?".
+ */
+function stemOf130(q) {
+  if (Array.isArray(q.ser) && q.ser.length) {
+    return `Which number continues the series?   ${q.ser.map(stripTags).join(', ')}, ?`;
+  }
+  return stripTags(q.s);
+}
+
 // ============================================================ UA 130
 function migrate130() {
   const src = readHTML(out('source-exams/ua-local-130-gan-practice-exam.html'));
@@ -165,7 +177,7 @@ function migrate130() {
       questions.push({
         id: `ua130a-${s.id}-${String(i + 1).padStart(3, '0')}`,
         section: s.id, skills: SKILLS[s.id] || ['general'], type: 'mc',
-        stem: stripTags(q.s), figure: figureOf(q.fig || q.f),
+        stem: stemOf130(q), figure: figureOf(q.fig || q.f),
         passageId: q.p || null,
         ...mapChoices(q.o), correctIndex: q.a,
         explanation: stripTags(q.e), distractorNotes: nullNotes(q.o.length),

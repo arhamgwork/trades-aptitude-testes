@@ -118,6 +118,11 @@ function validateExam(exam, file, errors) {
     // plus its diagram and choices, not the stem alone.
     const stemText = String(q.stem || '').trim().toLowerCase();
     if (!stemText) fail(errors, id, `${qid}: empty stem`);
+    // A stem of "undefined" or "null" means a field was read that did not
+    // exist. It is not empty, so it would otherwise pass every other check.
+    if (['undefined', 'null', 'nan', '[object object]'].includes(stemText)) {
+      fail(errors, id, `${qid}: stem is the placeholder "${q.stem}" — a source field was misread`);
+    }
     const key = [stemText, q.figure || '', (q.choices || []).join('\u0001')]
       .join('\u0002');
     if (seenStems.has(key)) {

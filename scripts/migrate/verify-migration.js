@@ -66,7 +66,15 @@ const read = (p) => JSON.parse(fs.readFileSync(out(p), 'utf8'));
   const src = readHTML(out('source-exams/ua-local-130-gan-practice-exam.html'));
   const { data } = runScriptCapture(src, ['SECTIONS']);
   const items = [];
-  for (const s of data.SECTIONS) for (const q of s.q) items.push({ o: q.o, a: q.a, stem: q.s, e: q.e });
+  for (const s of data.SECTIONS) {
+    for (const q of s.q) {
+      // Numerical Reasoning stores the question as a term array, not a stem.
+      const stem = Array.isArray(q.ser) && q.ser.length
+        ? `Which number continues the series?   ${q.ser.map(stripTags).join(', ')}, ?`
+        : q.s;
+      items.push({ o: q.o, a: q.a, stem, e: q.e });
+    }
+  }
   compare('UA 130 exam', items, read('data/plumbing/ua-130-formA.json').questions);
 }
 

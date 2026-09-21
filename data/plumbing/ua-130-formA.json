@@ -2218,7 +2218,7 @@
     "series.arithmetic"
    ],
    "type": "mc",
-   "stem": "undefined",
+   "stem": "Which number continues the series?   7, 12, 17, 22, 27, ?",
    "figure": null,
    "passageId": null,
    "choices": [
@@ -2248,7 +2248,7 @@
     "series.arithmetic"
    ],
    "type": "mc",
-   "stem": "undefined",
+   "stem": "Which number continues the series?   96, 89, 82, 75, ?",
    "figure": null,
    "passageId": null,
    "choices": [
@@ -2278,7 +2278,7 @@
     "series.arithmetic"
    ],
    "type": "mc",
-   "stem": "undefined",
+   "stem": "Which number continues the series?   3, 4, 6, 9, 13, ?",
    "figure": null,
    "passageId": null,
    "choices": [
@@ -2308,7 +2308,7 @@
     "series.arithmetic"
    ],
    "type": "mc",
-   "stem": "undefined",
+   "stem": "Which number continues the series?   2, 3, 5, 9, 17, ?",
    "figure": null,
    "passageId": null,
    "choices": [
@@ -2338,7 +2338,7 @@
     "series.arithmetic"
    ],
    "type": "mc",
-   "stem": "undefined",
+   "stem": "Which number continues the series?   3, 6, 12, 24, ?",
    "figure": null,
    "passageId": null,
    "choices": [
@@ -2368,7 +2368,7 @@
     "series.arithmetic"
    ],
    "type": "mc",
-   "stem": "undefined",
+   "stem": "Which number continues the series?   162, 54, 18, 6, ?",
    "figure": null,
    "passageId": null,
    "choices": [
@@ -2398,7 +2398,7 @@
     "series.arithmetic"
    ],
    "type": "mc",
-   "stem": "undefined",
+   "stem": "Which number continues the series?   5, 20, 8, 23, 11, 26, 14, ?",
    "figure": null,
    "passageId": null,
    "choices": [
@@ -2428,7 +2428,7 @@
     "series.arithmetic"
    ],
    "type": "mc",
-   "stem": "undefined",
+   "stem": "Which number continues the series?   2, 3, 6, 7, 14, 15, 30, ?",
    "figure": null,
    "passageId": null,
    "choices": [
@@ -2458,7 +2458,7 @@
     "series.arithmetic"
    ],
    "type": "mc",
-   "stem": "undefined",
+   "stem": "Which number continues the series?   4, 9, 19, 39, 79, ?",
    "figure": null,
    "passageId": null,
    "choices": [
@@ -2488,7 +2488,7 @@
     "series.arithmetic"
    ],
    "type": "mc",
-   "stem": "undefined",
+   "stem": "Which number continues the series?   5, 13, 29, 61, ?",
    "figure": null,
    "passageId": null,
    "choices": [

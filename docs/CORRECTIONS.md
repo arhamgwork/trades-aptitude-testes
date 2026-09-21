@@ -179,3 +179,42 @@ Also raised by the blind-solve pass, and fixed:
   confusion with Pascal's-law force/area problems, where a smaller area means
   a smaller force. The physics of the answer was right but the framing was a
   foreseeable misread, so it is now a plain steady-flow question.
+
+---
+
+## 2026-09-21 — UA 130 Numerical Reasoning: 10 items had lost their question
+
+**Found by:** the independent re-derivation pass over migrated items, which
+bucketed stems it could not parse and surfaced ten with the literal text
+`undefined`.
+
+The whole Numerical Reasoning section of the UA 130 exam was shipping with no
+question at all — five answer choices and nothing to answer. The source stores
+those items as a `ser` array of series terms rather than a stem string, and the
+migrator read the stem field that every other section uses.
+
+**Why the earlier checks missed it:** the migration verifier compared the
+migrated stem against the source stem, and both sides read the same absent
+field, so both were `undefined` and they matched. The schema validator only
+rejected an *empty* stem, and `undefined` is not empty.
+
+**Done:**
+- The migrator now builds the stem the way the source renders it:
+  `Which number continues the series?   7, 12, 17, 22, 27, ?`
+- The migration verifier reads `ser` too, so the comparison is now real.
+- New gate: a stem of `undefined`, `null`, `NaN` or `[object Object]` fails the
+  build, since those mean a field was misread rather than left blank.
+
+All 10 items are restored and their keys re-derived computationally.
+
+## 2026-09-21 — independent re-derivation of migrated keys, first pass
+
+Migration fidelity (the key matches the source) was already proven. This is the
+separate question of whether the key is *right*. `scripts/verify/recheck_migrated.py`
+recomputes the answer from the item's own stem for every migrated item whose
+question can be parsed, then compares with the keyed choice.
+
+40 of 395 migrated items are computable this way so far, and **all 40 agree**
+with the migrated key. The rest stay `verify: "unchecked"` and are listed by
+section in `VERIFICATION_REPORT.md`. Nothing is corrected automatically: a
+disagreement is reported for a human decision.
